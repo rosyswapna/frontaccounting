@@ -1,0 +1,49 @@
+[02-May-2014 09:51:38 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:51:38 UTC] 4 Domain file "../install/lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:51:46 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:51:46 UTC] 4 Domain file "../install/lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:52:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:52:58 UTC] 4 Domain file "../install/lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:53:23 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:53:23 UTC] 4 Domain file "../install/lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:53:45 UTC] 0::session.inc:372: include_once(./tmp/faillog.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory
+[02-May-2014 09:53:45 UTC] 0::session.inc:372: include_once() [<a href='function.include'>function.include</a>]: Failed opening './tmp/faillog.php' for inclusion (include_path='.;C:\php\pear')
+[02-May-2014 09:53:45 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:53:52 UTC] 0::session.inc:372: include_once(./tmp/faillog.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory
+[02-May-2014 09:53:52 UTC] 0::session.inc:372: include_once() [<a href='function.include'>function.include</a>]: Failed opening './tmp/faillog.php' for inclusion (include_path='.;C:\php\pear')
+[02-May-2014 09:53:52 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:53:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:53:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:53:55 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:54:00 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:54:13 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:54:27 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:54:29 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:54:31 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:54:32 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:54:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:54:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:54:54 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:55:37 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:58:23 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:58:40 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 09:58:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:01:22 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:01:59 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:21:42 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:22:01 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:22:05 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:22:11 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:22:11 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:22:11 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:23:26 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:23:26 UTC] 0:admin:index.php:24: Object of class front_accounting could not be converted to string
+[02-May-2014 10:23:33 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:24:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:30:18 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:30:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:30:22 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:30:36 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:30:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:30:39 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[02-May-2014 10:30:41 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
