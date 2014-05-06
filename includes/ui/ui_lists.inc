@@ -189,6 +189,7 @@ $opts = array(		// default options
 			$descr = $opts['format']==null ?  $contact_row[1] :
 				call_user_func($opts['format'], $contact_row);
 			$sel = '';
+
  		 	if (get_post($search_button) && ($txt == $value)) {
  		 		$selected_id[] = $value;
  		 	}
@@ -536,6 +537,61 @@ function customer_list_row($label, $name, $selected_id=null, $all_option = false
 		$show_inactive, $editkey);
 	echo "</td>\n</tr>\n";
 }
+
+//new------------------------------------------------------------------------swapna
+function shipping_list($name, $selected_id=null, $spec_option=false, $submit_on_change=false, 
+	$show_inactive=false, $editkey = false)
+{
+	global $all_items;
+
+	$sql = "SELECT shipping_id,vehicle_no,debtor_no  FROM ".TB_PREF."shipping_details ";
+
+	$mode = get_company_pref('no_shipping_list');
+
+	if ($editkey)
+		set_editor('shipping_details', $name, $editkey);
+
+	$ret = combo_input($name, $selected_id, $sql, 'shipping_id', 'vehicle_no',
+	array(
+	    'format' => '_format_add_curr',
+	    'order' => array('shipping_id'),
+		'search_box' => $mode!=0,
+		'type' => 1,
+		'size' => 20,
+		'spec_option' => $spec_option === true ? _("All Shipping Details") : $spec_option,
+		'spec_id' => $all_items,
+		'select_submit'=> $submit_on_change,
+		'async' => false,
+		'sel_hint' => $mode ? _('Press Space tab to filter by name fragment; F2 - entry new shipping details') :
+		_('Select Shipping Id'),
+		'show_inactive' => $show_inactive
+	) );
+	if ($editkey)
+		$ret .= add_edit_combo('shipping_details');
+	return $ret;
+}
+function shipping_list_cells($label, $name, $selected_id=null, $all_option=false, 
+	$submit_on_change=false, $show_inactive=false, $editkey = false)
+{
+	if ($label != null)
+		echo "<td>$label</td>\n";
+	echo "<td nowrap>";
+	echo shipping_list($name, $selected_id, $all_option, $submit_on_change,
+		$show_inactive, $editkey);
+	echo "</td>\n";
+}
+
+function shipping_list_row($label, $name, $selected_id=null, $all_option = false, 
+	$submit_on_change=false, $show_inactive=false, $editkey = false)
+{
+	global $path_to_root;
+
+	echo "<tr><td class='label'>$label</td><td nowrap>";
+	echo shipping_list($name, $selected_id, $all_option, $submit_on_change,
+		$show_inactive, $editkey);
+	echo "</td>\n</tr>\n";
+}
+//-----------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------
 

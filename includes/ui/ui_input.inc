@@ -702,6 +702,25 @@ function ref_row($label, $name, $title=null, $init=null, $submit_on_change=false
 
 //-----------------------------------------------------------------------------------
 
+//-----------------------------------------------------------------------------------
+
+function vehicle_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false)
+{
+	text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change);
+}
+
+//-----------------------------------------------------------------------------------
+
+function vehicle_row($label, $name, $title=null, $init=null, $submit_on_change=false)
+{
+	echo "<tr><td class='label'>$label</td>";
+	vehicle_cells(null, $name, $title, $init, null, $submit_on_change);
+	echo "</tr>\n";
+}
+
+//-----------------------------------------------------------------------------------
+
+
 function percent_row($label, $name, $init=null)
 {
 

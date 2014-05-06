@@ -39,7 +39,7 @@ function can_process()
 {
 	if (strlen($_POST['CustName']) == 0) 
 	{
-		display_error(_("The customer name cannot be empty."));
+		user_type_page(_("The customer name cannot be empty."));
 		set_focus('CustName');
 		return false;
 	} 

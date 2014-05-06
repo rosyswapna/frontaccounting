@@ -9,6 +9,13 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
     See the License here <http://www.gnu.org/licenses/gpl-3.0.html>.
 ***********************************************************************/
+//new---------------------------------------swapna
+function db_has_shipping_details()
+{
+    return check_empty_result("SELECT COUNT(*) FROM ".TB_PREF."shipping_details");
+}
+//------------------------------------------------
+
 function db_has_customers()
 {
 	return check_empty_result("SELECT COUNT(*) FROM ".TB_PREF."debtors_master");
