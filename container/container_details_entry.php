@@ -32,13 +32,6 @@ if (isset($_GET['SalesContainer'])) {
 page($_SESSION['page_title'], false, false, "", $js);
 //-----------------------------------------------------------------------------
 
-start_form();
-start_table(TABLESTYLE2, "width=80%", 5);
-	start_row();
-		label_cells(_("Sales Type"), '', "class='tableheader2'");
-	end_row();	
-end_table();
-ecd_form();
-end_page();
+
 
 ?>

@@ -22,8 +22,9 @@ class customers_app extends application
 			"sales/sales_order_entry.php?NewOrder=Yes", 'SA_SALESORDER', MENU_TRANSACTION);
 
 		//customized page
-		$this->add_lapp_function(0, _("Container Details Entry"),
-			"container/container_details_entry.php?SalesContainer=Yes", 'SA_SALESORDER', MENU_TRANSACTION);
+		/*$this->add_lapp_function(0, _("Container Details Entry"),
+			"container/container_details_entry.php?SalesContainer=Yes", 'SA_SALESCONTAINER', MENU_TRANSACTION);
+			*/
 
 		$this->add_lapp_function(0, _("Direct &Delivery"),
 			"sales/sales_order_entry.php?NewDelivery=0", 'SA_SALESDELIVERY', MENU_TRANSACTION);

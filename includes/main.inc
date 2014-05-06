@@ -36,7 +36,7 @@ function page($title, $no_menu=false, $is_index=false, $onload="", $js="", $scri
    	page_header($title, $no_menu, $is_index, $onload, $js, $css);
 	check_page_security($page_security);
 //	error_box();
-	if($script_only) {		
+	if($script_only) {	
 		echo '<noscript>';
 		echo display_heading(_('This page is usable only with javascript enabled browsers.'));
 		echo '</noscript>';

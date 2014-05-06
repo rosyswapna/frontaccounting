@@ -1,0 +1,11 @@
+Package: salescontainer
+Version: 2.3.15-5
+Name: Sales Container
+Description: This module provides 
+Author: Swapna
+Maintenance: Swapna
+Homepage: frontaccounting.local
+InstallPath: modules/salescontainer
+Type: extension
+Filename: container_details_entry
+

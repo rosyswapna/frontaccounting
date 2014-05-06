@@ -203,6 +203,7 @@ function check_page_security($page_security)
 	global $SysPrefs;
 	
 	$msg = '';
+	//echo "<pre>";print_r($_SESSION);echo "</pre>";exit();
 	
 	if (!$_SESSION["wa_current_user"]->check_user_access())
 	{
@@ -221,10 +222,10 @@ function check_page_security($page_security)
 		kill_login();
 		exit;
 	}
+	
 
 	if (!$_SESSION["wa_current_user"]->can_access_page($page_security))
 	{
-
 		echo "<center><br><br><br><b>";
 		echo _("The security settings on your account do not permit you to access this function");
 		echo "</b>";
