@@ -45,6 +45,8 @@ class cart
 	var $Branch;
 	var $email;
 
+	var $shipping_id;
+
 	var $deliver_to;
 	var $delivery_address;
 	var $phone;
@@ -91,6 +93,7 @@ class cart
 		$this->dimension2_id = 0;
 		$this->pos = get_sales_point(user_pos());
 		$this->read($type, $trans_no, $prep_child);
+		
 		$this->cart_id = uniqid('');
 	}
 
@@ -201,6 +204,7 @@ class cart
 					read_sales_trans($type, $trans_no, $this); 
 					if ($this->order_no) { // free hand credit notes have no order_no
 						$sodata = get_sales_order_header($this->order_no, ST_SALESORDER);
+
 						$this->cust_ref = $sodata["customer_ref"];
 					// currently currency is hard linked to debtor account
 					//	$this->customer_currency = $sodata["curr_code"];

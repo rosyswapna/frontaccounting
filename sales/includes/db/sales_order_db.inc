@@ -22,7 +22,7 @@ function add_sales_order(&$order)
 	$total = $order->get_trans_total();
 	$sql = "INSERT INTO ".TB_PREF."sales_orders (order_no, type, debtor_no, trans_type, branch_code, customer_ref, reference, comments, ord_date,
 		order_type, ship_via, deliver_to, delivery_address, contact_phone,
-		freight_cost, from_stk_loc, delivery_date, payment_terms, total)
+		freight_cost, from_stk_loc, delivery_date, payment_terms, total,shipping_id)
 		VALUES (" .db_escape($order_no) . "," .db_escape($order_type) . "," . db_escape($order->customer_id) .
 		 ", " .db_escape($order->trans_type) . "," .db_escape($order->Branch) . ", ".
 			db_escape($order->cust_ref) .",". 
@@ -38,8 +38,10 @@ function add_sales_order(&$order)
 			db_escape($order->Location) .", " .
 			db_escape($del_date) . "," .
 			db_escape($order->payment) . "," .
-			db_escape($total). ")";
+			db_escape($order->total) . "," .
+			db_escape($order->shipping_id). ")";
 
+//echo $sql;exit();
 	db_query($sql, "order Cannot be Added");
 
 	$order->trans_no = array($order_no=>0);
@@ -184,6 +186,7 @@ function update_sales_order($order)
 		delivery_date = " .db_escape($del_date). ",
 		version = ".($version+1).",
 		payment_terms = " .db_escape($order->payment). ",
+		shipping_id = " .db_escape($order->shipping_id). ",
 		total = ". db_escape($total) ."
 	 WHERE order_no=" . db_escape($order_no) ."
 	 AND trans_type=".$order->trans_type." AND version=".$version;
@@ -365,6 +368,8 @@ function read_sales_order($order_no, &$order, $trans_type)
 {
 
 	$myrow = get_sales_order_header($order_no, $trans_type);
+
+	$order->shipping_id = $myrow['shipping_id'];
 
 	$order->trans_type = $myrow['trans_type'];
 	$order->so_type =  $myrow["type"];

@@ -277,7 +277,8 @@ function display_order_header(&$order, $editable, $date_text)
 		if ($order->trans_type != ST_SALESORDER  && $order->trans_type != ST_SALESQUOTE) {
 			hidden('dimension_id', $order->dimension_id); // 2008-11-12 Joe Hunt
 			hidden('dimension2_id', $order->dimension2_id);
-		}	
+		}
+		hidden('shipping_id', $order->shipping_id);	
 	}
 	else
 	{
@@ -389,6 +390,11 @@ function display_order_header(&$order, $editable, $date_text)
 	customer_credit_row($_POST['customer_id'], $order->credit);
 
 	label_row(_("Customer Discount:"), ($order->default_discount * 100) . "%");
+
+	$opts = array(
+			'where'=>array('debtor_no = '.$_POST['customer_id'])
+		);
+	shipping_list_row(_("Shipping Id:"),'shipping_id', $_POST['shipping_id'], $opts);
 
 	table_section(3);
 	if ($order->pos['cash_sale'] || $order->pos['credit_sale']) {

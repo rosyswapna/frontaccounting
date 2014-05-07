@@ -283,6 +283,10 @@ function copy_to_cart()
 	$cart->Branch = $_POST['branch_id'];
 	$cart->sales_type = $_POST['sales_type'];
 
+	$cart->shipping_id	= $_POST['shipping_id'];
+
+
+
 	if ($cart->trans_type!=ST_SALESORDER && $cart->trans_type!=ST_SALESQUOTE) { // 2008-11-12 Joe Hunt
 		$cart->dimension_id = $_POST['dimension_id'];
 		$cart->dimension2_id = $_POST['dimension2_id'];
@@ -295,6 +299,9 @@ function copy_to_cart()
 function copy_from_cart()
 {
 	$cart = &$_SESSION['Items'];
+
+	$_POST['shipping_id']  = $cart->shipping_id;
+
 	$_POST['ref'] = $cart->reference;
 	$_POST['Comments'] = $cart->Comments;
 
@@ -321,6 +328,8 @@ function copy_from_cart()
 	}
 	$_POST['cart_id'] = $cart->cart_id;
 	$_POST['_ex_rate'] = $cart->ex_rate;
+
+	
 }
 //--------------------------------------------------------------------------------
 
@@ -435,6 +444,7 @@ if (isset($_POST['update'])) {
 }
 
 if (isset($_POST['ProcessOrder']) && can_process()) {
+
 	copy_to_cart();
 	$modified = ($_SESSION['Items']->trans_no != 0);
 	$so_type = $_SESSION['Items']->so_type;
@@ -657,7 +667,7 @@ function create_cart($type, $trans_no)
 			$doc->line_items[$line_no]->qty_done = 0;
 		}
 		$_SESSION['Items'] = $doc;
-	} else
+	} else 
 		$_SESSION['Items'] = new Cart($type, array($trans_no));
 	copy_from_cart();
 }
@@ -713,11 +723,13 @@ if ($_SESSION['Items']->trans_type == ST_SALESINVOICE) {
 	$porder = _("Place Order");
 	$corder = _("Commit Order Changes");
 }
+
 start_form();
 
 hidden('cart_id');
 $customer_error = display_order_header($_SESSION['Items'],
 	($_SESSION['Items']->any_already_delivered() == 0), $idate);
+
 
 if ($customer_error == "") {
 	start_table(TABLESTYLE, "width=80%", 10);
@@ -733,6 +745,7 @@ if ($customer_error == "") {
 
 		submit_center_first('ProcessOrder', $porder,
 		    _('Check entered data and save document'), 'default');
+		
 		submit_js_confirm('CancelOrder', _('You are about to void this Document.\nDo you want to continue?'));
 	} else {
 		if ($_SESSION['Items']->trans_type==ST_SALESORDER)

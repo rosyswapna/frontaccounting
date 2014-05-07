@@ -65,8 +65,10 @@ $opts = array(		// default options
 	'editable' => false // false, or length of editable entry field
 );
 // ------ merge options with defaults ----------
+
 	if($options != null)
 		$opts = array_merge($opts, $options);
+
 	if (!is_array($opts['where']))  $opts['where'] = array($opts['where']);
 
 	$search_box = $opts['search_box']===true ? '_'.$name.'_edit' : $opts['search_box'];
@@ -539,7 +541,7 @@ function customer_list_row($label, $name, $selected_id=null, $all_option = false
 }
 
 //new------------------------------------------------------------------------swapna
-function shipping_list($name, $selected_id=null, $spec_option=false, $submit_on_change=false, 
+function shipping_list($name, $selected_id=null, $options=false, $submit_on_change=false, 
 	$show_inactive=false, $editkey = false)
 {
 	global $all_items;
@@ -551,8 +553,16 @@ function shipping_list($name, $selected_id=null, $spec_option=false, $submit_on_
 	if ($editkey)
 		set_editor('shipping_details', $name, $editkey);
 
+	if(isset($options['spec_option'])){
+		$spec_option = $options['spec_option'];
+	}
+	if(isset($options['where'])){
+		$where = $options['where'];
+	}else{$where = array();}
+
 	$ret = combo_input($name, $selected_id, $sql, 'shipping_id', 'vehicle_no',
 	array(
+		'where'	=> $where,
 	    'format' => '_format_add_curr',
 	    'order' => array('shipping_id'),
 		'search_box' => $mode!=0,
@@ -585,7 +595,6 @@ function shipping_list_row($label, $name, $selected_id=null, $all_option = false
 	$submit_on_change=false, $show_inactive=false, $editkey = false)
 {
 	global $path_to_root;
-
 	echo "<tr><td class='label'>$label</td><td nowrap>";
 	echo shipping_list($name, $selected_id, $all_option, $submit_on_change,
 		$show_inactive, $editkey);
