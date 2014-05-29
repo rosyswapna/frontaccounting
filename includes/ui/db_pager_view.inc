@@ -81,13 +81,15 @@ function display_db_pager(&$pager) {
 	}
 
 	$cc = 0; //row colour counter
+
    	foreach($pager->data as $line_no => $row) {	
 
 		$marker = $pager->marker;
 	    if ($marker && $marker($row)) 
         	start_row("class='$pager->marker_class'");
-	    else	
+	    else 	
 			alt_table_row_color($cc);
+	   
 	    foreach ($pager->columns as $k=>$col) {
 		   $coltype = $col['type'];
 		   $cell = isset($col['name']) ? $row[$col['name']] : '';

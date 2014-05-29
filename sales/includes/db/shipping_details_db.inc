@@ -55,3 +55,34 @@ function get_shipping_detail($shipping_id)
 
 	return db_fetch($result);
 }
+
+function get_sql_for_shipment_view($selected_customer,$shipment_id,$vehicle_details,$shipment_status)
+{
+	$sql = "SELECT 
+			shipment.shipping_id,
+			debtor.name,
+			shipment.vehicle_details,
+			shipment.first_weight,
+			shipment.first_weight_date,
+			shipment.second_weight,
+			shipment.second_weight_date,
+			shipstatus.status_description
+			FROM ".TB_PREF."shipping_details as shipment, "
+			.TB_PREF."shipment_status as shipstatus,"
+			.TB_PREF."debtors_master as debtor 
+			WHERE shipment.debtor_no = debtor.debtor_no AND shipment.shipment_status = shipstatus.status_id";
+
+	if($shipment_id){
+		$sql .= " AND shipment.shipping_id=".db_escape($shipment_id);
+	}else{
+
+		if ($selected_customer != -1)
+				$sql .= " AND shipment.debtor_no=".db_escape($selected_customer);
+
+		if($vehicle_details)
+			$sql .= " AND shipment.vehicle_details=".db_escape($vehicle_details);
+	}
+
+	$sql .= " GROUP BY shipment.shipping_id";
+	return $sql;
+}
