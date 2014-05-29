@@ -27,11 +27,177 @@ include_once($path_to_root . "/includes/date_functions.inc");
 if (isset($_GET['shipping_id'])) 
 {
 	$_POST['shipping_id'] = $_GET['shipping_id'];
+}elseif (isset($_GET['ModifyShipment'])){
+	$_POST['shipping_id'] = $_GET['ModifyShipment'];
 }
 $selected_id = get_post('shipping_id','');
+
+$close_shipment_id = -1;
+//---------------------------------------------------------------------------
+
+
+if (isset($_GET['ModifyShipment'])) {
+
+	$_SESSION['page_title'] = _($help_context = "Modify Shipment");
+
+}elseif (isset($_GET['CloseShipment'])) {
+
+	$_SESSION['page_title'] = _($help_context = "Close Shipment");
+
+	$close_shipment_id = $_GET['CloseShipment'];
+
+
+}else{
+
+	$_SESSION['page_title'] = _($help_context = "Add and Manage Shipments");
+	
+}
+
 //---------------------------------------------------------------------------
 
 function shipping_details_settings($selected_id){
+	global $path_to_root;
+	if($selected_id){
+		$myrow = get_shipping_detail($selected_id);
+		
+		$_POST['shipping_id'] = $myrow["shipping_id"];
+		$_POST['customer_id'] = $myrow["debtor_no"];
+		$_POST['vehicle_details']  = $myrow["vehicle_details"];
+		$_POST['shipment_status']  = $myrow["shipment_status"];
+		$_POST['first_weight']  = $myrow["first_weight"];
+		$_POST['first_weight_date']  = $myrow["first_weight_date"];
+		$_POST['second_weight']  = $myrow["second_weight"];
+		if($myrow["second_weight_date"]!='0000-00-00 00:00:00')
+			$_POST['second_weight_date']  = $myrow["second_weight_date"];
+
+	}else{
+
+		$_POST['shipping_id'] = $_POST['customer_id'] = -1;
+		$_POST['vehicle_details']  = '';
+		$_POST['shipment_status']  = 1;
+		$_POST['first_weight']  = '';
+		$_POST['first_weight_date']  = '';
+		$_POST['second_weight']  = '';
+		$_POST['second_weight_date']  = '';
+		
+	}
+
+
+	
+
+	start_table(TABLESTYLE, "width=80%", 10);
+		start_row();
+			customer_list_cells(_("Customer:"), 'customer_id', $_POST['customer_id'], false, false, false, true);
+
+			vehicle_cells(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'], '');
+
+			shipment_status_cells(_("Shipment Status").':', 'shipment_status', _(''), $_POST['shipment_status']);
+
+		end_row();
+
+		start_row();
+			echo "<td colspan='6'>";
+				start_outer_table(TABLESTYLE2);
+					table_section(1);
+					table_section_title(_("First Weight Details"));
+						first_weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '');
+						date_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
+
+					table_section(2);
+					table_section_title(_("Second Weight Details"));
+						first_weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '');
+						date_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '');
+				end_outer_table(1);
+			
+			echo "</td>";
+		end_row();
+
+	end_table(2);
+
+	div_start('controls');
+		if (!$selected_id)
+		{
+			//submit_center('submit', _("Add New Shipping Details"), true, '', 'default');
+			submit_center('submit', _("Add New"), true, 'Add New Shipping Details');
+		}else{
+			submit_center('submit','Update',true);
+		}
+	div_end();
+	
+}
+
+function open_shipping_details_settings($selected_id){
+	global $path_to_root;
+	if($selected_id){
+		$myrow = get_shipping_detail($selected_id);
+		
+		$_POST['shipping_id'] = $myrow["shipping_id"];
+		$_POST['customer_id'] = $myrow["debtor_no"];
+		$_POST['vehicle_details']  = $myrow["vehicle_details"];
+		$_POST['shipment_status']  = $myrow["shipment_status"];
+		$_POST['first_weight']  = $myrow["first_weight"];
+		$_POST['first_weight_date']  = $myrow["first_weight_date"];
+		$_POST['second_weight']  = $myrow["second_weight"];
+		if($myrow["second_weight_date"]!='0000-00-00 00:00:00')
+			$_POST['second_weight_date']  = $myrow["second_weight_date"];
+
+	}else{
+
+		$_POST['shipping_id'] = $_POST['customer_id'] = -1;
+		$_POST['vehicle_details']  = '';
+		$_POST['shipment_status']  = 1;
+		$_POST['first_weight']  = '';
+		$_POST['first_weight_date']  = '';
+		$_POST['second_weight']  = '';
+		$_POST['second_weight_date']  = '';
+		
+	}
+
+
+	
+
+	start_table(TABLESTYLE, "width=80%", 10);
+		start_row();
+			customer_list_cells(_("Customer:"), 'customer_id', $_POST['customer_id'], false, false, false, true);
+
+			vehicle_cells(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'], '');
+
+			shipment_status_cells(_("Shipment Status").':', 'shipment_status', _(''), $_POST['shipment_status']);
+
+		end_row();
+
+		start_row();
+			echo "<td colspan='6'>";
+				start_outer_table(TABLESTYLE2);
+					table_section(1);
+					table_section_title(_("First Weight Details"));
+						first_weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '');
+						date_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
+
+					table_section(2);
+					table_section_title(_("Second Weight Details"));
+						first_weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '');
+						date_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '');
+				end_outer_table(1);
+			
+			echo "</td>";
+		end_row();
+
+	end_table(2);
+
+	div_start('controls');
+		if (!$selected_id)
+		{
+			//submit_center('submit', _("Add New Shipping Details"), true, '', 'default');
+			submit_center('submit', _("Add New"), true, 'Add New Shipping Details');
+		}else{
+			submit_center('submit','Update',true);
+		}
+	div_end();
+	
+}
+
+function close_shipping_details_settings($selected_id){
 	global $path_to_root;
 	if($selected_id){
 		$myrow = get_shipping_detail($selected_id);
@@ -166,33 +332,39 @@ if (isset($_POST['submit']))
 add_access_extensions();
 set_ext_domain('modules/salescontainer');
 
-page(_($help_context = "Add and Manage Shipments"));	
+//page(_($help_context = "Add and Manage Shipments"));
+page($_SESSION['page_title'], false, false, "", $js);	
 
 start_form();
 
-if (db_has_shipping_details()) 
-{
-	start_table(TABLESTYLE_NOBORDER);
-	start_row();
-	shipping_list_cells(_("Shipping Details Id: "), 'shipping_id', null,
-		_('New shipment'), true, check_value('show_inactive'));
-	check_cells(_("Show inactive:"), 'show_inactive', null, true);
-	end_row();
-	end_table();
+	if (isset($_GET['CloseShipment'])) {
+		close_shipping_details_settings($close_shipment_id);
+	}else{
 
-	if (get_post('_show_inactive_update')) {
-		$Ajax->activate('shipping_id');
-		set_focus('shipping_id');
+		if (db_has_shipping_details()) 
+		{
+			start_table(TABLESTYLE_NOBORDER);
+			start_row();
+			shipping_list_cells(_("Shipping Details Id: "), 'shipping_id', null,
+				_('New shipment'), true, check_value('show_inactive'));
+			check_cells(_("Show inactive:"), 'show_inactive', null, true);
+			end_row();
+			end_table();
+
+			if (get_post('_show_inactive_update')) {
+				$Ajax->activate('shipping_id');
+				set_focus('shipping_id');
+			}
+
+
+		} 
+		else 
+		{
+			hidden('shipping_id');
+		}
+
+		open_shipping_details_settings($selected_id);
 	}
-
-
-} 
-else 
-{
-	hidden('shipping_id');
-}
-
-shipping_details_settings($selected_id);
 
 end_form();
 
