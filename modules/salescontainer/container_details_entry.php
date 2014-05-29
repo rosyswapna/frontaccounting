@@ -166,7 +166,7 @@ if (isset($_POST['submit']))
 add_access_extensions();
 set_ext_domain('modules/salescontainer');
 
-page(_($help_context = "Shipments"));	
+page(_($help_context = "Add and Manage Shipments"));	
 
 start_form();
 

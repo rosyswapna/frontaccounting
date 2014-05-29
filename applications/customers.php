@@ -21,11 +21,6 @@ class customers_app extends application
 		$this->add_lapp_function(0, _("Sales &Order Entry"),
 			"sales/sales_order_entry.php?NewOrder=Yes", 'SA_SALESORDER', MENU_TRANSACTION);
 
-		//customized page
-		/*$this->add_lapp_function(0, _("Container Details Entry"),
-			"container/container_details_entry.php?SalesContainer=Yes", 'SA_SALESCONTAINER', MENU_TRANSACTION);
-			*/
-
 		$this->add_lapp_function(0, _("Direct &Delivery"),
 			"sales/sales_order_entry.php?NewDelivery=0", 'SA_SALESDELIVERY', MENU_TRANSACTION);
 		$this->add_lapp_function(0, _("Direct &Invoice"),
@@ -63,6 +58,8 @@ class customers_app extends application
 
 		$this->add_rapp_function(1, _("Customer and Sales &Reports"),
 			"reporting/reports_main.php?Class=0", 'SA_SALESTRANSVIEW', MENU_REPORT);
+
+			
 
 		$this->add_module(_("Maintenance"));
 		$this->add_lapp_function(2, _("Add and Manage &Customers"),
