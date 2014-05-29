@@ -49,6 +49,7 @@
 			if (!$no_menu)
 			{
 				$applications = $_SESSION['App']->applications;
+				
 				$local_path_to_root = $path_to_root;
 				$sel_app = $_SESSION['sel_app'];
 				echo "<table cellpadding=0 cellspacing=0 width='100%'><tr><td>";

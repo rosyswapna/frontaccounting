@@ -18,6 +18,16 @@ $installed_languages = array (
     'name' => 'English',
     'encoding' => 'iso-8859-1',
   ),
+  1 => 
+  array (
+    'name' => 'Arabic',
+    'package' => 'ar_EG',
+    'code' => 'ar_EG',
+    'encoding' => 'utf-8',
+    'version' => '2.3.12-1',
+    'path' => 'lang/ar_EG',
+    'rtl' => true,
+  ),
 );
 
 $dflt_lang = 'C';

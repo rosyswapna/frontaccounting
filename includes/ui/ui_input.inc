@@ -720,6 +720,42 @@ function vehicle_row($label, $name, $title=null, $init=null, $submit_on_change=f
 
 //-----------------------------------------------------------------------------------
 
+//-----------------------------------------------------------------------------------
+
+function first_weight_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false)
+{
+	text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change);
+}
+
+//-----------------------------------------------------------------------------------
+
+function first_weight_row($label, $name, $title=null, $init=null, $submit_on_change=false)
+{
+	echo "<tr><td class='label'>$label</td>";
+	first_weight_cells(null, $name, $title, $init, null, $submit_on_change);
+	echo "</tr>\n";
+}
+
+//-----------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------
+
+function weight_date_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false)
+{
+	date_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false);
+}
+
+//-----------------------------------------------------------------------------------
+
+function weight_date_row($label, $name, $title=null, $init=null, $submit_on_change=false)
+{
+	echo "<tr><td class='label'>$label</td>";
+	first_weight_date_cells(null, $name, $title, $init, null, $submit_on_change);
+	echo "</tr>\n";
+}
+
+//-----------------------------------------------------------------------------------
+
 
 function percent_row($label, $name, $init=null)
 {

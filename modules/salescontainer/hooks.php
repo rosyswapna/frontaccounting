@@ -14,7 +14,7 @@ class hooks_salescontainer extends hooks {
 
         switch($app->id) {
             case 'orders':
-                $app->add_rapp_function(2, _('&Container Details Entry'), $path_to_root.'/modules/salescontainer/container_details_entry.php', 'SA_SALESCONTAINER',
+                $app->add_rapp_function(2, _('&Shipments'), $path_to_root.'/modules/salescontainer/container_details_entry.php', 'SA_SALESCONTAINER',
                     MENU_TRANSACTION);
                 break;
         }

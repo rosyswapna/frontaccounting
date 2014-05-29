@@ -541,12 +541,43 @@ function customer_list_row($label, $name, $selected_id=null, $all_option = false
 }
 
 //new------------------------------------------------------------------------swapna
+function shipment_status_cells($label, $name, $selected_id=null, $all_option=false, 
+	$submit_on_change=false, $show_inactive=false, $editkey = false)
+{
+
+	if ($submit_on_change != false || $search_button) {
+		global $_select_button;
+	// button class selects form reload/ajax selector update
+		$selector .= sprintf($_select_button, $disabled, user_theme(),
+			(fallback_mode() ? '' : 'display:none;'),
+			 '_'.$name.'_update')."\n";
+	}
+	echo "<td class='label'>$label</td><td>
+		".$selector."
+			<select class='combo2' title='Select customer' name='$name' autocomplete='off' _last='0'>
+				<option value='1'>Open</option>
+    			<option value='2'>Close</option>
+			</select></td>";
+}
+
+function shipment_status_row($label, $name, $selected_id=null, $all_option=false, 
+	$submit_on_change=false, $show_inactive=false, $editkey = false)
+{
+	echo "<tr><td class='label'>$label</td><td>
+			<select class='combo2' title='Select customer' name='$name' autocomplete='off' _last='0'>
+				<option value='1'>Open</option>
+    			<option value='2'>Close</option>
+			</select></td></tr>";
+}
+
+
+/*
 function shipping_list($name, $selected_id=null, $options=false, $submit_on_change=false, 
 	$show_inactive=false, $editkey = false)
 {
 	global $all_items;
 
-	$sql = "SELECT shipping_id,vehicle_no,debtor_no  FROM ".TB_PREF."shipping_details ";
+	$sql = "SELECT shipping_id,vehicle_details,debtor_no  FROM ".TB_PREF."shipping_details ";
 
 	$mode = get_company_pref('no_shipping_list');
 
@@ -560,7 +591,7 @@ function shipping_list($name, $selected_id=null, $options=false, $submit_on_chan
 		$where = $options['where'];
 	}else{$where = array();}
 
-	$ret = combo_input($name, $selected_id, $sql, 'shipping_id', 'vehicle_no',
+	$ret = combo_input($name, $selected_id, $sql, 'shipping_id', 'vehicle_details',
 	array(
 		'where'	=> $where,
 	    'format' => '_format_add_curr',
@@ -580,6 +611,43 @@ function shipping_list($name, $selected_id=null, $options=false, $submit_on_chan
 		$ret .= add_edit_combo('shipping_details');
 	return $ret;
 }
+
+*/
+
+function shipping_list($name, $selected_id=null, $spec_option=false, $submit_on_change=false, 
+	$show_inactive=false, $editkey = false)
+{
+	global $all_items;
+
+	$sql = "SELECT shipping_id,vehicle_details,debtor_no  FROM ".TB_PREF."shipping_details ";
+
+	$mode = get_company_pref('no_shipment_list');
+
+	if ($editkey)
+		set_editor('shipment', $name, $editkey);
+
+	$ret = combo_input($name, $selected_id, $sql, 'shipping_id', 'vehicle_details',
+	array(
+	    'format' => '_format_add_curr',
+	    'order' => array('shipping_id'),
+		'search_box' => $mode!=0,
+		'type' => 1,
+		'size' => 20,
+		'spec_option' => $spec_option === true ? _("All Shipments") : $spec_option,
+		'spec_id' => $all_items,
+		'select_submit'=> $submit_on_change,
+		'async' => false,
+		'sel_hint' => $mode ? _('Press Space tab to filter by name fragment; F2 - entry new shipment') :
+		_('Select shipment'),
+		'show_inactive' => $show_inactive
+	) );
+	if ($editkey)
+		$ret .= add_edit_combo('shipment');
+	return $ret;
+}
+
+
+
 function shipping_list_cells($label, $name, $selected_id=null, $all_option=false, 
 	$submit_on_change=false, $show_inactive=false, $editkey = false)
 {
