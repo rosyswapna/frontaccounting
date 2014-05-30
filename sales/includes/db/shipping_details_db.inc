@@ -71,7 +71,7 @@ function get_shipping_detail($shipping_id)
 	return db_fetch($result);
 }
 
-function get_sql_for_shipment_view($selected_customer,$shipment_id,$vehicle_details,$shipment_status)
+function get_sql_for_shipment_view($selected_customer,$shipment_id,$vehicle_details,$shipment_status,$customer_id=ALL_TEXT)
 {
 	$sql = "SELECT 
 			shipment.shipping_id,
@@ -96,7 +96,15 @@ function get_sql_for_shipment_view($selected_customer,$shipment_id,$vehicle_deta
 
 		if($vehicle_details)
 			$sql .= " AND shipment.vehicle_details=".db_escape($vehicle_details);
+
+		if ($shipment_status >0)
+				$sql .= " AND shipment.shipment_status=".db_escape($shipment_status);
+
+		if ($customer_id != ALL_TEXT)
+			$sql .= " AND shipment.debtor_no = ".db_escape($customer_id);
 	}
+
+
 
 	$sql .= " GROUP BY shipment.shipping_id";
 	return $sql;
