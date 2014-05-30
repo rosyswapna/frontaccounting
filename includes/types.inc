@@ -47,6 +47,10 @@ define('ST_DIMENSION', 40);
 define ('ST_STATEMENT', 91);
 define ('ST_CHEQUE', 92);
 
+//shipment status fron table shipment status
+define('SHIPMENT_STATUSOPEN',1);
+define('SHIPMENT_STATUSCLOSE',2);
+
 // document inheritance
 $document_child_types = array(
 		ST_SALESQUOTE => ST_SALESORDER,

@@ -541,6 +541,50 @@ function customer_list_row($label, $name, $selected_id=null, $all_option = false
 }
 
 //new------------------------------------------------------------------------swapna
+
+function shipment_status_list($name, $selected_id=null, $spec_option=false, $submit_on_change=false, 
+	$show_inactive=false, $editkey = false)
+{
+	global $all_items;
+
+	$sql = "SELECT status_id, status_description FROM ".TB_PREF."shipment_status ";
+
+	$mode = get_company_pref('no_status_list');
+
+	if ($editkey)
+		set_editor('customer', $name, $editkey);
+
+	$ret = combo_input($name, $selected_id, $sql, 'status_id', 'status_description',
+	array(
+	    'format' => '_format_add_curr',
+	    'order' => array('status_description'),
+		'search_box' => $mode!=0,
+		'type' => 1,
+		'size' => 20,
+		'spec_option' => $spec_option === true ? _("All Status") : $spec_option,
+		'spec_id' => $all_items,
+		'select_submit'=> $submit_on_change,
+		'async' => false,
+		'sel_hint' => $mode ? _('Press Space tab to filter by name fragment; F2 - entry new customer') :
+		_('Select customer'),
+		'show_inactive' => $show_inactive
+	) );
+	if ($editkey)
+		$ret .= add_edit_combo('status');
+	return $ret;
+}
+
+function shipment_status_list_cells($label, $name, $selected_id=null, $all_option=false, 
+	$submit_on_change=false, $show_inactive=false, $editkey = false)
+{
+	if ($label != null)
+		echo "<td>$label</td>\n";
+	echo "<td nowrap>";
+	echo shipment_status_list($name, $selected_id, $all_option, $submit_on_change,
+		$show_inactive, $editkey);
+	echo "</td>\n";
+}
+
 function shipment_status_cells($label, $name, $selected_id=null, $all_option=false, 
 	$submit_on_change=false, $show_inactive=false, $editkey = false)
 {
