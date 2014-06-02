@@ -139,7 +139,7 @@ $cols = array(
 
 
 array_append($cols,array(
-					array('insert'=>true, 'fun'=>'edit_link'),
+					//array('insert'=>true, 'fun'=>'edit_link'),
 					array('insert'=>true, 'fun'=>'close_link')));
 
 
