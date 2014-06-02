@@ -72,8 +72,12 @@ function edit_link($row)
 function close_link($row)
 {
 	$modify = "CloseShipment";
-	return pager_link( _("Close Shipment"),
-    "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id'], ICON_OK);
+	if($row['shipment_status'] == SHIPMENT_STATUSCLOSE){
+		return "";
+	}else{
+		return pager_link( _("Close Shipment"),
+	    "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id'], ICON_OK);
+	}
 }
 
 function change_tpl()
