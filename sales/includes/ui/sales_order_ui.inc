@@ -394,7 +394,7 @@ function display_order_header(&$order, $editable, $date_text)
 	$opts = array(
 			'where'=>array('debtor_no = '.$_POST['customer_id'])
 		);
-	shipping_list_row(_("Shipping Id:"),'shipping_id', $_POST['shipping_id'], $opts);
+	//shipping_list_row(_("Shipping Id:"),'shipping_id', $_POST['shipping_id'], $opts);
 
 	table_section(3);
 	if ($order->pos['cash_sale'] || $order->pos['credit_sale']) {
@@ -492,6 +492,35 @@ function display_order_header(&$order, $editable, $date_text)
 }
 
 //--------------------------------------------------------------------------------
+function display_order_footer()
+{
+	display_heading("Other Details");
+
+	start_table(TABLESTYLE2, "width=80%");
+
+		start_row();
+			echo "<td>";
+				start_table(TABLESTYLE2, "width=100%");
+					text_row("Contract No",'contact_no');
+					text_row("Loading",'loading');
+					text_row("Origin",'origin');
+					text_row("LC Details",'lc_details');
+					textarea_row('Remarks','remarks','',31,5);
+				end_table();
+			echo "</td>";
+			echo "<td>";
+				start_table(TABLESTYLE2, "width=100%");
+					text_row("Port Of Loading",'port_of_loading');
+					text_row("Port Of Discharge",'port_of_discharge');
+					text_row("Final Delivery Point",'final_delivery_point');
+					date_row("Shipment Validity Date",'shipment_validity_date',null,null,0,0,1001);
+					textarea_row('Shipment Terms','shipment_terms','',31,5);
+				end_table();
+			echo "</td>";
+		end_row();
+
+	end_table(1); // outer table
+}
 
 function sales_order_item_controls(&$order, &$rowcounter, $line_no=-1)
 {

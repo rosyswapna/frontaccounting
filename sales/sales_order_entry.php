@@ -728,7 +728,7 @@ start_form();
 
 hidden('cart_id');
 $customer_error = display_order_header($_SESSION['Items'],
-	($_SESSION['Items']->any_already_delivered() == 0), $idate);
+	($_SESSION['Items']->any_already_delivered() == 0), $idate);	
 
 
 if ($customer_error == "") {
@@ -740,6 +740,8 @@ if ($customer_error == "") {
 	display_delivery_details($_SESSION['Items']);
 	echo "</td></tr>";
 	end_table(1);
+
+	display_order_footer();
 
 	if ($_SESSION['Items']->trans_no == 0) {
 
