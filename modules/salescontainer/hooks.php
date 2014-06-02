@@ -17,7 +17,11 @@ class hooks_salescontainer extends hooks {
                 $app->add_rapp_function(2, _('&Add and Manage Shipments'), $path_to_root.'/modules/salescontainer/container_details_entry.php', 'SA_SALESCONTAINER',
                     MENU_MAINTENANCE);
                 $app->add_lapp_function(1, _("Shipments"),
-            "modules/salescontainer/container_details_view.php", 'SA_SALESCONTAINERVIEW', MENU_REPORT);
+            "modules/salescontainer/container_details_view.php", 'SA_SALESCONTAINERSVIEW', MENU_REPORT);
+                break;
+
+                $app->add_lapp_function(0, _("View Shipment"),
+            "modules/salescontainer/view_container_detail.php", 'SA_SALESCONTAINERVIEW');
                 break;
         }
     }
@@ -28,7 +32,8 @@ class hooks_salescontainer extends hooks {
         $security_sections[SS_CONTAINER] = _("Sales Container");
 
         $security_areas['SA_SALESCONTAINER'] = array(SS_CONTAINER|1, _("Sales Container Entry"));
-        $security_areas['SA_SALESCONTAINERVIEW'] = array(SS_CONTAINER|1, _("Sales Container View"));
+        $security_areas['SA_SALESCONTAINERSVIEW'] = array(SS_CONTAINER|1, _("Sales Container View"));
+        $security_areas['SA_SALESCONTAINERVIEW'] = array(SS_CONTAINER|1, _("View Sales Container"));
         
         return array($security_areas, $security_sections);
     }

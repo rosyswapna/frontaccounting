@@ -170,13 +170,13 @@ function get_manufacturing_trans_view_str($type, $trans_no, $label="",
 }
 
 //--------------------------------------------------------------------------------------
-function get_shipment_view_str($id,$label="", $icon=false, $class='', $id='')
+function get_shipment_view_str($shipment_id, $label="", $icon=false, $class='', $id='')
 {
 	if ($label == "")
 	{
 		$label = _("Info");
 	}
-	return viewer_link($label, "modules/salescontainer/container_details_view.php?id=$id", $class, $id, $icon);
+	return viewer_link($label, "modules/salescontainer/view_container_detail.php?shp_no=$shipment_id", $class, $shipment_id, $icon);
 }
 
 

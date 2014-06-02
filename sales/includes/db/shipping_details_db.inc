@@ -18,20 +18,32 @@ function add_shipping_details($DebtorNo, $VehicleDetails, $ShipmentStatus, $Firs
 	db_query($sql,"The Shipping Details could not be added");
 }
 
-function update_shipping_details($ShippingId,$DebtorNo, $VehicleDetails, $ShipmentStatus, $FirstWeight, $FirstWeightDate)
+function update_shipping_details($ShippingId,$DebtorNo, $VehicleDetails, $ShipmentStatus, $FirstWeight, $FirstWeightDate,$SecondWeight,$SecondWeightDate)
 {
 	if ($FirstWeightDate == "")
 		$SQLFirstDate = "0000-00-00";
 	else
 		$SQLFirstDate = date2sql($FirstWeightDate);
 
+	if ($SecondWeightDate == "")
+		$SQLSecondDate = "0000-00-00";
+	else
+		$SQLSecondDate = date2sql($SecondWeightDate);
+
 	$sql = "UPDATE ".TB_PREF."shipping_details SET debtor_no=" . db_escape($DebtorNo) . ", 
 		vehicle_details=".db_escape($VehicleDetails) .",
 		shipment_status=".db_escape($ShipmentStatus) .",
 		first_weight=".db_escape($FirstWeight) .",
-		first_weight_date=".$SQLFirstDate ."
-		WHERE shipping_id = ".db_escape($ShippingId);
-	
+		first_weight_date=".$SQLFirstDate ;
+	if($ShipmentStatus == SHIPMENT_STATUSCLOSE){
+		$sql .= ",second_weight=".db_escape($SecondWeight) .",
+		second_weight_date=".$SQLSecondDate ;
+	}
+
+	$sql .= " WHERE shipping_id = ".db_escape($ShippingId);
+
+	//echo $sql;exit();
+		
 	db_query($sql,"The Shipping Details could not be updated");
 }
 
@@ -44,7 +56,7 @@ function close_shipment($ShippingId,$ShipmentStatus,$SecondWeight,$SecondWeightD
 
 	$sql = "UPDATE ".TB_PREF."shipping_details SET shipment_status=".db_escape($ShipmentStatus) .",
 		second_weight=".db_escape($SecondWeight) .",
-		second_weight_date=".$SQLSecondDate ."
+		second_weight_date='".$SQLSecondDate ."'
 		WHERE shipping_id = ".db_escape($ShippingId);
 		//echo $sql;exit();
 	
@@ -60,6 +72,7 @@ function get_shipping_detail($shipping_id)
 			shipment.first_weight_date,
 			shipment.second_weight,
 			shipment.second_weight_date,
+			shipment.shipment_status,
 			shipstatus.status_description
 			FROM ".TB_PREF."shipping_details as shipment, "
 			.TB_PREF."shipment_status as shipstatus,"
@@ -81,6 +94,7 @@ function get_sql_for_shipment_view($selected_customer,$shipment_id,$vehicle_deta
 			shipment.first_weight_date,
 			shipment.second_weight,
 			shipment.second_weight_date,
+			shipment.shipment_status,
 			shipstatus.status_description
 			FROM ".TB_PREF."shipping_details as shipment, "
 			.TB_PREF."shipment_status as shipstatus,"

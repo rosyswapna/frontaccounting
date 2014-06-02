@@ -141,6 +141,11 @@ function open_shipping_details_settings($selected_id){
 		$_POST['first_weight_date']  = $myrow["first_weight_date"];
 		$_POST['shipment_status']  = $myrow["shipment_status"];
 
+		
+		$_POST['second_weight']  = $myrow["second_weight"];
+		$_POST['second_weight_date']  = $myrow["second_weight_date"];
+
+
 	}else{
 
 		$_POST['shipping_id'] = $_POST['customer_id'] = -1;
@@ -148,8 +153,10 @@ function open_shipping_details_settings($selected_id){
 		$_POST['first_weight']  = '';
 		$_POST['first_weight_date']  = '';	
 		$_POST['shipment_status']  = SHIPMENT_STATUSOPEN;	
+		
 	}
 
+	
 
 	start_table(TABLESTYLE, "width=60%", 10);
 
@@ -170,6 +177,11 @@ function open_shipping_details_settings($selected_id){
 						first_weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '');
 						date_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
 					
+					if($myrow["shipment_status"] == SHIPMENT_STATUSCLOSE){
+					table_section_title(_("Second Weight Details"));
+						first_weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '');
+						date_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '');
+					}
 				end_outer_table(1);
 			echo "</td>";
 
@@ -285,7 +297,7 @@ function handle_submit(&$selected_id)
 	if ($selected_id) 
 	{
 		//it is an existing shipping details
-		update_shipping_details($selected_id,$_POST['customer_id'],$_POST['vehicle_details'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date']);
+		update_shipping_details($selected_id,$_POST['customer_id'],$_POST['vehicle_details'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date'],$_POST['second_weight'],$_POST['second_weight_date']);
 		display_notification(_("Shipping details has been updated."));
 
 	} 

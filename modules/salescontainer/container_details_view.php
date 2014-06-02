@@ -1,6 +1,6 @@
 <?php
 
-$page_security = 'SA_SALESCONTAINERVIEW';
+$page_security = 'SA_SALESCONTAINERSVIEW';
 $path_to_root = "../..";
 
 include_once($path_to_root . "/includes/db_pager.inc");
@@ -57,8 +57,15 @@ function view_link($dummy, $shipment_id)
 function edit_link($row)
 {	
 	$modify = "ModifyShipment";
-	return pager_link( _("Edit"),
-    "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id'], ICON_EDIT);
+	//return pager_link( _("Edit"),
+   // "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id'], ICON_EDIT);
+	if($row['shipment_status'] == SHIPMENT_STATUSOPEN){
+		return pager_link( _($row['status_description']),
+    "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id']);
+	}elseif($row['shipment_status'] == SHIPMENT_STATUSCLOSE){
+		return pager_link( _($row['status_description']),
+    "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id']);
+	}
 	
 }
 
@@ -127,8 +134,9 @@ $cols = array(
 		_("First Weight Date")=>array('type'=>'date'),  
 		_("Second Weight"),
 		_("Second Weight Date")=>array('type'=>'date'),
-		_("Status")		
+		_("Status")	=> array('fun' => 'edit_link')	
 	);
+
 
 array_append($cols,array(
 					array('insert'=>true, 'fun'=>'edit_link'),
