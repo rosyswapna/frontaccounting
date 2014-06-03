@@ -283,7 +283,19 @@ function copy_to_cart()
 	$cart->Branch = $_POST['branch_id'];
 	$cart->sales_type = $_POST['sales_type'];
 
+	//other details--------------------------------swapna-------------
 	$cart->shipping_id	= $_POST['shipping_id'];
+	$cart->contract_no	= $_POST['contract_no'];
+	$cart->loading	= $_POST['loading'];
+	$cart->origin	= $_POST['origin'];
+	$cart->lc_details	= $_POST['lc_details'];
+	$cart->port_of_loading	= $_POST['port_of_loading'];
+	$cart->port_of_discharge	= $_POST['port_of_discharge'];
+	$cart->final_delivery_point	= $_POST['final_delivery_point'];
+	$cart->shipment_validity_date	= $_POST['shipment_validity_date'];
+	$cart->shipment_terms	= $_POST['shipment_terms'];
+	$cart->remarks	= $_POST['remarks'];
+
 
 
 
@@ -300,7 +312,20 @@ function copy_from_cart()
 {
 	$cart = &$_SESSION['Items'];
 
-	$_POST['shipping_id']  = $cart->shipping_id;
+	//other details -------------------------swapna
+	$_POST['shipping_id']  				= $cart->shipping_id;
+	$_POST['contract_no'] 				= $cart->contract_no;
+	$_POST['loading']					= $cart->loading;
+	$_POST['origin']					= $cart->origin;
+	$_POST['lc_details']				= $cart->lc_details;
+	$_POST['port_of_loading']			= $cart->port_of_loading;
+	$_POST['port_of_discharge'] 		= $cart->port_of_discharge;
+	$_POST['final_delivery_point']		= $cart->final_delivery_point;
+	$_POST['shipment_validity_date'] 	= $cart->shipment_validity_date;
+	$_POST['shipment_terms'] 			= $cart->shipment_terms;
+	$_POST['remarks'] 					= $cart->remarks;
+	//----------------------------------------------------------
+	
 
 	$_POST['ref'] = $cart->reference;
 	$_POST['Comments'] = $cart->Comments;
@@ -739,14 +764,19 @@ if ($customer_error == "") {
 	echo "<tr><td>";
 	display_delivery_details($_SESSION['Items']);
 	echo "</td></tr>";
-	end_table(1);
-
+	echo "<tr><td>";
 	display_order_footer();
+	echo "</td></tr>";
+	end_table(1);
 
 	if ($_SESSION['Items']->trans_no == 0) {
 
+		//submit_center_first('ProcessOrder', $porder,
+		  //  _('Check entered data and save document'), 'default');
+
 		submit_center_first('ProcessOrder', $porder,
-		    _('Check entered data and save document'), 'default');
+		    _('Check entered data and save document'));
+
 		
 		submit_js_confirm('CancelOrder', _('You are about to void this Document.\nDo you want to continue?'));
 	} else {

@@ -45,7 +45,19 @@ class cart
 	var $Branch;
 	var $email;
 
+	//other details-------swapna------
 	var $shipping_id;
+	var $contract_no;
+	var $loading;
+	var $origin;
+	var $lc_details;
+	var $port_of_loading;
+	var $port_of_discharge;
+	var $final_delivery_point;
+	var $shipment_validity_date;
+	var $shipment_terms;
+	var $remarks;
+
 
 	var $deliver_to;
 	var $delivery_address;

@@ -496,12 +496,13 @@ function display_order_footer()
 {
 	display_heading("Other Details");
 
-	start_table(TABLESTYLE2, "width=80%");
+	
+	start_table(TABLESTYLE, "colspan=7 width=90%");
 
 		start_row();
 			echo "<td>";
 				start_table(TABLESTYLE2, "width=100%");
-					text_row("Contract No",'contact_no');
+					text_row("Contract No",'contract_no');
 					text_row("Loading",'loading');
 					text_row("Origin",'origin');
 					text_row("LC Details",'lc_details');
@@ -519,7 +520,8 @@ function display_order_footer()
 			echo "</td>";
 		end_row();
 
-	end_table(1); // outer table
+	end_table(); // outer table
+
 }
 
 function sales_order_item_controls(&$order, &$rowcounter, $line_no=-1)
