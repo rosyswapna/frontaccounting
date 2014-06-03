@@ -499,9 +499,12 @@ function display_order_footer()
 	
 	start_table(TABLESTYLE, "colspan=7 width=90%");
 
+		bank_accounts_list_row("Bank Account",'bank_account_id');
+
 		start_row();
 			echo "<td>";
 				start_table(TABLESTYLE2, "width=100%");
+					
 					text_row("Contract No",'contract_no');
 					text_row("Loading",'loading');
 					text_row("Origin",'origin');
@@ -511,6 +514,7 @@ function display_order_footer()
 			echo "</td>";
 			echo "<td>";
 				start_table(TABLESTYLE2, "width=100%");
+
 					text_row("Port Of Loading",'port_of_loading');
 					text_row("Port Of Discharge",'port_of_discharge');
 					text_row("Final Delivery Point",'final_delivery_point');

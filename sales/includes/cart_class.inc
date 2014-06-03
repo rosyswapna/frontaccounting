@@ -47,6 +47,7 @@ class cart
 
 	//other details-------swapna------
 	var $shipping_id;
+	var $bank_account_id;
 	var $contract_no;
 	var $loading;
 	var $origin;

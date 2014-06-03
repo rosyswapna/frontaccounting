@@ -285,6 +285,7 @@ function copy_to_cart()
 
 	//other details--------------------------------swapna-------------
 	$cart->shipping_id	= $_POST['shipping_id'];
+	$cart->bank_account_id = $_POST['bank_account_id'];
 	$cart->contract_no	= $_POST['contract_no'];
 	$cart->loading	= $_POST['loading'];
 	$cart->origin	= $_POST['origin'];
@@ -295,7 +296,7 @@ function copy_to_cart()
 	$cart->shipment_validity_date	= $_POST['shipment_validity_date'];
 	$cart->shipment_terms	= $_POST['shipment_terms'];
 	$cart->remarks	= $_POST['remarks'];
-
+	//------------------------------------------------------------------
 
 
 
@@ -312,8 +313,9 @@ function copy_from_cart()
 {
 	$cart = &$_SESSION['Items'];
 
-	//other details -------------------------swapna
+	//other details -------------------------swapna-------------
 	$_POST['shipping_id']  				= $cart->shipping_id;
+	$_POST['bank_account_id'] 			= $cart->bank_account_id;
 	$_POST['contract_no'] 				= $cart->contract_no;
 	$_POST['loading']					= $cart->loading;
 	$_POST['origin']					= $cart->origin;
@@ -321,11 +323,12 @@ function copy_from_cart()
 	$_POST['port_of_loading']			= $cart->port_of_loading;
 	$_POST['port_of_discharge'] 		= $cart->port_of_discharge;
 	$_POST['final_delivery_point']		= $cart->final_delivery_point;
-	$_POST['shipment_validity_date'] 	= $cart->shipment_validity_date;
+	$_POST['shipment_validity_date'] 	= ($cart->shipment_validity_date != '0000-00-00')?$cart->shipment_validity_date:'';
 	$_POST['shipment_terms'] 			= $cart->shipment_terms;
 	$_POST['remarks'] 					= $cart->remarks;
-	//----------------------------------------------------------
 	
+	//----------------------------------------------------------
+
 
 	$_POST['ref'] = $cart->reference;
 	$_POST['Comments'] = $cart->Comments;
@@ -771,11 +774,10 @@ if ($customer_error == "") {
 
 	if ($_SESSION['Items']->trans_no == 0) {
 
-		//submit_center_first('ProcessOrder', $porder,
-		  //  _('Check entered data and save document'), 'default');
-
 		submit_center_first('ProcessOrder', $porder,
-		    _('Check entered data and save document'));
+		    _('Check entered data and save document'), 'default');
+
+		
 
 		
 		submit_js_confirm('CancelOrder', _('You are about to void this Document.\nDo you want to continue?'));

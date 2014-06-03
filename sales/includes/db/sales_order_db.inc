@@ -198,6 +198,7 @@ function update_sales_order($order)
 		version = ".($version+1).",
 		payment_terms = " .db_escape($order->payment). ",
 		shipping_id = " .db_escape($order->shipping_id). ",
+		bank_account_id = ".db_escape($order->bank_account_id).",
 		contract_no = ".db_escape($order->contract_no).", 
 		loading = ".db_escape($order->loading).", 
 		origin = ".db_escape($order->origin).",  
