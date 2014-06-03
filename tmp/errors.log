@@ -15889,3 +15889,226 @@
 [03-Jun-2014 06:48:05 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 520 and defined
 [03-Jun-2014 06:48:05 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 520 and defined
 [03-Jun-2014 06:48:05 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:05 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:05 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:05 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:05 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:05 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:05 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:05 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:05 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:05 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:05 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:07 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:07 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:07 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:12 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:12 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 508 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 508 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 508 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 509 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 509 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 509 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 511 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 511 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 511 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 518 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 518 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 518 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 519 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 519 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 519 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 520 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 520 and defined
+[03-Jun-2014 06:50:12 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 520 and defined
+[03-Jun-2014 06:50:12 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:15 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:15 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:15 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:15 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:15 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:15 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:17 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:17 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:50:17 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:52:57 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:52:57 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:52:57 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:53:13 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:53:13 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:53:13 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:54:19 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:54:19 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 06:54:19 UTC] 0:admin:ui_input.inc:474: Missing argument 2 for label_row(), called in C:\wamp\www\frontaccounting\sales\view\view_sales_order.php on line 251 and defined
+[03-Jun-2014 06:54:19 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:03:16 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:03:16 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:03:16 UTC] 0:admin:ui_input.inc:474: Missing argument 2 for label_row(), called in C:\wamp\www\frontaccounting\sales\view\view_sales_order.php on line 251 and defined
+[03-Jun-2014 07:03:16 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:03:23 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:03:23 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:03:23 UTC] 0:admin:ui_input.inc:474: Missing argument 2 for label_row(), called in C:\wamp\www\frontaccounting\sales\view\view_sales_order.php on line 251 and defined
+[03-Jun-2014 07:03:23 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:04:42 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:04:42 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:04:42 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:05:08 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:05:08 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:05:08 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:06:24 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:06:24 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:06:24 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:06:43 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:06:43 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:06:43 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:06:58 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:06:58 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:06:58 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:07:28 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:07:28 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:07:28 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:08:08 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:08:08 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:08:08 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:11:09 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:11:09 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:11:09 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:13:10 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:13:10 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:13:10 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:14:21 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:14:21 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:14:21 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:15:21 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:15:21 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:15:21 UTC] 0:admin:ui_input.inc:474: Missing argument 2 for label_row(), called in C:\wamp\www\frontaccounting\sales\view\view_sales_order.php on line 287 and defined
+[03-Jun-2014 07:15:21 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:15:35 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:15:35 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:15:35 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:18:02 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:18:02 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:18:02 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:19:27 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:19:27 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:19:27 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:19:52 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:19:52 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:19:52 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:20:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:20:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:20:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:20:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:22:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:23:00 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:23:00 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:23:02 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:23:02 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:23:17 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:23:17 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:23:17 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:25:33 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:25:33 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:25:33 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:25:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:25:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:25:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:25:47 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:25:47 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:25:47 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:26:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:26:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:26:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:26:29 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:26:29 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:26:29 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:27:29 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:27:30 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:27:30 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:00 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:00 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:00 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:43 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:43 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:43 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:45 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:45 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:45 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:59 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:59 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:32:59 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:34:02 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:34:02 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:34:02 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:34:17 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:34:17 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:34:17 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:35:34 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:35:34 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:35:34 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:36:29 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:36:29 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:36:47 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:36:47 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:37:59 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:37:59 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:38:10 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:38:10 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:38:10 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:39:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:39:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:39:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:39:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:39:37 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:39:37 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:39:37 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:40:45 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:40:46 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:40:46 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:40:52 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:40:52 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:40:52 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:45:34 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:45:34 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:45:34 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:45:34 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:47:11 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:47:12 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:47:12 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:47:15 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:47:15 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:47:15 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:47:15 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:48:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:48:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:48:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:48:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:49:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:49:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:49:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:49:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:52:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:52:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:52:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:52:55 UTC] 0:admin:header2.inc:164: Invalid argument supplied for foreach()
+[03-Jun-2014 07:52:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:53:25 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:53:25 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:53:25 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:53:25 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:55:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:55:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:55:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:55:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:55:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:57:25 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:57:25 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:57:25 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[03-Jun-2014 07:57:25 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.

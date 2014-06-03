@@ -41,6 +41,7 @@ if (isset($_SESSION['View']))
 
 $_SESSION['View'] = new Cart($_GET['trans_type'], $_GET['trans_no']);
 
+
 start_table(TABLESTYLE2, "width=95%", 5);
 
 if ($_GET['trans_type'] != ST_SALESQUOTE)
@@ -245,6 +246,49 @@ label_cells(_("Amount Total"), $display_total, "colspan=6 align='right'","align=
 label_cell('', "colspan=2");
 end_row();
 end_table(2);
+
+display_heading2(_("Other Details"));
+
+	start_table(TABLESTYLE, "width=95%");
+			
+		start_row();
+
+			label_cells(_("Bank Account"), $_SESSION['View']->bank_account_name, "class='tableheader2'");
+
+			label_cells(_("Contract Number"), $_SESSION['View']->contract_no, "class='tableheader2'");
+		end_row();
+
+		start_row();
+
+			label_cells(_("Loading"),$_SESSION['View']->loading, "class='tableheader2'");
+			label_cells(_("Origin"), $_SESSION['View']->origin, "class='tableheader2'");
+
+		end_row();
+
+		start_row();
+
+			label_cells(_("LC Details"),$_SESSION['View']->lc_details, "class='tableheader2'");
+			label_cells(_("Port Of Loading"), $_SESSION['View']->port_of_loading, "class='tableheader2'");
+			
+		end_row();
+
+		start_row();
+
+			label_cells(_("Final Delivery Point"),$_SESSION['View']->final_delivery_point, "class='tableheader2'");
+			label_cells(_("Port Of Discharge"), $_SESSION['View']->port_of_discharge, "class='tableheader2'");
+			
+		end_row();
+
+		start_row();
+
+			label_cells(_("Shipment Terms"),$_SESSION['View']->shipment_terms, "class='tableheader2'");
+			label_cells(_("Remarks"), $_SESSION['View']->remarks, "class='tableheader2'");
+			
+		end_row();
+
+		label_row('Shipment Validity Date',$_SESSION['View']->shipment_validity_date, "class='tableheader2'");
+		
+	end_table();
 
 end_page(true, false, false, $_GET['trans_type'], $_GET['trans_no']);
 

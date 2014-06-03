@@ -326,6 +326,7 @@ function get_sales_order_header($order_no, $trans_type)
 	  ."cust.curr_code, "
 	  ."cust.address, "
 	  ."loc.location_name, "
+	  ."bnk.bank_account_name, "
 	  ."cust.discount, "
 	  ."stype.sales_type, "
 	  ."stype.id AS sales_type_id, "
@@ -340,12 +341,14 @@ function get_sales_order_header($order_no, $trans_type)
 	  .TB_PREF."sales_types stype, "
 	  .TB_PREF."tax_groups tax_group, "
 	  .TB_PREF."cust_branch branch,"
-	  .TB_PREF."locations loc
+	  .TB_PREF."locations loc,"
+	  .TB_PREF."bank_accounts bnk
 	WHERE sorder.order_type=stype.id
 		AND branch.branch_code = sorder.branch_code
 		AND branch.tax_group_id = tax_group.id
 		AND sorder.debtor_no = cust.debtor_no
 		AND loc.loc_code = sorder.from_stk_loc
+		AND sorder.bank_account_id = bnk.id
 		AND sorder.trans_type = " . db_escape($trans_type) ."
 		AND sorder.order_no = " . db_escape($order_no );
 
@@ -405,6 +408,8 @@ function read_sales_order($order_no, &$order, $trans_type)
 	$order->bank_account_id = $myrow['bank_account_id'];
 	$order->final_delivery_point = $myrow['final_delivery_point'];
 	$order->remarks = $myrow['remarks'];
+
+	$order->bank_account_name = $myrow['bank_account_name'];
 	
 	//-------------------------------------------------------
 

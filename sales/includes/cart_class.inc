@@ -59,6 +59,9 @@ class cart
 	var $shipment_terms;
 	var $remarks;
 
+	var $bank_account_name;
+	//-----------------------------
+
 
 	var $deliver_to;
 	var $delivery_address;
