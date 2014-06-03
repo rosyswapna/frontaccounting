@@ -75,7 +75,7 @@ function print_sales_quotations()
 			else	
 				$rep->filename = "SalesQuotation" . $myrow['reference'] . ".pdf";
 		}
-		$rep->SetHeaderType('Header2');
+		$rep->SetHeaderType('Header4');
 		$rep->currency = $cur;
 		$rep->Font();
 		$rep->Info($params, $cols, null, $aligns);
@@ -195,6 +195,10 @@ function print_sales_quotations()
 			$rep->TextCol(1, 7, $myrow['curr_code'] . ": " . $words, - 2);
 		}	
 		$rep->Font();
+
+		
+
+
 		if ($email == 1)
 		{
 			if ($print_invoice_no == 1)
@@ -204,6 +208,9 @@ function print_sales_quotations()
 	}
 	if ($email == 0)
 		$rep->End();
+
+
+
 }
 
 ?>

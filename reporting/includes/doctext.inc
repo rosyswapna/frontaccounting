@@ -41,11 +41,12 @@
 			$this->formData['document_number'] = $print_invoice_no == 0 && isset($this->formData['reference'])
 				? $this->formData['reference'] : $this->formData['order_no'];
 			$aux_info = array(
-				_("Customer's Reference") => $this->formData["customer_ref"],
+			//	_("Customer's Reference") => $this->formData["customer_ref"],
 				_("Sales Person") => get_salesman_name($this->formData['salesman']),
 				_("Your VAT no.") => $this->formData['tax_id'],
 				_("Our Quotation No") => $this->formData['order_no'],
 				_("Valid until") => sql2date($this->formData['delivery_date']),
+				_("Contract No") => $this->formData['contract_no'],
 			);
 			break;
 

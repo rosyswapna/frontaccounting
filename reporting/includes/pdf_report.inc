@@ -386,7 +386,7 @@ class FrontReport extends Cpdf
 			'DebtorName', 'supp_account_no', 'wo_ref', 'debtor_ref','type', 'trans_no', 
 			'StockItemName', 'tax_id', 'order_', 'delivery_date', 'units_issued',
 			'due_date', 'required_by', 'payment_terms', 'curr_code',
-			'ov_freight', 'ov_gst', 'ov_amount', 'requisition_no', 'contact'),
+			'ov_freight', 'ov_gst', 'ov_amount', 'requisition_no', 'contact','contract_no'),
 		'branch' => array('br_address', 'br_name', 'salesman', 'disable_branch'),
 		'sales_order' => array('deliver_to', 'delivery_address', 'customer_ref'),
 		'bankaccount' => array('bank_name', 'bank_account_number', 'payment_service')
@@ -662,6 +662,25 @@ class FrontReport extends Cpdf
 
 		// restore user-specified draw color
 		$this->SetDrawColor($oldDrawColor[0], $oldDrawColor[1], $oldDrawColor[2]);		
+	}
+
+	function Header4()
+	{
+		global $path_to_root, $print_as_quote,
+			$print_invoice_no, $packing_slip, $dflt_lang; // FIXME should be passed as params
+
+		$doctype = $this->formData['doctype'];
+		$header2type = true;
+
+		$this->SetLang(@$this->formData['rep_lang'] ? $this->formData['rep_lang']
+ 			: ($_SESSION["wa_current_user"]->prefs->language ? $_SESSION["wa_current_user"]->prefs->language : $dflt_lang));
+
+ 		 // leave layout files names without path to enable including
+ 		 // modified versions from company/x/reporting directory
+		include("includes/doctext.inc");
+		include("includes/header4.inc");
+
+		$this->row = $temp;
 	}
 
 	/**
