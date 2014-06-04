@@ -386,7 +386,7 @@ class FrontReport extends Cpdf
 			'DebtorName', 'supp_account_no', 'wo_ref', 'debtor_ref','type', 'trans_no', 
 			'StockItemName', 'tax_id', 'order_', 'delivery_date', 'units_issued',
 			'due_date', 'required_by', 'payment_terms', 'curr_code',
-			'ov_freight', 'ov_gst', 'ov_amount', 'requisition_no', 'contact','contract_no'),
+			'ov_freight', 'ov_gst', 'ov_amount', 'requisition_no', 'contact','contract_no','loading','origin','final_delivery_point','lc_details',''),
 		'branch' => array('br_address', 'br_name', 'salesman', 'disable_branch'),
 		'sales_order' => array('deliver_to', 'delivery_address', 'customer_ref'),
 		'bankaccount' => array('bank_name', 'bank_account_number', 'payment_service')
@@ -876,6 +876,20 @@ class FrontReport extends Cpdf
 		$oldLineWidth = $this->GetLineWidth();
 		$this->SetLineWidth($height + 1);
 		parent::line($this->pageWidth - $this->rightMargin, $row ,$this->leftMargin, $row);
+		$this->SetLineWidth($oldLineWidth);
+	}
+
+	function Line1($row, $height = 0, $left=null, $right=null, $dummy3=null)
+	{
+		if($left == null){
+			$left = $this->leftMargin;
+		}
+		if($right == null){
+			$right = $this->pageWidth - $this->rightMargin;
+		}
+		$oldLineWidth = $this->GetLineWidth();
+		$this->SetLineWidth($height + 1);
+		parent::line($right, $row ,$left, $row);
 		$this->SetLineWidth($oldLineWidth);
 	}
 

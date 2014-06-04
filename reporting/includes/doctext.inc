@@ -103,7 +103,7 @@
 			break;
 
 		case ST_SALESINVOICE:
-			$this->title = _("INVOICE");
+			$this->title = _("COMMERCIAL INVOICE");
 			$this->formData['document_name'] =_("Invoice No.");
 			$this->formData['domicile'] = $this->company['domicile'];
 			$Footer[0] = _("Please quote Invoice no. when paying. All amounts stated in"). " - " . $this->formData['curr_code'];
@@ -122,6 +122,21 @@
 				_("Delivery Note No.") => implode(',', $deliveries),
 				_("Due Date") => sql2date($this->formData['due_date']),
 			);
+
+			$info_hleft = array(
+				_("LOADING") => ": ".$this->formData["loading"],
+				_("ORIGIN") => ": ".$this->formData['origin'],
+				_("DESTINATION") => ": ".$this->formData['final_delivery_point'],
+				_("LC DETAILS") => ": ".$this->formData['lc_details'],
+			);
+
+			$info_hright = array(
+				_("Your Ref No") => ": ".$this->formData["loading"],
+				_("SHIPMENT") => ": ".$this->formData['loading'],
+				_("VEHICLE NO") => ": ".$this->formData['loading'],
+				_("LC DATE") => ": ".$this->formData['loading'],
+			);
+
 			break;
 
 		case ST_SUPPAYMENT:
@@ -240,7 +255,8 @@
 		$sql = "SELECT terms FROM ".TB_PREF."payment_terms WHERE terms_indicator=".db_escape($id);
 		$result = db_query($sql,"could not get paymentterms");
 		$row = db_fetch($result);
-		$Payment_Terms = _("Payment Terms") . ': ' . $row["terms"];
+		//$Payment_Terms = _("Payment Terms") . ': ' . $row["terms"];
+		$Payment_Terms = $row["terms"];
 	}
 
 	// footer generic content
