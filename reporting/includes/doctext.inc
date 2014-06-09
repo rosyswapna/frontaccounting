@@ -32,6 +32,12 @@
 	// for links use 'text' => 'url'
 	$Footer[0] = _("All amounts stated in") . " - " . @$this->formData['curr_code'];
 
+	
+
+	$TelFaxEmail = "Tel.:".$this->company['phone'].", Fax:".$this->company['fax'].", E-mail:".$this->company['email'];
+
+	$coyFooter = array($this->company['postal_address'],$TelFaxEmail);
+
 	switch ($this->formData['doctype'])
 	{
 		case ST_SALESQUOTE:
@@ -115,6 +121,7 @@
 					$deliveries[$n] = get_reference(ST_CUSTDELIVERY, $delivery);
 				}
 			}
+			/*
 			$aux_info = array(
 				_("Customer's Reference") => $this->formData["customer_ref"],
 				_("Sales Person") => get_salesman_name($this->formData['salesman']),
@@ -122,6 +129,8 @@
 				_("Delivery Note No.") => implode(',', $deliveries),
 				_("Due Date") => sql2date($this->formData['due_date']),
 			);
+			*/
+
 
 			$info_hleft = array(
 				_("LOADING") => ": ".$this->formData["loading"],
@@ -136,6 +145,16 @@
 				_("VEHICLE NO") => ": ".$this->formData['loading'],
 				_("LC DATE") => ": ".$this->formData['loading'],
 			);
+
+			$this->headers = array(_("Container No."), _("Material"),
+				_("Net Wt (MT)"), _("Unit Price (AED)"), _("Total Amount (AED)"));
+
+			$table_totals = array(
+				_("Total Amount") => $this->formData["sub_total"],
+				_("Adv/Disc") => $this->formData['loading'],
+				_("Gross Amount") => $this->formData['loading'],
+				);
+			$Certify = "We Certify that the merchandise is of U.A.E. Origin";
 
 			break;
 

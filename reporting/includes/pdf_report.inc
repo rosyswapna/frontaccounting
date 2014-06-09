@@ -401,7 +401,9 @@ class FrontReport extends Cpdf
 				}
 			}
 		}
+		
 		$this->formData['doctype'] = $doctype;
+		
 		$this->formData['document_amount'] = @$this->formData['ov_amount']+@$this->formData['ov_freight']+@$this->formData['ov_gst'];
 		if (count($contacts)) {
 			if (!is_array($contacts[0]))
@@ -412,6 +414,16 @@ class FrontReport extends Cpdf
 			$this->formData['rep_lang'] = $contacts[0]['lang'];
 		}
 	}
+
+
+	function SetData($dataArray = array())
+	{
+		foreach($dataArray as $key=>$value){
+			$this->formData[$key]=$value;
+		}
+	}
+
+	
 	/*
 		Set header handler
 	*/

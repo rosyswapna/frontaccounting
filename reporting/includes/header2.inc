@@ -27,16 +27,8 @@
 		$upper = $this->row - 2 * $this->lineHeight;
 		$lower = $this->bottomMargin + 8 * $this->lineHeight;
 
-		$iline1 = $upper - 4.1 * $this->lineHeight;
-		$iline2 = $iline1 - 5 * $this->lineHeight;
-
-		$iline3 = $iline2 - 7.5 * $this->lineHeight;
-		$iline4 = $iline3 - 2.5 * $this->lineHeight;
-		$iline5 = $iline4 - 1.5 * $this->lineHeight;
-		$iline6 = $iline5 - 8 * $this->lineHeight;
-		$iline7 = $iline6 - 1.5 * $this->lineHeight;
-		$iline8 = $iline7 - 1.5 * $this->lineHeight;
-		$iline9 = $iline8 - 1.5 * $this->lineHeight;	
+		$right = $this->pageWidth - $this->rightMargin;
+	
 		
 		$icol = $this->pageWidth / 2;
 		$ccol = $this->cols[0] + 4;
@@ -50,28 +42,68 @@
 		$mcol2 = $this->pageWidth - $ccol2;
 		$cols = count($this->cols);
 
-		//margin left for table data
-		$mltbl = $ccol+3;
+		//-------------------------address box start here-------------------------
+		$iline1 = $upper - 4.1 * $this->lineHeight;
+		$iline2 = $iline1 - 5 * $this->lineHeight;
 
+		$box_right = $ccol + 250;
+		$left = $ccol;
 		$this->Line1($iline1,0,$ccol,$ccol + 250);
 		$this->Line1($iline2,0,$ccol,$ccol + 250);
 
-		$right = $ccol + 250;
-		$left = $ccol;
-
-		$this->LineTo($right, $iline1 ,$right, $iline2);
+		$this->LineTo($box_right, $iline1 ,$box_right, $iline2);
 		$this->LineTo($left, $iline1 ,$left, $iline2);
+		//-------------------------address box ends here-------------------------
+		
 
+		//-------------------------------------table start here-----------------------
+
+		//margin left for table data
+		$mltbl = $ccol+3;
+
+		//end points for table right and left ends.
+		$rightEnd = $this->pageWidth - $this->rightMargin;
+		$leftEnd = $ccol;
+
+		//table rows points
+		$iline3 = $iline2 - 7.5 * $this->lineHeight;
+		$iline4 = $iline3 - 2.5 * $this->lineHeight;
+		$iline5 = $iline4 - 1.5 * $this->lineHeight;
+		$iline6 = $iline5 - 8 * $this->lineHeight;
+		$iline7 = $iline6 - 1.5 * $this->lineHeight;
+		$iline8 = $iline7 - 1.5 * $this->lineHeight;
+		$iline9 = $iline8 - 1.5 * $this->lineHeight;
+
+		//table column's points
+		$inner1 = $leftEnd+90;
+		$inner2 = $inner1+120;
+		$inner3 = $inner2+90;
+		$inner4 = $inner3+90;
+		//array for table data
+		$columns = array($leftEnd,$inner1,$inner2,$inner3,$inner4,$rightEnd);
+
+		//table horizontal lines
 		$this->Line1($iline3,0,$ccol);
 		$this->Line1($iline4,0,$ccol);
 		$this->Line1($iline5,0,$ccol);
 		$this->Line1($iline6,0,$ccol);
 		$this->Line1($iline7,0,$ccol);
-		$this->Line1($iline8,0,$ccol);
+		$this->Line1($iline8,0,$inner3);
 		$this->Line1($iline9,0,$ccol);
 
-		$this->LineTo($ccol, $iline3 ,$ccol, $iline9);
 		
+		//table vertical left and right end lines
+		$this->LineTo($rightEnd, $iline3 ,$rightEnd, $iline9);
+		$this->LineTo($leftEnd, $iline3 ,$leftEnd, $iline9);
+
+		//table vertical inner lines
+		$this->LineTo($inner1, $iline4 ,$inner1, $iline6);
+		$this->LineTo($inner2, $iline4 ,$inner2, $iline6);
+		$this->LineTo($inner3, $iline4 ,$inner3, $iline9);
+		$this->LineTo($inner4, $iline4 ,$inner4, $iline9);
+		//-------------------------------------table ends here-----------------------
+		
+	
 		// Company Logo
 		$this->NewLine();
 		$logo = company_path() . "/images/" . $this->company['coy_logo'];
@@ -117,7 +149,7 @@
 		$this->Text($cn2col , $this->formData['contract_no'],$mcol);
 		$this->NewLine();
 		
-		// address1
+		// address
 		$adrcol=$ccol+10;
 		$this->NewLine();
 		$this->Text($adrcol, $Addr1['name'], $adrcol);
@@ -148,26 +180,75 @@
 		$this->Font('U');
 		$this->Text($ccol, _("PAYMENT TERMS :"),$cn2col);
 		$this->row = $iline3 - $this->lineHeight;
-		$this->Font('');
+		$this->Font();
 		$this->Text($mltbl,$Payment_Terms);
 
+		// table headers
+		$this->row = $iline4 - $this->lineHeight -1;
+		$this->Font('bold');
+		$count = count($this->headers);
+		for ($i = 0; $i < $count; $i++){
+			$dcol1 = $columns[$i];
+			$j = $i+1;
+			$dcol2 = $columns[$j]-$dcol1;
+			
+			$this->TextWrap($dcol1, $this->row, $dcol2, $this->headers[$i], 'center');
+		}
+		$this->Font();
 
-		//table heading
+		// table data
+
+		// table totals
+		$rows = array($iline6 - $this->lineHeight -1,$iline7 - $this->lineHeight -1,$iline8 - $this->lineHeight -1);
+		$i = 0;
+		foreach($table_totals as $info_header => $info_content){
+			$this->row = $rows[$i];
+			$hcol1 = $inner3;
+			$hcol2 = $inner4 - $inner3;
+			$this->TextWrap($hcol1, $this->row, $hcol2, $info_header, 'center');
+
+			$dcol1 = $inner4;
+			$dcol2 = $rightEnd - $inner4;
+			$this->TextWrap($dcol1, $this->row, $dcol2, $info_content, 'center');
+			$i++;
+		}
+
+		//table total in figures
+		$this->row = $iline7 - $this->lineHeight - 1;
+		$this->TextWrap($leftEnd, $this->row, $inner3-$leftEnd-2, $this->formData['words'], 'left');
+
+		//CERTIFY
+		$this->row = $iline9 - $this->lineHeight;
+		$this->Text($ccol, $Certify);
+
+		//BANK DETAILS
+		$this->NewLine(2);
+		$this->Font('U');
+		$this->Text($ccol, "OUR BANK DETAILS");
+
+		$this->Font();
+		$this->NewLine(2);
+		$this->TextWrapLines($ccol, $this->row, $Addr1['address']);
+
+		//IBAN AND SWIFT
+
+		//THANKING
+		$this->NewLine(4);
+		$this->Text($ccol, "Thanking You,");
+
+		$this->NewLine(4);
+		$this->Text($ccol, "For, ".$this->company['coy_name']);
+
+
+		//FOOTER
+		$this->NewLine(4);
+		$this->Line1($this->row,0,$this->leftMargin);
+		foreach($coyFooter as $content){
+			$this->NewLine();
+			$this->TextWrap($ccol, $this->row, $this->rightMargin-$ccol, $content, 'center');
+		}
 		
 
 		
-
-		
-
-		
-		
-
-		
-
-
-		
-
-		
-
 
 ?>
