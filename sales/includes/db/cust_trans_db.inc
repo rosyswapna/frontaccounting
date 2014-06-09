@@ -56,7 +56,9 @@ function get_customer_trans_version($type, $trans_no) {
 function write_customer_trans($trans_type, $trans_no, $debtor_no, $BranchNo,
 	$date_, $reference, $Total, $discount=0, $Tax=0, $Freight=0, $FreightTax=0,
 	$sales_type=0, $order_no=0, $ship_via=0, $due_date="",
-	$AllocAmt=0, $rate=0, $dimension_id=0, $dimension2_id=0, $payment_terms=null)
+	$AllocAmt=0, $rate=0, $dimension_id=0, $dimension2_id=0, $payment_terms=null,$contract_no='',$loading_type_id=0,
+	$origin='',$lc_no='',$lc_date = '',$bank_account_id=0,$shipment_terms = '',$shipment_validity_date = '',
+	$port_of_loading = '',$port_of_discharge = '',$destination = '',$remarks = '',$shipping_id=0,$shipment_time_id=0)
 {
 	$new = $trans_no==0;
 	$curr = get_customer_currency($debtor_no);
@@ -68,6 +70,16 @@ function write_customer_trans($trans_type, $trans_no, $debtor_no, $BranchNo,
 		$SQLDueDate = "0000-00-00";
 	else
 		$SQLDueDate = date2sql($due_date);
+
+	if ($lc_date == "")
+		$SQL_lc_date = "0000-00-00";
+	else
+		$SQL_lc_date = date2sql($lc_date);
+
+	if ($shipment_validity_date == "")
+		$SQL_shp_vld_date = "0000-00-00";
+	else
+		$SQL_shp_vld_date = date2sql($shipment_validity_date);
 	
 	if ($trans_type == ST_BANKPAYMENT)
 		$Total = -$Total;
@@ -85,7 +97,12 @@ function write_customer_trans($trans_type, $trans_no, $debtor_no, $BranchNo,
 		order_, ov_amount, ov_discount,
 		ov_gst, ov_freight, ov_freight_tax,
 		rate, ship_via, alloc,
-		dimension_id, dimension2_id, payment_terms
+		dimension_id, dimension2_id, payment_terms,
+		contract_no, loading_type_id, origin, 
+		lc_no, lc_date, bank_account_id, 
+		shipment_terms, shipment_validity_date, 
+		port_of_loading, port_of_discharge, 
+		destination, remarks,shipping_id,shipment_time_id
 		) VALUES (".db_escape($trans_no).", ".db_escape($trans_type).",
 		".db_escape($debtor_no).", ".db_escape($BranchNo).",
 		'$SQLDate', '$SQLDueDate', ".db_escape($reference).",
@@ -93,7 +110,13 @@ function write_customer_trans($trans_type, $trans_no, $debtor_no, $BranchNo,
 		".db_escape($Freight).",
 		$FreightTax, $rate, ".db_escape($ship_via).", $AllocAmt,
 		".db_escape($dimension_id).", ".db_escape($dimension2_id).", "
-		.db_escape($payment_terms, true).")";
+		.db_escape($payment_terms, true).",".db_escape($contract_no).",
+		".db_escape($loading_type_id).",".db_escape($origin).",
+		".db_escape($lc_no).",'$SQL_lc_date',
+		".db_escape($bank_account_id).",".db_escape($shipment_terms).",'$SQL_shp_vld_date',
+		".db_escape($port_of_loading).",
+		".db_escape($port_of_discharge).",".db_escape($destination).",
+		".db_escape($remarks).",".db_escape($shipping_id).",".db_escape($shipment_time_id).")";
 	} else {	// may be optional argument should stay unchanged ?
 	$sql = "UPDATE ".TB_PREF."debtor_trans SET
 		debtor_no=".db_escape($debtor_no)." , branch_code=".db_escape($BranchNo).",
@@ -103,9 +126,17 @@ function write_customer_trans($trans_type, $trans_no, $debtor_no, $BranchNo,
 		ov_freight=".db_escape($Freight).", ov_freight_tax=$FreightTax, rate=$rate,
 		ship_via=".db_escape($ship_via).", alloc=$AllocAmt,
 		dimension_id=".db_escape($dimension_id).", dimension2_id=".db_escape($dimension2_id).",
-		payment_terms=".db_escape($payment_terms, true)."
+		payment_terms=".db_escape($payment_terms, true).",
+		contract_no=".db_escape($contract_no)." , loading_type_id=".db_escape($loading_type_id).",
+		origin=".db_escape($origin)." , lc_no=".db_escape($lc_no).",
+		lc_date='$SQL_lc_date' , bank_account_id=".db_escape($bank_account_id).",
+		shipment_terms=".db_escape($shipment_terms)." , shipment_validity_date='$SQL_shp_vld_date',
+		port_of_loading=".db_escape($port_of_loading)." , port_of_discharge=".db_escape($port_of_discharge).",
+		destination=".db_escape($destination)." , remarks=".db_escape($remarks).",
+		shipping_id=".db_escape($shipping_id)." ,shipment_time_id=".db_escape($shipment_time_id)." 
 		WHERE trans_no=".db_escape($trans_no)." AND type=".db_escape($trans_type);
 	}
+	//echo $sql;exit();
 	db_query($sql, "The debtor transaction record could not be inserted");
 
 	add_audit_trail($trans_type, $trans_no, $date_, $new ? '': _("Updated."));

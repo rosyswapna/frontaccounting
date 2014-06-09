@@ -272,6 +272,7 @@ class cart
 				if ($type == ST_SALESINVOICE) {
 					$this->due_date =
 						get_invoice_duedate($this->payment, $this->document_date);
+						
 				} else
 					$this->due_date =
 						add_days($this->document_date, $SysPrefs->default_delivery_required_by());

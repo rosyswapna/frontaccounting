@@ -134,6 +134,7 @@ $cols = array(
 		_("Shipment #") => array('fun'=>'view_link'),
 		_("Customer") => array('type' => 'debtor.name') ,
 		_("Vehicle Details"),
+		_("Container No"),
 		_("First Weight"), 
 		_("First Weight Date")=>array('type'=>'date'),  
 		_("Second Weight"),

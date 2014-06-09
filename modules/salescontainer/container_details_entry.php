@@ -64,6 +64,7 @@ function shipping_details($selected_id){
 		$_POST['shipping_id'] = $myrow["shipping_id"];
 		$_POST['customer_id'] = $myrow["debtor_no"];
 		$_POST['vehicle_details']  = $myrow["vehicle_details"];
+		$_POST['container_no']  = $myrow["container_no"];
 		$_POST['shipment_status']  = $myrow["shipment_status"];
 		$_POST['first_weight']  = $myrow["first_weight"];
 		$_POST['first_weight_date']  = $myrow["first_weight_date"];
@@ -75,6 +76,7 @@ function shipping_details($selected_id){
 
 		$_POST['shipping_id'] = $_POST['customer_id'] = -1;
 		$_POST['vehicle_details']  = '';
+		$_POST['container_no']  = '';
 		$_POST['shipment_status']  = 1;
 		$_POST['first_weight']  = '';
 		$_POST['first_weight_date']  = '';
@@ -91,6 +93,8 @@ function shipping_details($selected_id){
 			customer_list_cells(_("Customer:"), 'customer_id', $_POST['customer_id'], false, false, false, true);
 
 			vehicle_cells(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'], '');
+
+			container_cells(_("Container No.").':', 'container_no', _(''), $_POST['container_no'], '');
 
 			shipment_status_cells(_("Shipment Status").':', 'shipment_status', _(''), $_POST['shipment_status']);
 
@@ -137,6 +141,7 @@ function open_shipping_details_settings($selected_id){
 		$_POST['shipping_id'] = $myrow["shipping_id"];
 		$_POST['customer_id'] = $myrow["debtor_no"];
 		$_POST['vehicle_details']  = $myrow["vehicle_details"];
+		$_POST['container_no']  = $myrow["container_no"];
 		$_POST['first_weight']  = $myrow["first_weight"];
 		$_POST['first_weight_date']  = $myrow["first_weight_date"];
 		$_POST['shipment_status']  = $myrow["shipment_status"];
@@ -150,6 +155,7 @@ function open_shipping_details_settings($selected_id){
 
 		$_POST['shipping_id'] = $_POST['customer_id'] = -1;
 		$_POST['vehicle_details']  = '';
+		$_POST['container_no']  = '';
 		$_POST['first_weight']  = '';
 		$_POST['first_weight_date']  = '';	
 		$_POST['shipment_status']  = SHIPMENT_STATUSOPEN;	
@@ -166,11 +172,13 @@ function open_shipping_details_settings($selected_id){
 
 			vehicle_cells(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'], '');
 
+			container_cells(_("Container No").':', 'container_no', _(''), $_POST['container_no'], '');
+
 		end_row();
 
 		start_row();
 
-			echo "<td colspan='4'>";
+			echo "<td colspan='6'>";
 				start_outer_table(TABLESTYLE2);
 					table_section(1);
 					table_section_title(_("First Weight Details"));
@@ -228,6 +236,8 @@ function close_shipping_details_settings($selected_id){
 			label_cells(_("Customer:"), $myrow["customer"]);
 			
 			label_cells(_("Vehicle Number:"), $myrow["vehicle_details"]);
+
+			label_cells(_("Container No:"), $myrow["container_no"]);
 
 		end_row();
 
@@ -297,7 +307,7 @@ function handle_submit(&$selected_id)
 	if ($selected_id) 
 	{
 		//it is an existing shipping details
-		update_shipping_details($selected_id,$_POST['customer_id'],$_POST['vehicle_details'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date'],$_POST['second_weight'],$_POST['second_weight_date']);
+		update_shipping_details($selected_id,$_POST['customer_id'],$_POST['vehicle_details'],$_POST['container_no'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date'],$_POST['second_weight'],$_POST['second_weight_date']);
 		display_notification(_("Shipping details has been updated."));
 
 	} 
@@ -305,7 +315,7 @@ function handle_submit(&$selected_id)
 	{ 	//it is a new entry
 		begin_transaction();
 
-		add_shipping_details($_POST['customer_id'],$_POST['vehicle_details'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date']);
+		add_shipping_details($_POST['customer_id'],$_POST['vehicle_details'],$_POST['container_no'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date']);
 		$selected_id = $_POST['shipping_id'] = db_insert_id();
 
 		commit_transaction();

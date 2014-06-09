@@ -499,26 +499,32 @@ function display_order_footer()
 	
 	start_table(TABLESTYLE, "colspan=7 width=90%");
 
-		bank_accounts_list_row("Bank Account",'bank_account_id');
+		
 
 		start_row();
 			echo "<td>";
 				start_table(TABLESTYLE2, "width=100%");
+
+					bank_accounts_list_row("Bank Account",'bank_account_id');
 					
 					text_row("Contract No",'contract_no');
-					text_row("Loading",'loading');
+					loading_type_list_row("Loading",'loading_type_id');
 					text_row("Origin",'origin');
-					text_row("LC Details",'lc_details');
+					text_row("LC Number",'lc_no');
+					date_row("LC Date",'lc_date');
 					textarea_row('Remarks','remarks','',31,5);
 				end_table();
 			echo "</td>";
 			echo "<td>";
 				start_table(TABLESTYLE2, "width=100%");
 
+					shipping_list_row("Shipment Id",'shipping_id');
+
 					text_row("Port Of Loading",'port_of_loading');
 					text_row("Port Of Discharge",'port_of_discharge');
-					text_row("Final Delivery Point",'final_delivery_point');
+					text_row("Destination",'destination');
 					date_row("Shipment Validity Date",'shipment_validity_date',null,null,0,0,1001);
+					shipment_time_list_row("Shipment Time",'shipment_time_id');
 					textarea_row('Shipment Terms','shipment_terms','',31,5);
 				end_table();
 			echo "</td>";

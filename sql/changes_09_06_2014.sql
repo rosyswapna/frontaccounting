@@ -24,6 +24,8 @@ ALTER TABLE `debtor_trans` CHANGE `loading` `loading_type_id` INT( 11 ) NOT NULL
 ALTER TABLE `debtor_trans` CHANGE `lc_details` `lc_no` VARCHAR( 255 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
 ALTER TABLE `debtor_trans` ADD `lc_date` DATE NOT NULL AFTER `lc_no`; 
 ALTER TABLE `debtor_trans` CHANGE `final_delivery_point` `destination` VARCHAR( 255 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+ALTER TABLE `debtor_trans` ADD `shipment_time_id` INT( 11 ) NOT NULL 
+ALTER TABLE `debtor_trans` ADD `shipping_id` INT( 11 ) NOT NULL 
 
 -------------------------------------------------------------------------------------------
 

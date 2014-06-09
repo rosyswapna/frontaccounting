@@ -3,22 +3,22 @@
    This file provide a way to integrate with shipping_details table
 ***********************************************************************/
 
-function add_shipping_details($DebtorNo, $VehicleDetails, $ShipmentStatus, $FirstWeight, $FirstWeightDate)
+function add_shipping_details($DebtorNo, $VehicleDetails, $ContainerNo, $ShipmentStatus, $FirstWeight, $FirstWeightDate)
 {
 	if ($FirstWeightDate == "")
 		$SQLFirstDate = "0000-00-00";
 	else
 		$SQLFirstDate = date2sql($FirstWeightDate);
 
-	$sql = "INSERT INTO ".TB_PREF."shipping_details (debtor_no, vehicle_details,shipment_status,first_weight,first_weight_date) VALUES ("
-		.db_escape($DebtorNo) .", " .db_escape($VehicleDetails) . ",".db_escape($ShipmentStatus).",".db_escape($FirstWeight).",'$SQLFirstDate')";
+	$sql = "INSERT INTO ".TB_PREF."shipping_details (debtor_no, vehicle_details,container_no,shipment_status,first_weight,first_weight_date) VALUES ("
+		.db_escape($DebtorNo) .", " .db_escape($VehicleDetails) . ",".db_escape($ContainerNo).",".db_escape($ShipmentStatus).",".db_escape($FirstWeight).",'$SQLFirstDate')";
 
 	//echo $sql;exit();
 
 	db_query($sql,"The Shipping Details could not be added");
 }
 
-function update_shipping_details($ShippingId,$DebtorNo, $VehicleDetails, $ShipmentStatus, $FirstWeight, $FirstWeightDate,$SecondWeight,$SecondWeightDate)
+function update_shipping_details($ShippingId,$DebtorNo, $VehicleDetails, $ContainerNo, $ShipmentStatus, $FirstWeight, $FirstWeightDate,$SecondWeight,$SecondWeightDate)
 {
 	if ($FirstWeightDate == "")
 		$SQLFirstDate = "0000-00-00";
@@ -32,6 +32,7 @@ function update_shipping_details($ShippingId,$DebtorNo, $VehicleDetails, $Shipme
 
 	$sql = "UPDATE ".TB_PREF."shipping_details SET debtor_no=" . db_escape($DebtorNo) . ", 
 		vehicle_details=".db_escape($VehicleDetails) .",
+		container_no=".db_escape($ContainerNo) .",
 		shipment_status=".db_escape($ShipmentStatus) .",
 		first_weight=".db_escape($FirstWeight) .",
 		first_weight_date=".$SQLFirstDate ;
@@ -68,6 +69,7 @@ function get_shipping_detail($shipping_id)
 	$sql = "SELECT shipment.shipping_id,
 			debtor.name as customer,
 			shipment.vehicle_details,
+			shipment.container_no,
 			shipment.first_weight,
 			shipment.first_weight_date,
 			shipment.second_weight,
@@ -90,6 +92,7 @@ function get_sql_for_shipment_view($selected_customer,$shipment_id,$vehicle_deta
 			shipment.shipping_id,
 			debtor.name,
 			shipment.vehicle_details,
+			shipment.container_no,
 			shipment.first_weight,
 			shipment.first_weight_date,
 			shipment.second_weight,

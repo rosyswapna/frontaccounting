@@ -775,9 +775,10 @@ if ($customer_error == "") {
 	if ($_SESSION['Items']->trans_no == 0) {
 
 		submit_center_first('ProcessOrder', $porder,
-		    _('Check entered data and save document'), 'default');
+		    _('Check entered data and save document'));
 
-		
+		//submit_center_first('ProcessOrder', $porder,
+		 //   _('Check entered data and save document'), 'default');
 
 		
 		submit_js_confirm('CancelOrder', _('You are about to void this Document.\nDo you want to continue?'));
