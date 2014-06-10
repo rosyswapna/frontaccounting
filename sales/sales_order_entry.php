@@ -287,15 +287,18 @@ function copy_to_cart()
 	$cart->shipping_id	= $_POST['shipping_id'];
 	$cart->bank_account_id = $_POST['bank_account_id'];
 	$cart->contract_no	= $_POST['contract_no'];
-	$cart->loading	= $_POST['loading'];
+	$cart->loading_type_id	= $_POST['loading_type_id'];
 	$cart->origin	= $_POST['origin'];
-	$cart->lc_details	= $_POST['lc_details'];
+	$cart->lc_no	= $_POST['lc_no'];
+	$cart->lc_date	= $_POST['lc_date'];
 	$cart->port_of_loading	= $_POST['port_of_loading'];
 	$cart->port_of_discharge	= $_POST['port_of_discharge'];
-	$cart->final_delivery_point	= $_POST['final_delivery_point'];
+	$cart->destination	= $_POST['destination'];
 	$cart->shipment_validity_date	= $_POST['shipment_validity_date'];
 	$cart->shipment_terms	= $_POST['shipment_terms'];
 	$cart->remarks	= $_POST['remarks'];
+	$cart->shipment_time_id	= $_POST['shipment_time_id'];
+	
 	//------------------------------------------------------------------
 
 
@@ -472,6 +475,8 @@ if (isset($_POST['update'])) {
 }
 
 if (isset($_POST['ProcessOrder']) && can_process()) {
+
+
 
 	copy_to_cart();
 	$modified = ($_SESSION['Items']->trans_no != 0);

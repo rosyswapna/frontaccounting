@@ -43,8 +43,8 @@
 		$cols = count($this->cols);
 
 		//-------------------------address box start here-------------------------
-		$iline1 = $upper - 4.1 * $this->lineHeight;
-		$iline2 = $iline1 - 5 * $this->lineHeight;
+		$iline1 = $upper - 3.9 * $this->lineHeight;
+		$iline2 = $iline1 - 4.5 * $this->lineHeight;
 
 		$box_right = $ccol + 250;
 		$left = $ccol;
@@ -146,12 +146,13 @@
 		$this->Text($ccol, _("To,"));
 
 		$this->Text($c2col, _("Invoice No   :"),$cn2col);
-		$this->Text($cn2col , $this->formData['contract_no'],$mcol);
+		$this->Text($cn2col , $invoice,$mcol);
 		$this->NewLine();
 		
 		// address
+		$this->row = $iline1 - $this->lineHeight;
 		$adrcol=$ccol+10;
-		$this->NewLine();
+		//$this->NewLine();
 		$this->Text($adrcol, $Addr1['name'], $adrcol);
 		$this->NewLine();
 		$this->TextWrapLines($adrcol, $this->row, $Addr1['address']);
@@ -163,6 +164,7 @@
 		{
 			
 			$this->Text($ccol, $info_header,$cncol);
+			
 			$this->Text($cncol, $info_content,$mcol);
 			$this->NewLine();
 		}
@@ -228,12 +230,13 @@
 
 		$this->Font();
 		$this->NewLine(2);
-		$this->TextWrapLines($ccol, $this->row, $Addr1['address']);
-
-		//IBAN AND SWIFT
+		foreach($bank_details as $data){
+			$this->TextWrapLines($ccol, $this->row, $data);
+		}
+		
 
 		//THANKING
-		$this->NewLine(4);
+		$this->NewLine(2);
 		$this->Text($ccol, "Thanking You,");
 
 		$this->NewLine(4);

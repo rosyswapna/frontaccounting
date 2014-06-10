@@ -47,12 +47,12 @@
 			$this->formData['document_number'] = $print_invoice_no == 0 && isset($this->formData['reference'])
 				? $this->formData['reference'] : $this->formData['order_no'];
 			$aux_info = array(
-			//	_("Customer's Reference") => $this->formData["customer_ref"],
+				_("Customer's Reference") => $this->formData["customer_ref"],
 				_("Sales Person") => get_salesman_name($this->formData['salesman']),
 				_("Your VAT no.") => $this->formData['tax_id'],
 				_("Our Quotation No") => $this->formData['order_no'],
 				_("Valid until") => sql2date($this->formData['delivery_date']),
-				_("Contract No") => $this->formData['contract_no'],
+				//_("Contract No") => $this->formData['contract_no'],
 			);
 			break;
 
@@ -133,17 +133,17 @@
 
 
 			$info_hleft = array(
-				_("LOADING") => ": ".$this->formData["loading"],
+				_("LOADING") => ": ".$this->formData["origin"],
 				_("ORIGIN") => ": ".$this->formData['origin'],
-				_("DESTINATION") => ": ".$this->formData['final_delivery_point'],
-				_("LC DETAILS") => ": ".$this->formData['lc_details'],
+				_("DESTINATION") => ": ".$this->formData['destination'],
+				_("LC DETAILS") => ": ".$this->formData['lc_no'],
 			);
 
 			$info_hright = array(
-				_("Your Ref No") => ": ".$this->formData["loading"],
-				_("SHIPMENT") => ": ".$this->formData['loading'],
-				_("VEHICLE NO") => ": ".$this->formData['loading'],
-				_("LC DATE") => ": ".$this->formData['loading'],
+				_("Your Ref No") => ": ".$this->formData["customer_ref"],
+				_("SHIPMENT") => ": ".$this->formData['origin'],
+				_("VEHICLE NO") => ": ".$this->formData['origin'],
+				_("LC DATE") => ": ".$this->formData['lc_date'],
 			);
 
 			$this->headers = array(_("Container No."), _("Material"),
@@ -155,6 +155,13 @@
 				_("Gross Amount") => $this->formData['loading'],
 				);
 			$Certify = "We Certify that the merchandise is of U.A.E. Origin";
+
+			$bank_details = array("BANK NAME: ".$this->formData["bank_name"],
+				"A/C NAME: ".$this->formData['bank_account_name'],
+				"A/C NO: ".$this->formData['bank_account_number'],
+				"IBAN: AE890110090040200010870",
+				"SWIFT CODE: BARBAEADSHJ",
+				);
 
 			break;
 

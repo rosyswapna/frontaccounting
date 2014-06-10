@@ -42,6 +42,8 @@ function write_sales_delivery(&$delivery,$bo_policy)
 	}
 	/* Insert/update the debtor_trans */
 
+	//echo $delivery->shipment_time_id;exit();
+
 	$delivery_no = write_customer_trans(ST_CUSTDELIVERY, $trans_no, $delivery->customer_id,
 		$delivery->Branch, $delivery->document_date, $delivery->reference,
 		$delivery_items_total, 0,
@@ -50,11 +52,7 @@ function write_sales_delivery(&$delivery,$bo_policy)
 		$delivery->tax_included ? 0 : $freight_tax,
 		$delivery->sales_type, $delivery->order_no,
 		$delivery->ship_via, $delivery->due_date, 0, 0, $delivery->dimension_id, 
-		$delivery->dimension2_id, $delivery->payment, $delivery->contract_no, $delivery->loading_type_id,
-		$delivery->origin, $delivery->lc_no, $delivery->lc_date, $delivery->bank_account_id,
-		$delivery->shipment_terms,$delivery->shipment_validity_date,$delivery->port_of_loading,
-		$delivery->port_of_discharge,$delivery->destination,$delivery->remarks, $delivery->shipping_id,
-		$delivery->shipment_time_id
+		$delivery->dimension2_id, $delivery->payment
 		);
 
 	if ($trans_no == 0) {

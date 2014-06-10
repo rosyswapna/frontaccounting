@@ -23946,3 +23946,1488 @@
 [09-Jun-2014 12:00:33 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
 [09-Jun-2014 12:00:33 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
 [09-Jun-2014 12:00:33 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:31 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:22:38 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:23:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:23:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:23:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:23:36 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:23:36 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:23:39 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:23:39 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:23:39 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:23:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:23:41 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:23:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:24:13 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:24:13 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:24:13 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:24:13 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:24:13 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:24:24 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:24:24 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:24:24 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:25:07 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:25:07 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:25:07 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:25:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:25:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:25:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:25:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:25:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:25:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:25:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:25:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:25:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:13 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:13 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:13 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:40 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:40 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:40 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:28:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:05 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:05 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:05 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:12 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:13 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:13 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:37 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:37 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:37 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:45 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:45 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:29:46 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:25 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:25 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 514 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 514 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 514 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 526 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 526 and defined
+[10-Jun-2014 05:30:25 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 526 and defined
+[10-Jun-2014 05:30:25 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 514 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 514 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 514 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 526 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 526 and defined
+[10-Jun-2014 05:30:27 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 526 and defined
+[10-Jun-2014 05:30:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:42 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:42 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:30:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:31:49 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:31:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:31:53 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:31:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:56 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:31:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:31:56 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:31:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:32:36 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:32:36 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:33:06 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:33:06 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:37:21 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:37:21 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:37:21 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:37:32 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:37:32 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:37:32 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:37:37 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:37:37 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:37:37 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:37:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:37:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:37:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:00 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:00 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:00 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:28 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:28 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:28 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:36 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:36 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:36 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:45 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:45 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:45 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:38:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:08 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:08 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:08 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:23 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:23 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:39:23 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:42:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:42:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:42:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:42:57 UTC] 0:admin:header2.inc:162: Invalid argument supplied for foreach()
+[10-Jun-2014 05:42:57 UTC] 0:admin:header2.inc:171: Invalid argument supplied for foreach()
+[10-Jun-2014 05:42:57 UTC] 0:admin:header2.inc:204: Invalid argument supplied for foreach()
+[10-Jun-2014 05:42:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:42:57 UTC] 0:admin:header2.inc:162: Invalid argument supplied for foreach()
+[10-Jun-2014 05:42:57 UTC] 0:admin:header2.inc:171: Invalid argument supplied for foreach()
+[10-Jun-2014 05:42:57 UTC] 0:admin:header2.inc:204: Invalid argument supplied for foreach()
+[10-Jun-2014 05:42:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:33 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:33 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:33 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:42 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:43 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:43 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:43 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:43 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:43 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:43 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:43 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:43 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:43 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:43:44 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:43:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:47 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:43:47 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 05:43:47 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:18 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:18 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:18 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:21 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:21 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:21 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:44:21 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:45:47 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:45:47 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:45:47 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:45:47 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:45:47 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:46:33 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:46:33 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:46:33 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:46:33 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:46:33 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:47:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:47:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:47:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:47:21 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:47:21 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:00 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:00 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:00 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:00 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:00 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:18 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:18 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:18 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:20 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:43 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:43 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:43 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:48:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:49:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:49:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:49:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:49:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:49:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:50:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:50:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:50:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:50:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:50:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:50:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:50:12 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:50:12 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:50:12 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 05:50:12 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:40 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:48 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:50 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 09:58:54 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 09:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:47 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:47 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 09:59:47 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 09:59:47 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 09:59:50 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 09:59:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 09:59:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:02:42 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:02:42 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:02:42 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:02:42 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:02:43 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:08 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:08 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:08 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:16 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:16 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:16 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:16 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:16 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:32 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:32 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:32 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:32 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:32 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:06:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:07:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:07:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:07:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:07:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:07:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:09:42 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:09:42 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:13:52 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:13:52 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:13:52 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:13:52 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:13:52 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:14:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:14:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:14:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:14:36 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:14:36 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:14:36 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:14:36 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:14:36 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:16:01 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:16:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:16:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:16:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:16:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:16:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:16:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:16:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:16:11 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:16:12 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:16:12 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:51 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:51 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:17:51 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:17:51 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:56 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:17:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:17:56 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:52 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:52 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:52 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:52 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:52 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:52 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:52 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:52 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:52 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:52 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:18:53 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:18:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:56 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:18:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:18:56 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:19:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:19:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:19:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:19:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:19:17 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:24:34 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:24:34 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:24:34 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:24:34 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:24:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:24:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:24:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:24:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:24:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:24:44 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:24:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:24:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:24:57 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:24:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:00 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:25:00 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:25:00 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:02 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:36 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:36 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:25:36 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:48 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:48 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:48 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:48 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:48 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:48 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:48 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:48 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:48 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:48 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:26:50 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:26:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:26:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:26:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:56 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:26:56 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:26:56 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:27:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:27:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:27:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:27:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:27:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:31:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:31:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:31:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:31:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:31:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:31:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:52 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:52 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:32:52 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:32:52 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:54 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:54 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:54 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:54 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:54 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:54 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:54 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:54 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:54 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:54 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:32:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:32:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:32:58 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:32:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:33:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:35:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:35:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:35:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:35:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:35:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:49 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:51 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:53 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:36:55 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:36:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:36:58 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 10:36:58 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:34 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:34 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:34 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:34 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 10:37:35 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:29 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:43 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:43 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:43 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:45 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:45 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:45 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:45 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:45 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:10:59 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:13:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:13:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:13:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:13:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:13:50 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:01 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:07 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:07 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:07 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:07 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:07 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:07 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:07 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:07 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:07 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:07 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:08 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:08 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:25:08 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:25:08 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:28:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:28:03 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:28:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:28:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:28:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:28:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:28:22 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:30:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:30:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:30:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:30:55 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:16 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:16 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:16 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:16 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:16 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:16 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:16 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:19 UTC] 0:admin:header2.inc:163: Invalid argument supplied for foreach()
+[10-Jun-2014 11:31:19 UTC] 0:admin:header2.inc:173: Invalid argument supplied for foreach()
+[10-Jun-2014 11:31:19 UTC] 0:admin:header2.inc:206: Invalid argument supplied for foreach()
+[10-Jun-2014 11:31:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:19 UTC] 0:admin:header2.inc:163: Invalid argument supplied for foreach()
+[10-Jun-2014 11:31:19 UTC] 0:admin:header2.inc:173: Invalid argument supplied for foreach()
+[10-Jun-2014 11:31:19 UTC] 0:admin:header2.inc:206: Invalid argument supplied for foreach()
+[10-Jun-2014 11:31:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:37 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:37 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:37 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:37 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:37 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:37 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:37 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:37 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:37 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:37 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:31:41 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:31:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:31:45 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:31:45 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:12 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:12 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:12 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:12 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:32:13 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:34:23 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:34:23 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:34:23 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:34:23 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:34:23 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:34:48 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:34:48 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:34:48 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:34:48 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:34:48 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:36:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:36:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:36:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:36:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:36:44 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:37:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:37:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:37:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:37:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:37:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:37:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:37:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:37:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:37:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:37:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:39:30 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:39:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:39:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:39:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:39:31 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:40:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:40:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:40:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:40:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:40:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:45:56 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:45:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:45:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:45:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:45:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:46:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:46:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:46:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:46:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:46:19 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:51:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:51:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:51:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:51:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:51:14 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:21 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:21 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 510 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 512 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 513 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 523 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 524 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 3 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 4 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:53:21 UTC] 0:admin:ui_input.inc:544: Missing argument 5 for text_row(), called in C:\wamp\www\frontaccounting\sales\includes\ui\sales_order_ui.inc on line 525 and defined
+[10-Jun-2014 11:53:21 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:56 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:56 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:56 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:53:57 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:19 UTC] 4 Domain file "./lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:31 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:31 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:55:31 UTC] 4 Domain file "../../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:08 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:53 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:58:54 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:03 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:04 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:09 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:10 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:11 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:24 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:24 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:24 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:26 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:26 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:26 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:26 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:26 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:40 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:40 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:40 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:40 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:40 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:40 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:40 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:40 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:41 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:51 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:51 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:51 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:51 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 11:59:51 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 12:00:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 12:00:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 12:00:27 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 12:00:28 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.
+[10-Jun-2014 12:00:28 UTC] 4 Domain file "../lang/C/LC_MESSAGES/C.po" not found.

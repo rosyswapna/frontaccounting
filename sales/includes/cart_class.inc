@@ -49,15 +49,17 @@ class cart
 	var $shipping_id;
 	var $bank_account_id;
 	var $contract_no;
-	var $loading;
+	var $loading_type_id;
 	var $origin;
-	var $lc_details;
+	var $lc_no;
+	var $lc_date;
 	var $port_of_loading;
 	var $port_of_discharge;
-	var $final_delivery_point;
+	var $destination;
 	var $shipment_validity_date;
 	var $shipment_terms;
 	var $remarks;
+	var $shipment_time_id;
 
 	var $bank_account_name;
 	//-----------------------------

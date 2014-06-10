@@ -22,7 +22,7 @@ function add_sales_order(&$order)
 	$total = $order->get_trans_total();
 	$sql = "INSERT INTO ".TB_PREF."sales_orders (order_no, type, debtor_no, trans_type, branch_code, customer_ref, reference, comments, ord_date,
 		order_type, ship_via, deliver_to, delivery_address, contact_phone,
-		freight_cost, from_stk_loc, delivery_date, payment_terms, total, shipping_id, contract_no, loading, origin, lc_details, bank_account_id, shipment_terms, shipment_validity_date, port_of_loading, port_of_discharge, final_delivery_point, remarks)
+		freight_cost, from_stk_loc, delivery_date, payment_terms, total, shipping_id, contract_no, loading_type_id, origin, lc_no,lc_date, bank_account_id, shipment_terms, shipment_validity_date, port_of_loading, port_of_discharge, destination, remarks,shipment_time_id)
 		VALUES (" .db_escape($order_no) . "," .db_escape($order_type) . "," . db_escape($order->customer_id) .
 		 ", " .db_escape($order->trans_type) . "," .db_escape($order->Branch) . ", ".
 			db_escape($order->cust_ref) .",". 
@@ -41,16 +41,18 @@ function add_sales_order(&$order)
 			db_escape($order->total) . "," .
 			db_escape($order->shipping_id) . "," .
 			db_escape($order->contract_no) . "," .
-			db_escape($order->loading) . "," .
+			db_escape($order->loading_type_id) . "," .
 			db_escape($order->origin) . "," .
-			db_escape($order->lc_details) . "," .
+			db_escape($order->lc_no) . "," .
+			date2sql($order->lc_date) . "," .
 			db_escape($order->bank_account_id) . "," .
 			db_escape($order->shipment_terms) . ",'" .
 			date2sql($order->shipment_validity_date) . "'," .
 			db_escape($order->port_of_loading) . "," .
 			db_escape($order->port_of_discharge) . "," .
-			db_escape($order->final_delivery_point) . "," .
-			db_escape($order->remarks). ")";
+			db_escape($order->destination) . "," .
+			db_escape($order->remarks) . "," .
+			db_escape($order->shipment_time_id). ")";
 
 //echo $sql;exit();
 	db_query($sql, "order Cannot be Added");

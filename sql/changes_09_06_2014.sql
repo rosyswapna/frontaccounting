@@ -20,12 +20,23 @@ INSERT INTO `shipment_times` (`shipment_time_id`, `shipment_time_name`) VALUES
 
 -------------------------------------------------------------------------------------------
 
-ALTER TABLE `debtor_trans` CHANGE `loading` `loading_type_id` INT( 11 ) NOT NULL;
-ALTER TABLE `debtor_trans` CHANGE `lc_details` `lc_no` VARCHAR( 255 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
-ALTER TABLE `debtor_trans` ADD `lc_date` DATE NOT NULL AFTER `lc_no`; 
-ALTER TABLE `debtor_trans` CHANGE `final_delivery_point` `destination` VARCHAR( 255 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
-ALTER TABLE `debtor_trans` ADD `shipment_time_id` INT( 11 ) NOT NULL 
-ALTER TABLE `debtor_trans` ADD `shipping_id` INT( 11 ) NOT NULL 
+ALTER TABLE `sales_orders`  
+ADD `contract_no` VARCHAR(255) NOT NULL,  
+ADD `loading_type_id` INT( 11 ) NOT NULL,  
+ADD `origin` VARCHAR(255) NOT NULL,  
+ADD `lc_no` VARCHAR(255) NOT NULL, 
+ADD `lc_date` DATE NOT NULL,  
+ADD `bank_account_id` INT(11) NOT NULL, 
+ADD `shipment_terms` TEXT NOT NULL, 
+ADD `shipment_validity_date` DATE NOT NULL, 
+ADD `port_of_loading` VARCHAR(255) NOT NULL, 
+ADD `port_of_discharge` VARCHAR(255) NOT NULL, 
+ADD `destination` VARCHAR(255) NOT NULL, 
+ADD `remarks` TEXT NOT NULL, 
+ADD `shipment_time_id` INT( 11 ) NOT NULL, 
+ADD `shipping_id` INT( 11 ) NOT NULL 
+
+
 
 -------------------------------------------------------------------------------------------
 
