@@ -133,7 +133,7 @@
 
 
 			$info_hleft = array(
-				_("LOADING") => ": ".$this->formData["origin"],
+				_("LOADING") => ": ".$this->formData["loading_type_name"],
 				_("ORIGIN") => ": ".$this->formData['origin'],
 				_("DESTINATION") => ": ".$this->formData['destination'],
 				_("LC DETAILS") => ": ".$this->formData['lc_no'],
@@ -141,19 +141,26 @@
 
 			$info_hright = array(
 				_("Your Ref No") => ": ".$this->formData["customer_ref"],
-				_("SHIPMENT") => ": ".$this->formData['origin'],
-				_("VEHICLE NO") => ": ".$this->formData['origin'],
+				_("SHIPMENT") => ": ".$this->formData['shipment_time_name'],
+				_("VEHICLE NO") => ": ".$this->formData['vehicle_details'],
 				_("LC DATE") => ": ".$this->formData['lc_date'],
 			);
 
 			$this->headers = array(_("Container No."), _("Material"),
 				_("Net Wt (MT)"), _("Unit Price (AED)"), _("Total Amount (AED)"));
 
+			$items = $this->formData['items'];
+
 			$table_totals = array(
-				_("Total Amount") => $this->formData["sub_total"],
-				_("Adv/Disc") => $this->formData['loading'],
-				_("Gross Amount") => $this->formData['loading'],
+				_("Total Amount") => $this->formData["total_amount"],
+				_("Adv/Disc") => $this->formData['adv_disc'],
+				_("Gross Amount") => $this->formData['gross_amount'],
 				);
+			if($this->formData['words'] != "")
+				$words = "AMOUNT (AED):".$this->formData['words'];
+			else
+				$words = "";
+			
 			$Certify = "We Certify that the merchandise is of U.A.E. Origin";
 
 			$bank_details = array("BANK NAME: ".$this->formData["bank_name"],

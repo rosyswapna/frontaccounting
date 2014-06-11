@@ -373,7 +373,7 @@ class FrontReport extends Cpdf
 	/*
 		Transition function 
 	*/
-	function SetCommonData($myrow, $branch, $sales_order, $bankaccount, $doctype, $contacts)
+	function SetCommonData($myrow, $branch, $sales_order, $bankaccount, $doctype, $contacts,$shipping)
 	{
 //		$this->formData = array_merge($myrow, $branch, $sales_order, 
 //			$bank_account, array('doctype' => $doctype));
@@ -388,8 +388,10 @@ class FrontReport extends Cpdf
 			'due_date', 'required_by', 'payment_terms', 'curr_code',
 			'ov_freight', 'ov_gst', 'ov_amount', 'requisition_no', 'contact','contract_no','origin','destination','lc_no','lc_date'),
 		'branch' => array('br_address', 'br_name', 'salesman', 'disable_branch'),
-		'sales_order' => array('deliver_to', 'delivery_address', 'customer_ref','contract_no','origin','destination','lc_no','lc_date'),
-		'bankaccount' => array('bank_name', 'bank_account_number', 'payment_service','bank_account_name','bank_address')
+		'sales_order' => array('deliver_to', 'delivery_address', 'customer_ref','contract_no','origin','destination','lc_no','lc_date','loading_type_name','shipment_time_name'),
+		'bankaccount' => array('bank_name', 'bank_account_number', 'payment_service','bank_account_name','bank_address'),
+		'shipping'	=> array('vehicle_details','container_no','first_weight','second_weight')
+
 		);
 
 		foreach($datnames as $var => $fields) {
@@ -404,6 +406,7 @@ class FrontReport extends Cpdf
 		
 		$this->formData['doctype'] = $doctype;
 		
+		
 		$this->formData['document_amount'] = @$this->formData['ov_amount']+@$this->formData['ov_freight']+@$this->formData['ov_gst'];
 		if (count($contacts)) {
 			if (!is_array($contacts[0]))
@@ -416,12 +419,7 @@ class FrontReport extends Cpdf
 	}
 
 
-	function SetData($dataArray = array())
-	{
-		foreach($dataArray as $key=>$value){
-			$this->formData[$key]=$value;
-		}
-	}
+	
 
 	
 	/*

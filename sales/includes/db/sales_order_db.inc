@@ -20,6 +20,7 @@ function add_sales_order(&$order)
 	$del_date = date2sql($order->due_date);
 	$order_type = 0; // this is default on new order
 	$total = $order->get_trans_total();
+
 	$sql = "INSERT INTO ".TB_PREF."sales_orders (order_no, type, debtor_no, trans_type, branch_code, customer_ref, reference, comments, ord_date,
 		order_type, ship_via, deliver_to, delivery_address, contact_phone,
 		freight_cost, from_stk_loc, delivery_date, payment_terms, total, shipping_id, contract_no, loading_type_id, origin, lc_no,lc_date, bank_account_id, shipment_terms, shipment_validity_date, port_of_loading, port_of_discharge, destination, remarks,shipment_time_id)
@@ -43,8 +44,8 @@ function add_sales_order(&$order)
 			db_escape($order->contract_no) . "," .
 			db_escape($order->loading_type_id) . "," .
 			db_escape($order->origin) . "," .
-			db_escape($order->lc_no) . "," .
-			date2sql($order->lc_date) . "," .
+			db_escape($order->lc_no) . ",'" .
+			date2sql($order->lc_date) . "'," .
 			db_escape($order->bank_account_id) . "," .
 			db_escape($order->shipment_terms) . ",'" .
 			date2sql($order->shipment_validity_date) . "'," .
@@ -328,6 +329,8 @@ function get_sales_order_header($order_no, $trans_type)
 	  ."cust.curr_code, "
 	  ."cust.address, "
 	  ."loc.location_name, "
+	  ."loads.loading_type_name, "
+	  ."shptrms.shipment_time_name, "
 	  ."bnk.bank_account_name, "
 	  ."cust.discount, "
 	  ."stype.sales_type, "
@@ -344,12 +347,16 @@ function get_sales_order_header($order_no, $trans_type)
 	  .TB_PREF."tax_groups tax_group, "
 	  .TB_PREF."cust_branch branch,"
 	  .TB_PREF."locations loc,"
+	  .TB_PREF."loading_types loads,"
+	  .TB_PREF."shipment_times shptrms,"
 	  .TB_PREF."bank_accounts bnk
 	WHERE sorder.order_type=stype.id
 		AND branch.branch_code = sorder.branch_code
 		AND branch.tax_group_id = tax_group.id
 		AND sorder.debtor_no = cust.debtor_no
 		AND loc.loc_code = sorder.from_stk_loc
+		AND loads.loading_type_id = sorder.loading_type_id
+		AND shptrms.shipment_time_id = sorder.shipment_time_id
 		AND sorder.bank_account_id = bnk.id
 		AND sorder.trans_type = " . db_escape($trans_type) ."
 		AND sorder.order_no = " . db_escape($order_no );

@@ -113,8 +113,9 @@ class hooks {
 	//
 	//	Returns: amount in words as string.
 
-	function price_in_words($amount, $doc_type)
-	{
+	function price_in_words($number, $doc_type)
+	{ 	
+
 	}
 	//
 	// Exchange rate currency $curr as on date $date.

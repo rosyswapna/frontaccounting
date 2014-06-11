@@ -43,16 +43,25 @@
 		$cols = count($this->cols);
 
 		//-------------------------address box start here-------------------------
-		$iline1 = $upper - 3.9 * $this->lineHeight;
-		$iline2 = $iline1 - 4.5 * $this->lineHeight;
-
 		$box_right = $ccol + 250;
 		$left = $ccol;
+
+		$iline1 = $upper - 2.8 * $this->lineHeight;
+		$iline2 =  $iline1 - 4.5 * $this->lineHeight;
+
 		$this->Line1($iline1,0,$ccol,$ccol + 250);
 		$this->Line1($iline2,0,$ccol,$ccol + 250);
 
 		$this->LineTo($box_right, $iline1 ,$box_right, $iline2);
 		$this->LineTo($left, $iline1 ,$left, $iline2);
+
+		$this->row = $iline1 - $this->lineHeight;
+		$adrcol=$ccol+10;
+		//$this->NewLine();
+		$this->Text($adrcol, $Addr1['name'], $adrcol);
+		$this->NewLine();
+		$this->TextWrapLines($adrcol, $box_right, $this->formData['address']);
+		
 		//-------------------------address box ends here-------------------------
 		
 
@@ -105,7 +114,8 @@
 		
 	
 		// Company Logo
-		$this->NewLine();
+		//$this->NewLine();
+		$this->row = $upper+20;
 		$logo = company_path() . "/images/" . $this->company['coy_logo'];
 		if ($this->company['coy_logo'] != '' && file_exists($logo))
 		{
@@ -122,7 +132,8 @@
 		}
 
 		// Document title
-		$this->row -=25;
+		//$this->row -=25;
+		$this->NewLine(2);
 		$this->SetTextColor(0, 0, 0);
 		$this->fontSize += 2;
 		$this->Font('bold');
@@ -146,18 +157,20 @@
 		$this->Text($ccol, _("To,"));
 
 		$this->Text($c2col, _("Invoice No   :"),$cn2col);
-		$this->Text($cn2col , $invoice,$mcol);
+		$this->Text($cn2col , $this->formData['trans_no'],$mcol);
 		$this->NewLine();
 		
 		// address
+		/*
 		$this->row = $iline1 - $this->lineHeight;
 		$adrcol=$ccol+10;
 		//$this->NewLine();
 		$this->Text($adrcol, $Addr1['name'], $adrcol);
 		$this->NewLine();
-		$this->TextWrapLines($adrcol, $this->row, $Addr1['address']);
+		$this->TextWrapLines($adrcol, $box_right, $this->formData['address'],$iline2);
+		*/
 
-		$this->NewLine(2);
+		$this->row = $iline2 - $this->lineHeight-10;
 		$tmp = $this->row;
 		//data from other details
 		foreach($info_hleft as $info_header => $info_content)
@@ -199,6 +212,23 @@
 		$this->Font();
 
 		// table data
+		$this->row = $iline5 - 20;
+		$this->TextWrap($columns[0], $this->row, $columns[1]-$columns[0], $this->formData['container_no'], 'center');
+		//items
+		$this->row = $iline5 - 20;
+		foreach ($items as $item) {
+			$j=0;
+			for ($i = 1; $i <= count($item); $i++){
+				$dcol1 = $columns[$i];
+				$k = $i+1;
+				$dcol2 = $columns[$k]-$dcol1;
+				$this->TextWrap($dcol1, $this->row, $dcol2, $item[$j], 'center');
+				$j++;
+			}
+
+			
+		}
+
 
 		// table totals
 		$rows = array($iline6 - $this->lineHeight -1,$iline7 - $this->lineHeight -1,$iline8 - $this->lineHeight -1);
@@ -216,8 +246,10 @@
 		}
 
 		//table total in figures
-		$this->row = $iline7 - $this->lineHeight - 1;
-		$this->TextWrap($leftEnd, $this->row, $inner3-$leftEnd-2, $this->formData['words'], 'left');
+		if($words!= ""){
+			$this->row = $iline7 - $this->lineHeight - 1;
+			$this->TextWrap($leftEnd, $this->row, $inner3-$leftEnd-2, $words, 'left');
+		}
 
 		//CERTIFY
 		$this->row = $iline9 - $this->lineHeight;
