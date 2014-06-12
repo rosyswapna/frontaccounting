@@ -599,7 +599,7 @@ function loading_type_list($name, $selected_id=null, $spec_option=false, $submit
 
 	return combo_input($name, $selected_id, $sql, 'loading_type_id', 'loading_type_name',
 	array(
-		'spec_option' => $none_option,
+		'spec_option' => $spec_option === true ? $none_option : $spec_option,
 		'spec_id' => ALL_NUMERIC,
 		'select_submit'=> $submit_on_change,
 		'async' => false,
@@ -639,7 +639,7 @@ function shipment_time_list($name, $selected_id=null, $spec_option=false, $submi
 
 	return combo_input($name, $selected_id, $sql, 'shipment_time_id', 'shipment_time_name',
 	array(
-		'spec_option' => $none_option,
+		'spec_option' => $spec_option === true ? $none_option : $spec_option,
 		'spec_id' => ALL_NUMERIC,
 		'select_submit'=> $submit_on_change,
 		'async' => false,

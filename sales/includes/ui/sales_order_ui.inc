@@ -395,6 +395,8 @@ function display_order_header(&$order, $editable, $date_text)
 			'where'=>array('debtor_no = '.$_POST['customer_id'])
 		);
 	//shipping_list_row(_("Shipping Id:"),'shipping_id', $_POST['shipping_id'], $opts);
+	shipping_list_row(_("Shipment Id:"), 'shipping_id', null, false, true, false, true);
+
 
 	table_section(3);
 	if ($order->pos['cash_sale'] || $order->pos['credit_sale']) {
@@ -508,7 +510,7 @@ function display_order_footer()
 					bank_accounts_list_row("Bank Account",'bank_account_id');
 					
 					text_row("Contract No",'contract_no');
-					loading_type_list_row("Loading",'loading_type_id');
+					loading_type_list_row("Loading",'loading_type_id',true);
 					text_row("Origin",'origin');
 					text_row("LC Number",'lc_no');
 					date_row("LC Date",'lc_date');
@@ -518,13 +520,13 @@ function display_order_footer()
 			echo "<td>";
 				start_table(TABLESTYLE2, "width=100%");
 
-					shipping_list_row("Shipment Id",'shipping_id');
+					//shipping_list_row("Shipment Id",'shipping_id');
 
 					text_row("Port Of Loading",'port_of_loading');
 					text_row("Port Of Discharge",'port_of_discharge');
 					text_row("Destination",'destination');
 					date_row("Shipment Validity Date",'shipment_validity_date',null,null,0,0,1001);
-					shipment_time_list_row("Shipment Time",'shipment_time_id');
+					shipment_time_list_row("Shipment Time",'shipment_time_id',true);
 					textarea_row('Shipment Terms','shipment_terms','',31,5);
 				end_table();
 			echo "</td>";
@@ -570,14 +572,24 @@ function sales_order_item_controls(&$order, &$rowcounter, $line_no=-1)
 		if (list_updated('stock_id')) {
 			    $Ajax->activate('price');
 			    $Ajax->activate('units');
-			    $Ajax->activate('qty');
+			    //$Ajax->activate('qty');
 			    $Ajax->activate('line_total');
+		}
+
+		if(list_updated('shipping_id')){
+			$Ajax->activate('qty');
 		}
 
 		$item_info = get_item_edit_info($_POST['stock_id']);
 		$units = $item_info["units"];
 		$dec = $item_info['decimals'];
-		$_POST['qty'] = number_format2(1, $dec);
+
+		$shp_info = get_shipping_detail($_POST['shipping_id']);
+		if($shp_info)
+			$_POST['qty'] = abs($shp_info['first_weight'] - $shp_info['second_weight']);
+		else
+			$_POST['qty'] = number_format2(1, $dec);
+		
 		$price = get_kit_price($_POST['stock_id'],
 			$order->customer_currency, $order->sales_type,
 			$order->price_factor, get_post('OrderDate'));
