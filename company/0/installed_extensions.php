@@ -16,23 +16,15 @@ $installed_extensions = array (
     'path' => 'modules/salescontainer',
     'active' => 1,
   ),
-  5 => 
+  7 => 
   array (
-    'name' => 'Company Dashboard',
-    'package' => 'dashboard',
-    'version' => '2.3.15-5',
+    'package' => 'export_invoice',
+    'name' => 'export_invoice',
+    'version' => '-',
+    'available' => '',
     'type' => 'extension',
-    'active' => false,
-    'path' => 'modules/dashboard',
-  ),
-  6 => 
-  array (
-    'name' => 'Asset register',
-    'package' => 'asset_register',
-    'version' => '2.3.3-9',
-    'type' => 'extension',
-    'active' => false,
-    'path' => 'modules/asset_register',
+    'path' => 'modules/export_invoice',
+    'active' => 1,
   ),
 );
 ?>

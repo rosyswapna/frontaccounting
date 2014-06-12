@@ -142,6 +142,7 @@ $security_areas =array(
 	'SA_SALESCREDIT' => array(SS_SALES|7, _("Sales freehand credit notes")),
 	'SA_SALESPAYMNT' => array(SS_SALES|8, _("Customer payments entry")),
 	'SA_SALESALLOC' => array(SS_SALES|9, _("Customer payments allocation")),
+	'SA_EXPORTINVOICE' => array(SS_SALES|10, _("Export invoices edition")),
 
 	'SA_SALESANALYTIC' => array(SS_SALES_A|1, _("Sales analytical reports")),
 	'SA_SALESBULKREP' => array(SS_SALES_A|2, _("Sales document bulk reports")),

@@ -32,6 +32,7 @@ set_page_security( @$_SESSION['Items']->trans_type,
 	array(	ST_SALESORDER=>'SA_SALESORDER',
 			ST_SALESQUOTE => 'SA_SALESQUOTE',
 			ST_CUSTDELIVERY => 'SA_SALESDELIVERY',
+			ST_EXPORTINVOICE => 'SA_EXPORTINVOICE',
 			ST_SALESINVOICE => 'SA_SALESINVOICE'),
 	array(	'NewOrder' => 'SA_SALESORDER',
 			'ModifyOrderNumber' => 'SA_SALESORDER',
@@ -45,9 +46,11 @@ set_page_security( @$_SESSION['Items']->trans_type,
 			'NewDelivery' => 'SA_SALESDELIVERY',
 			'AddedDN' => 'SA_SALESDELIVERY', 
 			'NewInvoice' => 'SA_SALESINVOICE',
-			'AddedDI' => 'SA_SALESINVOICE'
+			'AddedDI' => 'SA_SALESINVOICE',
+			'NewExportInvoice' => 'SA_EXPORTINVOICE',
 			)
 );
+
 
 $js = '';
 
@@ -92,6 +95,11 @@ if (isset($_GET['NewDelivery']) && is_numeric($_GET['NewDelivery'])) {
 } elseif (isset($_GET['NewQuoteToSalesOrder'])) {
 	$_SESSION['page_title'] = _($help_context = "Sales Order Entry");
 	create_cart(ST_SALESQUOTE, $_GET['NewQuoteToSalesOrder']);
+} elseif (isset($_GET['NewExportInvoice']) && is_numeric($_GET['NewExportInvoice'])) {
+
+	$_SESSION['page_title'] = _($help_context = "Export Sales Contract");
+	create_cart(ST_EXPORTINVOICE, $_GET['NewExportInvoice']);
+
 }
 
 page($_SESSION['page_title'], false, false, "", $js);
@@ -707,6 +715,7 @@ function create_cart($type, $trans_no)
 	} else 
 		$_SESSION['Items'] = new Cart($type, array($trans_no));
 	copy_from_cart();
+
 }
 
 //--------------------------------------------------------------------------------
