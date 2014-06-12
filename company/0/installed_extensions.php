@@ -22,7 +22,7 @@ $installed_extensions = array (
     'package' => 'dashboard',
     'version' => '2.3.15-5',
     'type' => 'extension',
-    'active' => 0,
+    'active' => false,
     'path' => 'modules/dashboard',
   ),
   6 => 
@@ -31,7 +31,7 @@ $installed_extensions = array (
     'package' => 'asset_register',
     'version' => '2.3.3-9',
     'type' => 'extension',
-    'active' => 0,
+    'active' => false,
     'path' => 'modules/asset_register',
   ),
 );

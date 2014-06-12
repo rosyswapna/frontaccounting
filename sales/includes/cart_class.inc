@@ -61,6 +61,9 @@ class cart
 	var $remarks;
 	var $shipment_time_id;
 
+	var $loading;
+	var $shipment_time;
+
 	var $bank_account_name;
 	//-----------------------------
 

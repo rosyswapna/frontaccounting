@@ -22,7 +22,7 @@ $tb_pref_counter = 0;
 $db_connections = array (
   0 => 
   array (
-    'name' => 'acube innovations',
+    'name' => 'METALS &amp; MINERALS FZE',
     'host' => 'localhost',
     'dbuser' => 'root',
     'dbpassword' => '',

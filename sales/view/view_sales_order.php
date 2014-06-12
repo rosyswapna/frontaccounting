@@ -267,14 +267,14 @@ display_heading2(_("Other Details"));
 
 		start_row();
 
-			label_cells(_("LC Details"),$_SESSION['View']->lc_details, "class='tableheader2'");
+			label_cells(_("LC Details"),$_SESSION['View']->lc_no, "class='tableheader2'");
 			label_cells(_("Port Of Loading"), $_SESSION['View']->port_of_loading, "class='tableheader2'");
 			
 		end_row();
 
 		start_row();
 
-			label_cells(_("Final Delivery Point"),$_SESSION['View']->final_delivery_point, "class='tableheader2'");
+			label_cells(_("Destination"),$_SESSION['View']->destination, "class='tableheader2'");
 			label_cells(_("Port Of Discharge"), $_SESSION['View']->port_of_discharge, "class='tableheader2'");
 			
 		end_row();
@@ -286,7 +286,14 @@ display_heading2(_("Other Details"));
 			
 		end_row();
 
-		label_row('Shipment Validity Date',$_SESSION['View']->shipment_validity_date, "class='tableheader2'");
+		start_row();
+
+			label_cells(_("Shipment Validity Date"),$_SESSION['View']->shipment_validity_date, "class='tableheader2'");
+			label_cells(_("Shipping Id"), $_SESSION['View']->shipping_id, "class='tableheader2'");
+			
+		end_row();
+
+		//label_row('Shipment Validity Date',$_SESSION['View']->shipment_validity_date, "class='tableheader2'");
 		
 	end_table();
 

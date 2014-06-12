@@ -407,16 +407,20 @@ function read_sales_order($order_no, &$order, $trans_type)
 	//other details -------------------------swapna-----------
 	$order->shipping_id = $myrow['shipping_id'];
 	$order->contract_no = $myrow['contract_no'];
-	$order->loading = $myrow['loading'];
+	$order->loading = $myrow['loading_type_name'];
 	$order->origin = $myrow['origin'];
-	$order->lc_details = $myrow['lc_details'];
+	$order->lc_no = $myrow['lc_no'];
+	$order->lc_date = $myrow['lc_date'];
 	$order->shipment_terms = $myrow['shipment_terms'];
 	$order->shipment_validity_date = $myrow['shipment_validity_date'];
 	$order->port_of_loading = $myrow['port_of_loading'];
 	$order->port_of_discharge = $myrow['port_of_discharge'];
 	$order->bank_account_id = $myrow['bank_account_id'];
-	$order->final_delivery_point = $myrow['final_delivery_point'];
+	$order->destination = $myrow['destination'];
 	$order->remarks = $myrow['remarks'];
+	$order->shipment_time = $myrow['shipment_time_name'];
+	$order->loading_type_id = $myrow['loading_type_id'];
+	$order->shipment_time_id = $myrow['shipment_time_id'];
 
 	$order->bank_account_name = $myrow['bank_account_name'];
 	
