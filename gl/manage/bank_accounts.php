@@ -46,7 +46,8 @@ if ($Mode=='ADD_ITEM' || $Mode=='UPDATE_ITEM')
     		
     		update_bank_account($selected_id, $_POST['account_code'],
 				$_POST['account_type'], $_POST['bank_account_name'], 
-				$_POST['bank_name'], $_POST['bank_account_number'], 
+				$_POST['bank_name'], $_POST['bank_account_number'],
+				$_POST['bank_iban'], $_POST['bank_swift_code'], 
     			$_POST['bank_address'], $_POST['BankAccountCurrency'],
     			$_POST['dflt_curr_act']);
 			display_notification(_('Bank account has been updated'));
@@ -56,7 +57,7 @@ if ($Mode=='ADD_ITEM' || $Mode=='UPDATE_ITEM')
     
     		add_bank_account($_POST['account_code'], $_POST['account_type'], 
 				$_POST['bank_account_name'], $_POST['bank_name'], 
-    			$_POST['bank_account_number'], $_POST['bank_address'], 
+    			$_POST['bank_account_number'], $_POST['bank_iban'], $_POST['bank_swift_code'], $_POST['bank_address'], 
 				$_POST['BankAccountCurrency'], $_POST['dflt_curr_act']);
 			display_notification(_('New bank account has been added'));
     	}
@@ -93,7 +94,7 @@ if ($Mode == 'RESET')
 {
  	$selected_id = -1;
 	$_POST['bank_name']  = 	$_POST['bank_account_name']  = '';
-	$_POST['bank_account_number'] = $_POST['bank_address'] = '';
+	$_POST['bank_account_number'] = $_POST['bank_iban'] = $_POST['bank_swift_code'] = $_POST['bank_address'] = '';
 }
 
 /* Always show the list of accounts */
@@ -149,6 +150,8 @@ if ($selected_id != -1)
 	$_POST['bank_name']  = $myrow["bank_name"];
 	$_POST['bank_account_name']  = $myrow["bank_account_name"];
 	$_POST['bank_account_number'] = $myrow["bank_account_number"];
+	$_POST['bank_iban'] = $myrow["bank_iban"];
+	$_POST['bank_swift_code'] = $myrow["bank_swift_code"];
 	$_POST['bank_address'] = $myrow["bank_address"];
 	$_POST['BankAccountCurrency'] = $myrow["bank_curr_code"];
 	$_POST['dflt_curr_act'] = $myrow["dflt_curr_act"];
@@ -188,6 +191,11 @@ else
 
 text_row(_("Bank Name:"), 'bank_name', null, 50, 60);
 text_row(_("Bank Account Number:"), 'bank_account_number', null, 30, 60);
+
+text_row(_("IBAN:"), 'bank_iban', null, 30, 60);
+
+text_row(_("SWIFT CODE:"), 'bank_swift_code', null, 30, 60);
+
 textarea_row(_("Bank Address:"), 'bank_address', null, 40, 5);
 
 end_table(1);

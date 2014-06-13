@@ -389,7 +389,7 @@ class FrontReport extends Cpdf
 			'ov_freight', 'ov_gst', 'ov_amount', 'requisition_no', 'contact','contract_no','origin','destination','lc_no','lc_date'),
 		'branch' => array('br_address', 'br_name', 'salesman', 'disable_branch'),
 		'sales_order' => array('deliver_to', 'delivery_address', 'customer_ref','contract_no','origin','destination','lc_no','lc_date','loading_type_name','shipment_time_name'),
-		'bankaccount' => array('bank_name', 'bank_account_number', 'payment_service','bank_account_name','bank_address'),
+		'bankaccount' => array('bank_name', 'bank_account_number', 'payment_service','bank_account_name','bank_address','bank_iban','bank_swift_code'),
 		'shipping'	=> array('vehicle_details','container_no','first_weight','second_weight')
 
 		);

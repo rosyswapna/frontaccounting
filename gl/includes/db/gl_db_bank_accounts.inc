@@ -17,7 +17,7 @@ function clear_dflt_curr_account($curr_code) {
 }
 
 function add_bank_account($account_code, $account_type, $bank_account_name,
-	$bank_name, $bank_account_number, $bank_address, $bank_curr_code, 
+	$bank_name, $bank_account_number, $bank_iban, $bank_swift_code, $bank_address, $bank_curr_code, 
 	$dflt_curr_act)
 {
 	if($dflt_curr_act) 	// only one default account for any currency
@@ -25,11 +25,12 @@ function add_bank_account($account_code, $account_type, $bank_account_name,
 
 	$sql = "INSERT INTO ".TB_PREF."bank_accounts (account_code, account_type, 
 		bank_account_name, bank_name, bank_account_number, bank_address, 
-		bank_curr_code, dflt_curr_act)
+		bank_curr_code, dflt_curr_act,bank_iban,bank_swift_code)
 		VALUES (".db_escape($account_code).", ".db_escape($account_type).", "
 		.db_escape($bank_account_name).", ".db_escape($bank_name).", "
 		.db_escape($bank_account_number).",".db_escape($bank_address).
-		", ".db_escape($bank_curr_code).", ".db_escape($dflt_curr_act).")";
+		", ".db_escape($bank_curr_code).", ".db_escape($dflt_curr_act)."
+		,".db_escape($bank_iban).",".db_escape($bank_swift_code).")";
 
 	db_query($sql, "could not add a bank account for $account_code");
 }
@@ -37,7 +38,7 @@ function add_bank_account($account_code, $account_type, $bank_account_name,
 //---------------------------------------------------------------------------------------------
 
 function update_bank_account($id, $account_code, $account_type, $bank_account_name, 
-	$bank_name, $bank_account_number, $bank_address, $bank_curr_code, $dflt_curr_act)
+	$bank_name, $bank_account_number, $bank_iban, $bank_swift_code, $bank_address, $bank_curr_code, $dflt_curr_act)
 {
 	if($dflt_curr_act) 	// only one default account for any currency
 	  clear_dflt_curr_account($bank_curr_code);
@@ -47,6 +48,8 @@ function update_bank_account($id, $account_code, $account_type, $bank_account_na
 		bank_account_name=".db_escape($bank_account_name).", bank_name=".db_escape($bank_name).",
 		bank_account_number=".db_escape($bank_account_number).", bank_curr_code=".db_escape($bank_curr_code).",
 		bank_address=".db_escape($bank_address).",
+		bank_iban=".db_escape($bank_iban).",
+		bank_swift_code=".db_escape($bank_swift_code).",
 		dflt_curr_act=".db_escape($dflt_curr_act)
 		." WHERE id = ".db_escape($id);
 
