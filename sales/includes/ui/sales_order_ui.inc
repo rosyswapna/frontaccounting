@@ -494,6 +494,28 @@ function display_order_header(&$order, $editable, $date_text)
 }
 
 //--------------------------------------------------------------------------------
+
+function display_attachments($type)
+{
+	global $path_to_root;
+	include_once($path_to_root."/admin/db/attachments_db.inc");
+	$result = get_attached_documents($type);	
+
+	display_heading("Attachments");
+	
+	start_table(TABLESTYLE, "colspan=7 width=90%");
+		while($attachment = mysql_fetch_assoc($result))
+		{
+			check_row($attachment['description'],'contract_no');
+		}
+		
+		file_row("file","file_scanned");
+	
+	end_table(); // outer table
+
+}
+
+//--------------------------------------------------------------------------------
 function display_order_footer()
 {
 	display_heading("Other Details");

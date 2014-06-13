@@ -54,3 +54,7 @@ ADD `bank_swift_code` VARCHAR( 255 ) NOT NULL
 
 ------------------------------------------------------------------------------------------
 
+ALTER TABLE `sales_orders` 
+ADD `export` TINYINT NOT NULL DEFAULT '0' COMMENT '1 for export sale,0 for local sale'
+------------------------------------------------------------------------------------------
+

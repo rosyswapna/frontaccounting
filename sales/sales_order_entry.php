@@ -47,7 +47,7 @@ set_page_security( @$_SESSION['Items']->trans_type,
 			'AddedDN' => 'SA_SALESDELIVERY', 
 			'NewInvoice' => 'SA_SALESINVOICE',
 			'AddedDI' => 'SA_SALESINVOICE',
-			'NewExportInvoice' => 'SA_EXPORTINVOICE',
+			'NewExportInvoice' => 'SA_SALESINVOICE',
 			)
 );
 
@@ -98,7 +98,7 @@ if (isset($_GET['NewDelivery']) && is_numeric($_GET['NewDelivery'])) {
 } elseif (isset($_GET['NewExportInvoice']) && is_numeric($_GET['NewExportInvoice'])) {
 
 	$_SESSION['page_title'] = _($help_context = "Export Sales Contract");
-	create_cart(ST_EXPORTINVOICE, $_GET['NewExportInvoice']);
+	create_cart(ST_SALESINVOICE, $_GET['NewExportInvoice']);
 
 }
 
@@ -773,6 +773,8 @@ if ($_SESSION['Items']->trans_type == ST_SALESINVOICE) {
 start_form();
 
 hidden('cart_id');
+
+
 $customer_error = display_order_header($_SESSION['Items'],
 	($_SESSION['Items']->any_already_delivered() == 0), $idate);	
 
@@ -785,9 +787,17 @@ if ($customer_error == "") {
 	echo "<tr><td>";
 	display_delivery_details($_SESSION['Items']);
 	echo "</td></tr>";
+
 	echo "<tr><td>";
 	display_order_footer();
 	echo "</td></tr>";
+
+	if(isset($_GET['NewExportInvoice'])){
+		echo "<tr><td>";
+		display_attachments(ST_EXPORTINVOICE);
+		echo "</td></tr>";
+	}
+
 	end_table(1);
 
 	if ($_SESSION['Items']->trans_no == 0) {
