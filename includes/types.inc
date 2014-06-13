@@ -41,6 +41,7 @@ define('ST_SALESORDER', 30);
 define('ST_SALESQUOTE', 32);
 define('ST_COSTUPDATE', 35);
 define('ST_DIMENSION', 40);
+define('ST_EXPORTINVOICE', 41);
 
 // Don't include these defines in the $systypes_array.
 // They are used for documents only.
