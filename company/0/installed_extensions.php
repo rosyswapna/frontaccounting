@@ -26,5 +26,15 @@ $installed_extensions = array (
     'path' => 'modules/export_invoice',
     'active' => 1,
   ),
+  8 => 
+  array (
+    'package' => 'systype_attachment',
+    'name' => 'systype_attachment',
+    'version' => '-',
+    'available' => '',
+    'type' => 'extension',
+    'path' => 'modules/systype_attachment',
+    'active' => 1,
+  ),
 );
 ?>

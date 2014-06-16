@@ -24,6 +24,7 @@ $systypes_array = array (
 	ST_BANKDEPOSIT => _("Bank Deposit"),
 	ST_BANKTRANSFER => _("Funds Transfer"),
 	ST_SALESINVOICE => _("Sales Invoice"),
+	ST_EXPORTINVOICE => _("Export Invoice"),
 	ST_CUSTCREDIT => _("Customer Credit Note"),
 	ST_CUSTPAYMENT => _("Customer Payment"),
 	ST_CUSTDELIVERY => _("Delivery Note"),

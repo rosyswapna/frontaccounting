@@ -58,3 +58,17 @@ ALTER TABLE `sales_orders`
 ADD `export` TINYINT NOT NULL DEFAULT '0' COMMENT '1 for export sale,0 for local sale'
 ------------------------------------------------------------------------------------------
 
+___________________________________________________________________________________________________________
+June 16 2014___________________________________________________________________________________________________________
+
+CREATE TABLE IF NOT EXISTS `sys_type_attachments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(60) NOT NULL,
+  `type_no` int(11) NOT NULL,
+  `unique_name` varchar(60) NOT NULL,
+  `filename` varchar(60) NOT NULL,
+  `filesize` int(11) NOT NULL,
+  `filetype` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+

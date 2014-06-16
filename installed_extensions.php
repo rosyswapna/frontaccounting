@@ -6,7 +6,7 @@
 	FA extension system documentation.
 */
 
-$next_extension_id = 8; // unique id for next installed extension
+$next_extension_id = 9; // unique id for next installed extension
 
 $installed_extensions = array (
   4 => 
@@ -27,6 +27,16 @@ $installed_extensions = array (
     'available' => '',
     'type' => 'extension',
     'path' => 'modules/export_invoice',
+    'active' => false,
+  ),
+  8 => 
+  array (
+    'package' => 'systype_attachment',
+    'name' => 'systype_attachment',
+    'version' => '-',
+    'available' => '',
+    'type' => 'extension',
+    'path' => 'modules/systype_attachment',
     'active' => false,
   ),
 );
