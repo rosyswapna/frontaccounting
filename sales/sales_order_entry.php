@@ -47,7 +47,7 @@ set_page_security( @$_SESSION['Items']->trans_type,
 			'AddedDN' => 'SA_SALESDELIVERY', 
 			'NewInvoice' => 'SA_SALESINVOICE',
 			'AddedDI' => 'SA_SALESINVOICE',
-			'NewExportInvoice' => 'SA_SALESINVOICE',
+			'NewExportInvoice' => 'SA_EXPORTINVOICE',
 			)
 );
 
@@ -98,7 +98,7 @@ if (isset($_GET['NewDelivery']) && is_numeric($_GET['NewDelivery'])) {
 } elseif (isset($_GET['NewExportInvoice']) && is_numeric($_GET['NewExportInvoice'])) {
 
 	$_SESSION['page_title'] = _($help_context = "Export Sales Contract");
-	create_cart(ST_SALESINVOICE, $_GET['NewExportInvoice']);
+	create_cart(ST_EXPORTINVOICE, $_GET['NewExportInvoice']);
 
 }
 
@@ -307,6 +307,8 @@ function copy_to_cart()
 	$cart->shipment_terms	= $_POST['shipment_terms'];
 	$cart->remarks	= $_POST['remarks'];
 	$cart->shipment_time_id	= $_POST['shipment_time_id'];
+
+	$cart->export = $_POST['export'];
 	
 	//------------------------------------------------------------------
 
@@ -340,6 +342,8 @@ function copy_from_cart()
 	$_POST['shipment_terms'] = $cart->shipment_terms;
 	$_POST['remarks'] = $cart->remarks;
 	$_POST['shipment_time_id'] = $cart->shipment_time_id;
+
+	$_POST['export'] = $cart->export;
 
 	
 	//----------------------------------------------------------
@@ -487,7 +491,6 @@ if (isset($_POST['update'])) {
 }
 
 if (isset($_POST['ProcessOrder']) && can_process()) {
-
 
 
 	copy_to_cart();
@@ -774,6 +777,12 @@ start_form();
 
 hidden('cart_id');
 
+//export or direct invoice
+if($_SESSION['Items']->trans_type == ST_EXPORTINVOICE)
+	hidden('export',1);
+else
+	hidden('export',0);
+
 
 $customer_error = display_order_header($_SESSION['Items'],
 	($_SESSION['Items']->any_already_delivered() == 0), $idate);	
@@ -794,6 +803,7 @@ if ($customer_error == "") {
 
 	if(isset($_GET['NewExportInvoice'])){
 		echo "<tr><td>";
+
 		display_attachments(ST_EXPORTINVOICE);
 		echo "</td></tr>";
 	}
@@ -803,8 +813,11 @@ if ($customer_error == "") {
 	if ($_SESSION['Items']->trans_no == 0) {
 
 
+		//submit_center_first('ProcessOrder', $porder,
+		  // _('Check entered data and save document'), 'default');
+
 		submit_center_first('ProcessOrder', $porder,
-		   _('Check entered data and save document'), 'default');
+		   _('Check entered data and save document'));
 
 		
 		submit_js_confirm('CancelOrder', _('You are about to void this Document.\nDo you want to continue?'));

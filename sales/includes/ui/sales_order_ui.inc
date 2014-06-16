@@ -498,7 +498,9 @@ function display_order_header(&$order, $editable, $date_text)
 function display_attachments($type)
 {
 	global $path_to_root;
-	include_once($path_to_root."/admin/db/attachments_db.inc");
+
+	include_once($path_to_root."/admin/db/systype_attachments_db.inc");
+
 	$result = get_attached_documents($type);	
 
 	display_heading("Attachments");
@@ -506,7 +508,7 @@ function display_attachments($type)
 	start_table(TABLESTYLE, "colspan=7 width=90%");
 		while($attachment = mysql_fetch_assoc($result))
 		{
-			check_row($attachment['description'],'contract_no');
+			check_row($attachment['description'],'attachment[]',$attachment['id']);
 		}
 		
 		file_row("file","file_scanned");

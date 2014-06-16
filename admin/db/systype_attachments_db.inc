@@ -56,7 +56,7 @@ function delete_attachment($id)
 function get_attached_documents($type)
 {
 	$sql = "SELECT * FROM ".TB_PREF."systype_attachments WHERE type_no=".db_escape($type)
-	." ORDER BY trans_no";
+	." ORDER BY id DESC";
 	return db_query($sql, "Could not retrieve attachments");
 }
 

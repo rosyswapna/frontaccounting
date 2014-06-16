@@ -53,6 +53,8 @@ define('SHIPMENT_STATUSOPEN',1);
 define('SHIPMENT_STATUSCLOSE',2);
 
 // document inheritance
+
+
 $document_child_types = array(
 		ST_SALESQUOTE => ST_SALESORDER,
 		ST_SALESORDER => ST_CUSTDELIVERY,
@@ -64,16 +66,35 @@ $document_child_types = array(
 		ST_SUPPINVOICE => ST_SUPPCREDIT,
 );
 
-function get_child_type($type)
+$document_child_export = array(
+		ST_SALESQUOTE => ST_SALESORDER,
+		ST_SALESORDER => ST_CUSTDELIVERY,
+		ST_CUSTDELIVERY => ST_EXPORTINVOICE,
+		ST_EXPORTINVOICE => ST_CUSTCREDIT,
+		);
+
+function get_child_type($type,$export=false)
 {
-	global $document_child_types;
-	return isset($document_child_types[$type]) ? $document_child_types[$type] : 0;
+	global $document_child_types,$document_child_export;
+
+	if($export){
+		return isset($document_child_export[$type]) ? $document_child_export[$type] : 0;
+	}
+	else{
+		return isset($document_child_types[$type]) ? $document_child_types[$type] : 0;
+	}
 }
 
-function get_parent_type($type)
+function get_parent_type($type,$export=false)
 {
-	global $document_child_types;
-	$child = array_search($type, $document_child_types);
+	global $document_child_types,$document_child_export;
+	if($export){
+		$child = array_search($type, $document_child_export);
+	}
+	else{
+		$child = array_search($type, $document_child_types);
+	}
+
 	return $child ? $child : 0;
 }
 

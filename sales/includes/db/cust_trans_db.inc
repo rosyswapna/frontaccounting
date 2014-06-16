@@ -81,6 +81,7 @@ function write_customer_trans($trans_type, $trans_no, $debtor_no, $BranchNo,
         if ($new)
         $trans_no = get_next_trans_no($trans_type);
 
+
 	$sql = "INSERT INTO ".TB_PREF."debtor_trans (
 		trans_no, type,
 		debtor_no, branch_code,

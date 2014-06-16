@@ -203,15 +203,16 @@ function update_sales_order($order)
 		shipping_id = " .db_escape($order->shipping_id). ",
 		bank_account_id = ".db_escape($order->bank_account_id).",
 		contract_no = ".db_escape($order->contract_no).", 
-		loading = ".db_escape($order->loading).", 
+		loading_type_id = ".db_escape($order->loading_type_id).", 
 		origin = ".db_escape($order->origin).",  
-		lc_details = ".db_escape($order->lc_details).", 
-		bank_account_id = ".db_escape($order->bank_account_id).", 
+		lc_no = ".db_escape($order->lc_no).", 
+		lc_date = ".date2sql($order->lc_date).", 
+		shipment_time_id = ".db_escape($order->shipment_time_id).", 
 		shipment_terms = ".db_escape($order->shipment_terms).", 
 		shipment_validity_date = '".date2sql($order->shipment_validity_date)."', 
 		port_of_loading = ".db_escape($order->port_of_loading).", 
 		port_of_discharge = ".db_escape($order->port_of_discharge).", 
-		final_delivery_point = ".db_escape($order->final_delivery_point).", 
+		destination = ".db_escape($order->destination).", 
 		remarks = ".db_escape($order->remarks).", 
 		total = ". db_escape($total) ."
 	 WHERE order_no=" . db_escape($order_no) ."
@@ -423,6 +424,8 @@ function read_sales_order($order_no, &$order, $trans_type)
 	$order->shipment_time_id = $myrow['shipment_time_id'];
 
 	$order->bank_account_name = $myrow['bank_account_name'];
+
+	$order->export = $myrow['export'];
 	
 	//-------------------------------------------------------
 

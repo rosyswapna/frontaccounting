@@ -65,6 +65,8 @@ class cart
 	var $shipment_time;
 
 	var $bank_account_name;
+
+	var $export;
 	//-----------------------------
 
 
@@ -95,6 +97,7 @@ class cart
 	var $payment_terms; // cached payment terms
 	var $credit;
 	var $ex_rate;
+
 
 	//-------------------------------------------------------------------------
 	//
@@ -144,9 +147,10 @@ class cart
 	//
 	function prepare_child()
 	{
-		global $Refs;
+		global $Refs, $ExportFlg;
 
-		$type = get_child_type($this->trans_type);
+		$type = get_child_type($this->trans_type,$ExportFlg);
+		
 
 		$this->trans_type = $type;
 		$this->reference = $Refs->get_next($this->trans_type);
@@ -169,7 +173,7 @@ class cart
 			$this->dimension_id = $cust['dimension_id'];
 			$this->dimension2_id = $cust['dimension2_id'];
 		}
-		if ($type == ST_SALESINVOICE) {
+		if ($type == ST_SALESINVOICE || $type == ST_EXPORTINVOICE) {
 			$this->due_date = get_invoice_duedate($this->payment, $this->document_date);
 		}
 
@@ -193,7 +197,7 @@ class cart
 			$line = &$this->line_items[$line_no];
 			$src_docs[] = $src_type == ST_SALESORDER ?  $srcline['order_no'] : $srcline['debtor_trans_no'];
 			if ($srcline['id'] == $line->src_id) {
-				if ($this->trans_type == ST_SALESINVOICE)
+				if ($this->trans_type == ST_SALESINVOICE || $this->trans_type == ST_EXPORTINVOICE)
 					$line->src_no = $srcline['debtor_trans_no'];
 				$line->qty_old = $line->qty_dispatched = $line->quantity;
 				$line->quantity += $srcline['quantity'] - 
@@ -214,7 +218,7 @@ class cart
 	//
 	function read($type, $trans_no=0, $prep_child=false) {
 
-		global $SysPrefs, $Refs;
+		global $SysPrefs, $Refs, $ExportFlg;
 
 		if (!is_array($trans_no)) $trans_no = array($trans_no);
 
@@ -274,7 +278,7 @@ class cart
 						}		
 					}		
 				}	
-				if ($type == ST_SALESINVOICE) {
+				if ($type == ST_SALESINVOICE || $type == ST_EXPORTINVOICE) {
 					$this->due_date =
 						get_invoice_duedate($this->payment, $this->document_date);
 						
@@ -290,20 +294,29 @@ class cart
 	// Makes parent documents for direct delivery/invoice by recurent call.
 	// $policy - 0 or 1:  writeoff/return for IV, back order/cancel for DN
 	function write($policy=0) { 
+
+		global $ExportFlg;
+
+		if(!$ExportFlg){
+			$ExportFlg = $this->export;
+		}
+
 		begin_transaction(); // prevents partial database changes in case of direct delivery/invoice
+
 		if ($this->reference != 'auto' && $this->trans_no == 0 && !is_new_reference($this->reference, $this->trans_type))
 		{
 			commit_transaction();
 			return -1;
-		}	
-		if (count($this->src_docs) == 0 && ($this->trans_type == ST_SALESINVOICE || $this->trans_type == ST_CUSTDELIVERY)) {
+		}
+		if (count($this->src_docs) == 0 && ($this->trans_type == ST_SALESINVOICE || $this->trans_type == ST_EXPORTINVOICE || $this->trans_type == ST_CUSTDELIVERY)) {	
 			// this is direct document - first add parent
 			$ref = $this->reference;
 			$date = $this->document_date;
 			$due_date = $this->due_date;
 			$dimension_id = $this->dimension_id;
 			$dimension2_id = $this->dimension2_id;
-			$this->trans_type = get_parent_type($this->trans_type);
+			
+			$this->trans_type = get_parent_type($this->trans_type,$ExportFlg);
 
 			$this->reference = 'auto'; 
 			$trans_no = $this->write(1); 
@@ -316,15 +329,19 @@ class cart
 			$this->dimension_id = $dimension_id;
 			$this->dimension2_id = $dimension2_id;
 		}
+		
 		$this->reference = @html_entity_decode($this->reference, ENT_QUOTES);
 		$this->Comments = @html_entity_decode($this->Comments, ENT_QUOTES);
 		foreach($this->line_items as $lineno => $line) {
 			$this->line_items[$lineno]->stock_id = @html_entity_decode($line->stock_id, ENT_QUOTES);
 			$this->line_items[$lineno]->item_description = @html_entity_decode($line->item_description, ENT_QUOTES);
 		}
+		
 		switch($this->trans_type) {
 			case ST_SALESINVOICE:
 				$ret = write_sales_invoice($this); break;
+			case ST_EXPORTINVOICE:
+				$ret = write_export_invoice($this); break;
 			case ST_CUSTCREDIT:
 				$ret = write_credit_note($this, $policy); break;
 			case ST_CUSTDELIVERY:
