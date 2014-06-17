@@ -508,10 +508,16 @@ function display_attachments($type)
 	start_table(TABLESTYLE, "colspan=7 width=90%");
 		while($attachment = mysql_fetch_assoc($result))
 		{
-			check_row($attachment['description'],'attachment[]',$attachment['id']);
+			//check_row($attachment['description'],'attachment');
+			start_row();
+				label_cell($attachment['description']);
+				echo '<td>
+						<input type="checkbox" name="attachment[]" value="'.$attachment['id'].'"/>
+					</td>';
+			end_row();
 		}
 		
-		file_row("file","file_scanned");
+		file_row("Scanned Documents","file_scanned");
 	
 	end_table(); // outer table
 

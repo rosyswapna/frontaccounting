@@ -76,6 +76,6 @@ CREATE TABLE IF NOT EXISTS `systype_attachments` (
 ___________________________________________________________________________________________________________
 June 17 2014___________________________________________________________________________________________________________
 
-INSERT INTO `frontaccounting`.`sys_types` (`type_id`, `type_no`, `next_reference`) VALUES ('41', '19', '1');
+INSERT INTO `sys_types` (`type_id`, `type_no`, `next_reference`) VALUES ('41', '19', '1');
 
 

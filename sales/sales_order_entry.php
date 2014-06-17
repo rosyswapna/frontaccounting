@@ -350,6 +350,8 @@ function copy_to_cart()
 	$cart->shipment_time_id	= $_POST['shipment_time_id'];
 
 	$cart->export = $_POST['export'];
+
+	$cart->attachments = $_POST['attachment'];
 	
 	//------------------------------------------------------------------
 
@@ -532,7 +534,7 @@ if (isset($_POST['update'])) {
 }
 
 if (isset($_POST['ProcessOrder']) && can_process()) {
-
+		
 
 	copy_to_cart();
 	$modified = ($_SESSION['Items']->trans_no != 0);
@@ -831,6 +833,7 @@ $customer_error = display_order_header($_SESSION['Items'],
 	($_SESSION['Items']->any_already_delivered() == 0), $idate);	
 
 
+
 if ($customer_error == "") {
 	start_table(TABLESTYLE, "width=80%", 10);
 	echo "<tr><td>";
@@ -844,10 +847,10 @@ if ($customer_error == "") {
 	display_order_footer();
 	echo "</td></tr>";
 
-	if(isset($_GET['NewExportInvoice'])){
+	if($_SESSION['Items']->trans_type == ST_EXPORTINVOICE){
 		echo "<tr><td>";
 
-		display_attachments(ST_EXPORTINVOICE);
+		display_attachments($_SESSION['Items']->trans_type);
 		echo "</td></tr>";
 	}
 

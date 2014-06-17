@@ -18,7 +18,7 @@ include_once($path_to_root . "/includes/session.inc");
 include_once($path_to_root . "/includes/date_functions.inc");
 include_once($path_to_root . "/includes/ui.inc");
 include_once($path_to_root . "/includes/data_checks.inc");
-include_once($path_to_root . "/admin/db/attachments_db.inc");
+//include_once($path_to_root . "/admin/db/attachments_db.inc");
 include_once($path_to_root . "/admin/db/transactions_db.inc");
 
 if (isset($_GET['vw']))

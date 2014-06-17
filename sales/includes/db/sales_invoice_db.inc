@@ -12,6 +12,8 @@
 //-----------------------------------------------------------------------------
 //	Add or update Sales Invoice
 //
+
+
 function write_sales_invoice(&$invoice)
 {
 	global $Refs;
@@ -254,6 +256,17 @@ function write_export_invoice(&$invoice)
 	$invoice->due_date, 0, 0, $invoice->dimension_id, 
 	$invoice->dimension2_id, $invoice->payment); 
 	// 2008-06-14 extra $alloc, 2008-11-12 added dimension_id Joe Hunt
+
+
+	//attachments-----------------------------------swapna
+    
+	$attachments = get_systype_attachments($invoice->attachments);
+	if($attachments){
+		add_invoice_attachments($invoice_no,$attachments);
+	}
+	
+	//--------------------------------------------------------
+
 
 	if ($trans_no == 0) {
 		$invoice->trans_no = array($invoice_no=>0);

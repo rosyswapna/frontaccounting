@@ -84,5 +84,46 @@ function get_sql_for_attached_documents($type)
 	." ORDER BY id DESC";
 }
 
+function get_systype_attachments($ids = array())
+{
+	$attachments = array();
+
+	foreach ($ids as $id) {
+		$attachments[] = get_attachment($id);
+	}
+
+	return $attachments;
+}
+
+//entry into attachments table
+function add_invoice_attachments($invoice_no = false, $attachments = array())
+{
+	if($invoice_no){
+
+		$date = date2sql(Today());
+
+		if(count($attachments) > 0){
+
+			$sql = "INSERT INTO ".TB_PREF."attachments (type_no, trans_no, description, filename, unique_name,filesize, filetype, tran_date) VALUES";
+
+			foreach ($attachments as $attachment) {
+				$sql .= "(".db_escape($attachment['type_no']).","
+						.db_escape($invoice_no).",".db_escape($attachment['description']).", "
+						.db_escape($attachment['filename']).", ".db_escape($attachment['unique_name']).", ".db_escape($attachment['filesize'])
+						.", ".db_escape($attachment['filetype']).", '$date'),";
+			}
+
+			$sql = substr($sql, 0,-1);
+
+			
+			db_query($sql, "Attachments could not be inserted");	
+
+		}
+		
+	}
+	
+		
+}
+
 
 ?>

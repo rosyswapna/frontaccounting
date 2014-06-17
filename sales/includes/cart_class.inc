@@ -67,6 +67,7 @@ class cart
 	var $bank_account_name;
 
 	var $export;
+	var $attachments = array();
 	//-----------------------------
 
 

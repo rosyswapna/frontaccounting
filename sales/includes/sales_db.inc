@@ -29,6 +29,8 @@ include_once($path_to_root . "/sales/includes/db/customers_db.inc");
 //new
 include_once($path_to_root . "/sales/includes/db/shipping_details_db.inc");
 
+include_once($path_to_root . "/admin/db/systype_attachments_db.inc");
+
 //----------------------------------------------------------------------------------------
 // $price in customer's currency
 // $quantity is used as is (if it's neg it's neg, if it's pos it's pos)
