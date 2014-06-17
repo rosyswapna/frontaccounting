@@ -73,7 +73,7 @@ function get_customer_trans_view_str($type, $trans_no, $label="", $icon=false,
 {
 	$viewer = "sales/view/";
 
-	if ($type == ST_SALESINVOICE)
+	if ($type == ST_SALESINVOICE || $type == ST_EXPORTINVOICE)
 		$viewer .= "view_invoice.php";
 	elseif ($type == ST_CUSTCREDIT)
 		$viewer .= "view_credit.php";
@@ -230,6 +230,7 @@ function get_trans_view_str($type, $trans_no, $label="", $icon=false,
 	$class='', $id='')
 {
 	$view_str = get_customer_trans_view_str($type, $trans_no, $label, $icon, $class, $id);
+
 	if ($view_str != null)
 		return $view_str;
 

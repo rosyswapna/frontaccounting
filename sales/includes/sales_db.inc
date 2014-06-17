@@ -357,9 +357,9 @@ function get_sales_child_numbers($trans_type, $trans_no)
 	return $trans;
 }
 
-function get_sales_parent_lines($trans_type, $trans_no, $lines=true)
+function get_sales_parent_lines($trans_type, $trans_no, $lines=true,$export=false)
 {
-	$partype = get_parent_type($trans_type);
+	$partype = get_parent_type($trans_type,$export);
 
 	if (!$partype)
 		return false;
@@ -378,15 +378,16 @@ function get_sales_parent_lines($trans_type, $trans_no, $lines=true)
 		$sql .= " GROUP BY $par_no";
 	
 	$sql .= " ORDER BY $par_no";
+
 	
 	return db_query($sql, "can't retrieve child trans");
 
 }
 
-function get_sales_parent_numbers($trans_type, $trans_no)
+function get_sales_parent_numbers($trans_type, $trans_no, $export=false)
 {
 	$trans = array();
-	$res = get_sales_parent_lines($trans_type, $trans_no, false);
+	$res = get_sales_parent_lines($trans_type, $trans_no, false, $export);
 	while ($line = db_fetch($res))
 		$trans[] = $line[$trans_type==ST_CUSTDELIVERY ? 'order_no' : 'debtor_trans_no'];
 	return $trans;

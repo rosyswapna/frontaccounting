@@ -32,15 +32,33 @@ elseif (isset($_POST["trans_no"]))
 	$trans_id = $_POST["trans_no"];
 }
 
+//--------------SWAPNA----------------------
+if (isset($_GET["trans_type"])){
+
+	$trans_type = $_GET["trans_type"];
+
+}elseif (isset($_POST["trans_type"])){
+
+	$trans_type = $_POST["trans_type"];
+}else{
+	$trans_type = ST_SALESINVOICE;
+}
+//-------------------------------------------
+
 // 3 different queries to get the information - what a JOKE !!!!
 
-$myrow = get_customer_trans($trans_id, ST_SALESINVOICE);
+//$myrow = get_customer_trans($trans_id, ST_SALESINVOICE);
+
+$myrow = get_customer_trans($trans_id, $trans_type);
 
 $branch = get_branch($myrow["branch_code"]);
 
 $sales_order = get_sales_order_header($myrow["order_"], ST_SALESORDER);
 
-display_heading(sprintf(_("SALES INVOICE #%d"),$trans_id));
+if($trans_type == ST_EXPORTINVOICE)
+	display_heading(sprintf(_("EXPORT INVOICE #%d"),$trans_id));
+else
+	display_heading(sprintf(_("SALES INVOICE #%d"),$trans_id));
 
 echo "<br>";
 start_table(TABLESTYLE2, "width=95%");
@@ -95,16 +113,16 @@ start_row();
 label_cells(_("Invoice Date"), sql2date($myrow["tran_date"]), "class='tableheader2'", "nowrap");
 label_cells(_("Due Date"), sql2date($myrow["due_date"]), "class='tableheader2'", "nowrap");
 label_cells(_("Deliveries"), get_customer_trans_view_str(ST_CUSTDELIVERY, 
-	get_sales_parent_numbers(ST_SALESINVOICE, $trans_id)), "class='tableheader2'");
+	get_sales_parent_numbers($trans_type, $trans_id, $sales_order['export'])), "class='tableheader2'");
 end_row();
-comments_display_row(ST_SALESINVOICE, $trans_id);
+comments_display_row($trans_type, $trans_id);
 end_table();
 
 echo "</td></tr>";
 end_table(1); // outer table
 
 
-$result = get_customer_trans_details(ST_SALESINVOICE, $trans_id);
+$result = get_customer_trans_details($trans_type, $trans_id);
 
 start_table(TABLESTYLE, "width=95%");
 
@@ -156,7 +174,7 @@ $display_freight = price_format($myrow["ov_freight"]);
 /*Print out the invoice text entered */
 label_row(_("Shipping"), $display_freight, "colspan=6 align=right", "nowrap align=right");
 
-$tax_items = get_trans_tax_details(ST_SALESINVOICE, $trans_id);
+$tax_items = get_trans_tax_details($trans_type, $trans_id);
 display_customer_trans_tax_details($tax_items, 6);
 
 $display_total = price_format($myrow["ov_freight"]+$myrow["ov_gst"]+$myrow["ov_amount"]+$myrow["ov_freight_tax"]);
@@ -165,13 +183,13 @@ label_row(_("TOTAL INVOICE"), $display_total, "colspan=6 align=right",
 	"nowrap align=right");
 end_table(1);
 
-$voided = is_voided_display(ST_SALESINVOICE, $trans_id, _("This invoice has been voided."));
+$voided = is_voided_display($trans_type, $trans_id, _("This invoice has been voided."));
 
 if (!$voided)
 {
-	display_allocations_to(PT_CUSTOMER, $myrow['debtor_no'], ST_SALESINVOICE, $trans_id, $myrow['Total']);
+	display_allocations_to(PT_CUSTOMER, $myrow['debtor_no'], $trans_type, $trans_id, $myrow['Total']);
 }
 
-end_page(true, false, false, ST_SALESINVOICE, $trans_id);
+end_page(true, false, false, $trans_type, $trans_id);
 
 ?>

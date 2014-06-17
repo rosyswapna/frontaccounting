@@ -253,9 +253,10 @@ if (isset($_GET['AddedID'])) {
 	$invoice = $_GET['AddedEI'];
 
 	display_notification_centered(sprintf(_("Invoice # %d has been entered."), $invoice));
-/*
+
 	
 	submenu_view(_("&View This Invoice"), ST_EXPORTINVOICE, $invoice);
+	/*
 
 	submenu_print(_("&Print Sales Invoice"), ST_EXPORTINVOICE, $invoice."-".ST_EXPORTINVOICE, 'prtopt');
 	submenu_print(_("&Email Sales Invoice"), ST_EXPORTINVOICE, $invoice."-".ST_EXPORTINVOICE, null, 1);
