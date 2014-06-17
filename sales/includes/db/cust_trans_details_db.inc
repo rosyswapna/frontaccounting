@@ -75,6 +75,8 @@ function write_customer_trans_detail_item($debtor_trans_type, $debtor_trans_no, 
 				$quantity, $unit_price, $unit_tax, 
 				$discount_percent, $std_cost,".db_escape($src_id).")";
 
+//echo $sql;exit();
+
 	db_query($sql, "The debtor transaction detail could not be written");
 }
 

@@ -48,6 +48,7 @@ set_page_security( @$_SESSION['Items']->trans_type,
 			'NewInvoice' => 'SA_SALESINVOICE',
 			'AddedDI' => 'SA_SALESINVOICE',
 			'NewExportInvoice' => 'SA_EXPORTINVOICE',
+			'AddedEI' => 'SA_EXPORTINVOICE',
 			)
 );
 
@@ -233,17 +234,56 @@ if (isset($_GET['AddedID'])) {
 
 	display_note(get_gl_view_str(ST_SALESINVOICE, $invoice, _("View the GL &Journal Entries for this Invoice")),0, 1);
 
-	if ((isset($_GET['Type']) && $_GET['Type'] == 1))
+	if ((isset($_GET['Type']) && $_GET['Type'] == 1)){
 		submenu_option(_("Enter a &New Template Invoice"), 
 			"/sales/inquiry/sales_orders_view.php?InvoiceTemplates=Yes");
-	else
+	}
+	else{
 		submenu_option(_("Enter a &New Direct Invoice"),
 			"/sales/sales_order_entry.php?NewInvoice=0");
+	}
 
 	if ($row === false)
 		submenu_option(_("Entry &customer payment for this invoice"), "/sales/customer_payments.php?SInvoice=".$invoice);
 
 	submenu_option(_("Add an Attachment"), "/admin/attachments.php?filterType=".ST_SALESINVOICE."&trans_no=$invoice");
+
+	display_footer_exit();
+}elseif (isset($_GET['AddedEI'])) {
+	$invoice = $_GET['AddedEI'];
+
+	display_notification_centered(sprintf(_("Invoice # %d has been entered."), $invoice));
+/*
+	
+	submenu_view(_("&View This Invoice"), ST_EXPORTINVOICE, $invoice);
+
+	submenu_print(_("&Print Sales Invoice"), ST_EXPORTINVOICE, $invoice."-".ST_EXPORTINVOICE, 'prtopt');
+	submenu_print(_("&Email Sales Invoice"), ST_EXPORTINVOICE, $invoice."-".ST_EXPORTINVOICE, null, 1);
+	set_focus('prtopt');
+	
+	$sql = "SELECT trans_type_from, trans_no_from FROM ".TB_PREF."cust_allocations
+			WHERE trans_type_to=".ST_EXPORTINVOICE." AND trans_no_to=".db_escape($invoice);
+	$result = db_query($sql, "could not retrieve customer allocation");
+	$row = db_fetch($result);
+	if ($row !== false)
+		submenu_print(_("Print &Receipt"), $row['trans_type_from'], $row['trans_no_from']."-".$row['trans_type_from'], 'prtopt');
+
+	display_note(get_gl_view_str(ST_EXPORTINVOICE, $invoice, _("View the GL &Journal Entries for this Invoice")),0, 1);
+
+	if ((isset($_GET['Type']) && $_GET['Type'] == 1)){
+		submenu_option(_("Enter a &New Template Invoice"), 
+			"/sales/inquiry/sales_orders_view.php?InvoiceTemplates=Yes");
+	}
+	else{
+		submenu_option(_("Enter a &New Export Invoice"),
+			"/sales/sales_order_entry.php?NewExportInvoice=0");
+	}
+
+	if ($row === false)
+		submenu_option(_("Entry &customer payment for this invoice"), "/sales/customer_payments.php?SInvoice=".$invoice);
+
+	submenu_option(_("Add an Attachment"), "/admin/attachments.php?filterType=".ST_SALESINVOICE."&trans_no=$invoice");
+*/
 
 	display_footer_exit();
 } else
@@ -531,7 +571,9 @@ if (isset($_POST['ProcessOrder']) && can_process()) {
 			meta_forward($_SERVER['PHP_SELF'], "AddedQU=$trans_no");
 		} elseif ($trans_type == ST_SALESINVOICE) {
 			meta_forward($_SERVER['PHP_SELF'], "AddedDI=$trans_no&Type=$so_type");
-		} else {
+		} elseif ($trans_type == ST_EXPORTINVOICE) {
+			meta_forward($_SERVER['PHP_SELF'], "AddedEI=$trans_no&Type=$so_type");
+		}  else {
 			meta_forward($_SERVER['PHP_SELF'], "AddedDN=$trans_no&Type=$so_type");
 		}
 	}	

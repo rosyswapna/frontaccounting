@@ -49,6 +49,7 @@ ALTER TABLE `shipping_details` ADD `container_no` VARCHAR( 255 ) NOT NULL;
 -------------------------------------------------------------------------------------------
 ___________________________________________________________________________________________________________
 June 13 2014___________________________________________________________________________________________________________
+
 ALTER TABLE `bank_accounts` ADD `bank_iban` VARCHAR( 255 ) NOT NULL ,
 ADD `bank_swift_code` VARCHAR( 255 ) NOT NULL 
 
@@ -61,7 +62,7 @@ ADD `export` TINYINT NOT NULL DEFAULT '0' COMMENT '1 for export sale,0 for local
 ___________________________________________________________________________________________________________
 June 16 2014___________________________________________________________________________________________________________
 
-CREATE TABLE IF NOT EXISTS `sys_type_attachments` (
+CREATE TABLE IF NOT EXISTS `systype_attachments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(60) NOT NULL,
   `type_no` int(11) NOT NULL,
@@ -71,4 +72,10 @@ CREATE TABLE IF NOT EXISTS `sys_type_attachments` (
   `filetype` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+___________________________________________________________________________________________________________
+June 17 2014___________________________________________________________________________________________________________
+
+INSERT INTO `frontaccounting`.`sys_types` (`type_id`, `type_no`, `next_reference`) VALUES ('41', '19', '1');
+
 

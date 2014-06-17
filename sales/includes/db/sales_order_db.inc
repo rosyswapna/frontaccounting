@@ -23,7 +23,7 @@ function add_sales_order(&$order)
 
 	$sql = "INSERT INTO ".TB_PREF."sales_orders (order_no, type, debtor_no, trans_type, branch_code, customer_ref, reference, comments, ord_date,
 		order_type, ship_via, deliver_to, delivery_address, contact_phone,
-		freight_cost, from_stk_loc, delivery_date, payment_terms, total, shipping_id, contract_no, loading_type_id, origin, lc_no,lc_date, bank_account_id, shipment_terms, shipment_validity_date, port_of_loading, port_of_discharge, destination, remarks,shipment_time_id)
+		freight_cost, from_stk_loc, delivery_date, payment_terms, total, shipping_id, contract_no, loading_type_id, origin, lc_no,lc_date, bank_account_id, shipment_terms, shipment_validity_date, port_of_loading, port_of_discharge, destination, remarks,shipment_time_id,export)
 		VALUES (" .db_escape($order_no) . "," .db_escape($order_type) . "," . db_escape($order->customer_id) .
 		 ", " .db_escape($order->trans_type) . "," .db_escape($order->Branch) . ", ".
 			db_escape($order->cust_ref) .",". 
@@ -53,7 +53,8 @@ function add_sales_order(&$order)
 			db_escape($order->port_of_discharge) . "," .
 			db_escape($order->destination) . "," .
 			db_escape($order->remarks) . "," .
-			db_escape($order->shipment_time_id). ")";
+			db_escape($order->shipment_time_id) . "," .
+			db_escape($order->export). ")";
 
 //echo $sql;exit();
 	db_query($sql, "order Cannot be Added");
@@ -426,6 +427,7 @@ function read_sales_order($order_no, &$order, $trans_type)
 	$order->bank_account_name = $myrow['bank_account_name'];
 
 	$order->export = $myrow['export'];
+	//echo $order->export;exit();
 	
 	//-------------------------------------------------------
 

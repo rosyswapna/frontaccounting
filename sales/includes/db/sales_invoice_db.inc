@@ -216,7 +216,9 @@ function write_export_invoice(&$invoice)
 	$items_total = $invoice->get_items_total_dispatch();
 	$freight_tax = $invoice->get_shipping_tax();
 
-	update_customer_trans_version(get_parent_type(ST_EXPORTINVOICE), $invoice->src_docs);//get parent same from sales invoice
+	//echo get_parent_type(ST_EXPORTINVOICE,$invoice->export);exit();
+
+	update_customer_trans_version(get_parent_type(ST_EXPORTINVOICE,$invoice->export), $invoice->src_docs);//get parent same from sales invoice
 
 	$ov_gst = 0;
 	$taxes = $invoice->get_taxes(); // all taxes with freight_tax

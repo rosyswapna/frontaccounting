@@ -226,6 +226,7 @@ class cart
 			if ($type == ST_SALESORDER || $type == ST_SALESQUOTE) { // sales order || sales quotation
 				read_sales_order($trans_no[0], $this, $type);
 			} else {	// other type of sales transaction
+				
 					read_sales_trans($type, $trans_no, $this); 
 					if ($this->order_no) { // free hand credit notes have no order_no
 						$sodata = get_sales_order_header($this->order_no, ST_SALESORDER);
@@ -236,8 +237,8 @@ class cart
 						$this->delivery_to = $sodata["deliver_to"];
 						$this->delivery_address = $sodata["delivery_address"];
 					// child transaction reedition - update with parent info unless it is freehand
-					if (!$prep_child) // this is read for view/reedition
-						$this->set_parent_constraints($sodata, $trans_no[0]);
+						if (!$prep_child) // this is read for view/reedition
+							$this->set_parent_constraints($sodata, $trans_no[0]);
 					}
 			}
 			// convert document into child and prepare qtys for entry
@@ -338,9 +339,9 @@ class cart
 		}
 		
 		switch($this->trans_type) {
-			case ST_SALESINVOICE:
+			case ST_SALESINVOICE://echo "sales invoice";exit();
 				$ret = write_sales_invoice($this); break;
-			case ST_EXPORTINVOICE:
+			case ST_EXPORTINVOICE://echo "export invoice";exit();
 				$ret = write_export_invoice($this); break;
 			case ST_CUSTCREDIT:
 				$ret = write_credit_note($this, $policy); break;
