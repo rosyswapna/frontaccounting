@@ -13,8 +13,8 @@ $page_security = $_POST['PARAM_0'] == $_POST['PARAM_1'] ?
 	'SA_SALESTRANSVIEW' : 'SA_SALESBULKREP';
 // ----------------------------------------------------------------
 // $ Revision:	2.0 $
-// Creator:	Joe Hunt
-// date_:	2005-05-19
+// Creator:	Swapna
+// date_:	2014-06-18
 // Title:	Print Invoices
 // ----------------------------------------------------------------
 $path_to_root="..";
@@ -26,11 +26,11 @@ include_once($path_to_root . "/sales/includes/sales_db.inc");
 
 //----------------------------------------------------------------------------------------------------
 
-print_invoices();
+print_export_invoices();
 
 //----------------------------------------------------------------------------------------------------
 
-function print_invoices()
+function print_export_invoices()
 {
 	global $path_to_root, $alternative_tax_include_on_docs, $suppress_tax_rates, $no_zero_lines_amount;
 	
@@ -147,6 +147,7 @@ function print_invoices()
 			$DisplayTotalAmount = number_format2($TotalAmount,$dec);
 			$DisplayTotalDiscount = number_format2($TotalDiscount,$dec);
 			$DisplayWords = price_in_words($myrow['Total'], ST_EXPORTINVOICE);
+			
 			$rep->formData['words'] = $DisplayWords;
 			$rep->formData['total_amount'] = $DisplayTotalAmount;
 			$rep->formData['adv_disc'] = $DisplayTotalDiscount;

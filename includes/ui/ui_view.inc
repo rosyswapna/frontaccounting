@@ -833,9 +833,9 @@ function price_in_words($amount, $document=0)
 {
 	// use local price_in_words() if the hook is defined
 	$price = hook_price_in_words($amount, $document);
-	if ($price) 
+	if ($price) {
 		return $price;
-
+	}
 	// Only usefor Remittance and Receipts as default
 	if (!($document == ST_SUPPAYMENT || $document == ST_CUSTPAYMENT || $document == ST_CHEQUE))
 		return "";

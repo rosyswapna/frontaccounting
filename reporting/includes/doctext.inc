@@ -157,10 +157,9 @@
 				_("Adv/Disc") => $this->formData['adv_disc'],
 				_("Gross Amount") => $this->formData['gross_amount'],
 				);
-			if($this->formData['words'] != "")
-				$words = "AMOUNT (AED):".$this->formData['words'];
-			else
-				$words = "";
+			
+			$words = "AMOUNT (AED):".$this->formData['words'];
+			
 			
 			$Certify = "We Certify that the merchandise is of U.A.E. Origin";
 

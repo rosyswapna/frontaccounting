@@ -28,6 +28,15 @@ $installed_languages = array (
     'path' => 'lang/ar_EG',
     'rtl' => true,
   ),
+  2 => 
+  array (
+    'name' => 'English (US)',
+    'package' => 'en_US',
+    'code' => 'en_US',
+    'encoding' => 'iso-8859-1',
+    'version' => '2.3.12-1',
+    'path' => 'lang/en_US',
+  ),
 );
 
 $dflt_lang = 'C';
