@@ -52,7 +52,7 @@ else
 
 if ($download_id != -1)
 {
-	$row = get_attachment($download_id);
+	$row = get_systype_attachment($download_id);
 	if ($row['filename'] != "")
 	{
 		if(in_ajax()) {
@@ -106,7 +106,7 @@ if ($Mode == 'ADD_ITEM' || $Mode == 'UPDATE_ITEM')
 		// protect against directory traversal
 		if ($Mode == 'UPDATE_ITEM')
 		{
-		    $row = get_attachment($selected_id);
+		    $row = get_systype_attachment($selected_id);
 		    if ($row['filename'] == "")
         		exit();
 			$unique_name = $row['unique_name'];
@@ -121,13 +121,13 @@ if ($Mode == 'ADD_ITEM' || $Mode == 'UPDATE_ITEM')
 
 		if ($Mode == 'ADD_ITEM')
 		{
-			add_attachment($_POST['filterType'], $_POST['description'],
+			add_systype_attachment($_POST['filterType'], $_POST['description'],
 				$filename, $unique_name, $filesize, $filetype);
 			display_notification(_("Attachment has been inserted.")); 
 		}
 		else
 		{
-			update_attachment($selected_id, $_POST['filterType'], $_POST['description'],
+			update_systype_attachment($selected_id, $_POST['filterType'], $_POST['description'],
 				$filename, $unique_name, $filesize, $filetype); 
 			display_notification(_("Attachment has been updated.")); 
 		}
@@ -139,11 +139,11 @@ if ($Mode == 'ADD_ITEM' || $Mode == 'UPDATE_ITEM')
 
 if ($Mode == 'Delete')
 {
-	$row = get_attachment($selected_id);
+	$row = get_systype_attachment($selected_id);
 	$dir =  company_path()."/attachments";
 	if (file_exists($dir."/".$row['unique_name']))
 		unlink($dir."/".$row['unique_name']);
-	delete_attachment($selected_id);	
+	delete_systype_attachment($selected_id);	
 	display_notification(_("Attachment has been deleted.")); 
 	$Mode = 'RESET';
 }
@@ -198,7 +198,7 @@ function delete_link($row)
 
 function display_rows($type)
 {
-	$sql = get_sql_for_attached_documents($type);
+	$sql = get_sql_for_systype_attached_documents($type);
 	$cols = array(
 	    _("Description") => array('name'=>'description'),
 	    _("Filename") => array('name'=>'filename'),
@@ -235,7 +235,7 @@ if ($selected_id != -1)
 {
 	if ($Mode == 'Edit')
 	{
-		$row = get_attachment($selected_id);
+		$row = get_systype_attachment($selected_id);
 		$_POST['description']  = $row["description"];
 		hidden('unique_name', $row['unique_name']);
 	}	

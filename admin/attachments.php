@@ -18,7 +18,7 @@ include_once($path_to_root . "/includes/session.inc");
 include_once($path_to_root . "/includes/date_functions.inc");
 include_once($path_to_root . "/includes/ui.inc");
 include_once($path_to_root . "/includes/data_checks.inc");
-//include_once($path_to_root . "/admin/db/attachments_db.inc");
+include_once($path_to_root . "/admin/db/attachments_db.inc");
 include_once($path_to_root . "/admin/db/transactions_db.inc");
 
 if (isset($_GET['vw']))
@@ -79,6 +79,8 @@ if (isset($_GET['filterType'])) // catch up external links
 	$_POST['filterType'] = $_GET['filterType'];
 if (isset($_GET['trans_no']))
 	$_POST['trans_no'] = $_GET['trans_no'];
+
+
 
 if ($Mode == 'ADD_ITEM' || $Mode == 'UPDATE_ITEM')
 {
@@ -198,9 +200,9 @@ function delete_link($row)
   	return button('Delete'.$row["id"], _("Delete"), _("Delete"), ICON_DELETE);
 }
 
-function display_rows($type)
+function display_rows($type,$trans_no = false)
 {
-	$sql = get_sql_for_attached_documents($type);
+	$sql = get_sql_for_attached_documents($type,$trans_no);
 	$cols = array(
 		_("#") => array('fun'=>'trans_view', 'ord'=>''),
 	    _("Description") => array('name'=>'description'),
@@ -226,7 +228,13 @@ start_form(true);
 
 viewing_controls();
 
-display_rows($_POST['filterType']);
+if(isset($_POST['trans_no'])){
+	$trans_no = $_POST['trans_no'];
+}else{
+	$trans_no = false;
+}
+
+display_rows($_POST['filterType'],$trans_no);
 
 br(2);
 

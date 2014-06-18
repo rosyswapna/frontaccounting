@@ -12,7 +12,7 @@
 
 //----------------------------------------------------------------------------------------
 
-function add_attachment($filterType, $description,
+function add_systype_attachment($filterType, $description,
 	$filename, $unique_name, $filesize, $filetype)
 {
 	$sql = "INSERT INTO ".TB_PREF."systype_attachments (type_no, description, filename, unique_name,
@@ -24,7 +24,7 @@ function add_attachment($filterType, $description,
 }
 //----------------------------------------------------------------------------------------
 
-function update_attachment($selected_id, $filterType, $description,
+function update_systype_attachment($selected_id, $filterType, $description,
 	$filename, $unique_name, $filesize, $filetype)
 {
 	$sql = "UPDATE ".TB_PREF."systype_attachments SET
@@ -44,7 +44,7 @@ function update_attachment($selected_id, $filterType, $description,
 
 //----------------------------------------------------------------------------------------
 
-function delete_attachment($id)
+function delete_systype_attachment($id)
 {
 	$sql = "DELETE FROM ".TB_PREF."systype_attachments WHERE id = ".db_escape($id);
 	db_query($sql, "Could not delete attachment");
@@ -53,21 +53,21 @@ function delete_attachment($id)
 //----------------------------------------------------------------------------------------
 
 
-function get_attached_documents($type)
+function get_systype_attached_documents($type)
 {
 	$sql = "SELECT * FROM ".TB_PREF."systype_attachments WHERE type_no=".db_escape($type)
 	." ORDER BY id DESC";
 	return db_query($sql, "Could not retrieve attachments");
 }
 
-function get_attachment($id)
+function get_systype_attachment($id)
 {
 	$sql = "SELECT * FROM ".TB_PREF."systype_attachments WHERE id=".db_escape($id);
 	$result = db_query($sql, "Could not retrieve attachments");
 	return db_fetch($result);
 }
 
-function has_attachment($type)
+function has_systype_attachment($type)
 {
 	$sql = "SELECT DISTINCT * FROM ".TB_PREF."systype_attachments WHERE type_no=".db_escape($type);
 	$result = db_query($sql, "Could not retrieve attachments");
@@ -78,7 +78,7 @@ function has_attachment($type)
 		return $myrow['id'];
 }
 
-function get_sql_for_attached_documents($type)
+function get_sql_for_systype_attached_documents($type)
 {
 	return "SELECT description, filename, filesize, filetype, id, type_no FROM ".TB_PREF."systype_attachments WHERE type_no=".db_escape($type)
 	." ORDER BY id DESC";
@@ -89,7 +89,7 @@ function get_systype_attachments($ids = array())
 	$attachments = array();
 
 	foreach ($ids as $id) {
-		$attachments[] = get_attachment($id);
+		$attachments[] = get_systype_attachment($id);
 	}
 
 	return $attachments;

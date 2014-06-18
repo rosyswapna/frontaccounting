@@ -497,27 +497,31 @@ function display_order_header(&$order, $editable, $date_text)
 
 function display_attachments($type)
 {
-	global $path_to_root;
+	global $path_to_root;$Ajax;
 
 	include_once($path_to_root."/admin/db/systype_attachments_db.inc");
 
-	$result = get_attached_documents($type);	
+	$result = get_systype_attached_documents($type);	
 
 	display_heading("Attachments");
 	
-	start_table(TABLESTYLE, "colspan=7 width=90%");
+	start_table(TABLESTYLE2, "width=90%");
+	start_row();
 		while($attachment = mysql_fetch_assoc($result))
 		{
-			//check_row($attachment['description'],'attachment');
-			start_row();
+			
 				label_cell($attachment['description']);
 				echo '<td>
 						<input type="checkbox" name="attachment[]" value="'.$attachment['id'].'"/>
 					</td>';
-			end_row();
+			
 		}
+		end_row();
 		
-		file_row("Scanned Documents","file_scanned");
+		//file_row("Scanned Documents","file_scanned");
+
+
+		
 	
 	end_table(); // outer table
 

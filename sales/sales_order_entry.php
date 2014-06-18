@@ -114,6 +114,8 @@ if (list_updated('branch_id')) {
 }
 
 
+
+
 if (isset($_GET['AddedID'])) {
 	$order_no = $_GET['AddedID'];
 	display_notification_centered(sprintf( _("Order # %d has been entered."),$order_no));
@@ -283,8 +285,9 @@ if (isset($_GET['AddedID'])) {
 	if ($row === false)
 		submenu_option(_("Entry &customer payment for this invoice"), "/sales/customer_payments.php?SInvoice=".$invoice);
 
-	submenu_option(_("Add an Attachment"), "/admin/attachments.php?filterType=".ST_SALESINVOICE."&trans_no=$invoice");
+	
 */
+	submenu_option(_("Add an Attachment"), "/admin/attachments.php?filterType=".ST_EXPORTINVOICE."&trans_no=$invoice");
 
 	display_footer_exit();
 } else

@@ -24,6 +24,15 @@
 //    If var is found returns variable name with prefix stripped,
 //    and null or -1 otherwise.
 //
+
+
+function file_uploaded($name)
+{
+	return isset($_POST['_'.$name.'_update']) || isset($_POST['_'.$name.'_button']);
+}
+
+
+
 function find_submit($prefix, $numeric=true)
 {
 
@@ -671,12 +680,15 @@ function password_row($label, $name, $value)
 }	
 
 //-----------------------------------------------------------------------------------
+
 function file_cells($label, $name, $id="")
 {
 	if ($id != "")
 		$id = "id='$id'";
+	
 	label_cells($label, "<input type='file' name='$name' $id />");
-}		
+}
+
 function file_row($label, $name, $id = "")
 {
 	echo "<tr><td class='label'>$label</td>";
