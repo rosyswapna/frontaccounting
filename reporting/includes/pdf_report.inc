@@ -388,7 +388,7 @@ class FrontReport extends Cpdf
 			'due_date', 'required_by', 'payment_terms', 'curr_code',
 			'ov_freight', 'ov_gst', 'ov_amount', 'requisition_no', 'contact','contract_no','origin','destination','lc_no','lc_date'),
 		'branch' => array('br_address', 'br_name', 'salesman', 'disable_branch'),
-		'sales_order' => array('deliver_to', 'delivery_address', 'customer_ref','contract_no','origin','destination','lc_no','lc_date','loading_type_name','shipment_time_name'),
+		'sales_order' => array('deliver_to', 'delivery_address', 'customer_ref','contract_no','origin','destination','lc_no','lc_date','loading_type_name','shipment_time_name','shipment_terms','shipment_validity_date'),
 		'bankaccount' => array('bank_name', 'bank_account_number', 'payment_service','bank_account_name','bank_address','bank_iban','bank_swift_code'),
 		'shipping'	=> array('vehicle_details','container_no','first_weight','second_weight')
 
@@ -689,6 +689,25 @@ class FrontReport extends Cpdf
  		 // modified versions from company/x/reporting directory
 		include("includes/doctext.inc");
 		include("includes/header4.inc");
+
+		$this->row = $temp;
+	}
+
+	function Header5()
+	{
+		global $path_to_root, $print_as_quote,
+			$print_invoice_no, $packing_slip, $dflt_lang; // FIXME should be passed as params
+
+		$doctype = $this->formData['doctype'];
+		$header2type = true;
+
+		$this->SetLang(@$this->formData['rep_lang'] ? $this->formData['rep_lang']
+ 			: ($_SESSION["wa_current_user"]->prefs->language ? $_SESSION["wa_current_user"]->prefs->language : $dflt_lang));
+
+ 		 // leave layout files names without path to enable including
+ 		 // modified versions from company/x/reporting directory
+		include("includes/doctext.inc");
+		include("includes/header5.inc");
 
 		$this->row = $temp;
 	}

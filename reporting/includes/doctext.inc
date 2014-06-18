@@ -108,14 +108,14 @@
 			);
 			break;
 
-		case ST_EXPORTINVOICE:
+		
 		case ST_SALESINVOICE:
-			$this->title = $this->formData['doctype'] == ST_EXPORTINVOICE ? _("EXPORT INVOICE") : _("DIRECT INVOICE");
+			$this->title = _("DIRECT INVOICE");
 			$this->formData['document_name'] =_("Invoice No.");
 			$this->formData['domicile'] = $this->company['domicile'];
 			$Footer[0] = _("Please quote Invoice no. when paying. All amounts stated in"). " - " . $this->formData['curr_code'];
 
-			$deliveries = get_sales_parent_numbers($this->formData['doctype'], $this->formData['trans_no']);
+			$deliveries = get_sales_parent_numbers(ST_SALESINVOICE, $this->formData['trans_no']);
 			if ($print_invoice_no == 0)
 			{
 				foreach($deliveries as $n => $delivery) {
@@ -171,6 +171,62 @@
 				);
 
 			break;
+
+		case ST_EXPORTINVOICE:
+				$this->title =  _("EXPORT INVOICE");
+				$this->formData['document_name'] =_("Invoice No.");
+				$this->formData['domicile'] = $this->company['domicile'];
+				$Footer[0] = _("Please quote Invoice no. when paying. All amounts stated in"). " - " . $this->formData['curr_code'];
+
+				$deliveries = get_sales_parent_numbers(ST_EXPORTINVOICE, $this->formData['trans_no']);
+				if ($print_invoice_no == 0)
+				{
+					foreach($deliveries as $n => $delivery) {
+						$deliveries[$n] = get_reference(ST_CUSTDELIVERY, $delivery);
+					}
+				}
+
+				
+				$Shipment_Terms = "Shipment Terms : ".$this->formData['shipment_terms'];
+
+				$info_hleft = array(
+					_("LOADING") => ": ".$this->formData["loading_type_name"],
+					_("ORIGIN") => ": ".$this->formData['origin'],
+					_("DESTINATION") => ": ".$this->formData['destination'],
+					_("LC DETAILS") => (trim($this->formData['lc_no']) != "")?": ".$this->formData['lc_no']:": NOT APPLICABLE",
+				);
+
+				$info_hright = array(
+					_("Your Ref No") => ": ".$this->formData["customer_ref"],
+					_("SHIPMENT") => ": ".$this->formData['shipment_time_name'],
+					_("VEHICLE NO") => ": ".$this->formData['vehicle_details'],
+					_("LC DATE") => ($this->formData['lc_date'] == '0000-00-00')?": NOT AVAILABLE":": ".$this->formData['lc_date'],
+				);
+
+				$this->headers = array(_("Container No."), _("Material"),
+					_("Net Wt (MT)"), _("Unit Price (AED)"), _("Total Amount (AED)"));
+
+				$items = $this->formData['items'];
+
+				$table_totals = array(
+					_("Total Amount") => $this->formData["total_amount"],
+					_("Adv/Disc") => $this->formData['adv_disc'],
+					_("Gross Amount") => $this->formData['gross_amount'],
+					);
+				
+				$words = "AMOUNT (AED):".$this->formData['words'];
+				
+				
+				$Certify = "We Certify that the merchandise is of U.A.E. Origin";
+
+				$bank_details = array("BANK NAME: ".$this->formData["bank_name"],
+					"A/C NAME: ".$this->formData['bank_account_name'],
+					"A/C NO: ".$this->formData['bank_account_number'],
+					"IBAN: ".$this->formData['bank_iban'],
+					"SWIFT CODE: ".$this->formData['bank_swift_code'],
+					);
+
+				break;
 
 		case ST_SUPPAYMENT:
 			global $systypes_array;

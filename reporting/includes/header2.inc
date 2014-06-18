@@ -225,7 +225,7 @@
 				$this->TextWrap($dcol1, $this->row, $dcol2, $item[$j], 'center');
 				$j++;
 			}
-
+			$this->NewLine();
 			
 		}
 

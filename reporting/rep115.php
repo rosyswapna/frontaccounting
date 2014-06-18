@@ -105,7 +105,7 @@ function print_export_invoices()
 				$rep->title = _('INVOICE');
 				$rep->filename = "Invoice" . $myrow['reference'] . ".pdf";
 			}	
-			$rep->SetHeaderType('Header2');
+			$rep->SetHeaderType('Header5');
 			$rep->currency = $cur;
 			$rep->Font();
 			$rep->Info($params, $cols, null, $aligns);
