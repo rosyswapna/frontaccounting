@@ -108,8 +108,9 @@
 			);
 			break;
 
+		case ST_EXPORTINVOICE:
 		case ST_SALESINVOICE:
-			$this->title = _("COMMERCIAL INVOICE");
+			$this->title = $this->formData['doctype'] == ST_EXPORTINVOICE ? _("EXPORT INVOICE") : _("DIRECT INVOICE");
 			$this->formData['document_name'] =_("Invoice No.");
 			$this->formData['domicile'] = $this->company['domicile'];
 			$Footer[0] = _("Please quote Invoice no. when paying. All amounts stated in"). " - " . $this->formData['curr_code'];

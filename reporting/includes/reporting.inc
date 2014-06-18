@@ -59,9 +59,18 @@ function print_document_link($doc_no, $link_text, $link=true, $type_no,
 				'PARAM_4' => '',
 				'PARAM_5' => $def_orientation);
 			break;
+
+		case ST_EXPORTINVOICE : // Export Invoice
 		case ST_SALESINVOICE : // Sales Invoice
 		case ST_CUSTCREDIT : // Customer Credit Note
-			$rep = $type_no==ST_CUSTCREDIT ? 113 : 107;
+			//$rep = $type_no==ST_CUSTCREDIT ? 113 : 107;
+			if($type_no == ST_CUSTCREDIT)
+				$rep = 113;
+			else if($type_no == ST_EXPORTINVOICE)
+				$rep = 115;
+			else
+				$rep = 107;
+
 			// from, to, currency, email, paylink, comments, orientation
 			$ar = array(
 				'PARAM_0' => $doc_no, 
