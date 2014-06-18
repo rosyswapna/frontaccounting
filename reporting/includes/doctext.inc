@@ -115,7 +115,7 @@
 			$this->formData['domicile'] = $this->company['domicile'];
 			$Footer[0] = _("Please quote Invoice no. when paying. All amounts stated in"). " - " . $this->formData['curr_code'];
 
-			$deliveries = get_sales_parent_numbers(ST_SALESINVOICE, $this->formData['trans_no']);
+			$deliveries = get_sales_parent_numbers($this->formData['doctype'], $this->formData['trans_no']);
 			if ($print_invoice_no == 0)
 			{
 				foreach($deliveries as $n => $delivery) {

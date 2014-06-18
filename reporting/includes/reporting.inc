@@ -71,6 +71,7 @@ function print_document_link($doc_no, $link_text, $link=true, $type_no,
 			else
 				$rep = 107;
 
+
 			// from, to, currency, email, paylink, comments, orientation
 			$ar = array(
 				'PARAM_0' => $doc_no, 
