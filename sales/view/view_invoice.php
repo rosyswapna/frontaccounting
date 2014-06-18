@@ -190,6 +190,55 @@ if (!$voided)
 	display_allocations_to(PT_CUSTOMER, $myrow['debtor_no'], $trans_type, $trans_id, $myrow['Total']);
 }
 
+	display_heading2(_("Other Details"));
+
+	start_table(TABLESTYLE, "width=95%");
+			
+		start_row();
+
+			label_cells(_("Bank Account"), $sales_order['bank_account_name'], "class='tableheader2'");
+
+			label_cells(_("Contract Number"), $sales_order['contract_no'], "class='tableheader2'");
+		end_row();
+
+		start_row();
+
+			label_cells(_("Loading"),$sales_order['loading_type_name'], "class='tableheader2'");
+			label_cells(_("Origin"), $sales_order['origin'], "class='tableheader2'");
+
+		end_row();
+
+		start_row();
+
+			label_cells(_("LC Details"),$sales_order['lc_no'], "class='tableheader2'");
+			label_cells(_("Port Of Loading"), $sales_order['port_of_loading'], "class='tableheader2'");
+			
+		end_row();
+
+		start_row();
+
+			label_cells(_("Destination"),$sales_order['destination'], "class='tableheader2'");
+			label_cells(_("Port Of Discharge"), $sales_order['port_of_discharge'], "class='tableheader2'");
+			
+		end_row();
+
+		start_row();
+
+			label_cells(_("Shipment Terms"),$sales_order['shipment_terms'], "class='tableheader2'");
+			label_cells(_("Remarks"), $sales_order['remarks'], "class='tableheader2'");
+			
+		end_row();
+
+		start_row();
+
+			label_cells(_("Shipment Validity Date"),$sales_order['shipment_validity_date'], "class='tableheader2'");
+			label_cells(_("Shipping Id"), $sales_order['shipping_id'], "class='tableheader2'");
+			
+		end_row();
+
+		
+	end_table();
+
 end_page(true, false, false, $trans_type, $trans_id);
 
 ?>

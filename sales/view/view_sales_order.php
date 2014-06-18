@@ -293,7 +293,6 @@ display_heading2(_("Other Details"));
 			
 		end_row();
 
-		//label_row('Shipment Validity Date',$_SESSION['View']->shipment_validity_date, "class='tableheader2'");
 		
 	end_table();
 
