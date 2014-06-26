@@ -386,11 +386,11 @@ class FrontReport extends Cpdf
 			'DebtorName', 'supp_account_no', 'wo_ref', 'debtor_ref','type', 'trans_no', 
 			'StockItemName', 'tax_id', 'order_', 'delivery_date', 'units_issued',
 			'due_date', 'required_by', 'payment_terms', 'curr_code',
-			'ov_freight', 'ov_gst', 'ov_amount', 'requisition_no', 'contact','contract_no','origin','destination','lc_no','lc_date'),
+			'ov_freight', 'ov_gst', 'ov_amount', 'requisition_no', 'contact'),
 		'branch' => array('br_address', 'br_name', 'salesman', 'disable_branch'),
-		'sales_order' => array('deliver_to', 'delivery_address', 'customer_ref','contract_no','origin','destination','lc_no','lc_date','loading_type_name','shipment_time_name','shipment_terms','shipment_validity_date'),
+		'sales_order' => array('deliver_to', 'delivery_address', 'customer_ref','contract_no','origin','destination','lc_no','lc_date','loading_type_name','shipment_time_name','shipment_terms','shipment_validity_date','port_of_discharge','remarks'),
 		'bankaccount' => array('bank_name', 'bank_account_number', 'payment_service','bank_account_name','bank_address','bank_iban','bank_swift_code'),
-		'shipping'	=> array('vehicle_details','container_no','first_weight','second_weight')
+		'shipping'	=> array('vehicle_details','container_no','first_weight','second_weight'),
 
 		);
 

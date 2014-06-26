@@ -78,4 +78,10 @@ June 17 2014____________________________________________________________________
 
 INSERT INTO `sys_types` (`type_id`, `type_no`, `next_reference`) VALUES ('41', '19', '1');
 
+___________________________________________________________________________________________________________
+June 26 2014___________________________________________________________________________________________________________
+
+ALTER TABLE `sales_orders` ADD `packing` VARCHAR( 255 ) NOT NULL ,
+ADD `merchandise_tolerance` VARCHAR( 255 ) NOT NULL ,
+ADD `loading_details` VARCHAR( 255 ) NOT NULL 
 

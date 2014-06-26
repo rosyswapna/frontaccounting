@@ -21,6 +21,8 @@
 	$this->formData - some other info
 ***/
 
+		$this->fontSize = 8.1;
+
 
 		$this->row = $this->pageHeight - $this->topMargin-40;
 
@@ -32,7 +34,7 @@
 		
 		$icol = $this->pageWidth / 2;
 		$ccol = $this->cols[0] + 4;
-		$cncol = $ccol + 70;
+		$cncol = $ccol + 150;
 
 		$c2col = $ccol-250;
 		$cn2col = $c2col + 70;
@@ -42,79 +44,15 @@
 		$mcol2 = $this->pageWidth - $ccol2;
 		$cols = count($this->cols);
 
-		//-------------------------address box start here-------------------------
-		$box_right = $ccol + 250;
-		$left = $ccol;
-
-		$iline1 = $upper - 2.8 * $this->lineHeight;
-		$iline2 =  $iline1 - 4.5 * $this->lineHeight;
-
-		
-
-		$this->row = $iline1 - $this->lineHeight;		
-		
-		//-------------------------address box ends here-------------------------
-		
-
-		//-------------------------------------table start here-----------------------
-
-		//margin left for table data
-		$mltbl = $ccol+3;
-
-		//end points for table right and left ends.
-		$rightEnd = $this->pageWidth - $this->rightMargin;
-		$leftEnd = $ccol;
-
-		//table rows points
-		$iline3 = $iline2 - 7.5 * $this->lineHeight;
-		$iline4 = $iline3 - 2.5 * $this->lineHeight;
-		$iline5 = $iline4 - 1.5 * $this->lineHeight;
-		$iline6 = $iline5 - 8 * $this->lineHeight;
-		$iline7 = $iline6 - 1.5 * $this->lineHeight;
-		$iline8 = $iline7 - 1.5 * $this->lineHeight;
-		$iline9 = $iline8 - 1.5 * $this->lineHeight;
-
-		//table column's points
-		$inner1 = $leftEnd+90;
-		$inner2 = $inner1+120;
-		$inner3 = $inner2+90;
-		$inner4 = $inner3+90;
-		//array for table data
-		$columns = array($leftEnd,$inner1,$inner2,$inner3,$inner4,$rightEnd);
-
-		//table horizontal lines
-		$this->Line1($iline3,0,$ccol);
-		$this->Line1($iline4,0,$ccol);
-		$this->Line1($iline5,0,$ccol);
-		$this->Line1($iline6,0,$ccol);
-		$this->Line1($iline7,0,$ccol);
-		$this->Line1($iline8,0,$inner3);
-		$this->Line1($iline9,0,$ccol);
-
-		
-		//table vertical left and right end lines
-		$this->LineTo($rightEnd, $iline3 ,$rightEnd, $iline9);
-		$this->LineTo($leftEnd, $iline3 ,$leftEnd, $iline9);
-
-		//table vertical inner lines
-		$this->LineTo($inner1, $iline4 ,$inner1, $iline6);
-		$this->LineTo($inner2, $iline4 ,$inner2, $iline6);
-		$this->LineTo($inner3, $iline4 ,$inner3, $iline9);
-		$this->LineTo($inner4, $iline4 ,$inner4, $iline9);
-		//-------------------------------------table ends here-----------------------
 		
 	
 		// Company Logo
-		//$this->NewLine();
 		$this->row = $upper+20;
 		$logo = company_path() . "/images/" . $this->company['coy_logo'];
-		if ($this->company['coy_logo'] != '' && file_exists($logo))
-		{
-
+		if ($this->company['coy_logo'] != '' && file_exists($logo)){
 			$this->AddImage($logo, $ccol, $this->row, 0, 80);
 		}
-		else
-		{
+		else{
 			$this->fontSize += 4;
 			$this->Font('bold');
 			$this->Text($ccol, $this->company['coy_name'], $icol);
@@ -123,8 +61,7 @@
 		}
 
 		// Document title
-		//$this->row -=25;
-		$this->NewLine(2);
+		$this->NewLine();
 		$this->SetTextColor(0, 0, 0);
 		$this->fontSize += 2;
 		$this->Font('bold');
@@ -142,7 +79,7 @@
 		$this->Text($ccol, _("Contract No: ".$this->formData['contract_no']));
 
 		$this->Font('');
-		$this->Text($c2col, _(" Date: ").sql2date($this->formData['document_date']));
+		$this->Text($c2col, _(" Date: ").sql2date(	$this->formData['document_date']));
 		
 
 		//BUYER DETAILS
@@ -163,11 +100,42 @@
 		$this->NewLine(2);
 		$this->Text($ccol, $Shipment_Terms);
 		$this->Text($c2col, _(" Shipment Validity : ").sql2date($this->formData['shipment_validity_date']));
+
+		//--------------------------------- table starts here---------------------------------
+		$this->NewLine();
+		$rightEnd = $this->pageWidth - $this->rightMargin;
+		$leftEnd = $ccol;
+
+		//horizontal points
+		$hline1 = $this->row;
+		$hline2 = $hline1 - 1.5 * $this->lineHeight;
+		$hline3 = $hline2 - 2.5 * $this->lineHeight;
+		//vertical points
+		$rightEnd = $this->pageWidth - $this->rightMargin;
+		$inner1 = $leftEnd+50;
+		$inner2 = $inner1+200;
+		$inner3 = $inner2+90;
+		$inner4 = $inner3+90;
+		$leftEnd = $ccol;
+		$columns = array($leftEnd,$inner1,$inner2,$inner3,$inner4,$rightEnd);
+		//margin left for table data
+		$mltbl = $ccol+3;
 		
-		
+		//table horizontal lines
+		$this->Line1($hline1,0,$ccol);
+		$this->Line1($hline2,0,$ccol);
+		$this->Line1($hline3,0,$ccol);
+
+		//table vertical left and right end lines
+		$this->LineTo($rightEnd, $hline1 ,$rightEnd, $hline3);
+		$this->LineTo($leftEnd, $hline1 ,$leftEnd, $hline3);
+		$this->LineTo($inner1, $hline1 ,$inner1, $hline3);
+		$this->LineTo($inner2, $hline1 ,$inner2, $hline3);
+		$this->LineTo($inner3, $hline1 ,$inner3, $hline3);
+		$this->LineTo($inner4, $hline1 ,$inner4, $hline3);
 
 		// table headers
-		$this->row = $iline4 - $this->lineHeight -1;
+		$this->row = $hline1 - $this->lineHeight -1;
 		$this->Font('bold');
 		$count = count($this->headers);
 		for ($i = 0; $i < $count; $i++){
@@ -179,77 +147,111 @@
 		}
 		$this->Font();
 
-		// table data
-		$this->row = $iline5 - 20;
-		$this->TextWrap($columns[0], $this->row, $columns[1]-$columns[0], $this->formData['container_no'], 'center');
-		//items
-		$this->row = $iline5 - 20;
-		foreach ($items as $item) {
-			$j=0;
-			for ($i = 1; $i <= count($item); $i++){
-				$dcol1 = $columns[$i];
-				$k = $i+1;
-				$dcol2 = $columns[$k]-$dcol1;
-				$this->TextWrap($dcol1, $this->row, $dcol2, $item[$j], 'center');
-				$j++;
-			}
+		//table data
+		$this->row = $hline2 - $this->lineHeight -3;
+		$count = count($item);
+		for ($i = 0; $i < $count; $i++){
+			$dcol1 = $columns[$i];
+			$j = $i+1;
+			$dcol2 = $columns[$j]-$dcol1;
+			
+			$this->TextWrap($dcol1, $this->row, $dcol2, $item[$i], 'center');
+		}
+
+
+		//--------------------------------- table ends here---------------------------------
+
+
+		//data after table
+		$this->row = $hline3 - $this->lineHeight - 1;
+		
+		foreach($aux_info1 as $aux_header => $aux_content)
+		{
+			
+			$this->Text($ccol, $aux_header,$cncol);
+
+			$this->Text($cncol, ":");
+			
+			$this->Text($cncol+5, $aux_content);
+
 			$this->NewLine();
+		}
+
+		//attachments
+		$this->Text($ccol,"Documents Required",$cncol);
+		$this->Text($cncol, ":",$cncol+5);
+		$i=1;
+		foreach($documents as $document)
+		{
+			if($i%2 == 0){
+				$this->Text($cncol+180, $i.") ".$document);
+				$this->NewLine();
+			}else{
+				$this->Text($cncol+5, $i.") ".$document);
+			}
+			$i++;
 			
 		}
+		$this->NewLine(2);
 
-
-		// table totals
-		$rows = array($iline6 - $this->lineHeight -1,$iline7 - $this->lineHeight -1,$iline8 - $this->lineHeight -1);
-		$i = 0;
-		foreach($table_totals as $info_header => $info_content){
-			$this->row = $rows[$i];
-			$hcol1 = $inner3;
-			$hcol2 = $inner4 - $inner3;
-			$this->TextWrap($hcol1, $this->row, $hcol2, $info_header, 'center');
-
-			$dcol1 = $inner4;
-			$dcol2 = $rightEnd - $inner4;
-			$this->TextWrap($dcol1, $this->row, $dcol2, $info_content, 'center');
+		//remarks
+		$this->Text($ccol,"Remarks",$cncol);
+		$this->Text($cncol, ":",$cncol+5);
+		/*$i=1;
+		foreach($remarks as $remark)
+		{
+			$this->TextWrapLines($cncol+5,$cncol+210, $i.") ".$remark);
+			$this->NewLine();
 			$i++;
+			
+		}*/
+		$this->TextWrapLines($cncol+5,$cncol+210, $this->formData['remarks']);
+		$this->NewLine();
+
+		//drawer name&addr
+		$this->Text($ccol,"Drawer's Name and Address",$cncol);
+		$this->NewLine();
+		foreach($bank_details as $heading => $content)
+		{
+
+			$this->Text($ccol, $heading,$cncol);
+
+			$this->Text($cncol, ":",$cncol);
+			
+			$this->Text($cncol+5, $content);
+
+			$this->NewLine();
 		}
 
-		//table total in figures
-		if($words!= ""){
-			$this->row = $iline7 - $this->lineHeight - 1;
-			$this->TextWrap($leftEnd, $this->row, $inner3-$leftEnd-2, $words, 'left');
-		}
-
-		//CERTIFY
-		$this->row = $iline9 - $this->lineHeight;
-		$this->Text($ccol, $Certify);
-
-		//BANK DETAILS
+		//text
 		$this->NewLine(2);
-		$this->Font('U');
-		$this->Text($ccol, "OUR BANK DETAILS");
+		$this->Text($ccol,"Thank You,");
+		$this->Text($cncol+150,"We confirm the above,");
 
-		$this->Font();
-		$this->NewLine(2);
-		foreach($bank_details as $data){
-			$this->TextWrapLines($ccol, $this->row, $data);
-		}
-		
+		//signature
+		$this->NewLine(3);
+		$this->Line1($this->row,0,$ccol,$ccol+150);
+		$this->Line1($this->row,0,$cncol+150,$cncol+300);
+		$this->NewLine();
+		$this->Text($ccol,$this->company['coy_name']);
+		$this->Text($cncol+150,$Addr1['name']);
 
-		//THANKING
-		$this->NewLine(2);
-		$this->Text($ccol, "Thanking You,");
-
-		$this->NewLine(4);
-		$this->Text($ccol, "For, ".$this->company['coy_name']);
 
 
 		//FOOTER
-		$this->NewLine(4);
+		$this->row = $lower - $this->bottomMargin-42;
 		$this->Line1($this->row,0,$this->leftMargin);
 		foreach($coyFooter as $content){
 			$this->NewLine();
 			$this->TextWrap($ccol, $this->row, $this->rightMargin-$ccol, $content, 'center');
 		}
+
+
+
+		
+		
+
+		
 		
 
 		

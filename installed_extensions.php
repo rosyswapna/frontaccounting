@@ -6,7 +6,7 @@
 	FA extension system documentation.
 */
 
-$next_extension_id = 9; // unique id for next installed extension
+$next_extension_id = 12; // unique id for next installed extension
 
 $installed_extensions = array (
   4 => 
@@ -38,6 +38,33 @@ $installed_extensions = array (
     'type' => 'extension',
     'path' => 'modules/systype_attachment',
     'active' => false,
+  ),
+  9 => 
+  array (
+    'name' => 'Theme Elegant',
+    'package' => 'elegant',
+    'version' => '2.3.0-7',
+    'type' => 'theme',
+    'active' => false,
+    'path' => 'themes/elegant',
+  ),
+  10 => 
+  array (
+    'name' => 'Theme Fancy',
+    'package' => 'fancy',
+    'version' => '2.3.0-5',
+    'type' => 'theme',
+    'active' => false,
+    'path' => 'themes/fancy',
+  ),
+  11 => 
+  array (
+    'name' => 'Theme Modern',
+    'package' => 'modern',
+    'version' => '2.3.0-5',
+    'type' => 'theme',
+    'active' => false,
+    'path' => 'themes/modern',
   ),
 );
 ?>

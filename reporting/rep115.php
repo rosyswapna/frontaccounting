@@ -23,6 +23,7 @@ include_once($path_to_root . "/includes/session.inc");
 include_once($path_to_root . "/includes/date_functions.inc");
 include_once($path_to_root . "/includes/data_checks.inc");
 include_once($path_to_root . "/sales/includes/sales_db.inc");
+include_once($path_to_root."/admin/db/attachments_db.inc");
 
 //----------------------------------------------------------------------------------------------------
 
@@ -91,7 +92,13 @@ function print_export_invoices()
 			//shipment details
 			$shipping = get_shipping_detail($sales_order["shipping_id"]);
 
-
+			//attachments
+			$attachments_desc = array();
+			$result_attachments = get_attached_documents(ST_EXPORTINVOICE,$myrow["trans_no"]);
+			while($attachment = mysql_fetch_assoc($result_attachments)){
+				$attachments_desc[] = ($attachment['description'] != '')?$attachment['description']:$attachment['filename'];
+			}
+			
 
 			//bank account
 			$baccount = get_default_bank_account($acid);
@@ -118,28 +125,26 @@ function print_export_invoices()
    			$trans = array();//$Totals = array();
 			$TotalDiscount = $TotalAmount = $GrossAmount = 0;
 			 		 
-			while ($myrow2=db_fetch($result))
-			{
-				if ($myrow2["quantity"] == 0)
-					continue;
+			$myrow2 = db_fetch($result);
+			if ($myrow2["quantity"] == 0)
+				continue;
 
-				$Discount = $myrow2["discount_percent"]*100;
-	    		$Total = $myrow2["unit_price"] * $myrow2["quantity"];
-	    		$Net = round2($sign * ((1 - $myrow2["discount_percent"]) * $myrow2["unit_price"] * $myrow2["quantity"]),
-				   user_price_dec());
+			$Discount = $myrow2["discount_percent"]*100;
+    		$Total = $myrow2["unit_price"] * $myrow2["quantity"];
+    		$Net = round2($sign * ((1 - $myrow2["discount_percent"]) * $myrow2["unit_price"] * $myrow2["quantity"]),
+			   user_price_dec());
 
-		  		$TotalDiscount += $Discount;
-		  		$TotalAmount += $Total;
-				$GrossAmount += $Net;
+	  		$TotalDiscount += $Discount;
+	  		$TotalAmount += $Total;
+			$GrossAmount += $Net;
 
-	    		$DisplayPrice = number_format2($myrow2["unit_price"],$dec);
-	    		$DisplayQty = number_format2($sign*$myrow2["quantity"],get_qty_dec($myrow2['stock_id']));
-	    		$DisplayTotal = number_format2($Total,$dec);
+    		$DisplayPrice = number_format2($myrow2["unit_price"],$dec);
+    		$DisplayQty = number_format2($sign*$myrow2["quantity"],get_qty_dec($myrow2['stock_id']));
+    		$DisplayTotal = number_format2($Total,$dec);
 
 
-		  		$trans[] = array($myrow2['StockDescription'],$DisplayQty,$DisplayPrice,$DisplayTotal);	
+	  		$trans = array('1',$myrow2['StockDescription'],$sales_order['packing'],$DisplayQty,$DisplayPrice);	
 							
-			}
 
 			$rep->SetCommonData($myrow, $branch, $sales_order, $baccount, ST_EXPORTINVOICE, $contacts,$shipping);
 
@@ -153,7 +158,8 @@ function print_export_invoices()
 			$rep->formData['adv_disc'] = $DisplayTotalDiscount;
 			$rep->formData['gross_amount'] = $DisplayGrossAmount;
 
-			$rep->formData['items'] = $trans;
+			$rep->formData['item'] = $trans;
+			$rep->formData['attachments'] = $attachments_desc;
 			
 
 			$rep->NewPage();

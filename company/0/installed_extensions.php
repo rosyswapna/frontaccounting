@@ -36,5 +36,32 @@ $installed_extensions = array (
     'path' => 'modules/systype_attachment',
     'active' => 1,
   ),
+  9 => 
+  array (
+    'name' => 'Theme Elegant',
+    'package' => 'elegant',
+    'version' => '2.3.0-7',
+    'type' => 'theme',
+    'active' => false,
+    'path' => 'themes/elegant',
+  ),
+  10 => 
+  array (
+    'name' => 'Theme Fancy',
+    'package' => 'fancy',
+    'version' => '2.3.0-5',
+    'type' => 'theme',
+    'active' => false,
+    'path' => 'themes/fancy',
+  ),
+  11 => 
+  array (
+    'name' => 'Theme Modern',
+    'package' => 'modern',
+    'version' => '2.3.0-5',
+    'type' => 'theme',
+    'active' => false,
+    'path' => 'themes/modern',
+  ),
 );
 ?>

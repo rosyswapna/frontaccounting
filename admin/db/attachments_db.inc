@@ -72,12 +72,20 @@ function get_attachment_string($type, $id)
 
 //----------------------------------------------------------------------------------------
 
-function get_attached_documents($type)
+function get_attached_documents($type,$trans_no = false)
 {
-	$sql = "SELECT * FROM ".TB_PREF."attachments WHERE type_no=".db_escape($type)
-	." ORDER BY trans_no";
+	$sql = "SELECT * FROM ".TB_PREF."attachments WHERE type_no=".db_escape($type);
+	
+	if($trans_no){
+		$sql .= " AND trans_no = ".db_escape($trans_no);
+	}
+
+	$sql .= " ORDER BY id";
+
 	return db_query($sql, "Could not retrieve attachments");
 }
+
+
 
 function get_attachment($id)
 {
@@ -108,6 +116,8 @@ function get_sql_for_attached_documents($type,$trans_no = false)
 
 	return $sql;
 }
+
+
 
 
 ?>

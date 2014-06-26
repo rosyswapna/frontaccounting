@@ -173,7 +173,9 @@
 			break;
 
 		case ST_EXPORTINVOICE:
+
 				$this->title =  _("EXPORT INVOICE");
+
 				$this->formData['document_name'] =_("Invoice No.");
 				$this->formData['domicile'] = $this->company['domicile'];
 				$Footer[0] = _("Please quote Invoice no. when paying. All amounts stated in"). " - " . $this->formData['curr_code'];
@@ -186,27 +188,34 @@
 					}
 				}
 
-				
 				$Shipment_Terms = "Shipment Terms : ".$this->formData['shipment_terms'];
 
-				$info_hleft = array(
-					_("LOADING") => ": ".$this->formData["loading_type_name"],
-					_("ORIGIN") => ": ".$this->formData['origin'],
-					_("DESTINATION") => ": ".$this->formData['destination'],
-					_("LC DETAILS") => (trim($this->formData['lc_no']) != "")?": ".$this->formData['lc_no']:": NOT APPLICABLE",
-				);
+				$this->headers = array(_("S.No"), _("Merchandise"),
+					_("Packing"), _("Quantity (MT)"), _("Rate (USD)"));
 
-				$info_hright = array(
-					_("Your Ref No") => ": ".$this->formData["customer_ref"],
-					_("SHIPMENT") => ": ".$this->formData['shipment_time_name'],
-					_("VEHICLE NO") => ": ".$this->formData['vehicle_details'],
-					_("LC DATE") => ($this->formData['lc_date'] == '0000-00-00')?": NOT AVAILABLE":": ".$this->formData['lc_date'],
-				);
+				$item = $this->formData['item'];
 
-				$this->headers = array(_("Container No."), _("Material"),
-					_("Net Wt (MT)"), _("Unit Price (AED)"), _("Total Amount (AED)"));
 
-				$items = $this->formData['items'];
+				$aux_info1 = array(
+							_("Merchandise Tolerance") => '+1-10%',
+							_("Loading Details") => '1*40FT',
+							_("Port Of Discharge") => $this->formData["port_of_discharge"],
+							_("Final Place of Delivery") => $this->formData["destination"],
+							_("Total Quantity & Amount(USD)") => $item['3'].' MT,   USD '.$item['4'].' /-'
+							);
+				$documents = $this->formData['attachments'];
+
+
+
+				$bank_details = array(
+							_("Bank Name") => $this->formData["bank_name"],
+							_(" ")			=> $this->formData["bank_address"],
+							_("Swift Code") => $this->formData["bank_swift_code"],
+							_("A/c Name") => $this->formData['bank_account_name'],
+							_("A/c No.") => $this->formData['bank_account_number'],
+							_("IBAN No.") => $this->formData['bank_iban']
+							);
+				
 
 				$table_totals = array(
 					_("Total Amount") => $this->formData["total_amount"],
@@ -219,12 +228,7 @@
 				
 				$Certify = "We Certify that the merchandise is of U.A.E. Origin";
 
-				$bank_details = array("BANK NAME: ".$this->formData["bank_name"],
-					"A/C NAME: ".$this->formData['bank_account_name'],
-					"A/C NO: ".$this->formData['bank_account_number'],
-					"IBAN: ".$this->formData['bank_iban'],
-					"SWIFT CODE: ".$this->formData['bank_swift_code'],
-					);
+				
 
 				break;
 
