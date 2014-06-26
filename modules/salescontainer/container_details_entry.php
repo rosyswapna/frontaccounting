@@ -56,6 +56,12 @@ if (isset($_GET['ModifyShipment'])) {
 
 //---------------------------------------------------------------------------
 
+if (isset($_POST['CancelShipment']))
+	handle_cancel_shipment($_POST['shipping_id']);
+
+
+//---------------------------------------------------------------------------
+
 function shipping_details($selected_id){
 	global $path_to_root;
 	if($selected_id){
@@ -200,12 +206,20 @@ function open_shipping_details_settings($selected_id){
 	div_start('controls');
 		if (!$selected_id)
 		{
-			//submit_center('submit', _("Add New Shipping Details"), true, '', 'default');
-			submit_center('submit', _("Add New"), true, 'Add New Shipping Details');
+			submit_center_first('submit', _("Add New"), 'Add New Shipping Details');
+
+			submit_js_confirm('CancelShipment', _('You are about to void this Document.\nDo you want to continue?'));
 		}else{
-			submit_center('submit','Update',true);
+			submit_center_first('submit',_('Update'),'Update Shipping details');
+
+			submit_js_confirm('CancelShipment', _('You are about to cancel this shipment.\nDo you want to continue?'));
 		}
+
+		submit_center_last('CancelShipment', "Cancel",
+	   _('Cancel Shipment or Removes Shipment'));
+
 	div_end();
+
 	
 }
 
@@ -267,8 +281,14 @@ function close_shipping_details_settings($selected_id){
 	end_table(2);
 
 	div_start('controls');
-		if ($selected_id)
-			submit_center('close','Update',true);
+		if ($selected_id){
+			submit_center_first('close', _("Update"), 'Update Shipping Details');
+			//submit_center('close','Update',true);
+
+			submit_js_confirm('CancelShipment', _('You are about to cancel this shipment.\nDo you want to continue?'));
+		}
+
+		submit_center_last('CancelShipment', "Cancel",_('Cancels Shipment or Removes Shipment'));
 	div_end();
 	
 }
@@ -294,6 +314,17 @@ function can_process()
 }
 //---------------------------------------------------------------------------
 
+function  handle_cancel_shipment($selected_id)
+{
+	global $path_to_root, $Ajax;
+	if ($selected_id) 
+	{
+		delete_shipment($selected_id);
+		display_notification(_("Shipping details has been cancelled."));
+	}
+}
+
+//---------------------------------------------------------------------------
 
 //form submit function for open shipment
 function handle_submit(&$selected_id)

@@ -356,6 +356,10 @@ function copy_to_cart()
 	$cart->export = $_POST['export'];
 
 	$cart->attachments = $_POST['attachment'];
+
+	$cart->packing	= $_POST['packing'];
+	$cart->merchandise_tolerance	= $_POST['merchandise_tolerance'];
+	$cart->loading_details	= $_POST['loading_details'];
 	
 	//------------------------------------------------------------------
 
@@ -391,6 +395,10 @@ function copy_from_cart()
 	$_POST['shipment_time_id'] = $cart->shipment_time_id;
 
 	$_POST['export'] = $cart->export;
+
+	$_POST['packing'] = $cart->packing;
+	$_POST['merchandise_tolerance'] = $cart->merchandise_tolerance;
+	$_POST['loading_details'] = $cart->loading_details;
 
 	
 	//----------------------------------------------------------
@@ -853,6 +861,9 @@ if ($customer_error == "") {
 
 	if($_SESSION['Items']->trans_type == ST_EXPORTINVOICE){
 		echo "<tr><td>";
+		export_invoice_fields();
+		echo "</td></tr>";
+		echo "<tr><td>";
 
 		display_attachments($_SESSION['Items']->trans_type);
 		echo "</td></tr>";
@@ -863,11 +874,11 @@ if ($customer_error == "") {
 	if ($_SESSION['Items']->trans_no == 0) {
 
 
-		//submit_center_first('ProcessOrder', $porder,
-		  // _('Check entered data and save document'), 'default');
-
 		submit_center_first('ProcessOrder', $porder,
-		   _('Check entered data and save document'));
+		   _('Check entered data and save document'), 'default');
+
+		//submit_center_first('ProcessOrder', $porder,
+		 //  _('Check entered data and save document'));
 
 		
 		submit_js_confirm('CancelOrder', _('You are about to void this Document.\nDo you want to continue?'));

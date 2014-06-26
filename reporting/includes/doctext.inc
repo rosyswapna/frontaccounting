@@ -197,8 +197,8 @@
 
 
 				$aux_info1 = array(
-							_("Merchandise Tolerance") => '+1-10%',
-							_("Loading Details") => '1*40FT',
+							_("Merchandise Tolerance") => $this->formData["merchandise_tolerance"],
+							_("Loading Details") => $this->formData["loading_details"],
 							_("Port Of Discharge") => $this->formData["port_of_discharge"],
 							_("Final Place of Delivery") => $this->formData["destination"],
 							_("Total Quantity & Amount(USD)") => $item['3'].' MT,   USD '.$item['4'].' /-'

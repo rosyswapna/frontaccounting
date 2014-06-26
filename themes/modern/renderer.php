@@ -44,7 +44,8 @@
 				echo "  <li><a class='shortcut' href='$path_to_root/access/logout.php?'>$img" . _("Logout") . "</a></li>";
 				echo "</ul>\n";
 				$indicator = "$path_to_root/themes/".user_theme(). "/images/ajax-loader.gif";
-				echo "<h1>$power_by $version<span style='padding-left:280px;'><img id='ajaxmark' src='$indicator' align='center' style='visibility:hidden;'></span></h1>\n";
+				//echo "<h1>$power_by $version<span style='padding-left:280px;'><img id='ajaxmark' src='$indicator' align='center' style='visibility:hidden;'></span></h1>\n";
+				echo "<h1>METALS AND MINERALS FZE<span style='padding-left:280px;'><img id='ajaxmark' src='$indicator' align='center' style='visibility:hidden;'></span></h1>\n";
 				echo "</div>\n"; // header
 				echo "<div class='clear'></div>\n";
 				echo "<ul id='menu'>\n";
@@ -145,13 +146,14 @@
 				echo "<div id='footer'>\n";
 				if (isset($_SESSION['wa_current_user']))
 				{
-					echo "<span class='power'><a target='_blank' href='$power_url'>$power_by $version</a></span>\n";
+					//echo "<span class='power'><a target='_blank' href='$power_url'>$power_by $version</a></span>\n";
 					echo "<span class='date'>".Today() . "&nbsp;" . Now()."</span>\n";
 					echo "<span class='date'>" . $db_connections[$_SESSION["wa_current_user"]->company]["name"] . "</span>\n";
 					echo "<span class='date'>" . $_SERVER['SERVER_NAME'] . "</span>\n";
 					echo "<span class='date'>" . $_SESSION["wa_current_user"]->name . "</span>\n";
-					echo "<span class='date'>" . _("Theme:") . " " . user_theme() . "</span>\n";
+					//echo "<span class='date'>" . _("Theme:") . " " . user_theme() . "</span>\n";
 					echo "<span class='date'>" . show_users_online() . "</span>\n";
+					
 				}
 				echo "</div>\n"; // footer
 			}

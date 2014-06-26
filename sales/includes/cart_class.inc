@@ -68,6 +68,10 @@ class cart
 
 	var $export;
 	var $attachments = array();
+
+	var $packing;
+	var $merchandise_tolerance;
+	var $loading_details;
 	//-----------------------------
 
 

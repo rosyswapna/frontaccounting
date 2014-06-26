@@ -495,6 +495,20 @@ function display_order_header(&$order, $editable, $date_text)
 
 //--------------------------------------------------------------------------------
 
+function export_invoice_fields()
+{
+	start_table(TABLESTYLE2, "width=90%");
+		start_row();
+			text_cells("Packing",'packing');
+
+			text_cells("Merchandise Tolerance",'merchandise_tolerance');
+
+			text_cells("Loading Details",'loading_details');
+		end_row();
+
+	end_table(); // outer table
+}
+
 function display_attachments($type)
 {
 	global $path_to_root;$Ajax;

@@ -126,3 +126,9 @@ function get_sql_for_shipment_view($selected_customer,$shipment_id,$vehicle_deta
 	$sql .= " GROUP BY shipment.shipping_id";
 	return $sql;
 }
+
+function delete_shipment($shippingId)
+{
+	$sql = "DELETE FROM ".TB_PREF."shipping_details WHERE shipping_id=" . db_escape($shippingId);
+	db_query($sql, "Shipment delete");
+}

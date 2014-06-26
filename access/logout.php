@@ -19,16 +19,16 @@ page_header(_("Logout"), true, false, '');
 
 echo "<table width='100%' border='0'>
   <tr>
-	<td align='center'><img src='$path_to_root/themes/default/images/logo_frontaccounting.png' alt='FrontAccounting' width='250' height='50' onload='fixPNG(this)' /></td>
+	<td align='center'><img src='$path_to_root/themes/default/images/logo.PNG' alt='METALS AND MINERALS FZE' width='250' height='50' onload='fixPNG(this)' /></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td><div align='center'><font size=2>";
-echo _("Thank you for using") . " ";
+//echo _("Thank you for using") . " ";
 
-echo "<strong>$app_title $version</strong>";
+//echo "<strong>$app_title $version</strong>";
 
 echo "</font></div></td>
   </tr>

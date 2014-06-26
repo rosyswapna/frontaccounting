@@ -75,7 +75,7 @@ function defaultCompany()
 	start_row();
 	echo "<td align='center' colspan=2>";
 	if (!$login_timeout) { // FA logo
-    	echo "<a target='_blank' href='$power_url'><img src='$path_to_root/themes/$def_theme/images/logo_frontaccounting.png' alt='FrontAccounting' height='50' onload='fixPNG(this)' border='0' /></a>";
+    	echo "<a target='_blank' href='$power_url'><img src='$path_to_root/themes/$def_theme/images/logo.PNG' alt='METALS AND MINERALS FZE' height='50' onload='fixPNG(this)' border='0' /></a>";
 	} else { 
 		echo "<font size=5>"._('Authorization timeout')."</font>";
 	} 
@@ -146,10 +146,10 @@ function defaultCompany()
 	echo "</tr></table>\n";
 	echo "<table class='footer'>\n";
 	echo "<tr>\n";
-	echo "<td><a target='_blank' href='$power_url' tabindex='-1'>$app_title $version - " . _("Theme:") . " " . $def_theme . "</a></td>\n";
+	//echo "<td><a target='_blank' href='$power_url' tabindex='-1'>$app_title $version - " . _("Theme:") . " " . $def_theme . "</a></td>\n";
 	echo "</tr>\n";
 	echo "<tr>\n";
-	echo "<td><a target='_blank' href='$power_url' tabindex='-1'>$power_by</a></td>\n";
+	//echo "<td><a target='_blank' href='$power_url' tabindex='-1'>$power_by</a></td>\n";
 	echo "</tr>\n";
 	echo "</table><br><br>\n";
 	echo "</body></html>\n";
