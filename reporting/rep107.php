@@ -13,9 +13,9 @@ $page_security = $_POST['PARAM_0'] == $_POST['PARAM_1'] ?
 	'SA_SALESTRANSVIEW' : 'SA_SALESBULKREP';
 // ----------------------------------------------------------------
 // $ Revision:	2.0 $
-// Creator:	Swapna
-// date_:	2014-06-1
-// Title:	Print Sales Invoices
+// Creator:	Joe Hunt
+// date_:	2005-05-19
+// Title:	Print Invoices
 // ----------------------------------------------------------------
 $path_to_root="..";
 
@@ -76,29 +76,14 @@ function print_invoices()
 			$sign = 1;
 			$myrow = get_customer_trans($i, ST_SALESINVOICE);
 
-
 			if($customer && $myrow['debtor_no'] != $customer) {
 				continue;
 			}
-			
-			$sales_order = get_sales_order_header($myrow["order_"], ST_SALESORDER);
-			if($sales_order['bank_account_id'] > 0){
-				$acid = $sales_order['bank_account_id'];
-			}else{
-				$acid = $myrow['curr_code'];
-			}
-
-			//shipment details
-			$shipping = get_shipping_detail($sales_order["shipping_id"]);
-
-
-
-			//bank account
-			$baccount = get_default_bank_account($acid);
+			$baccount = get_default_bank_account($myrow['curr_code']);
 			$params['bankaccount'] = $baccount['id'];
 
 			$branch = get_branch($myrow["branch_code"]);
-
+			$sales_order = get_sales_order_header($myrow["order_"], ST_SALESORDER);
 			if ($email == 1)
 			{
 				$rep = new FrontReport("", "", user_pagesize(), 9, $orientation);
@@ -112,51 +97,114 @@ function print_invoices()
 
 			$contacts = get_branch_contacts($branch['branch_code'], 'invoice', $branch['debtor_no'], true);
 			$baccount['payment_service'] = $pay_service;
-
-			//transacion details ( items )
-			$result = get_customer_trans_details(ST_SALESINVOICE, $i);
-   			$trans = array();//$Totals = array();
-			$TotalDiscount = $TotalAmount = $GrossAmount = 0;
-			 		 
+			$rep->SetCommonData($myrow, $branch, $sales_order, $baccount, ST_SALESINVOICE, $contacts);
+			$rep->NewPage();
+   			$result = get_customer_trans_details(ST_SALESINVOICE, $i);
+			$SubTotal = 0;
 			while ($myrow2=db_fetch($result))
 			{
 				if ($myrow2["quantity"] == 0)
 					continue;
 
-				$Discount = $myrow2["discount_percent"]*100;
-	    		$Total = $myrow2["unit_price"] * $myrow2["quantity"];
-	    		$Net = round2($sign * ((1 - $myrow2["discount_percent"]) * $myrow2["unit_price"] * $myrow2["quantity"]),
+				$Net = round2($sign * ((1 - $myrow2["discount_percent"]) * $myrow2["unit_price"] * $myrow2["quantity"]),
 				   user_price_dec());
-
-		  		$TotalDiscount += $Discount;
-		  		$TotalAmount += $Total;
-				$GrossAmount += $Net;
-
+				$SubTotal += $Net;
 	    		$DisplayPrice = number_format2($myrow2["unit_price"],$dec);
 	    		$DisplayQty = number_format2($sign*$myrow2["quantity"],get_qty_dec($myrow2['stock_id']));
-	    		$DisplayTotal = number_format2($Total,$dec);
-
-
-		  		$trans[] = array($myrow2['StockDescription'],$DisplayQty,$DisplayPrice,$DisplayTotal);	
-							
+	    		$DisplayNet = number_format2($Net,$dec);
+	    		if ($myrow2["discount_percent"]==0)
+		  			$DisplayDiscount ="";
+	    		else
+		  			$DisplayDiscount = number_format2($myrow2["discount_percent"]*100,user_percent_dec()) . "%";
+				$rep->TextCol(0, 1,	$myrow2['stock_id'], -2);
+				$oldrow = $rep->row;
+				$rep->TextColLines(1, 2, $myrow2['StockDescription'], -2);
+				$newrow = $rep->row;
+				$rep->row = $oldrow;
+				if ($Net != 0.0 || !is_service($myrow2['mb_flag']) || !isset($no_zero_lines_amount) || $no_zero_lines_amount == 0)
+				{
+					$rep->TextCol(2, 3,	$DisplayQty, -2);
+					$rep->TextCol(3, 4,	$myrow2['units'], -2);
+					$rep->TextCol(4, 5,	$DisplayPrice, -2);
+					$rep->TextCol(5, 6,	$DisplayDiscount, -2);
+					$rep->TextCol(6, 7,	$DisplayNet, -2);
+				}	
+				$rep->row = $newrow;
+				//$rep->NewLine(1);
+				if ($rep->row < $rep->bottomMargin + (15 * $rep->lineHeight))
+					$rep->NewPage();
 			}
 
-			$rep->SetCommonData($myrow, $branch, $sales_order, $baccount, ST_SALESINVOICE, $contacts,$shipping);
+			$memo = get_comments_string(ST_SALESINVOICE, $i);
+			if ($memo != "")
+			{
+				$rep->NewLine();
+				$rep->TextColLines(1, 5, $memo, -2);
+			}
 
-			$DisplayGrossAmount = number_format2($GrossAmount,$dec);
-			$DisplayTotalAmount = number_format2($TotalAmount,$dec);
-			$DisplayTotalDiscount = number_format2($TotalDiscount,$dec);
-			$DisplayWords = price_in_words($myrow['Total'], ST_SALESINVOICE);
-			$rep->formData['words'] = $DisplayWords;
-			$rep->formData['total_amount'] = $DisplayTotalAmount;
-			$rep->formData['adv_disc'] = $DisplayTotalDiscount;
-			$rep->formData['gross_amount'] = $DisplayGrossAmount;
+   			$DisplaySubTot = number_format2($SubTotal,$dec);
+   			$DisplayFreight = number_format2($sign*$myrow["ov_freight"],$dec);
 
-			$rep->formData['items'] = $trans;
-			
+    		$rep->row = $rep->bottomMargin + (15 * $rep->lineHeight);
+			$doctype = ST_SALESINVOICE;
 
-			$rep->NewPage();
-			
+			$rep->TextCol(3, 6, _("Sub-total"), -2);
+			$rep->TextCol(6, 7,	$DisplaySubTot, -2);
+			$rep->NewLine();
+			$rep->TextCol(3, 6, _("Shipping"), -2);
+			$rep->TextCol(6, 7,	$DisplayFreight, -2);
+			$rep->NewLine();
+			$tax_items = get_trans_tax_details(ST_SALESINVOICE, $i);
+			$first = true;
+    		while ($tax_item = db_fetch($tax_items))
+    		{
+    			if ($tax_item['amount'] == 0)
+    				continue;
+    			$DisplayTax = number_format2($sign*$tax_item['amount'], $dec);
+    			
+    			if (isset($suppress_tax_rates) && $suppress_tax_rates == 1)
+    				$tax_type_name = $tax_item['tax_type_name'];
+    			else
+    				$tax_type_name = $tax_item['tax_type_name']." (".$tax_item['rate']."%) ";
+
+    			if ($tax_item['included_in_price'])
+    			{
+    				if (isset($alternative_tax_include_on_docs) && $alternative_tax_include_on_docs == 1)
+    				{
+    					if ($first)
+    					{
+							$rep->TextCol(3, 6, _("Total Tax Excluded"), -2);
+							$rep->TextCol(6, 7,	number_format2($sign*$tax_item['net_amount'], $dec), -2);
+							$rep->NewLine();
+    					}
+						$rep->TextCol(3, 6, $tax_type_name, -2);
+						$rep->TextCol(6, 7,	$DisplayTax, -2);
+						$first = false;
+    				}
+    				else
+						$rep->TextCol(3, 7, _("Included") . " " . $tax_type_name . _("Amount") . ": " . $DisplayTax, -2);
+				}
+    			else
+    			{
+					$rep->TextCol(3, 6, $tax_type_name, -2);
+					$rep->TextCol(6, 7,	$DisplayTax, -2);
+				}
+				$rep->NewLine();
+    		}
+
+    		$rep->NewLine();
+			$DisplayTotal = number_format2($sign*($myrow["ov_freight"] + $myrow["ov_gst"] +
+				$myrow["ov_amount"]+$myrow["ov_freight_tax"]),$dec);
+			$rep->Font('bold');
+			$rep->TextCol(3, 6, _("TOTAL INVOICE"), - 2);
+			$rep->TextCol(6, 7, $DisplayTotal, -2);
+			$words = price_in_words($myrow['Total'], ST_SALESINVOICE);
+			if ($words != "")
+			{
+				$rep->NewLine(1);
+				$rep->TextCol(1, 7, $myrow['curr_code'] . ": " . $words, - 2);
+			}
+			$rep->Font();
 			if ($email == 1)
 			{
 				$rep->End($email);

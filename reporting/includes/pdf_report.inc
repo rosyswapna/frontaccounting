@@ -692,7 +692,7 @@ class FrontReport extends Cpdf
 
 		$this->row = $temp;
 	}
-
+	//export invoice
 	function Header5()
 	{
 		global $path_to_root, $print_as_quote,
@@ -708,6 +708,26 @@ class FrontReport extends Cpdf
  		 // modified versions from company/x/reporting directory
 		include("includes/doctext.inc");
 		include("includes/header5.inc");
+
+		$this->row = $temp;
+	}
+
+	//sales invoice
+	function Header6()
+	{
+		global $path_to_root, $print_as_quote,
+			$print_invoice_no, $packing_slip, $dflt_lang; // FIXME should be passed as params
+
+		$doctype = $this->formData['doctype'];
+		$header2type = true;
+
+		$this->SetLang(@$this->formData['rep_lang'] ? $this->formData['rep_lang']
+ 			: ($_SESSION["wa_current_user"]->prefs->language ? $_SESSION["wa_current_user"]->prefs->language : $dflt_lang));
+
+ 		 // leave layout files names without path to enable including
+ 		 // modified versions from company/x/reporting directory
+		include("includes/doctext.inc");
+		include("includes/header6.inc");
 
 		$this->row = $temp;
 	}

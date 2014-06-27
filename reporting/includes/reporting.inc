@@ -69,7 +69,7 @@ function print_document_link($doc_no, $link_text, $link=true, $type_no,
 			else if($type_no == ST_EXPORTINVOICE)
 				$rep = 115;
 			else
-				$rep = 107;
+				$rep = 116;
 
 
 			// from, to, currency, email, paylink, comments, orientation
