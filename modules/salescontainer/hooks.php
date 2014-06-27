@@ -13,6 +13,7 @@ class hooks_salescontainer extends hooks {
         global $path_to_root;
 
         switch($app->id) {
+            /*
             case 'orders':
                 $app->add_rapp_function(2, _('&Add and Manage Shipments'), $path_to_root.'/modules/salescontainer/container_details_entry.php', 'SA_SALESCONTAINER',
                     MENU_MAINTENANCE);
@@ -23,6 +24,20 @@ class hooks_salescontainer extends hooks {
                 $app->add_lapp_function(0, _("View Shipment"),
             "modules/salescontainer/view_container_detail.php", 'SA_SALESCONTAINERVIEW');
                 break;
+                */
+
+            case 'stock':
+                $app->add_rapp_function(2, _('&Add and Manage Shipments'), $path_to_root.'/modules/salescontainer/container_details_entry.php', 'SA_SALESCONTAINER',
+                    MENU_MAINTENANCE);
+                $app->add_lapp_function(1, _("Shipments"),
+            "modules/salescontainer/container_details_view.php", 'SA_SALESCONTAINERSVIEW', MENU_REPORT);
+                break;
+
+                $app->add_lapp_function(0, _("View Shipment"),
+            "modules/salescontainer/view_container_detail.php", 'SA_SALESCONTAINERVIEW');
+                break;
+
+
         }
     }
 
