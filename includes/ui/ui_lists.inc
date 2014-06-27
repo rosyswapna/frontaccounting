@@ -666,12 +666,17 @@ function shipment_time_list_row($label, $name, $selected_id=null, $submit_on_cha
 
 
 function shipping_list($name, $selected_id=null, $spec_option=false, $submit_on_change=false, 
-	$show_inactive=false, $editkey = false)
+	$show_inactive=false, $editkey = false, $where = array())
 {
 	global $all_items;
 
-	$sql = "SELECT shipping_id,vehicle_details,debtor_no  FROM ".TB_PREF."shipping_details ";
+	$sql = "SELECT shipping_id,vehicle_details,debtor_no  FROM ".TB_PREF."shipping_details WHERE 1";
 
+	foreach ($where as $key => $value) {
+		$sql .= " AND {$key} = '{$value}'";
+	}
+
+	
 	$mode = get_company_pref('no_shipment_list');
 
 	if ($editkey)
@@ -711,12 +716,12 @@ function shipping_list_cells($label, $name, $selected_id=null, $all_option=false
 }
 
 function shipping_list_row($label, $name, $selected_id=null, $all_option = false, 
-	$submit_on_change=false, $show_inactive=false, $editkey = false)
+	$submit_on_change=false, $show_inactive=false, $editkey = false,$where = array())
 {
 	global $path_to_root;
 	echo "<tr><td class='label'>$label</td><td nowrap>";
 	echo shipping_list($name, $selected_id, $all_option, $submit_on_change,
-		$show_inactive, $editkey);
+		$show_inactive, $editkey,$where);
 	echo "</td>\n</tr>\n";
 }
 //-----------------------------------------------------------------------------------

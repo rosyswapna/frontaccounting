@@ -189,6 +189,9 @@ function display_po_header(&$order)
   	text_row(_("Supplier's Reference:"), 'supp_ref', null, 16, 15);
 	locations_list_row(_("Receive Into:"), 'StkLocation', null, false, true); 
 
+	//swapna
+	shipping_list_row(_("Shipment Id:"), 'shipping_id', null, false, true, false, true,array('shipment_status'=>SHIPMENT_STATUSCLOSE));
+
 	table_section(3);
 
     if (!isset($_POST['StkLocation']) || $_POST['StkLocation'] == "" ||
@@ -400,15 +403,27 @@ function po_item_controls(&$order, &$rowcounter, $line_no=-1)
 		if (list_updated('stock_id')) {
 			    $Ajax->activate('price');
 			    $Ajax->activate('units');
-			    $Ajax->activate('qty');
+			    //$Ajax->activate('qty');
 			    $Ajax->activate('req_del_date');
 			    $Ajax->activate('line_total');
 		}
+
+		if(list_updated('shipping_id')){
+			$Ajax->activate('qty');
+		}
+
     	$item_info = get_item_edit_info($_POST['stock_id']);
 		$_POST['units'] = $item_info["units"];
 
    		$dec = $item_info["decimals"];
-   		$_POST['qty'] =	number_format2(get_purchase_conversion_factor ($order->supplier_id, $_POST['stock_id']), $dec);
+
+   		//$_POST['qty'] =	number_format2(get_purchase_conversion_factor ($order->supplier_id, $_POST['stock_id']), $dec);
+   		$shp_info = get_shipping_detail($_POST['shipping_id']);
+		if($shp_info)
+			$_POST['qty'] = number_format2(abs($shp_info['first_weight'] - $shp_info['second_weight']));
+		else
+			$_POST['qty'] = number_format2(1, $dec);
+
 		//$_POST['price'] = price_format(get_purchase_price ($order->supplier_id, $_POST['stock_id']));
 		$_POST['price'] = price_decimal_format(get_purchase_price ($order->supplier_id, $_POST['stock_id']), $dec2);
 		if ($order->trans_type == ST_PURCHORDER)
