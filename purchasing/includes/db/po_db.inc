@@ -32,7 +32,7 @@ function add_po(&$po_obj)
 
      /*Insert to purchase order header record */
      $sql = "INSERT INTO ".TB_PREF."purch_orders (supplier_id, Comments, ord_date, reference, 
-     	requisition_no, into_stock_location, delivery_address, total, tax_included) VALUES(";
+     	requisition_no, into_stock_location, delivery_address, total, tax_included,shipping_id) VALUES(";
      $sql .= db_escape($po_obj->supplier_id) . "," .
          db_escape($po_obj->Comments) . ",'" .
          date2sql($po_obj->orig_order_date) . "', " .
@@ -41,7 +41,11 @@ function add_po(&$po_obj)
          db_escape($po_obj->Location) . ", " .
          db_escape($po_obj->delivery_address) . ", " .
          db_escape($po_obj->get_trans_total()). ", " .
-         db_escape($po_obj->tax_included) . ")";
+          db_escape($po_obj->tax_included). ", " .
+         db_escape($po_obj->shipping_id) . ")";
+
+
+
 
 	db_query($sql, "The purchase order header record could not be inserted");
 
@@ -86,6 +90,7 @@ function update_po(&$po_obj)
 		ord_date='" . date2sql($po_obj->orig_order_date) . "',
 		delivery_address=" . db_escape($po_obj->delivery_address).",
 		total=". db_escape($po_obj->get_trans_total()).",
+		shipping_id=" . db_escape($po_obj->shipping_id).",
 		tax_included=". db_escape($po_obj->tax_included);
     $sql .= " WHERE order_no = " . $po_obj->order_no;
 	db_query($sql, "The purchase order could not be updated");
@@ -152,6 +157,8 @@ function read_po_header($order_no, &$order)
       	$order->supp_ref = $myrow["requisition_no"];
       	$order->reference = $myrow["reference"];
       	$order->delivery_address = $myrow["delivery_address"];
+
+      	$order->shipping_id = $myrow['shipping_id'];
 
       	return true;
 	}

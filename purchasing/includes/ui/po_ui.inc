@@ -29,6 +29,8 @@ function copy_from_cart()
 	$_POST['_ex_rate'] = $cart->ex_rate;
     foreach($cart->tax_overrides as $id => $value)
 	    $_POST['mantax'][$id] = price_format($value);
+
+	$_POST['shipping_id'] = $cart->shipping_id;
 }
 
 function copy_to_cart()
@@ -46,10 +48,13 @@ function copy_to_cart()
 	$cart->delivery_address = $_POST['delivery_address'];
 	$cart->ex_rate = input_num('_ex_rate', null);
 
+
     if (isset($_POST['mantax'])) {
 		foreach($_POST['mantax'] as $id => $tax) {
 			$cart->tax_overrides[$id] = user_numeric($_POST['mantax'][$id]); }
 	}
+
+	$cart->shipping_id = $_POST['shipping_id'];
 }
 // ------------------------------------------------------------------------------
 

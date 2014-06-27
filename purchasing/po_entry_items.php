@@ -550,6 +550,7 @@ if ($_SESSION['PO']->order_has_items())
 		submit_center_first('Commit', $update_txt, '', 'default');
 	else
 		submit_center_first('Commit', $process_txt, '', 'default');
+		//submit_center_first('Commit', $process_txt, '');
 	submit_center_last('CancelOrder', $cancel_txt); 	
 }
 else
