@@ -44,8 +44,7 @@
 				echo "  <li><a class='shortcut' href='$path_to_root/access/logout.php?'>$img" . _("Logout") . "</a></li>";
 				echo "</ul>\n";
 				$indicator = "$path_to_root/themes/".user_theme(). "/images/ajax-loader.gif";
-				//echo "<h1>$power_by $version<span style='padding-left:280px;'><img id='ajaxmark' src='$indicator' align='center' style='visibility:hidden;'></span></h1>\n";
-				echo "<h1>METALS AND MINERALS FZE<span style='padding-left:280px;'><img id='ajaxmark' src='$indicator' align='center' style='visibility:hidden;'></span></h1>\n";
+				echo "<h1>$power_by $version<span style='padding-left:280px;'><img id='ajaxmark' src='$indicator' align='center' style='visibility:hidden;'></span></h1>\n";
 				echo "</div>\n"; // header
 				echo "<div class='clear'></div>\n";
 				echo "<ul id='menu'>\n";

@@ -133,17 +133,7 @@ CREATE TABLE IF NOT EXISTS `asset_valuations` (
   KEY `asset_valuations_asset_id` (`asset_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Triggers `asset_valuations`
---
-DROP TRIGGER IF EXISTS `ins_asset_valuations`;
-DELIMITER //
-CREATE TRIGGER `ins_asset_valuations` BEFORE INSERT ON `asset_valuations`
- FOR EACH ROW BEGIN
-SET NEW.value_change = NEW.asset_value - get_asset_value(NEW.asset_id, NEW.valuation_year);
-END
-//
-DELIMITER ;
+
 
 -- --------------------------------------------------------
 

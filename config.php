@@ -59,13 +59,15 @@ if (!isset($path_to_root) || isset($_GET['path_to_root']) || isset($_POST['path_
 		ini_set("log_errors", "On");
 	}		
 	// Main Title
-	$app_title = "FrontAccounting";
+	//$app_title = "FrontAccounting";
+	$app_title = "METALS AND MINERALS FZE";
 
 	// Build for development purposes
 	$build_version 	= date("d.m.Y", filemtime("$path_to_root/CHANGELOG.txt"));
 
 	// Powered by
-	$power_by 		= "FrontAccounting";
+	//$power_by 		= "FrontAccounting";
+	$power_by 		= "METALS AND MINERALS FZE";
 	$power_url 		= "http://frontaccounting.com";
 
 	/* No check on edit conflicts. Maybe needed to be set to 1 in certains Windows Servers */

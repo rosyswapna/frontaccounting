@@ -66,8 +66,7 @@ function defaultCompany()
 
 	echo "<body id='loginscreen' $onload>\n";
 
-	//echo "<table class='titletext'><tr><td>$title</td></tr></table>\n";
-	echo "<table class='titletext'><tr><td>METALS & MINERALS FZE</td></tr></table>\n";
+	echo "<table class='titletext'><tr><td>$title</td></tr></table>\n";
 	
 	div_start('_page_body');
 	br();br();
@@ -85,8 +84,8 @@ function defaultCompany()
 
 	echo "<input type='hidden' id=ui_mode name='ui_mode' value='".$_SESSION["wa_current_user"]->ui_mode."' />\n";
 	if (!$login_timeout)
-		//table_section_title(_("Version")." $version   Build $build_version - "._("Login"));
-		table_section_title(_("Login"));
+		table_section_title(_("Version")." $version   Build $build_version - "._("Login"));
+		//table_section_title(_("Login"));
 	$value = $login_timeout ? $_SESSION['wa_current_user']->loginname : ($allow_demo_mode ? "demouser":"");
 
 	text_row(_("User name"), "user_name_entry_field", $value, 20, 30);
