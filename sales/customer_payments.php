@@ -158,6 +158,19 @@ function can_process()
 		return false;
 	}
 
+	if (isset($_POST['cheque'])){
+		if (!is_date($_POST['cheque_date'])) {
+			display_error(_("The entered date is invalid. Please enter a valid cheque date for the payment."));
+			set_focus('cheque_date');
+			return false;
+		} elseif (!is_date_in_fiscalyear($_POST['cheque_date'])) {
+			display_error(_("The entered cheque date is not in fiscal year."));
+			set_focus('cheque_date');
+			return false;
+		}
+	}
+
+
 	if (!$Refs->is_valid($_POST['ref'])) {
 		display_error(_("You must enter a reference."));
 		set_focus('ref');
@@ -321,6 +334,10 @@ if (isset($_GET['trans_no']) && $_GET['trans_no'] > 0 )
 	}
 }
 
+
+	
+	
+
 //----------------------------------------------------------------------------------------------
 $new = !$_SESSION['alloc']->trans_no;
 start_form();
@@ -367,6 +384,10 @@ start_form();
 
 	ref_row(_("Reference:"), 'ref','' , null, '', ST_CUSTPAYMENT);
 
+	check_row(_("Cheque:"), 'cheque', null, true);
+
+	cheque_date_row();//cheque_date
+
 	table_section(3);
 
 	$comp_currency = get_company_currency();
@@ -381,6 +402,8 @@ start_form();
 	}
 
 	amount_row(_("Bank Charge:"), 'charge', null, '', $bank_currency);
+
+	
 
 	end_outer_table(1);
 

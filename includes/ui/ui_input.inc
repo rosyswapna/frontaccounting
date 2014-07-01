@@ -342,6 +342,7 @@ function check_value($name)
 {
 	if (!isset($_POST[$name]))
 		return 0;
+	
 	return 1;
 }
 
@@ -991,6 +992,20 @@ function inactive_control_column(&$th) {
 		$Ajax->activate('_page_body');
 	}
 }
+
+
+//------------------------------swapna---------------------------
+function cheque_date_row()
+{
+	global $Ajax;
+
+	if (check_value('cheque')) 
+		date_row(_("Cheque Date:"), 'cheque_date');
+	
+	$Ajax->activate('_page_body');
+}
+//---------------------------------------------------------------
+
 
 function customer_credit_row($customer, $credit, $parms='')
 {
