@@ -10,7 +10,7 @@
     See the License here <http://www.gnu.org/licenses/gpl-3.0.html>.
 ***********************************************************************/
 function write_supp_payment($trans_no, $supplier_id, $bank_account,
-	$date_, $ref, $supp_amount, $supp_discount, $memo_, $bank_charge=0, $bank_amount=0)
+	$date_, $ref, $supp_amount, $supp_discount, $memo_, $bank_charge=0, $bank_amount=0, $cheque= false,$cheque_date='')
 {
 	global $Refs;
 
@@ -68,7 +68,7 @@ function write_supp_payment($trans_no, $supplier_id, $bank_account,
 
    /*now enter the bank_trans entry */
 	add_bank_trans(ST_SUPPAYMENT, $payment_id, $bank_account, $ref,
-		$date_, -($bank_amount + $bank_charge), PT_SUPPLIER, $supplier_id);
+		$date_, -($bank_amount + $bank_charge), PT_SUPPLIER, $supplier_id, "", "", 0, $cheque, $cheque_date);
 
 	add_comments(ST_SUPPAYMENT, $payment_id, $date_, $memo_);
 

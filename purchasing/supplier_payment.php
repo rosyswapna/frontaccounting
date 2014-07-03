@@ -216,6 +216,19 @@ function check_inputs()
 		return false;
 	}
 
+	if (isset($_POST['cheque'])){
+		if (!is_date($_POST['cheque_date'])) {
+			display_error(_("The entered date is invalid. Please enter a valid cheque date for the payment."));
+			set_focus('cheque_date');
+			return false;
+		} elseif (!is_date_in_fiscalyear($_POST['cheque_date'])) {
+			display_error(_("The entered cheque date is not in fiscal year."));
+			set_focus('cheque_date');
+			return false;
+		}
+	}
+
+
 	if (!db_has_currency_rates(get_supplier_currency($_POST['supplier_id']), $_POST['DatePaid'], true))
 		return false;
 
@@ -231,9 +244,18 @@ function check_inputs()
 
 function handle_add_payment()
 {
+
+
+	if(isset($_POST['cheque'])){
+		$cheque = $_POST['cheque'];
+		$cheque_date = $_POST['cheque_date'];
+	}else{
+		$cheque = false;$cheque_date = '';
+	}
+
 	$payment_id = write_supp_payment(0, $_POST['supplier_id'], $_POST['bank_account'],
 		$_POST['DatePaid'], $_POST['ref'], input_num('amount'),	input_num('discount'), $_POST['memo_'], 
-		input_num('charge'), input_num('bank_amount', input_num('amount')));
+		input_num('charge'), input_num('bank_amount', input_num('amount')),$cheque,$cheque_date);
 	new_doc_date($_POST['DatePaid']);
 
 	$_SESSION['alloc']->trans_no = $payment_id;
@@ -296,6 +318,10 @@ start_form();
     date_row(_("Date Paid") . ":", 'DatePaid', '', true, 0, 0, 0, null, true);
 
     ref_row(_("Reference:"), 'ref', '', $Refs->get_next(ST_SUPPAYMENT));
+
+    check_row(_("Cheque:"), 'cheque', null, true);
+
+	cheque_date_row();//cheque_date
 
 	table_section(3);
 
