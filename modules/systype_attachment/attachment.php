@@ -21,6 +21,8 @@ include_once($path_to_root . "/includes/data_checks.inc");
 include_once($path_to_root . "/admin/db/systype_attachments_db.inc");
 include_once($path_to_root . "/admin/db/transactions_db.inc");
 
+add_access_extensions();
+
 if (isset($_GET['vw']))
 	$view_id = $_GET['vw'];
 else

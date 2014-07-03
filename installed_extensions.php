@@ -6,7 +6,7 @@
 	FA extension system documentation.
 */
 
-$next_extension_id = 12; // unique id for next installed extension
+$next_extension_id = 13; // unique id for next installed extension
 
 $installed_extensions = array (
   4 => 
@@ -65,6 +65,16 @@ $installed_extensions = array (
     'type' => 'theme',
     'active' => false,
     'path' => 'themes/modern',
+  ),
+  12 => 
+  array (
+    'package' => 'cheque_reminder',
+    'name' => 'cheque_reminder',
+    'version' => '-',
+    'available' => '',
+    'type' => 'extension',
+    'path' => 'modules/cheque_reminder',
+    'active' => false,
   ),
 );
 ?>

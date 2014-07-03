@@ -63,5 +63,15 @@ $installed_extensions = array (
     'active' => false,
     'path' => 'themes/modern',
   ),
+  12 => 
+  array (
+    'package' => 'cheque_reminder',
+    'name' => 'cheque_reminder',
+    'version' => '-',
+    'available' => '',
+    'type' => 'extension',
+    'path' => 'modules/cheque_reminder',
+    'active' => 1,
+  ),
 );
 ?>
