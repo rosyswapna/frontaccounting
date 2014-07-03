@@ -21,7 +21,7 @@
 	$charge - in bank currency
 */
 function write_customer_payment($trans_no, $customer_id, $branch_id, $bank_account,
-	$date_, $ref, $amount, $discount, $memo_, $rate=0, $charge=0, $bank_amount=0)
+	$date_, $ref, $amount, $discount, $memo_, $rate=0, $charge=0, $bank_amount=0,$cheque= false,$cheque_date='')
 {
 	global $Refs;
 
@@ -30,6 +30,8 @@ function write_customer_payment($trans_no, $customer_id, $branch_id, $bank_accou
 	$args = (object)array_combine(array('trans_no', 'customer_id', 'branch_id', 'bank_account', 
 		'date_', 'ref', 'amount', 'discount', 'memo_','rate','charge', 'bank_amount'), $args);
 	hook_db_prewrite($args, ST_CUSTPAYMENT);
+
+
 
 	$company_record = get_company_prefs();
 
@@ -106,7 +108,7 @@ function write_customer_payment($trans_no, $customer_id, $branch_id, $bank_accou
 
 	/*now enter the bank_trans entry */
 	add_bank_trans(ST_CUSTPAYMENT, $payment_no, $bank_account, $ref,
-		$date_, $bank_amount - $charge, PT_CUSTOMER, $customer_id);
+		$date_, $bank_amount - $charge, PT_CUSTOMER, $customer_id,"", "", 0, $cheque, $cheque_date);
 
 	add_comments(ST_CUSTPAYMENT, $payment_no, $date_, $memo_);
 

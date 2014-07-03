@@ -270,11 +270,18 @@ if (get_post('AddPaymentItem') && can_process()) {
 
 	new_doc_date($_POST['DateBanked']);
 
+	if(isset($_POST['cheque'])){
+		$cheque = $_POST['cheque'];
+		$cheque_date = $_POST['cheque_date'];
+	}else{
+		$cheque = false;$cheque_date = '';
+	}
+
 	$new_pmt = !$_SESSION['alloc']->trans_no;
 	//Chaitanya : 13-OCT-2011 - To support Edit feature
 	$payment_no = write_customer_payment($_SESSION['alloc']->trans_no, $_POST['customer_id'], $_POST['BranchID'],
 		$_POST['bank_account'], $_POST['DateBanked'], $_POST['ref'],
-		input_num('amount'), input_num('discount'), $_POST['memo_'], 0, input_num('charge'), input_num('bank_amount', input_num('amount')));
+		input_num('amount'), input_num('discount'), $_POST['memo_'], 0, input_num('charge'), input_num('bank_amount', input_num('amount')),$cheque,$cheque_date);
 
 	$_SESSION['alloc']->trans_no = $payment_no;
 	$_SESSION['alloc']->write();
@@ -424,6 +431,7 @@ start_form();
 
 	if ($new)
 		submit_center('AddPaymentItem', _("Add Payment"), true, '', 'default');
+		//submit_center('AddPaymentItem', _("Add Payment"), true);
 	else
 		submit_center('AddPaymentItem', _("Update Payment"), true, '', 'default');
 
