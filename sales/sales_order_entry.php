@@ -263,9 +263,10 @@ if (isset($_GET['AddedID'])) {
 	
 
 	submenu_print(_("&Print Export Invoice"), ST_EXPORTINVOICE, $invoice."-".ST_EXPORTINVOICE, 'prtopt');
-	/*
+	
 	submenu_print(_("&Email Sales Invoice"), ST_EXPORTINVOICE, $invoice."-".ST_EXPORTINVOICE, null, 1);
 	set_focus('prtopt');
+	/*
 	
 	$sql = "SELECT trans_type_from, trans_no_from FROM ".TB_PREF."cust_allocations
 			WHERE trans_type_to=".ST_EXPORTINVOICE." AND trans_no_to=".db_escape($invoice);
