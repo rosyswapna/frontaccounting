@@ -137,25 +137,25 @@
 		// table headers
 		$this->row = $hline1 - $this->lineHeight -1;
 		$this->Font('bold');
-		$count = count($this->headers);
+		$count = count($sc_tbl_headers);
 		for ($i = 0; $i < $count; $i++){
 			$dcol1 = $columns[$i];
 			$j = $i+1;
 			$dcol2 = $columns[$j]-$dcol1;
 			
-			$this->TextWrap($dcol1, $this->row, $dcol2, $this->headers[$i], 'center');
+			$this->TextWrap($dcol1, $this->row, $dcol2, $sc_tbl_headers[$i], 'center');
 		}
 		$this->Font();
 
 		//table data
 		$this->row = $hline2 - $this->lineHeight -3;
-		$count = count($item);
+		$count = count($sc_item);
 		for ($i = 0; $i < $count; $i++){
 			$dcol1 = $columns[$i];
 			$j = $i+1;
 			$dcol2 = $columns[$j]-$dcol1;
 			
-			$this->TextWrap($dcol1, $this->row, $dcol2, $item[$i], 'center');
+			$this->TextWrap($dcol1, $this->row, $dcol2, $sc_item[$i], 'center');
 		}
 
 
@@ -165,7 +165,7 @@
 		//data after table
 		$this->row = $hline3 - $this->lineHeight - 1;
 		
-		foreach($aux_info1 as $aux_header => $aux_content)
+		foreach($sc_aux_info1 as $aux_header => $aux_content)
 		{
 			
 			$this->Text($ccol, $aux_header,$cncol);
@@ -211,7 +211,7 @@
 		//drawer name&addr
 		$this->Text($ccol,"Drawer's Name and Address",$cncol);
 		$this->NewLine();
-		foreach($bank_details as $heading => $content)
+		foreach($sc_bank_details as $heading => $content)
 		{
 
 			$this->Text($ccol, $heading,$cncol);

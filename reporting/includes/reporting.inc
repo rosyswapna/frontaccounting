@@ -66,8 +66,8 @@ function print_document_link($doc_no, $link_text, $link=true, $type_no,
 			//$rep = $type_no==ST_CUSTCREDIT ? 113 : 107;
 			if($type_no == ST_CUSTCREDIT)
 				$rep = 113;
-			else if($type_no == ST_EXPORTINVOICE)
-				$rep = 115;
+			//else if($type_no == ST_EXPORTINVOICE)
+				//$rep = 115;
 			else
 				$rep = 116;
 

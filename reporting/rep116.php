@@ -23,6 +23,7 @@ include_once($path_to_root . "/includes/session.inc");
 include_once($path_to_root . "/includes/date_functions.inc");
 include_once($path_to_root . "/includes/data_checks.inc");
 include_once($path_to_root . "/sales/includes/sales_db.inc");
+include_once($path_to_root."/admin/db/attachments_db.inc");
 
 //----------------------------------------------------------------------------------------------------
 
@@ -95,6 +96,13 @@ function print_invoices()
 			//shipment details
 			$shipping = get_shipping_detail($sales_order["shipping_id"]);
 
+			//attachments
+			$attachments_desc = array();
+			$result_attachments = get_attached_documents($trans_type,$myrow["trans_no"]);
+			while($attachment = mysql_fetch_assoc($result_attachments)){
+				$attachments_desc[] = ($attachment['description'] != '')?$attachment['description']:$attachment['filename'];
+			}
+
 
 
 			//bank account
@@ -146,6 +154,7 @@ function print_invoices()
 							
 			}
 
+
 			$rep->SetCommonData($myrow, $branch, $sales_order, $baccount, $trans_type, $contacts,$shipping);
 
 			$DisplayGrossAmount = number_format2($GrossAmount,$dec);
@@ -161,11 +170,16 @@ function print_invoices()
 			
 
 			$rep->NewPage();
-
-			//Second page for Direct Invoice
 			$rep->title = _('SALES CONTRACT');
-			$rep->SetHeaderType('Header7');
+			if($trans_type == ST_SALESINVOICE){
+				//Second page for Direct Invoice
+				$rep->SetHeaderType('Header7');
+			}else if($trans_type == ST_EXPORTINVOICE){
+				$rep->SetHeaderType('Header5');
+				$rep->formData['attachments'] = $attachments_desc;
+			}
 			$rep->NewPage();
+			
 			
 			if ($email == 1)
 			{

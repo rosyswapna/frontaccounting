@@ -122,10 +122,8 @@
 					$deliveries[$n] = get_reference(ST_CUSTDELIVERY, $delivery);
 				}
 			}
-			
-			if($this->formData['doctype'] == ST_SALESINVOICE){
 
-				$info_hleft = array(
+			$info_hleft = array(
 					_("LOADING") => ": ".$this->formData["loading_type_name"],
 					_("ORIGIN") => ": ".$this->formData['origin'],
 					_("DESTINATION") => ": ".$this->formData['destination'],
@@ -162,63 +160,88 @@
 					"SWIFT CODE: ".$this->formData['bank_swift_code'],
 					);
 
-
-				//sales contract fiels
-				$sc_right = array(
-					_("CONTRACT NO") => $this->formData["contract_no"],
-					_("DATE") => date('d/M/Y',strtotime($this->formData['document_date'])),
-					);
-
-
-				$sc_agreement = array("THIS IS TO CONFIRM THAT ".strtoupper($Addr1['name'])." AGREE TO BUY & ".strtoupper($this->company['coy_name'])." AGREES TO SELL AS"," PER TERMS & CONDITIONS STIPULATED HEREUNDER:-");
-
-				
 				$item_row =$items[0];
-				
-				$shipment_period = date('d',strtotime($this->formData['shipment_validity_date'])-strtotime($this->formData['document_date']));
 
-				$id = $this->formData['payment_terms'];
-				$sql = "SELECT terms FROM ".TB_PREF."payment_terms WHERE terms_indicator=".db_escape($id);
-				$result = db_query($sql,"could not get paymentterms");
-				$row = db_fetch($result);
-				//$Payment_Terms = _("Payment Terms") . ': ' . $row["terms"];
-				$Payment_Terms = $row["terms"];
 
-				$sc_tbl = array(
-							_("COMMODITY") => $item_row[0],
-							_("QTY[MT]") => $item_row[1].' MT (+/-5%)',
-							_("PRICE") => 'AED '.$item_row[3].' DELIVERED TO YARD',
-							_("PACKING") => $this->formData['packing'],
-							_("PORT OF LOADING") =>  $this->formData['port_of_loading'],
-							_("PORT OF DISCHARGE") =>  $this->formData['port_of_discharge'],
-							_("PAYMENT TERM") => $Payment_Terms,
-							_("SHIPMENT PERIOD") => $shipment_period.' DAYS',
-							);
+				if($this->formData['doctype'] == ST_SALESINVOICE){
+					//sales contract fiels
+					$sc_right = array(
+						_("CONTRACT NO") => $this->formData["contract_no"],
+						_("DATE") => date('d/M/Y',strtotime($this->formData['document_date'])),
+						);
 
-				$sc_other_terms = "1) QUALITY OF MATERIAL TO BE ASSURED BY SELLER(MATERIAL SHOULD BE 100% CLEAN & FREE FROM ANY ATTACHMENTS/CONTAMINATIONS).
 
-					2) WEIGHT SHORTAGE TOLERANCE IS (+/-0.2%).
+					$sc_agreement = array("THIS IS TO CONFIRM THAT ".strtoupper($Addr1['name'])." AGREE TO BUY & ".strtoupper($this->company['coy_name'])." AGREES TO SELL AS"," PER TERMS & CONDITIONS STIPULATED HEREUNDER:-");
 
-					3) MATERIAL TO BE DELIVERED AT OUR AJMAN FACTORY / HFZ FACTORY OUR OPTION.
+					
+					
+					
+					$shipment_period = date('d',strtotime($this->formData['shipment_validity_date'])-strtotime($this->formData['document_date']));
 
-					4) BUYERS WEIGHT WILL BE CONSIDERED AS FINAL FOR INVOICING PURPOSE.
+					$id = $this->formData['payment_terms'];
+					$sql = "SELECT terms FROM ".TB_PREF."payment_terms WHERE terms_indicator=".db_escape($id);
+					$result = db_query($sql,"could not get paymentterms");
+					$row = db_fetch($result);
+					//$Payment_Terms = _("Payment Terms") . ': ' . $row["terms"];
+					$Payment_Terms = $row["terms"];
 
-					5) THE CONSIGNMENT SHOULD NOT CONTAIN ANY TYPE OF ARMS, AMMUNITION, MINES, SHELLS, CARTRIDGES, RADIO ACTIVE CONTAMINATED OR ANY OTHER EXPLOSIVE MATERIAL IN FORM EITHER USED OR OTHERWISE. IF ANY SUCH MATERIAL IS FOUND, SUPPLIER WILL BE FULLY RESPONSIBLE FOR ALL CONSEQUENCES.
+					$sc_tbl = array(
+								_("COMMODITY") => $item_row[0],
+								_("QTY[MT]") => $item_row[1].' MT (+/-5%)',
+								_("PRICE") => 'AED '.$item_row[3].' DELIVERED TO YARD',
+								_("PACKING") => $this->formData['packing'],
+								_("PORT OF LOADING") =>  $this->formData['port_of_loading'],
+								_("PORT OF DISCHARGE") =>  $this->formData['port_of_discharge'],
+								_("PAYMENT TERM") => $Payment_Terms,
+								_("SHIPMENT PERIOD") => $shipment_period.' DAYS',
+								);
 
-					6) IF SHIPMENT IS NOT EFFECTED WITHIN CONTRACTUAL PERIOD, BUYER RESERVE THE RIGHT TO CANCEL OR DEMAND FOR PRICE DIFFERENCE FROM THE SELLER.
+					$sc_other_terms = "1) QUALITY OF MATERIAL TO BE ASSURED BY SELLER(MATERIAL SHOULD BE 100% CLEAN & FREE FROM ANY ATTACHMENTS/CONTAMINATIONS).
 
-					7) THIS CONTRACT SHOULD BE DULY SIGNED & SEND TO US WITHIN 3 WORKING DAYS FROM THE DATE HEREOF AND FAILURE TO WHICH, CONTRACT TERMS AND CONDITIONS WILL BE DEEMED BINDING ON BOTH THE BUYER & SELLER.";
+						2) WEIGHT SHORTAGE TOLERANCE IS (+/-0.2%).
 
-				$sc_footer_text = "WE TAKE THIS OPPORTUNITY TO THANK YOU FOR THIS BUSINESS, PLEASE SIGN & FAX BACK THIS SALES CONTRACT IMMEDIATELY";
+						3) MATERIAL TO BE DELIVERED AT OUR AJMAN FACTORY / HFZ FACTORY OUR OPTION.
 
-			}else if($this->formData['doctype'] == ST_EXPORTINVOICE){
-				
-			}
+						4) BUYERS WEIGHT WILL BE CONSIDERED AS FINAL FOR INVOICING PURPOSE.
 
-			
+						5) THE CONSIGNMENT SHOULD NOT CONTAIN ANY TYPE OF ARMS, AMMUNITION, MINES, SHELLS, CARTRIDGES, RADIO ACTIVE CONTAMINATED OR ANY OTHER EXPLOSIVE MATERIAL IN FORM EITHER USED OR OTHERWISE. IF ANY SUCH MATERIAL IS FOUND, SUPPLIER WILL BE FULLY RESPONSIBLE FOR ALL CONSEQUENCES.
 
-			
+						6) IF SHIPMENT IS NOT EFFECTED WITHIN CONTRACTUAL PERIOD, BUYER RESERVE THE RIGHT TO CANCEL OR DEMAND FOR PRICE DIFFERENCE FROM THE SELLER.
 
+						7) THIS CONTRACT SHOULD BE DULY SIGNED & SEND TO US WITHIN 3 WORKING DAYS FROM THE DATE HEREOF AND FAILURE TO WHICH, CONTRACT TERMS AND CONDITIONS WILL BE DEEMED BINDING ON BOTH THE BUYER & SELLER.";
+
+					$sc_footer_text = "WE TAKE THIS OPPORTUNITY TO THANK YOU FOR THIS BUSINESS, PLEASE SIGN & FAX BACK THIS SALES CONTRACT IMMEDIATELY";
+
+				}else if($this->formData['doctype'] == ST_EXPORTINVOICE){
+
+					$Shipment_Terms = "Shipment Terms : ".$this->formData['shipment_terms'];
+
+					$sc_tbl_headers = array(_("S.No"), _("Merchandise"),
+						_("Packing"), _("Quantity (MT)"), _("Rate (USD)"));
+
+					$sc_item = array(1,$item_row[0],$this->formData['packing'],$item_row[1],$item_row[2]);
+
+
+					$sc_aux_info1 = array(
+								_("Merchandise Tolerance") => $this->formData["merchandise_tolerance"],
+								_("Loading Details") => $this->formData["loading_details"],
+								_("Port Of Discharge") => $this->formData["port_of_discharge"],
+								_("Final Place of Delivery") => $this->formData["destination"],
+								_("Total Quantity & Amount(USD)") => $item_row['1'].' MT,   USD '.$item_row['3'].' /-'
+								);
+					$documents = $this->formData['attachments'];
+
+
+
+					$sc_bank_details = array(
+								_("Bank Name") => $this->formData["bank_name"],
+								_(" ")			=> $this->formData["bank_address"],
+								_("Swift Code") => $this->formData["bank_swift_code"],
+								_("A/c Name") => $this->formData['bank_account_name'],
+								_("A/c No.") => $this->formData['bank_account_number'],
+								_("IBAN No.") => $this->formData['bank_iban']
+								);
+				}
 
 
 			break;
