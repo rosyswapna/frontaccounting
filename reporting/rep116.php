@@ -36,6 +36,8 @@ function print_invoices()
 	
 	include_once($path_to_root . "/reporting/includes/pdf_report.inc");
 
+
+
 	$from = $_POST['PARAM_0'];
 	$to = $_POST['PARAM_1'];
 	$currency = $_POST['PARAM_2'];
@@ -57,6 +59,8 @@ function print_invoices()
 
 	$cols = array(4, 60, 225, 300, 325, 385, 450, 515);
 	
+	$trans_type = $fno[1];
+
 
 	// $headers in doctext.inc
 	$aligns = array('left',	'left',	'right', 'left', 'right', 'right', 'right');
@@ -66,15 +70,15 @@ function print_invoices()
 	$cur = get_company_Pref('curr_default');
 
 	if ($email == 0)
-		$rep = new FrontReport(_('INVOICE'), "InvoiceBulk", user_pagesize(), 9, $orientation);
+		$rep = new FrontReport(_('COMMERCIAL INVOICE'), "InvoiceBulk", user_pagesize(), 9, $orientation);
 	if ($orientation == 'L')
 		recalculate_cols($cols);
 	for ($i = $from; $i <= $to; $i++)
 	{
-			if (!exists_customer_trans(ST_SALESINVOICE, $i))
+			if (!exists_customer_trans($trans_type, $i))
 				continue;
 			$sign = 1;
-			$myrow = get_customer_trans($i, ST_SALESINVOICE);
+			$myrow = get_customer_trans($i, $trans_type);
 
 
 			if($customer && $myrow['debtor_no'] != $customer) {
@@ -102,9 +106,10 @@ function print_invoices()
 			if ($email == 1)
 			{
 				$rep = new FrontReport("", "", user_pagesize(), 9, $orientation);
-				$rep->title = _('INVOICE');
-				$rep->filename = "Invoice" . $myrow['reference'] . ".pdf";
-			}	
+				
+				$rep->filename = "Invoice" . $myrow['trans_no'] . ".pdf";
+			}
+			$rep->title = _('COMMERCIAL INVOICE');
 			$rep->SetHeaderType('Header6');
 			$rep->currency = $cur;
 			$rep->Font();
@@ -114,7 +119,7 @@ function print_invoices()
 			$baccount['payment_service'] = $pay_service;
 
 			//transacion details ( items )
-			$result = get_customer_trans_details(ST_SALESINVOICE, $i);
+			$result = get_customer_trans_details($trans_type, $i);
    			$trans = array();//$Totals = array();
 			$TotalDiscount = $TotalAmount = $GrossAmount = 0;
 			 		 
@@ -141,12 +146,12 @@ function print_invoices()
 							
 			}
 
-			$rep->SetCommonData($myrow, $branch, $sales_order, $baccount, ST_SALESINVOICE, $contacts,$shipping);
+			$rep->SetCommonData($myrow, $branch, $sales_order, $baccount, $trans_type, $contacts,$shipping);
 
 			$DisplayGrossAmount = number_format2($GrossAmount,$dec);
 			$DisplayTotalAmount = number_format2($TotalAmount,$dec);
 			$DisplayTotalDiscount = number_format2($TotalDiscount,$dec);
-			$DisplayWords = price_in_words($myrow['Total'], ST_SALESINVOICE);
+			$DisplayWords = price_in_words($myrow['Total'], $trans_type);
 			$rep->formData['words'] = $DisplayWords;
 			$rep->formData['total_amount'] = $DisplayTotalAmount;
 			$rep->formData['adv_disc'] = $DisplayTotalDiscount;
@@ -156,6 +161,11 @@ function print_invoices()
 			
 
 			$rep->NewPage();
+
+			//Second page for Direct Invoice
+			$rep->title = _('SALES CONTRACT');
+			$rep->SetHeaderType('Header7');
+			$rep->NewPage();
 			
 			if ($email == 1)
 			{
@@ -164,6 +174,10 @@ function print_invoices()
 	}
 	if ($email == 0)
 		$rep->End();
+
+
+
+
 }
 
 ?>

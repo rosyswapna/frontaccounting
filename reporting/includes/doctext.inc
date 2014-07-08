@@ -108,9 +108,124 @@
 			);
 			break;
 
-		
 		case ST_SALESINVOICE:
-			$this->title = _("DIRECT INVOICE");
+		case ST_EXPORTINVOICE:
+			
+			$this->formData['document_name'] =_("Invoice No.");
+			$this->formData['domicile'] = $this->company['domicile'];
+			$Footer[0] = _("Please quote Invoice no. when paying. All amounts stated in"). " - " . $this->formData['curr_code'];
+
+			$deliveries = get_sales_parent_numbers($this->formData['doctype'], $this->formData['trans_no']);
+			if ($print_invoice_no == 0)
+			{
+				foreach($deliveries as $n => $delivery) {
+					$deliveries[$n] = get_reference(ST_CUSTDELIVERY, $delivery);
+				}
+			}
+			
+			if($this->formData['doctype'] == ST_SALESINVOICE){
+
+				$info_hleft = array(
+					_("LOADING") => ": ".$this->formData["loading_type_name"],
+					_("ORIGIN") => ": ".$this->formData['origin'],
+					_("DESTINATION") => ": ".$this->formData['destination'],
+					_("LC DETAILS") => (trim($this->formData['lc_no']) != "")?": ".$this->formData['lc_no']:": NOT APPLICABLE",
+				);
+
+				$info_hright = array(
+					_("Your Ref No") => ": ".$this->formData["customer_ref"],
+					_("SHIPMENT") => ": ".$this->formData['shipment_time_name'],
+					_("VEHICLE NO") => ": ".$this->formData['vehicle_details'],
+					_("LC DATE") => ($this->formData['lc_date'] == '0000-00-00')?": NOT AVAILABLE":": ".$this->formData['lc_date'],
+				);
+
+				$this->headers = array(_("Container No."), _("Material"),
+					_("Net Wt (MT)"), _("Unit Price (AED)"), _("Total Amount (AED)"));
+
+				$items = $this->formData['items'];
+
+				$table_totals = array(
+					_("Total Amount") => $this->formData["total_amount"],
+					_("Adv/Disc") => $this->formData['adv_disc'],
+					_("Gross Amount") => $this->formData['gross_amount'],
+					);
+				
+				$words = "AMOUNT (AED):".$this->formData['words'];
+				
+				
+				$Certify = "We Certify that the merchandise is of U.A.E. Origin";
+
+				$bank_details = array("BANK NAME: ".$this->formData["bank_name"],
+					"A/C NAME: ".$this->formData['bank_account_name'],
+					"A/C NO: ".$this->formData['bank_account_number'],
+					"IBAN: ".$this->formData['bank_iban'],
+					"SWIFT CODE: ".$this->formData['bank_swift_code'],
+					);
+
+
+				//sales contract fiels
+				$sc_right = array(
+					_("CONTRACT NO") => $this->formData["contract_no"],
+					_("DATE") => date('d/M/Y',strtotime($this->formData['document_date'])),
+					);
+
+
+				$sc_agreement = array("THIS IS TO CONFIRM THAT ".strtoupper($Addr1['name'])." AGREE TO BUY & ".strtoupper($this->company['coy_name'])." AGREES TO SELL AS"," PER TERMS & CONDITIONS STIPULATED HEREUNDER:-");
+
+				
+				$item_row =$items[0];
+				
+				$shipment_period = date('d',strtotime($this->formData['shipment_validity_date'])-strtotime($this->formData['document_date']));
+
+				$id = $this->formData['payment_terms'];
+				$sql = "SELECT terms FROM ".TB_PREF."payment_terms WHERE terms_indicator=".db_escape($id);
+				$result = db_query($sql,"could not get paymentterms");
+				$row = db_fetch($result);
+				//$Payment_Terms = _("Payment Terms") . ': ' . $row["terms"];
+				$Payment_Terms = $row["terms"];
+
+				$sc_tbl = array(
+							_("COMMODITY") => $item_row[0],
+							_("QTY[MT]") => $item_row[1].' MT (+/-5%)',
+							_("PRICE") => 'AED '.$item_row[3].' DELIVERED TO YARD',
+							_("PACKING") => $this->formData['packing'],
+							_("PORT OF LOADING") =>  $this->formData['port_of_loading'],
+							_("PORT OF DISCHARGE") =>  $this->formData['port_of_discharge'],
+							_("PAYMENT TERM") => $Payment_Terms,
+							_("SHIPMENT PERIOD") => $shipment_period.' DAYS',
+							);
+
+				$sc_other_terms = "1) QUALITY OF MATERIAL TO BE ASSURED BY SELLER(MATERIAL SHOULD BE 100% CLEAN & FREE FROM ANY ATTACHMENTS/CONTAMINATIONS).
+
+					2) WEIGHT SHORTAGE TOLERANCE IS (+/-0.2%).
+
+					3) MATERIAL TO BE DELIVERED AT OUR AJMAN FACTORY / HFZ FACTORY OUR OPTION.
+
+					4) BUYERS WEIGHT WILL BE CONSIDERED AS FINAL FOR INVOICING PURPOSE.
+
+					5) THE CONSIGNMENT SHOULD NOT CONTAIN ANY TYPE OF ARMS, AMMUNITION, MINES, SHELLS, CARTRIDGES, RADIO ACTIVE CONTAMINATED OR ANY OTHER EXPLOSIVE MATERIAL IN FORM EITHER USED OR OTHERWISE. IF ANY SUCH MATERIAL IS FOUND, SUPPLIER WILL BE FULLY RESPONSIBLE FOR ALL CONSEQUENCES.
+
+					6) IF SHIPMENT IS NOT EFFECTED WITHIN CONTRACTUAL PERIOD, BUYER RESERVE THE RIGHT TO CANCEL OR DEMAND FOR PRICE DIFFERENCE FROM THE SELLER.
+
+					7) THIS CONTRACT SHOULD BE DULY SIGNED & SEND TO US WITHIN 3 WORKING DAYS FROM THE DATE HEREOF AND FAILURE TO WHICH, CONTRACT TERMS AND CONDITIONS WILL BE DEEMED BINDING ON BOTH THE BUYER & SELLER.";
+
+				$sc_footer_text = "WE TAKE THIS OPPORTUNITY TO THANK YOU FOR THIS BUSINESS, PLEASE SIGN & FAX BACK THIS SALES CONTRACT IMMEDIATELY";
+
+			}else if($this->formData['doctype'] == ST_EXPORTINVOICE){
+				
+			}
+
+			
+
+			
+
+
+
+			break;
+
+		
+		/*case ST_SALESINVOICE:
+			//$this->title = _("DIRECT INVOICE");
 			$this->formData['document_name'] =_("Invoice No.");
 			$this->formData['domicile'] = $this->company['domicile'];
 			$Footer[0] = _("Please quote Invoice no. when paying. All amounts stated in"). " - " . $this->formData['curr_code'];
@@ -122,15 +237,7 @@
 					$deliveries[$n] = get_reference(ST_CUSTDELIVERY, $delivery);
 				}
 			}
-			/*
-			$aux_info = array(
-				_("Customer's Reference") => $this->formData["customer_ref"],
-				_("Sales Person") => get_salesman_name($this->formData['salesman']),
-				_("Your VAT no.") => $this->formData['tax_id'],
-				_("Delivery Note No.") => implode(',', $deliveries),
-				_("Due Date") => sql2date($this->formData['due_date']),
-			);
-			*/
+			
 
 
 			$info_hleft = array(
@@ -231,6 +338,7 @@
 				
 
 				break;
+				*/
 
 		case ST_SUPPAYMENT:
 			global $systypes_array;
