@@ -73,5 +73,15 @@ $installed_extensions = array (
     'path' => 'modules/cheque_reminder',
     'active' => 1,
   ),
+  13 => 
+  array (
+    'package' => 'payroll',
+    'name' => 'payroll',
+    'version' => '-',
+    'available' => '',
+    'type' => 'extension',
+    'path' => 'modules/payroll',
+    'active' => 1,
+  ),
 );
 ?>

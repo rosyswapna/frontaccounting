@@ -1,4 +1,5 @@
 tmp/errors.log
-company
+company/
 modules/_cache
 lang
+sql/changes.sql

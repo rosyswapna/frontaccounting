@@ -35,10 +35,10 @@ function update_shipping_details($ShippingId,$DebtorNo, $VehicleDetails, $Contai
 		container_no=".db_escape($ContainerNo) .",
 		shipment_status=".db_escape($ShipmentStatus) .",
 		first_weight=".db_escape($FirstWeight) .",
-		first_weight_date=".$SQLFirstDate ;
+		first_weight_date='".$SQLFirstDate."'" ;
 	if($ShipmentStatus == SHIPMENT_STATUSCLOSE){
 		$sql .= ",second_weight=".db_escape($SecondWeight) .",
-		second_weight_date=".$SQLSecondDate ;
+		second_weight_date='".$SQLSecondDate."'" ;
 	}
 
 	$sql .= " WHERE shipping_id = ".db_escape($ShippingId);
