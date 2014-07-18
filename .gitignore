@@ -1,5 +1,8 @@
 tmp/errors.log
-company/
+company
 modules/_cache
 lang
 sql/changes.sql
+company/0/installed_extensions.php
+installed_extensions.php
+sql/godady_not_support.sql
