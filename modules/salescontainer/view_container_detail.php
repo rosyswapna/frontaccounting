@@ -36,6 +36,7 @@ page(_($help_context = "View Shipment"), true, false, "", $js);
 
 	$myrow = get_shipping_detail($shp_id);
 
+
 	display_heading(sprintf(_("Shipment #%d"),$_GET['shp_no']));
 
 	echo "<br>";
@@ -65,6 +66,16 @@ page(_($help_context = "View Shipment"), true, false, "", $js);
 			label_cells(_("Second Weight Date"), $myrow['second_weight_date'], "class='tableheader2'");
 
 		end_row();
+
+		start_row();
+
+			label_cells(_("Net Weight"), abs($myrow['first_weight'] - $myrow['second_weight']), "class='tableheader2'");
+			
+			label_cells(_("Container Number"), $myrow['container_no'], "class='tableheader2'");
+
+		end_row();
+
+
 
 	end_table();
 

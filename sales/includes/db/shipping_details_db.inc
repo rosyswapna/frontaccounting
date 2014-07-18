@@ -79,7 +79,7 @@ function get_shipping_detail($shipping_id)
 			FROM ".TB_PREF."shipping_details as shipment, "
 			.TB_PREF."shipment_status as shipstatus,"
 			.TB_PREF."debtors_master as debtor 
-			WHERE shipping_id=".db_escape($shipping_id);
+			WHERE shipping_id=".db_escape($shipping_id)."AND debtor.debtor_no = shipment.debtor_no";
 
 	$result = db_query($sql, "could not get shipping details");
 
