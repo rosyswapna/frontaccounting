@@ -17,7 +17,7 @@ $def_coy - the default company that is pre-selected on login
 
 $def_coy = 0;
 
-$tb_pref_counter = 0;
+$tb_pref_counter = 3;
 
 $db_connections = array (
   0 => 
@@ -28,6 +28,33 @@ $db_connections = array (
     'dbpassword' => '',
     'dbname' => 'frontaccounting',
     'tbpref' => '',
+  ),
+  1 => 
+  array (
+    'name' => 'ACUBE1',
+    'host' => 'localhost',
+    'dbuser' => 'root',
+    'dbpassword' => '',
+    'dbname' => 'delete_fa',
+    'tbpref' => '',
+  ),
+  2 => 
+  array (
+    'name' => 'acube innovations1',
+    'host' => 'localhost',
+    'dbuser' => 'root',
+    'dbpassword' => '',
+    'dbname' => 'delete_fa1',
+    'tbpref' => '1_',
+  ),
+  3 => 
+  array (
+    'name' => 'ACUBE2',
+    'host' => 'localhost',
+    'dbuser' => 'root',
+    'dbpassword' => '',
+    'dbname' => 'delete_fa3',
+    'tbpref' => '2_',
   ),
 );
 ?>

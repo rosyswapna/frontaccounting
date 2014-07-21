@@ -93,12 +93,14 @@ function handle_submit()
 	global $db_connections, $def_coy, $tb_pref_counter, $db,
 	    $comp_subdirs, $path_to_root, $selected_id;
 
+
 	$error = false;
 	if (!check_data())
 		return false;
 
 	if ($selected_id==-1)
 		$selected_id = count($db_connections);
+
 
 	$new = !isset($db_connections[$selected_id]);
 
@@ -162,8 +164,13 @@ function handle_submit()
 	if ($new)
 	{
 		create_comp_dirs(company_path($selected_id), $comp_subdirs);
+
+		$exts = get_company_extensions(0);
+		
+	}else{
+		$exts = get_company_extensions($selected_id);
 	}
-	$exts = get_company_extensions();
+
 	write_extensions($exts, $selected_id);
 	display_notification($new ? _('New company has been created.') : _('Company has been updated.'));
 	return true;
