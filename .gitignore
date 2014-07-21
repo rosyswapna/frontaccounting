@@ -6,3 +6,5 @@ sql/changes.sql
 company/0/installed_extensions.php
 installed_extensions.php
 sql/godady_not_support.sql
+sql/sfzc
+config_db.php

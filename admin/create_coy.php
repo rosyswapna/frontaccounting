@@ -133,6 +133,9 @@ function handle_submit()
 			} 
 			else
 			{
+				//db changes by swapna------------------------------
+				db_import($path_to_root.'/sql/alter3.sql', $conn, $selected_id);
+
 				if (!isset($_POST['admpassword']) || $_POST['admpassword'] == "")
 					$_POST['admpassword'] = "password";
 				update_admin_password($conn, md5($_POST['admpassword']));
