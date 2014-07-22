@@ -276,6 +276,13 @@ $reports->addReport(RC_INVENTORY, 309,_('Item &Sales Summary Report'),
 			_('Inventory Category') => 'CATEGORIES',
 			_('Comments') => 'TEXTBOX',
 			_('Orientation') => 'ORIENTATION',
+			_('Destination') => 'DESTINATION'));
+$reports->addReport(RC_INVENTORY, 400,_('&Shipment Report'),
+	array(	_('First Weight Date') => 'DATE',
+			_('Second Weight Date') => 'DATE',
+			_('Customer') => 'CUSTOMERS',
+			_('Vehicle Number') => 'SHIPMENTS',
+			_('Orientation') => 'ORIENTATION',
 			_('Destination') => 'DESTINATION'));				
 
 $reports->addReportClass(_('Manufacturing'), RC_MANUFACTURE);

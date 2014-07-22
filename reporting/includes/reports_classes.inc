@@ -301,6 +301,10 @@ class BoxReports
 					else
 						return customer_list($name);
 
+				case 'SHIPMENTS':
+					
+						return shipping_list($name);
+
 				case 'SUPPLIERS_NO_FILTER':
 				case 'SUPPLIERS':
 					$sql = "SELECT supplier_id, supp_name FROM ".TB_PREF."suppliers";
