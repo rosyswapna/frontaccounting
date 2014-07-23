@@ -95,31 +95,44 @@ function print_shipment()
 
     while ($shipment=db_fetch($res))
 	{
-		
+		$rep->Font('bold');
 		$rep->Text($ccol,'Customer :');
+		$rep->Font();
 		$rep->Text($cncol, $shipment['customer']);
 
+		$rep->Font('bold');
 		$rep->Text($c2col,'Vehicle No :');
+		$rep->Font();
 		$rep->Text($cn2col, $shipment['vehicle']);
 		$rep->NewLine();
 
+		$rep->Font('bold');
 		$rep->Text($c2col,'Container No :');
+		$rep->Font();
 		$rep->Text($cn2col, $shipment['container_no']);
 
 		$rep->NewLine(2);
 
+		$rep->Font('bold');
 		$rep->Text($ccol, 'First Weight :');
+		$rep->Font();
 		$rep->Text($cncol, $shipment['fweight']);
 
+		$rep->Font('bold');
 		$rep->Text($c2col, 'Second Weight :');
+		$rep->Font();
 		$rep->Text($cn2col, $shipment['sweight']);
 
 		$rep->NewLine();
 
+		$rep->Font('bold');
 		$rep->Text($ccol,'Date :');
+		$rep->Font();
 		$rep->Text($cncol, $shipment['fdate']);
 
+		$rep->Font('bold');
 		$rep->Text($c2col,'Date :');
+		$rep->Font();
 		$rep->Text($cn2col, $shipment['sdate']);
 		$rep->NewLine();
 		//$rep->Line($rep->row - 2);

@@ -401,12 +401,12 @@ class FrontReport extends Cpdf
 		$head_col = $ccol+50;
 		$this->fontSize += 4;
 		$this->Font('bold');
-		$this->TextWrap($ccol, $this->row, $this->pageWidth - $ccol, $this->company['coy_name'], 'center');
+		$this->TextWrap($head_col, $this->row, $this->pageWidth - $ccol, $this->company['coy_name'], 'center');
 		$this->Font('');
 		$this->fontSize -= 4;
 		foreach($coyFooter as $content){
 			$this->NewLine();
-			$this->TextWrap($ccol, $this->row, $this->pageWidth - $ccol, $content, 'center');
+			$this->TextWrap($head_col, $this->row, $this->pageWidth - $ccol, $content, 'center');
 		}
 		$this->row = $upper+10;
 		$this->Line1($this->row,0,$ccol,$this->pageWidth - $ccol);
@@ -419,7 +419,7 @@ class FrontReport extends Cpdf
 		$this->TextWrap($ccol, $this->row, $this->pageWidth - $this->rightMargin - $ccol - 20, $this->title, 'center');
 		$this->fontSize -= 2;
 		//HEADER ENDS HERE
-		
+
 		$this->NewLine(2);
 
 	}
