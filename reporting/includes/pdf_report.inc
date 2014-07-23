@@ -219,7 +219,7 @@ class FrontReport extends Cpdf
 		$this->row = $this->pageHeight - $this->topMargin;
 		$this->currency = '';
 		$this->scaleLogoWidth = false; // if Logo, scale on width (else height).
-		$this->SetHeaderType('Header'); // default
+		$this->SetHeaderType('HeaderDefault'); // default
 
 		$this->Cpdf($size, $_SESSION['language']->code, $orientation);
 	}
@@ -369,6 +369,59 @@ class FrontReport extends Cpdf
 		$this->Line($this->row - 5, 1);
 
 		$this->NewLine(2);
+	}
+
+	//---------------author swapna-----------default header for metals and minerals
+	function HeaderDefault()
+	{
+		$TelFaxEmail = "Tel.:".$this->company['phone'].", Fax:".$this->company['fax'].", E-mail:".$this->company['email'];
+
+		$coyFooter = array($this->company['postal_address'],$TelFaxEmail);
+
+		$this->row = $this->pageHeight - $this->topMargin-40;
+
+		$upper = $this->row - 2 * $this->lineHeight;
+		$lower = $this->bottomMargin + 8 * $this->lineHeight;
+
+		$right = $this->pageWidth - $this->rightMargin;
+	
+		
+		$icol = $this->pageWidth / 2;
+		$ccol = $this->cols[0] + 4;
+		$cncol = $ccol + 70;
+
+		//HEADER START HERE	
+		// Logo
+		$this->row = $upper+20;
+		$logo = company_path() . "/images/" . $this->company['coy_logo'];
+		if ($this->company['coy_logo'] != '' && file_exists($logo)){
+			$this->AddImage($logo, $ccol, $this->row, 0, 50);
+		}
+		$this->row = $upper+60;
+		$head_col = $ccol+50;
+		$this->fontSize += 4;
+		$this->Font('bold');
+		$this->TextWrap($ccol, $this->row, $this->pageWidth - $ccol, $this->company['coy_name'], 'center');
+		$this->Font('');
+		$this->fontSize -= 4;
+		foreach($coyFooter as $content){
+			$this->NewLine();
+			$this->TextWrap($ccol, $this->row, $this->pageWidth - $ccol, $content, 'center');
+		}
+		$this->row = $upper+10;
+		$this->Line1($this->row,0,$ccol,$this->pageWidth - $ccol);
+
+		// Document title
+		$this->NewLine(2);
+		$this->SetTextColor(0, 0, 0);
+		$this->fontSize += 2;
+		$this->Font('bold');
+		$this->TextWrap($ccol, $this->row, $this->pageWidth - $this->rightMargin - $ccol - 20, $this->title, 'center');
+		$this->fontSize -= 2;
+		//HEADER ENDS HERE
+		
+		$this->NewLine(2);
+
 	}
 	/*
 		Transition function 

@@ -9,7 +9,8 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
     See the License here <http://www.gnu.org/licenses/gpl-3.0.html>.
 ***********************************************************************/
-$page_security = 'SA_SALESANALYTIC';
+$page_security = 'SA_SHIPMENTREPORT';
+add_access_extensions();
 // ----------------------------------------------------------------
 // $ Revision:	2.0 $
 // Creator:	Chaitanya
@@ -21,145 +22,113 @@ $path_to_root="..";
 include_once($path_to_root . "/includes/session.inc");
 include_once($path_to_root . "/includes/date_functions.inc");
 include_once($path_to_root . "/includes/data_checks.inc");
-include_once($path_to_root . "/includes/banking.inc");
-include_once($path_to_root . "/gl/includes/gl_db.inc");
-include_once($path_to_root . "/inventory/includes/db/items_category_db.inc");
+include_once($path_to_root . "/sales/includes/sales_db.inc");
+include_once($path_to_root."/admin/db/attachments_db.inc");
 
 //----------------------------------------------------------------------------------------------------
-
 print_shipment();
+//----------------------------------------------------------------------------------------------------
 
-function getTransactions($category, $from, $to)
-{
-	$from = date2sql($from);
-	$to = date2sql($to);
-	$sql = "SELECT item.category_id,
-			category.description AS cat_description,
-			item.stock_id,
-			item.description,
-			line.unit_price * trans.rate AS unit_price,
-			SUM(line.quantity) as quantity
-		FROM ".TB_PREF."stock_master item,
-			".TB_PREF."stock_category category,
-			".TB_PREF."debtor_trans trans,
-			".TB_PREF."debtor_trans_details line
-		WHERE line.stock_id = item.stock_id
-		AND item.category_id=category.category_id
-		AND line.debtor_trans_type=trans.type
-		AND line.debtor_trans_no=trans.trans_no
-		AND trans.tran_date>='$from'
-		AND trans.tran_date<='$to'
-		AND line.quantity<>0
-		AND line.debtor_trans_type = ".ST_SALESINVOICE;
-		if ($category != 0)
-			$sql .= " AND item.category_id = ".db_escape($category);
-		$sql .= " GROUP BY item.category_id,
-			category.description,
-			item.stock_id,
-			item.description,
-			line.unit_price
-		ORDER BY item.category_id, item.stock_id, line.unit_price";
-			
-	//display_notification($sql);
+function get_shipment_details($fw_date,$sw_date,$customer,$vehicle_no){
+	$sql = "SELECT debtor.name as customer,
+			shipment.vehicle_details as vehicle,
+			shipment.container_no,
+			shipment.first_weight as fweight,
+			shipment.first_weight_date as fdate,
+			shipment.second_weight as sweight,
+			shipment.second_weight_date sdate
+			FROM ".TB_PREF."shipping_details as shipment, "
+			.TB_PREF."debtors_master as debtor 
+			WHERE shipment.debtor_no = debtor.debtor_no";
+	$sql .= " AND shipment.first_weight_date = '".date2sql($fw_date)."'";
+
+	$sql .= " AND shipment.second_weight_date = '".date2sql($sw_date)."'";
 	
-    return db_query($sql,"No transactions were returned");
+	$sql .= " AND shipment.debtor_no =".db_escape($customer);
+	
+	$sql .= " AND shipment.vehicle_details LIKE ".db_escape($vehicle_no)."";
 
+	return db_query($sql,"No Shipment Entries Found");
 }
 
-//----------------------------------------------------------------------------------------------------
-
-function print_inventory_sales()
+function print_shipment()
 {
     global $path_to_root;
 
-	$from = $_POST['PARAM_0'];
-	$to = $_POST['PARAM_1'];
-    $category = $_POST['PARAM_2'];
-	$comments = $_POST['PARAM_3'];
+	$fw_date = $_POST['PARAM_0']; //first weight date
+	$sw_date = $_POST['PARAM_1']; //second weight date
+    $customer = $_POST['PARAM_2']; //customer id
+    $vehicle_no = $_POST['PARAM_3']; //vehicle details
 	$orientation = $_POST['PARAM_4'];
 	$destination = $_POST['PARAM_5'];
-	if ($destination)
-		include_once($path_to_root . "/reporting/includes/excel_report.inc");
-	else
-		include_once($path_to_root . "/reporting/includes/pdf_report.inc");
+
+	$res = get_shipment_details($fw_date,$sw_date,$customer,$vehicle_no);
+	
+	include_once($path_to_root . "/reporting/includes/pdf_report.inc");
 
 	$orientation = ($orientation ? 'L' : 'P');
     $dec = user_price_dec();
 
-	if ($category == ALL_NUMERIC)
-		$category = 0;
-	if ($category == 0)
-		$cat = _('All');
-	else
-		$cat = get_category_name($category);
+	//$cols = array(0, 100, 260, 300, 350, 425, 430, 515);
+	$cols = array(4, 60, 225, 300, 325, 385, 450, 515);
+	
+	$aligns = array('left',	'left',	'right', 'left', 'right', 'right', 'right');
 
-	$cols = array(0, 100, 260, 300, 350, 425, 430, 515);
+	$params = array('comments' => $comments);
 
-	$headers = array(_('Item/Category'), _('Description'), _('Qty'), _('Unit Price'), _('Sales'), '', _('Remark'));	
+	$th = array(_('Customer'), _('Vehicle'), _('First Weight'), _('First Weight Date'), _('Second Weight'), '', _('Second Weight Date'));
 
-	$aligns = array('left',	'left',	'right', 'right', 'right', 'right', 'left');
-
-    $params =   array( 	0 => $comments,
-    				    1 => array('text' => _('Period'),'from' => $from, 'to' => $to),
-    				    2 => array('text' => _('Category'), 'from' => $cat, 'to' => ''));
-
-    $rep = new FrontReport(_('Item Sales Summary Report'), "ItemSalesSummaryReport", user_pagesize(), 9, $orientation);
+    $rep = new FrontReport(_('Shipment Report'), "ShipmentReport", user_pagesize(), 9, $orientation);
     if ($orientation == 'L')
     	recalculate_cols($cols);
-
+   // $rep->SetHeaderType('');
     $rep->Font();
-    $rep->Info($params, $cols, $headers, $aligns);
+    $rep->Info($params, $cols, null, $aligns);
     $rep->NewPage();
+    $rep->Font();
+    
+    $ccol = $rep->cols[0] + 4;
+	$cncol = $ccol + 70;
 
-	$res = getTransactions($category, $from, $to);
-	$total = $grandtotal = 0.0;
-	$total1 = $grandtotal1 = 0.0;
-	$total2 = $grandtotal2 = 0.0;
-	$catt = '';
-	while ($trans=db_fetch($res))
+	$c2col = $ccol-290;
+	$cn2col = $c2col + 70;
+
+    while ($shipment=db_fetch($res))
 	{
-		if ($catt != $trans['cat_description'])
-		{
-			if ($catt != '')
-			{
-				$rep->NewLine(2, 3);
-				$rep->TextCol(0, 4, _('Total'));
-				$rep->AmountCol(4, 5, $total, $dec);
-				$rep->Line($rep->row - 2);
-				$rep->NewLine();
-				$rep->NewLine();
-				$total = $total1 = $total2 = 0.0;
-			}
-			$rep->TextCol(0, 1, $trans['category_id']);
-			$rep->TextCol(1, 7, $trans['cat_description']);
-			$catt = $trans['cat_description'];
-			$rep->NewLine();
-		}
+		
+		$rep->Text($ccol,'Customer :');
+		$rep->Text($cncol, $shipment['customer']);
+
+		$rep->Text($c2col,'Vehicle No :');
+		$rep->Text($cn2col, $shipment['vehicle']);
+		$rep->NewLine();
+
+		$rep->Text($c2col,'Container No :');
+		$rep->Text($cn2col, $shipment['container_no']);
+
+		$rep->NewLine(2);
+
+		$rep->Text($ccol, 'First Weight :');
+		$rep->Text($cncol, $shipment['fweight']);
+
+		$rep->Text($c2col, 'Second Weight :');
+		$rep->Text($cn2col, $shipment['sweight']);
 
 		$rep->NewLine();
-		$rep->fontSize -= 2;
-		$rep->TextCol(0, 1, $trans['stock_id']);
-		$rep->TextCol(1, 2, $trans['description']);
-		$rep->AmountCol(2, 3, $trans['quantity'], get_qty_dec($trans['stock_id']));
-		$rep->AmountCol(3, 4, $trans['unit_price'], $dec);
-		$rep->AmountCol(4, 5, $trans['quantity']*$trans['unit_price'], $dec);
-		if ($trans['unit_price'] == 0)
-			$rep->TextCol(6, 7, _('Gift'));
-		$rep->fontSize += 2;
-		$total += $trans['quantity']*$trans['unit_price'];
-		$grandtotal += $trans['quantity']*$trans['unit_price'];
-	}
-	$rep->NewLine(2, 3);
-	$rep->TextCol(0, 4, _('Total'));
-	$rep->AmountCol(4, 5, $total, $dec);
-	$rep->Line($rep->row - 2);
-	$rep->NewLine();
-	$rep->NewLine(2, 1);
-	$rep->TextCol(0, 4, _('Grand Total'));
-	$rep->AmountCol(4, 5, $grandtotal, $dec);
 
-	$rep->Line($rep->row  - 4);
-	$rep->NewLine();
+		$rep->Text($ccol,'Date :');
+		$rep->Text($cncol, $shipment['fdate']);
+
+		$rep->Text($c2col,'Date :');
+		$rep->Text($cn2col, $shipment['sdate']);
+		$rep->NewLine();
+		//$rep->Line($rep->row - 2);
+		$rep->Line1($rep->row,0,$ccol);
+		$rep->NewLine(2);
+	}
+	
+	
+	
     $rep->End();
 }
 

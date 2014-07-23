@@ -281,7 +281,7 @@ $reports->addReport(RC_INVENTORY, 400,_('&Shipment Report'),
 	array(	_('First Weight Date') => 'DATE',
 			_('Second Weight Date') => 'DATE',
 			_('Customer') => 'CUSTOMERS',
-			_('Vehicle Number') => 'SHIPMENTS',
+			_('Vehicle Number') => 'VEHICLES',
 			_('Orientation') => 'ORIENTATION',
 			_('Destination') => 'DESTINATION'));				
 

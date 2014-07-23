@@ -301,9 +301,9 @@ class BoxReports
 					else
 						return customer_list($name);
 
-				case 'SHIPMENTS':
+				case 'VEHICLES':
 					
-						return shipping_list($name);
+						return vehicle_list($name);
 
 				case 'SUPPLIERS_NO_FILTER':
 				case 'SUPPLIERS':

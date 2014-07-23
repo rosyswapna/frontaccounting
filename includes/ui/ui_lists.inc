@@ -725,7 +725,42 @@ function shipping_list_row($label, $name, $selected_id=null, $all_option = false
 	echo "</td>\n</tr>\n";
 }
 //-----------------------------------------------------------------------------------
+function vehicle_list($name, $selected_id=null, $spec_option=false, $submit_on_change=false, 
+	$show_inactive=false, $editkey = false, $where = array())
+{
+	global $all_items;
 
+	$sql = "SELECT vehicle_details,vehicle_details  FROM ".TB_PREF."shipping_details WHERE 1 GROUP BY vehicle_details";
+
+	foreach ($where as $key => $value) {
+		$sql .= " AND {$key} = '{$value}'";
+	}
+
+	
+	$mode = get_company_pref('no_vehicle_list');
+
+	if ($editkey)
+		set_editor('vehicle', $name, $editkey);
+
+	$ret = combo_input($name, $selected_id, $sql, 'vehicle_details', 'vehicle_details',
+	array(
+	    'format' => '',
+	    'order' => array(),
+		'search_box' => $mode!=0,
+		'type' => 1,
+		'size' => 20,
+		'spec_option' => $spec_option === true ? _("All Vehicles") : $spec_option,
+		'spec_id' => $all_items,
+		'select_submit'=> $submit_on_change,
+		'async' => false,
+		'sel_hint' => $mode ? _('Press Space tab to filter by name fragment; F2 - entry new vehicle_details') :
+		_('Select shipment'),
+		'show_inactive' => $show_inactive
+	) );
+	if ($editkey)
+		$ret .= add_edit_combo('vehicle');
+	return $ret;
+}
 //------------------------------------------------------------------------------------------------
 
 function customer_branches_list($customer_id, $name, $selected_id=null,
