@@ -50,6 +50,7 @@ class hooks_salescontainer extends hooks {
         $security_areas['SA_SALESCONTAINERSVIEW'] = array(SS_CONTAINER|1, _("Sales Container View"));
         $security_areas['SA_SALESCONTAINERVIEW'] = array(SS_CONTAINER|1, _("View Sales Container"));
         $security_areas['SA_SHIPMENTREPORT'] = array(SS_CONTAINER|1, _("Shipment Report"));
+        $security_areas['SA_WEIGHT'] = array(SS_CONTAINER|1, _("Shipment Weight"));
         
         return array($security_areas, $security_sections);
     }

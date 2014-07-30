@@ -455,7 +455,9 @@ $popup_editors = array(
 	'supplier' => array('/purchasing/manage/suppliers.php?supplier_id=', 
 		113, _("Suppliers"), 900, 700),
 	'item' => array('/inventory/manage/items.php?stock_id=', 
-		115, _("Items"), 800, 600)
+		115, _("Items"), 800, 600),
+	'weight' => array('/modules/salescontainer/weight.php?weight=0', 
+		120, _("Weight"), 400, 400)
 );
 /*
 	Bind editors for various selectors.

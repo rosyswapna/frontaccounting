@@ -188,7 +188,7 @@ function open_shipping_details_settings($selected_id){
 				start_outer_table(TABLESTYLE2);
 					table_section(1);
 					table_section_title(_("First Weight Details"));
-						first_weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '');
+						first_weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '',true);
 						date_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
 					
 					if($myrow["shipment_status"] == SHIPMENT_STATUSCLOSE){
