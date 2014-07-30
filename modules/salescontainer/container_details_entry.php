@@ -18,11 +18,20 @@ include_once($path_to_root . "/includes/session.inc");
 
 
 $js = "";
+if ($use_popup_windows) {
+	$js .= get_js_open_window(900, 500);
+}
 if ($use_date_picker)
 	$js .= get_js_date_picker();
 
 include_once($path_to_root . "/sales/includes/sales_ui.inc");
 include_once($path_to_root . "/includes/date_functions.inc");
+
+add_access_extensions();
+set_ext_domain('modules/salescontainer');
+
+//page(_($help_context = "Add and Manage Shipments"));
+page($_SESSION['page_title'], false, false, "", $js);
 
 //get shipping id if it has passed through url
 if (isset($_GET['shipping_id'])) 
@@ -73,10 +82,10 @@ function shipping_details($selected_id){
 		$_POST['container_no']  = $myrow["container_no"];
 		$_POST['shipment_status']  = $myrow["shipment_status"];
 		$_POST['first_weight']  = $myrow["first_weight"];
-		$_POST['first_weight_date']  = $myrow["first_weight_date"];
+		$_POST['first_weight_date']  = sql2date($myrow["first_weight_date"]);
 		$_POST['second_weight']  = $myrow["second_weight"];
 		if($myrow["second_weight_date"]!='0000-00-00 00:00:00')
-			$_POST['second_weight_date']  = $myrow["second_weight_date"];
+			$_POST['second_weight_date']  = sql2date($myrow["second_weight_date"]);
 
 	}else{
 
@@ -138,7 +147,7 @@ function shipping_details($selected_id){
 }
 
 function open_shipping_details_settings($selected_id){
-	global $path_to_root;
+	global $path_to_root, $Ajax;
 
 	if($selected_id){
 
@@ -149,12 +158,12 @@ function open_shipping_details_settings($selected_id){
 		$_POST['vehicle_details']  = $myrow["vehicle_details"];
 		$_POST['container_no']  = $myrow["container_no"];
 		$_POST['first_weight']  = $myrow["first_weight"];
-		$_POST['first_weight_date']  = $myrow["first_weight_date"];
+		$_POST['first_weight_date']  = sql2date($myrow["first_weight_date"]);
 		$_POST['shipment_status']  = $myrow["shipment_status"];
 
 		
 		$_POST['second_weight']  = $myrow["second_weight"];
-		$_POST['second_weight_date']  = $myrow["second_weight_date"];
+		$_POST['second_weight_date']  = sql2date($myrow["second_weight_date"]);
 
 
 	}else{
@@ -162,7 +171,7 @@ function open_shipping_details_settings($selected_id){
 		$_POST['shipping_id'] = $_POST['customer_id'] = -1;
 		$_POST['vehicle_details']  = '';
 		$_POST['container_no']  = '';
-		$_POST['first_weight']  = '';
+		$_POST['first_weight']  = get_post('weight');
 		$_POST['first_weight_date']  = '';	
 		$_POST['shipment_status']  = SHIPMENT_STATUSOPEN;	
 		
@@ -187,14 +196,19 @@ function open_shipping_details_settings($selected_id){
 			echo "<td colspan='6'>";
 				start_outer_table(TABLESTYLE2);
 					table_section(1);
-					table_section_title(_("First Weight Details"));
-						first_weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '',true);
-						date_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
-					
+
+					table_section_title(_("First Weight Details"));					
 					if($myrow["shipment_status"] == SHIPMENT_STATUSCLOSE){
+
+					weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '');
+					date_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
+
 					table_section_title(_("Second Weight Details"));
-						first_weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '');
+						weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '',true);
 						date_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '');
+					}else{
+						weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '',true);
+						date_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
 					}
 				end_outer_table(1);
 			echo "</td>";
@@ -269,7 +283,7 @@ function close_shipping_details_settings($selected_id){
 					table_section(2);
 					table_section_title(_("Second Weight Details"));
 
-						first_weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '');
+						weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '',true);
 
 						date_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '');
 
@@ -380,11 +394,7 @@ if (isset($_POST['close']))
 //-------------------------------------------------------------------------------------------- 
 
 
-add_access_extensions();
-set_ext_domain('modules/salescontainer');
-
-//page(_($help_context = "Add and Manage Shipments"));
-page($_SESSION['page_title'], false, false, "", $js);	
+	
 
 start_form();
 
@@ -399,7 +409,7 @@ start_form();
 			start_table(TABLESTYLE_NOBORDER);
 			start_row();
 			shipping_list_cells(_("Shipping Details Id: "), 'shipping_id', null,
-				_('New shipment'), true, check_value('show_inactive'));
+				_('New shipment'), true, check_value('show_inactive'),false,false);
 			check_cells(_("Show inactive:"), 'show_inactive', null, true);
 			end_row();
 			end_table();

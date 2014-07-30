@@ -120,17 +120,16 @@ function handle_submit()
 {
 	global $Ajax;
 
-	display_notification("Ok Close this Popup");
-	
-	//setcookie("FirstWeight", $_POST['fweight'], time()+60);  /* expire in 1 Min */
-	//$_SESSION['first_weight'] = $_POST['fweight'];
+	$_SESSION['first_weight'] = $_POST['first_weight'];
 
-	$_POST['first_weight']= $_POST['fweight'];
-	$Ajax->activate('first_weight');
+	$Ajax->activate('page_body');
+
+	display_notification("Ok Close this Popup");
+
 
 }
 
-if (isset($_POST['submit_weight'])) 
+if (isset($_POST['submit'])) 
 {
 	handle_submit($selected_id);
 }
@@ -150,8 +149,11 @@ if(file_exists('data.txt')){
 		start_row();
 
 		label_cells($key." : ",$val);
-		if($key == '1st WEIGHT')
-			hidden('fweight', $val);
+		if($key == 'WEIGHT'){
+			
+			$weight = filter_var($val, FILTER_SANITIZE_NUMBER_INT);
+			hidden('weight', $val);
+		}
 
 
 		end_row();
@@ -162,8 +164,7 @@ if(file_exists('data.txt')){
 
 	div_start('controls');
 		if($rs)
-			//submit_center('submit_weight', _("Ok"), true, '', 'default');
-			submit_return('select', $selected_id, _("Select this shipping details and return to document entry."));
+			submit_return_center('select', abs($weight), _("Select this shipping details and return to document entry."));
 
 	div_end();
 

@@ -253,6 +253,15 @@ function submit_row($name, $value, $right=true, $extra="", $title=false, $async=
 	echo "</tr>\n";
 }
 
+function submit_return_center($name, $value, $title=false)
+{
+	if (@$_REQUEST['popup']) {
+		echo "<center>";
+		submit($name, $value, true, $title, 'selector');
+		echo "</center>";
+	}
+}
+
 function submit_return($name, $value, $title=false)
 {
 	if (@$_REQUEST['popup']) {
@@ -776,17 +785,17 @@ function weight_text_cells_ex($label, $name, $size, $max=null, $init=null, $titl
 
 //-----------------------------------------------------------------------------------
 
-function first_weight_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false,$editkey = false)
+function weight_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false,$editkey = false)
 {
 	weight_text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change,$editkey);
 }
 
 //-----------------------------------------------------------------------------------
 
-function first_weight_row($label, $name, $title=null, $init=null, $submit_on_change=false,$editkey= false)
+function weight_row($label, $name, $title=null, $init=null, $submit_on_change=false,$editkey= false)
 {
 	echo "<tr><td class='label'>$label</td>";
-	first_weight_cells(null, $name, $title, $init, null, $submit_on_change,$editkey);
+	weight_cells(null, $name, $title, $init, null, $submit_on_change,$editkey);
 	echo "</tr>\n";
 }
 
