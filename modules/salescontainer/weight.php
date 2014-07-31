@@ -16,8 +16,14 @@ include($path_to_root . "/includes/db_pager.inc");
 include_once($path_to_root . "/includes/session.inc");
 include_once($path_to_root . "/includes/ui.inc");
 
+include($path_to_root . "/modules/salescontainer/includes/php_serial.class.php");
+
+
+
 add_access_extensions();
 set_ext_domain('modules/salescontainer');
+
+
 
 function get_control_file($file, $index = false) {
 
@@ -132,15 +138,47 @@ function handle_submit()
 if (isset($_POST['submit'])) 
 {
 	handle_submit($selected_id);
+
 }
 //--------------------------------------------------------------------------------------------
 
 	
 page(_($help_context = "Weight"), @$_REQUEST['popup'], false, "", $js); 
+
+
+//read comport value start------------------------------------------------------
+$serial = new phpSerial();
+$serial->deviceSet("COM4");
+
+$serial->confBaudRate(2400); //Baud rate: 9600
+$serial->confParity("none");  //Parity (this is the "N" in "8-N-1")
+$serial->confCharacterLength(8); //Character length     (this is the "8" in "8-N-1")
+$serial->confStopBits(1);  //Stop bits (this is the "1" in "8-N-1")
+$serial->confFlowControl("none");
+
+// Then we need to open it
+$serial->deviceOpen();
+
+
+// Read data
+$read = $serial->readPort();
+
+// Print out the data
+echo $read;
+
+// If you want to change the configuration, the device must be closed.
+$serial->deviceClose();
+//read comport value start------------------------------------------------------
+
+/*
 start_form();
 
-if(file_exists('data.txt')){
-	$rs = get_control_file('data.txt');
+
+$data_file = 'C:/serial/file';
+
+
+if(file_exists($data_file)){
+	$rs = get_control_file($data_file);
 
 	start_table(TABLESTYLE_NOBORDER);
 
@@ -164,15 +202,18 @@ if(file_exists('data.txt')){
 
 	div_start('controls');
 		if($rs)
-			submit_return_center('select', abs($weight), _("Select this shipping details and return to document entry."));
+			//submit_return_center('select', abs($weight), _("Select this shipping details and return to document entry."));
+			
 
 	div_end();
 
 	hidden('popup', @$_REQUEST['popup']);
 	end_form();
 }else{
-	display_error("Data not Received.");
+	submit_center_first('submit', _("ok"));
+	display_error("Data not Received.".$data_file);
 }
+*/
 
 end_page(@$_REQUEST['popup']);
 
