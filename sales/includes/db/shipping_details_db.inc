@@ -65,7 +65,7 @@ function close_shipment($ShippingId,$ShipmentStatus,$SecondWeight,$SecondWeightD
 	db_query($sql,"The Shipping Details could not closed");
 }
 
-function get_shipping_detail($shipping_id)
+function get_shipping_detail($shipping_id,$person_type)
 {
 	$sql = "SELECT shipment.shipping_id,
 			shipment.vehicle_details,

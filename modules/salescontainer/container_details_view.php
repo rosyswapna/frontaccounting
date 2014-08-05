@@ -45,7 +45,7 @@ if(list_updated('person_type')){
 function view_link($dummy, $shipment_id)
 {
 	global $trans_type;
-	return  get_shipment_view_str($shipment_id,$dummy['shipping_id']);
+	return  get_shipment_view_str($shipment_id,$dummy['shipping_id'],$dummy['person_type_id']);
 	
 }
 

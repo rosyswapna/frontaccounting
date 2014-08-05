@@ -37,6 +37,8 @@ page(_($help_context = "View Shipment"), true, false, "", $js);
 	$myrow = get_shipping_detail($shp_id);
 
 
+
+
 	display_heading(sprintf(_("Shipment #%d"),$_GET['shp_no']));
 
 	echo "<br>";
@@ -45,7 +47,16 @@ page(_($help_context = "View Shipment"), true, false, "", $js);
 
 		start_row();
 
-			label_cells(_("Customer Name"), $myrow['customer'], "class='tableheader2'");
+			if($myrow['person_type_id'] == PT_CUSTOMER){
+				$customer = get_customer($myrow["person_id"]);
+				label_cells(_("Customer Name"), $customer['name'], "class='tableheader2'");
+			}elseif($myrow['person_type_id'] == PT_SUPPLIER){
+				$supplier = get_supplier($myrow["person_id"]);
+				label_cells(_("Supplier Name"), $supplier['supp_name'], "class='tableheader2'");
+			}elseif($myrow['person_type_id'] == PT_MISC){
+				label_cells(_("Name"), $myrow['person_id'], "class='tableheader2'");
+			}
+			//label_cells(_("Customer Name"), $myrow['customer'], "class='tableheader2'");
 
 			label_cells(_("Vehicle Details"), $myrow['vehicle_details'], "class='tableheader2'");
 
