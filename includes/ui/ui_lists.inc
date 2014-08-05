@@ -584,6 +584,13 @@ function shipment_status_list_cells($label, $name, $selected_id=null, $all_optio
 		$show_inactive, $editkey);
 	echo "</td>\n";
 }
+
+function shipment_status_list_row($label, $name, $selected_id=null, $all_option=false,$submit_on_change=false,$show_inactive=false, $editkey = false)
+{
+	echo "<tr>";
+	shipment_status_list_cells(null, $name, $selected_id, $submit_on_change);
+	echo "</tr>\n";
+}
 //-----------------------------------------------------------------------------------------------
 function loading_type_list($name, $selected_id=null, $spec_option=false, $submit_on_change=false, 
 	$show_inactive=false, $editkey = false)
@@ -725,6 +732,41 @@ function shipping_list_row($label, $name, $selected_id=null, $all_option = false
 	echo "</td>\n</tr>\n";
 }
 //-----------------------------------------------------------------------------------
+
+
+//------------------------------------------------------------------------------------------------
+function shipping_person_types_list($name, $selected_id=null, $submit_on_change=false)
+{
+	global $payment_person_types;
+
+	$items = array();
+	foreach ($payment_person_types as $key=>$type)
+	{
+		if (in_array($key, array(PT_MISC,PT_CUSTOMER,PT_SUPPLIER)))
+			$items[$key] = $type;
+	}		
+	return array_selector($name, $selected_id, $items, 
+		array( 'select_submit'=> $submit_on_change ) );
+}
+
+function shipping_person_types_list_cells($label, $name, $selected_id=null, $related=null)
+{
+	if ($label != null)
+		echo "<td>$label</td>\n";
+	echo "<td>";
+	echo shipping_person_types_list($name, $selected_id, $related);
+	echo "</td>\n";
+}
+
+function shipping_person_types_list_row($label, $name, $selected_id=null, $related=null)
+{
+	echo "<tr><td class='label'>$label</td>";
+	shipping_person_types_list_cells(null, $name, $selected_id, $related);
+	echo "</tr>\n";
+}
+
+//------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------
 function vehicle_list($name, $selected_id=null, $spec_option=false, $submit_on_change=false, 
 	$show_inactive=false, $editkey = false, $where = array())
 {

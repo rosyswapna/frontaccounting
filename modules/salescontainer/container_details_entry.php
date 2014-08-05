@@ -45,6 +45,13 @@ if (isset($_GET['shipping_id']))
 $selected_id = get_post('shipping_id','');
 
 
+if(list_updated('person_type')){
+	$_POST['person_id'] = '';
+	$Ajax->activate('shipment_content');
+
+}
+
+
 //---------------------------------------------------------------------------
 
 
@@ -148,6 +155,42 @@ function shipping_details($selected_id){
 	
 }
 
+function shipment_header(){
+
+	start_row();
+	echo "<td>";
+		start_outer_table(TABLESTYLE2);
+
+			table_section(1);
+
+			
+			shipping_person_types_list_row(_("Person Type"),'person_type',$_POST['person_type'],true);
+
+			switch ($_POST['person_type'])
+			{
+				case PT_MISC :
+		    		text_row_ex(_("Name:"),'person_id', 40, 50);
+		    		break;
+				case PT_SUPPLIER :
+		    		supplier_list_row(_("Supplier:"), 'person_id', null, false, false, false, true);
+		    		//supplier_list_row(_("Supplier:"), 'person_id', $_POST['person_id'], false, false, false, true);
+		    		break;
+				case PT_CUSTOMER :
+		    		customer_list_row(_("Customer:"), 'person_id', null, false, false, false, true);
+		    		//customer_list_row(_("Customer:"), 'person_id', $_POST['person_id'], false, false, false, true);
+			}
+
+			
+
+			table_section(2);
+			vehicle_row(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'], '',false,false);
+			container_row(_("Container No").':', 'container_no', _(''), $_POST['container_no'], '');
+
+		end_outer_table(1);
+	echo "</td>";
+	end_row();
+}
+
 function open_shipping_details_settings($selected_id){
 
 	global $path_to_root, $Ajax;
@@ -155,9 +198,15 @@ function open_shipping_details_settings($selected_id){
 	if($selected_id){
 
 		$myrow = get_shipping_detail($selected_id);
+		$_POST['person_type'] = $myrow["person_type_id"];
+
+		if($myrow["person_type_id"] == PT_CUSTOMER){
+			$customer = get_customer($myrow["person_id"]);
+			$_POST['person_id'] = $customer["debtor_no"];
+		}
+		
 		
 		$_POST['shipping_id'] = $myrow["shipping_id"];
-		$_POST['customer_id'] = $myrow["debtor_no"];
 		$_POST['vehicle_details']  = $myrow["vehicle_details"];
 		$_POST['container_no']  = $myrow["container_no"];
 		$_POST['first_weight']  = $myrow["first_weight"];
@@ -171,7 +220,10 @@ function open_shipping_details_settings($selected_id){
 
 	}else{
 
-		$_POST['shipping_id'] = $_POST['customer_id'] = -1;
+		$myrow = false;
+		//$_POST['person_type'] = '';
+		//$_POST['person_id'] = '';
+		$_POST['shipping_id'] = -1;
 		$_POST['vehicle_details']  = '';
 		$_POST['container_no']  = '';
 		$_POST['first_weight']  = '';
@@ -180,25 +232,16 @@ function open_shipping_details_settings($selected_id){
 		
 	}
 
-	
-
+	div_start('shipment_content');
 	
 
 	start_table(TABLESTYLE, "width=60%", 10);
+		
+		shipment_header($myrow);
 
 		start_row();
 
-			customer_list_cells(_("Customer:"), 'customer_id', $_POST['customer_id'], false, false, false, true);
-
-			vehicle_cells(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'], '',false,false);
-
-			container_cells(_("Container No").':', 'container_no', _(''), $_POST['container_no'], '');
-
-		end_row();
-
-		start_row();
-
-			echo "<td colspan='6'>";
+			echo "<td>";
 				start_outer_table(TABLESTYLE2);
 					table_section(1);
 
@@ -222,6 +265,8 @@ function open_shipping_details_settings($selected_id){
 
 	end_table(2);
 
+	div_end();
+
 	div_start('controls');
 		if (!$selected_id)
 		{
@@ -238,9 +283,6 @@ function open_shipping_details_settings($selected_id){
 	   _('Cancel Shipment or Removes Shipment'));
 
 	div_end();
-
-
-
 	
 }
 
@@ -359,7 +401,7 @@ function handle_submit(&$selected_id)
 	if ($selected_id) 
 	{
 		//it is an existing shipping details
-		update_shipping_details($selected_id,$_POST['customer_id'],$_POST['vehicle_details'],$_POST['container_no'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date'],$_POST['second_weight'],$_POST['second_weight_date']);
+		update_shipping_details($selected_id, $_POST['vehicle_details'],$_POST['container_no'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date'],$_POST['second_weight'],$_POST['second_weight_date'], $_POST['person_type'], $_POST['person_id']);
 		display_notification(_("Shipping details has been updated."));
 
 	} 
@@ -367,7 +409,7 @@ function handle_submit(&$selected_id)
 	{ 	//it is a new entry
 		begin_transaction();
 
-		add_shipping_details($_POST['customer_id'],$_POST['vehicle_details'],$_POST['container_no'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date']);
+		add_shipping_details($_POST['vehicle_details'],$_POST['container_no'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date'],$_POST['person_type'], $_POST['person_id']);
 		$selected_id = $_POST['shipping_id'] = db_insert_id();
 
 		commit_transaction();
@@ -417,6 +459,9 @@ start_form();
 			start_row();
 			shipping_list_cells(_("Shipping Details Id: "), 'shipping_id', null,
 				_('New shipment'), true, check_value('show_inactive'),false,false);
+
+			
+
 			check_cells(_("Show inactive:"), 'show_inactive', null, true);
 			end_row();
 			end_table();

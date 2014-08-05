@@ -731,6 +731,13 @@ function container_cells($label, $name, $title=null, $init=null, $params=null, $
 	text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change);
 }
 
+function container_row($label, $name, $title=null, $init=null, $submit_on_change=false)
+{
+	echo "<tr><td class='label'>$label</td>";
+	container_cells(null, $name, $title, $init, null, $submit_on_change);
+	echo "</tr>\n";
+}
+
 //-----------------------------------------------------------------------------------
 
 function vehicle_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false,$editkey = false)

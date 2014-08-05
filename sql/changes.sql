@@ -118,6 +118,12 @@ ALTER TABLE `0_shipping_details` CHANGE `first_weight_date` `first_weight_date` 
 CHANGE `second_weight_date` `second_weight_date` DATE NOT NULL; 
 
 
+-----------------------------------------------------------------------------------------------
+
+ALTER TABLE `shipping_details` ADD `person_type_id` INT( 11 ) NOT NULL DEFAULT '0',
+ADD `person_id` TINYBLOB NULL DEFAULT NULL 
+
+
 
 
 
