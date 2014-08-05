@@ -237,7 +237,7 @@ function open_shipping_details_settings($selected_id){
 
 	start_table(TABLESTYLE, "width=60%", 10);
 		
-		shipment_header($myrow);
+		shipment_header();
 
 		start_row();
 
@@ -291,6 +291,30 @@ function close_shipping_details_settings($selected_id){
 
 	if($selected_id){
 		$myrow = get_shipping_detail($selected_id);
+
+		$_POST['person_type'] = $myrow["person_type_id"];
+
+		if($myrow["person_type_id"] == PT_CUSTOMER){
+			$customer = get_customer($myrow["person_id"]);
+			$_POST['person_id'] = $customer["debtor_no"];
+		}elseif($myrow["person_type_id"] == PT_SUPPLIER){
+			$supplier = get_supplier($myrow["person_id"]);
+			$_POST['person_id'] = $supplier["supplier_id"];
+		}else{
+			$_POST['person_id'] =$myrow["person_id"];
+		}
+		
+		
+		
+		$_POST['vehicle_details']  = $myrow["vehicle_details"];
+		$_POST['container_no']  = $myrow["container_no"];
+		$_POST['first_weight']  = $myrow["first_weight"];
+		$_POST['first_weight_date']  = sql2date($myrow["first_weight_date"]);
+		
+
+		
+		$_POST['second_weight']  = $myrow["second_weight"];
+		$_POST['second_weight_date']  = sql2date($myrow["second_weight_date"]);
 		
 		$_POST['shipping_id'] = $myrow["shipping_id"];
 		
@@ -308,7 +332,7 @@ function close_shipping_details_settings($selected_id){
 	
 
 	start_table(TABLESTYLE, "width=60%", 10);
-		start_row();
+		/*start_row();
 
 			label_cells(_("Customer:"), $myrow["customer"]);
 			
@@ -317,6 +341,8 @@ function close_shipping_details_settings($selected_id){
 			label_cells(_("Container No:"), $myrow["container_no"]);
 
 		end_row();
+		*/
+		shipment_header();
 
 		start_row();
 			echo "<td colspan='4'>";
