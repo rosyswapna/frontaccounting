@@ -195,7 +195,7 @@ function display_po_header(&$order)
 	locations_list_row(_("Receive Into:"), 'StkLocation', null, false, true); 
 
 	//swapna
-	shipping_list_row(_("Shipment Id:"), 'shipping_id', null, false, true, false, true,array('shipment_status'=>SHIPMENT_STATUSCLOSE));
+	shipping_list_row(_("Shipment Id:"), 'shipping_id', null, false, true, false, true,array('shipment_status'=>SHIPMENT_STATUSCLOSE,'debtor_no'=>$_POST['supplier_id']));
 
 	table_section(3);
 

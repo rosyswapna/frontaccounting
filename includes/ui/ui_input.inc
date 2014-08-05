@@ -733,9 +733,9 @@ function container_cells($label, $name, $title=null, $init=null, $params=null, $
 
 //-----------------------------------------------------------------------------------
 
-function vehicle_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false)
+function vehicle_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false,$editkey = false)
 {
-	text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change);
+	edit_text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change,$editkey);
 }
 
 //-----------------------------------------------------------------------------------
@@ -749,7 +749,7 @@ function vehicle_row($label, $name, $title=null, $init=null, $submit_on_change=f
 
 //-----------------------------------------------------------------------------------
 
-function weight_text_cells_ex($label, $name, $size, $max=null, $init=null, $title=null,
+function edit_text_cells_ex($label, $name, $size, $max=null, $init=null, $title=null,
 	$labparams=null, $post_label=null, $submit_on_change=false,$editkey = false)
 {
   	global $Ajax;
@@ -787,7 +787,7 @@ function weight_text_cells_ex($label, $name, $size, $max=null, $init=null, $titl
 
 function weight_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false,$editkey = false)
 {
-	weight_text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change,$editkey);
+	edit_text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change,$editkey);
 }
 
 //-----------------------------------------------------------------------------------

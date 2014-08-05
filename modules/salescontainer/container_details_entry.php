@@ -33,6 +33,8 @@ set_ext_domain('modules/salescontainer');
 //page(_($help_context = "Add and Manage Shipments"));
 page($_SESSION['page_title'], false, false, "", $js);
 
+
+
 //get shipping id if it has passed through url
 if (isset($_GET['shipping_id'])) 
 {
@@ -147,6 +149,7 @@ function shipping_details($selected_id){
 }
 
 function open_shipping_details_settings($selected_id){
+
 	global $path_to_root, $Ajax;
 
 	if($selected_id){
@@ -171,11 +174,13 @@ function open_shipping_details_settings($selected_id){
 		$_POST['shipping_id'] = $_POST['customer_id'] = -1;
 		$_POST['vehicle_details']  = '';
 		$_POST['container_no']  = '';
-		$_POST['first_weight']  = get_post('weight');
+		$_POST['first_weight']  = '';
 		$_POST['first_weight_date']  = '';	
 		$_POST['shipment_status']  = SHIPMENT_STATUSOPEN;	
 		
 	}
+
+	
 
 	
 
@@ -185,7 +190,7 @@ function open_shipping_details_settings($selected_id){
 
 			customer_list_cells(_("Customer:"), 'customer_id', $_POST['customer_id'], false, false, false, true);
 
-			vehicle_cells(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'], '');
+			vehicle_cells(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'], '',false,false);
 
 			container_cells(_("Container No").':', 'container_no', _(''), $_POST['container_no'], '');
 
@@ -204,7 +209,7 @@ function open_shipping_details_settings($selected_id){
 					date_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
 
 					table_section_title(_("Second Weight Details"));
-						weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '',true);
+						weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '',false);
 						date_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '');
 					}else{
 						weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '',true);
@@ -233,6 +238,8 @@ function open_shipping_details_settings($selected_id){
 	   _('Cancel Shipment or Removes Shipment'));
 
 	div_end();
+
+
 
 	
 }
