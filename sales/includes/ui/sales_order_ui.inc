@@ -395,7 +395,7 @@ function display_order_header(&$order, $editable, $date_text)
 			'where'=>array('debtor_no = '.$_POST['customer_id'])
 		);
 	//shipping_list_row(_("Shipping Id:"),'shipping_id', $_POST['shipping_id'], $opts);
-	shipping_list_row(_("Shipment Id:"), 'shipping_id', null, false, true, false, true,array('shipment_status'=>SHIPMENT_STATUSCLOSE,'debtor_no'=>$_POST['customer_id']));
+	shipping_list_row(_("Shipment Id:"), 'shipping_id', null, false, true, false, true,array('shipment_status'=>SHIPMENT_STATUSCLOSE,'person_type_id'=>PT_CUSTOMER,'person_id'=>$_POST['customer_id']));
 
 
 	table_section(3);
