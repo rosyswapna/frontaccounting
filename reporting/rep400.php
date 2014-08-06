@@ -23,46 +23,104 @@ include_once($path_to_root . "/includes/session.inc");
 include_once($path_to_root . "/includes/date_functions.inc");
 include_once($path_to_root . "/includes/data_checks.inc");
 include_once($path_to_root . "/sales/includes/sales_db.inc");
+include_once($path_to_root . "/purchasing/includes/purchasing_db.inc");
 include_once($path_to_root."/admin/db/attachments_db.inc");
 
 //----------------------------------------------------------------------------------------------------
 print_shipment();
 //----------------------------------------------------------------------------------------------------
 
-function get_shipment_details($fw_date,$sw_date,$customer,$vehicle_no){
-	$sql = "SELECT debtor.name as customer,
-			shipment.vehicle_details as vehicle,
+function get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle){
+
+
+	$sql = "SELECT shipment.vehicle_details as vehicle,
 			shipment.container_no,
 			shipment.first_weight as fweight,
 			shipment.first_weight_date as fdate,
 			shipment.second_weight as sweight,
 			shipment.second_weight_date sdate
-			FROM ".TB_PREF."shipping_details as shipment, "
-			.TB_PREF."debtors_master as debtor 
-			WHERE shipment.debtor_no = debtor.debtor_no";
-	$sql .= " AND shipment.first_weight_date = '".date2sql($fw_date)."'";
+			FROM ".TB_PREF."shipping_details as shipment
+			WHERE shipment.person_type_id = ".db_escape($ptype);
+	if($fw_date)
+		$sql .= " AND shipment.first_weight_date = '".date2sql($fw_date)."'";
 
-	$sql .= " AND shipment.second_weight_date = '".date2sql($sw_date)."'";
+	if($sw_date)
+		$sql .= " AND shipment.second_weight_date = '".date2sql($sw_date)."'";
 	
-	$sql .= " AND shipment.debtor_no =".db_escape($customer);
+	if($ptype == PT_CUSTOMER){
+		if($cid)
+			$sql .= " AND shipment.person_id =".db_escape($cid);
+	}elseif($type == PT_SUPPLIER){
+		if($sid)
+			$sql .= " AND shipment.person_id =".db_escape($sid);
+	}
 	
-	$sql .= " AND shipment.vehicle_details LIKE ".db_escape($vehicle_no)."";
+	if($vehicle_no)
+		$sql .= " AND shipment.vehicle_details LIKE ".db_escape($vehicle_no)."";
 
 	return db_query($sql,"No Shipment Entries Found");
+}
+
+function get_person_details($type,$id){
+
+	if($type==PT_CUSTOMER){
+		$customer = get_customer($id);
+		return $customer['name'];
+	}elseif($type == PT_SUPPLIER){
+		$supplier = get_supplier($id);
+		return $supplier['supp_name'];
+	}else{
+		return $id;
+	}
 }
 
 function print_shipment()
 {
     global $path_to_root;
 
-	$fw_date = $_POST['PARAM_0']; //first weight date
-	$sw_date = $_POST['PARAM_1']; //second weight date
-    $customer = $_POST['PARAM_2']; //customer id
-    $vehicle_no = $_POST['PARAM_3']; //vehicle details
-	$orientation = $_POST['PARAM_4'];
-	$destination = $_POST['PARAM_5'];
+    
+    $shp_id = $_POST['PARAM_0']; //first weight date
 
-	$res = get_shipment_details($fw_date,$sw_date,$customer,$vehicle_no);
+	$fw_date = $_POST['PARAM_1']; //first weight date
+	$sw_date = $_POST['PARAM_2']; //second weight date
+    $ptype = $_POST['PARAM_3']; //person type id
+    $cid = $_POST['PARAM_4']; //customer id
+    $sid = $_POST['PARAM_5']; //supplier id
+    $vehicle = $_POST['PARAM_6']; //person id
+
+	$orientation = $_POST['PARAM_7'];
+	$destination = $_POST['PARAM_8'];
+
+
+
+	$shipments = array();
+
+	
+	if($shp_id > 0){
+		$row = get_shipping_detail($shp_id);
+
+		$person = get_person_details($row['person_type_id'],$row['person_id']);
+		
+		
+		$shipments[] = array(
+					'person' => $person,
+					'vehicle' => $row['vehicle_details'],
+					'container_no' => $row['container_no'],
+					'fweight' => $row['first_weight'],
+					'sweight' => $row['second_weight'],
+					'fdate' => $row['first_weight_date'],
+					'sdate' => $row['second_weight_date'],
+					);
+
+	}else{
+		$res = get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle);
+
+		while ($row = db_fetch($res)){
+			$shipments[] = $row;
+		}
+	}
+
+	
 	
 	include_once($path_to_root . "/reporting/includes/pdf_report.inc");
 
@@ -76,7 +134,7 @@ function print_shipment()
 
 	$params = array('comments' => $comments);
 
-	$th = array(_('Customer'), _('Vehicle'), _('First Weight'), _('First Weight Date'), _('Second Weight'), '', _('Second Weight Date'));
+	
 
     $rep = new FrontReport(_('Shipment Report'), "ShipmentReport", user_pagesize(), 9, $orientation);
     if ($orientation == 'L')
@@ -93,12 +151,12 @@ function print_shipment()
 	$c2col = $ccol-290;
 	$cn2col = $c2col + 70;
 
-    while ($shipment=db_fetch($res))
+   foreach($shipments as $shipment)
 	{
 		$rep->Font('bold');
-		$rep->Text($ccol,'Customer :');
+		$rep->Text($ccol,'Name :');
 		$rep->Font();
-		$rep->Text($cncol, $shipment['customer']);
+		$rep->Text($cncol, $shipment['person']);
 
 		$rep->Font('bold');
 		$rep->Text($c2col,'Vehicle No :');

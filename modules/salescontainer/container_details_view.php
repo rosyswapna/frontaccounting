@@ -11,13 +11,12 @@ include_once($path_to_root . "/reporting/includes/reporting.inc");
 add_access_extensions();
 set_ext_domain('modules/salescontainer');
 
-//page(_($help_context = "Shipments"));
 
 if (get_post('type'))
 	$trans_type = $_POST['type'];
 
 //--------------------------------------------------------------------------------------------
-
+echo $trans_type;
 if (!@$_GET['popup'])
 {
 	$js = "";
@@ -73,6 +72,12 @@ function close_link($row)
 		return pager_link( _("Close Shipment"),
 	    "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id'], ICON_OK);
 	}
+}
+
+function prt_link($row)
+{
+	global $trans_type;
+	return print_link(_("Print"),400,array('PARAM_0'=>$row['shipping_id']),'',ICON_PRINT);
 }
 
 function change_tpl()
@@ -160,7 +165,7 @@ $cols = array(
 
 
 array_append($cols,array(
-					//array('insert'=>true, 'fun'=>'edit_link'),
+					array('insert'=>true, 'fun'=>'prt_link'),
 					array('insert'=>true, 'fun'=>'close_link')));
 
 

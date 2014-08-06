@@ -303,7 +303,13 @@ class BoxReports
 
 				case 'VEHICLES':
 					
-						return vehicle_list($name);
+						return vehicle_list($name,'','No vehicle filter');
+
+				case 'PERSONS':
+					return shipping_person_types_list($name);
+
+				case 'SHIPPING_ID':
+					return shipping_list($name,'','No shipping filter');
 
 				case 'SUPPLIERS_NO_FILTER':
 				case 'SUPPLIERS':
