@@ -23,7 +23,7 @@ set_ext_domain('modules/salescontainer');
 
 
 if(!isset($_GET['data'])){
-	header('Location:http://comport_reader.local');
+	header('Location:http://localhost/comport_reader');
 
 }
 

@@ -33,12 +33,14 @@ print_shipment();
 function get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle){
 
 
-	$sql = "SELECT shipment.vehicle_details as vehicle,
+	$sql = "SELECT shipment.vehicle_details,
 			shipment.container_no,
-			shipment.first_weight as fweight,
-			shipment.first_weight_date as fdate,
-			shipment.second_weight as sweight,
-			shipment.second_weight_date sdate
+			shipment.first_weight,
+			shipment.first_weight_date,
+			shipment.second_weight,
+			shipment.second_weight_date,
+			shipment.person_type_id,
+			shipment.person_id
 			FROM ".TB_PREF."shipping_details as shipment
 			WHERE shipment.person_type_id = ".db_escape($ptype);
 	if($fw_date)
@@ -47,18 +49,35 @@ function get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle){
 	if($sw_date)
 		$sql .= " AND shipment.second_weight_date = '".date2sql($sw_date)."'";
 	
-	if($ptype == PT_CUSTOMER){
-		if($cid)
+	if($ptype == PT_CUSTOMER && $cid > 0){
 			$sql .= " AND shipment.person_id =".db_escape($cid);
-	}elseif($type == PT_SUPPLIER){
-		if($sid)
+	}elseif($type == PT_SUPPLIER && $sid > 0){
 			$sql .= " AND shipment.person_id =".db_escape($sid);
 	}
 	
-	if($vehicle_no)
-		$sql .= " AND shipment.vehicle_details LIKE ".db_escape($vehicle_no)."";
+	if($vehicle)
+		$sql .= " AND shipment.vehicle_details LIKE ".db_escape($vehicle)."";
 
-	return db_query($sql,"No Shipment Entries Found");
+	
+
+	$rs = db_query($sql,"No Shipment Entries Found");
+	$shipments = array();
+	while ($row = db_fetch($rs)) {
+		$person = get_person_details($row['person_type_id'],$row['person_id']);
+		$shipments[] = array(
+					'person' => $person,
+					'vehicle' => $row['vehicle_details'],
+					'container_no' => $row['container_no'],
+					'fweight' => $row['first_weight'],
+					'sweight' => $row['second_weight'],
+					'fdate' => $row['first_weight_date'],
+					'sdate' => $row['second_weight_date'],
+					);
+	}
+	
+	//echo "<pre>";print_r($shipments);echo "</pre>";exit();
+
+	return $shipments;
 }
 
 function get_person_details($type,$id){
@@ -99,6 +118,8 @@ function print_shipment()
 	if($shp_id > 0){
 		$row = get_shipping_detail($shp_id);
 
+		
+
 		$person = get_person_details($row['person_type_id'],$row['person_id']);
 		
 		
@@ -111,13 +132,11 @@ function print_shipment()
 					'fdate' => $row['first_weight_date'],
 					'sdate' => $row['second_weight_date'],
 					);
+					
 
 	}else{
-		$res = get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle);
+		$shipments = get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle);
 
-		while ($row = db_fetch($res)){
-			$shipments[] = $row;
-		}
 	}
 
 	
