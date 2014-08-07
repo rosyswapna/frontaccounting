@@ -31,6 +31,11 @@ add_access_extensions();
 set_ext_domain('modules/salescontainer');
 
 //page(_($help_context = "Add and Manage Shipments"));
+if (isset($_GET['CloseShipment'])) {
+	$_SESSION['page_title'] = _($help_context = "Close Shipment");
+}else{
+	$_SESSION['page_title'] = _($help_context = "Add and Manage Shipment");
+}
 page($_SESSION['page_title'], false, false, "", $js);
 
 
@@ -314,7 +319,7 @@ function close_shipping_details_settings($selected_id){
 
 		
 		$_POST['second_weight']  = $myrow["second_weight"];
-		$_POST['second_weight_date']  = sql2date($myrow["second_weight_date"]);
+		//$_POST['second_weight_date']  = sql2date($myrow["second_weight_date"]);
 		
 		$_POST['shipping_id'] = $myrow["shipping_id"];
 		

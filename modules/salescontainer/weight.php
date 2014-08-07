@@ -22,13 +22,6 @@ add_access_extensions();
 set_ext_domain('modules/salescontainer');
 
 
-if(!isset($_GET['data'])){
-	header('Location:http://localhost/comport_reader');
-
-}
-
-
-
 
 $js = "";
 if ($use_popup_windows)
@@ -37,71 +30,83 @@ if ($use_date_picker)
 	$js .= get_js_date_picker();
 
 
-	
-page(_($help_context = "Weight"), @$_REQUEST['popup'], false, "", $js); 
-
-
-start_form();
-
-
-if(isset($_GET['data'])){
-
-	if(isset($_GET['vh'])){
-		$_SESSION['vehicle'] = $_GET['vh'];
-	}
-
-	if(isset($_GET['fw'])){
-		$_SESSION['fweight'] = abs($_GET['fw']);
-	}
-
-	if(isset($_GET['sw'])){
-		$_SESSION['sweight'] = abs($_GET['sw']);
-	}
-
-	if(isset($_GET['dt'])){
-		$_SESSION['wdate'] = $_GET['dt'];
-	}
-
-	if(isset($_SESSION['sweight']))
-			$weight = $_SESSION['sweight'];
-	else if(isset($_SESSION['fweight']))
-			$weight = $_SESSION['fweight'];
-	else
-			$weight = 0;
-
-	start_table(TABLESTYLE, "width=60%", 10);
-
-		if(isset($_SESSION['vehicle']))
-			label_row("Vehicle",$_SESSION['vehicle']);
-
-		if(isset($_SESSION['fweight']))
-			label_row("First Weight",$_SESSION['fweight']);
-
-		if(isset($_SESSION['sweight']))
-			label_row("Second Weight",$_SESSION['sweight']);
-
-		if(isset($_SESSION['wdate']))
-			label_row("Date",$_SESSION['wdate']);
-
-	end_table();
-	
-	
-		div_start('controls');
-			
-			submit_return_center('select', $_SESSION['fweight'], _("Select this shipping details and return to document entry."));
-			//submit_return_center('select', $_SESSION['vehicle'], _("Select this shipping details and return to document entry."));
-				
-
-		div_end();
-
-		hidden('popup', @$_REQUEST['popup']);
-		end_form();
-
-}else{
-	display_error("Data File not Received.");
+if(isset($_GET['fweight'])){
+	$task = "NewShipment";
+}elseif(isset($_GET['sweight'])){
+	$task = "CloseShipment";
 }
 
 
-end_page(@$_REQUEST['popup']);
+if(!isset($_GET['data'])){
+	header('Location:http://localhost/comport_reader?tsk='.$task);
+
+}else{
+	
+	page(_($help_context = "Weight"), @$_REQUEST['popup'], false, "", $js); 
+
+
+	start_form();
+
+
+	if(isset($_GET['data'])){
+
+		if(isset($_GET['vh'])){
+			$vehicle = $_GET['vh'];
+		}
+
+		if(isset($_GET['fw'])){
+			$fweight = abs($_GET['fw']);
+		}
+
+		if(isset($_GET['sw'])){
+			$sweight = abs($_GET['sw']);
+		}
+
+		if(isset($_GET['dt'])){
+			$wdate = $_GET['dt'];
+		}
+
+		if(isset($sweight))
+				$weight = $sweight;
+		else if(isset($fweight))
+				$weight = $fweight;
+		else
+				$weight = 0;
+
+		start_table(TABLESTYLE, "width=60%", 10);
+
+			if(isset($vehicle))
+				label_row("Vehicle",$vehicle);
+
+			if(isset($fweight))
+				label_row("First Weight",$fweight);
+
+			if(isset($sweight))
+				label_row("Second Weight",$sweight);
+
+			if(isset($wdate))
+				label_row("Date",$wdate);
+
+		end_table();
+		
+		
+			div_start('controls');
+				
+				submit_return_center('select', $weight, _("Select this shipping details and return to document entry."));
+				//submit_return_center('select', $_SESSION['vehicle'], _("Select this shipping details and return to document entry."));
+					
+
+			div_end();
+
+			hidden('popup', @$_REQUEST['popup']);
+			end_form();
+
+	}else{
+		display_error("Data File not Received.");
+	}
+
+
+	end_page(@$_REQUEST['popup']);
+}
 
 ?>

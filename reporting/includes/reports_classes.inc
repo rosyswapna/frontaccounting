@@ -181,6 +181,7 @@ class BoxReports
 				case 'DATEENDM':
 				case 'DATEBEGINTAX':
 				case 'DATEENDTAX':
+				case 'DATE_NULL':
 					if (!isset($_POST[$name]))
 					{
 						if ($type == 'DATEBEGIN')
@@ -206,6 +207,9 @@ class BoxReports
 								$bdate = add_months($bdate, -$row['tax_prd'] + 1);
 								$date = $bdate;
 							}
+						}
+						elseif ($type == 'DATE_NULL'){
+							$date = '';
 						}
 					}
 					else // saved parameters 2010-10-16 Joe Hunt

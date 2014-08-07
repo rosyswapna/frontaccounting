@@ -212,7 +212,16 @@ function print_shipment()
 		$rep->Font();
 		$rep->Text($cn2col, $shipment['sdate']);
 		$rep->NewLine();
-		//$rep->Line($rep->row - 2);
+		
+		
+
+		$rep->Font('bold');
+		$rep->Text($c2col, 'Net Weight :');
+		$rep->Font();
+		$rep->Text($cn2col, abs($shipment['sweight']-$shipment['fweight']));
+
+
+		$rep->NewLine();
 		$rep->Line1($rep->row,0,$ccol);
 		$rep->NewLine(2);
 	}

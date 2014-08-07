@@ -456,7 +456,7 @@ $popup_editors = array(
 		113, _("Suppliers"), 900, 700),
 	'item' => array('/inventory/manage/items.php?stock_id=', 
 		115, _("Items"), 800, 600),
-	'weight' => array('/modules/salescontainer/weight.php?weight=0', 
+	'weight' => array('/modules/salescontainer/weight.php?fweight=0', 
 		120, _("Weight"), 500, 200)
 );
 /*
