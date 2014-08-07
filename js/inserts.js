@@ -175,9 +175,14 @@ function _set_combo_select(e) {
 		}
 }
 
+function isArray(myArray) {
+    return myArray.constructor.toString().indexOf("Array") > -1;
+}
+
 var _w;
 
-function callEditor(key) {
+//this function modified by swapna 
+function callEditor_old(key) {
   var el = document.getElementsByName(editors[key][1])[0]; 
   if(_w) _w.close(); // this is really necessary to have window on top in FF2 :/
   var left = (screen.width - editors[key][2]) / 2;
@@ -188,6 +193,33 @@ function callEditor(key) {
 	  _w.opener = self;
   editors._call = key; // store call point for passBack 
   _w.focus();
+}
+
+function callEditor(key){
+
+	var input_field = editors[key][1];
+	var el;
+	var el_value;
+
+	if(isArray(input_field)){
+		for(var i=0;i < input_field.length;i++){
+			el=document.getElementsByName(input_field[i])[0];
+			el_value += el.value;
+		}	
+	}else{
+		el=document.getElementsByName(editors[key][1])[0];
+		el_value = el.value;
+	}
+	
+	
+	if(_w)_w.close();
+	var left=(screen.width-editors[key][2])/2;
+	var top=(screen.height-editors[key][3])/2;
+	_w=open(editors[key][0]+el_value+'&popup=1',
+"edit","scrollbars=yes,resizable=0,width="+editors[key][2]+",height="+editors[key][3]+",left="+left+",top="+top+",screenX="+left+",screenY="+top);if(_w.opener==null)
+_w.opener=self;
+editors._call=key;_w.focus();
+
 }
 
 function passBack(value) {
@@ -203,6 +235,33 @@ function passBack(value) {
 			o.JsHttpRequest.request('_'+to.name+'_update', to.form);
 			o.setFocus(to.name);
 		}
+	}
+	close();
+}
+
+function multi_passBack(valueArray){
+	var o=opener;
+
+	if(isArray(valueArray)){
+		var back=o.editors[o.editors._call];
+
+		var key = '';
+		for(var i=0;i < back[1].length;i++){
+
+			key = back[1][i];
+			if(valueArray[key]){
+				var to=o.document.getElementsByName(key)[0];
+				if(to){
+					if(to[0]!=undefined)
+						to[0].value=valueArray[key];
+					to.value=valueArray[key];
+					o.JsHttpRequest.request('_'+to.name+'_update',to.form);
+					o.setFocus(to.name);
+				}
+			}			
+		
+		}
+		
 	}
 	close();
 }
@@ -376,7 +435,33 @@ var inserts = {
 	},
 	'button[aspect*selector], button[aspect*abort], input[aspect*selector]': function(e) {
 		e.onclick = function() {
+			var ret_val = this.getAttribute('rel');
+			
+			
+				alert($.stringify(ret_val));
+			
+
 			passBack(this.getAttribute('rel'));
+			return false;
+		}
+	},
+	'button[aspect*multi_selector]':function(e){
+		e.onclick=function(){
+
+			var dataArray = [];
+
+			var oForm = document.forms[0];
+			
+			var key='';
+			
+			for(var i=0;i<oForm.elements.length;i++){
+				if(oForm.elements[i].getAttribute('name').substring(0,4) == 'get_'){
+					key = oForm.elements[i].getAttribute('name').substring(4,oForm.elements[i].getAttribute('name').length);
+					dataArray[key] = oForm.elements[i].value;
+				}
+				
+			}
+			multi_passBack(dataArray);
 			return false;
 		}
 	},

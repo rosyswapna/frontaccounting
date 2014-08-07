@@ -37,6 +37,7 @@ if(isset($_GET['fweight'])){
 }
 
 
+
 if(!isset($_GET['data'])){
 	header('Location:http://localhost/comport_reader?tsk='.$task);
 
@@ -47,42 +48,50 @@ if(!isset($_GET['data'])){
 
 	start_form();
 
+	$dataArray = array();
+
 
 	if(isset($_GET['data'])){
 
 		if(isset($_GET['vh'])){
-			$vehicle = $_GET['vh'];
+			$dataArray['vehicle_details'] = $_GET['vh'];
 		}
 
 		if(isset($_GET['fw'])){
-			$fweight = abs($_GET['fw']);
+			$dataArray['first_weight'] = abs($_GET['fw']);
+			if(isset($_GET['dt'])){
+				$dataArray['first_weight_date'] = $_GET['dt'];
+			}
 		}
 
 		if(isset($_GET['sw'])){
-			$sweight = abs($_GET['sw']);
+			$dataArray['second_weight'] = abs($_GET['sw']);
+			if(isset($_GET['dt'])){
+				$dataArray['second_weight_date'] = $_GET['dt'];
+			}
 		}
 
-		if(isset($_GET['dt'])){
-			$wdate = $_GET['dt'];
-		}
+		
 
-		if(isset($sweight))
-				$weight = $sweight;
-		else if(isset($fweight))
-				$weight = $fweight;
-		else
-				$weight = 0;
+
+
 
 		start_table(TABLESTYLE, "width=60%", 10);
 
-			if(isset($vehicle))
-				label_row("Vehicle",$vehicle);
+			if(isset($dataArray['vehicle_details']))
+				label_row("Vehicle",$dataArray['vehicle_details']);
 
-			if(isset($fweight))
-				label_row("First Weight",$fweight);
+			if(isset($dataArray['first_weight']))
+				label_row("First Weight",$dataArray['first_weight']);
 
-			if(isset($sweight))
-				label_row("Second Weight",$sweight);
+			if(isset($dataArray['first_weight_date']))
+				label_row("First Weight Date",$dataArray['first_weight_date']);
+
+			if(isset($dataArray['second_weight']))
+				label_row("Second Weight",$dataArray['second_weight']);
+
+			if(isset($dataArray['second_weight_date']))
+				label_row("Second Weight Date",$dataArray['second_weight_date']);
 
 			if(isset($wdate))
 				label_row("Date",$wdate);
@@ -91,11 +100,9 @@ if(!isset($_GET['data'])){
 		
 		
 			div_start('controls');
-				
-				submit_return_center('select', $weight, _("Select this shipping details and return to document entry."));
-				//submit_return_center('select', $_SESSION['vehicle'], _("Select this shipping details and return to document entry."));
-					
 
+				submit_multi_return_center('select', $dataArray, _("Select this shipping details and return to document entry."));
+				
 			div_end();
 
 			hidden('popup', @$_REQUEST['popup']);

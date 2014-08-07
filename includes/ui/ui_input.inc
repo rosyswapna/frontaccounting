@@ -146,6 +146,11 @@ function submit($name, $value, $echo=true, $title=false, $atype=false, $icon=fal
 					$value = _("Select");
 					if ($icon===false) $icon=ICON_SUBMIT; break;
 
+				case 'multi_selector':
+					$aspect = " aspect='multi_selector' rel = '$value'"; 
+					$value = _("Select");
+					if ($icon===false) $icon=ICON_SUBMIT; break;
+
 				case 'default':
 					if ($icon===false) $icon=ICON_SUBMIT; break;
 
@@ -261,6 +266,19 @@ function submit_return_center($name, $value, $title=false)
 		echo "</center>";
 	}
 }
+
+function submit_multi_return_center($name, $valueArray, $title=false)
+{
+	if (@$_REQUEST['popup']) {
+		echo "<center>";
+		foreach($valueArray as $key=>$value){
+			hidden('get_'.$key,$value);
+		}
+		submit($name, $value, true, $title, 'multi_selector');
+		echo "</center>";
+	}
+}
+
 
 function submit_return($name, $value, $title=false)
 {
@@ -625,7 +643,7 @@ function link_row_ex($label, $name, $size, $max=null, $title=null, $value=null, 
 //	than current date.
 //	
 function date_cells($label, $name, $title = null, $check=null, $inc_days=0, 
-	$inc_months=0, $inc_years=0, $params=null, $submit_on_change=false)
+	$inc_months=0, $inc_years=0, $params=null, $submit_on_change=false,$editkey = false)
 {
 	global $use_date_picker, $path_to_root, $Ajax;
 
@@ -740,29 +758,29 @@ function container_row($label, $name, $title=null, $init=null, $submit_on_change
 
 //-----------------------------------------------------------------------------------
 
-function vehicle_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false,$editkey = false)
+function vehicle_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false,$editkey = false,$popupedit=false)
 {
-	edit_text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change,$editkey);
+	edit_text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change,$editkey,$popupedit);
 }
 
 //-----------------------------------------------------------------------------------
 
-function vehicle_row($label, $name, $title=null, $init=null, $submit_on_change=false)
+function vehicle_row($label, $name, $title=null, $init=null, $submit_on_change=false,$editkey = false,$popupedit=false)
 {
 	echo "<tr><td class='label'>$label</td>";
-	vehicle_cells(null, $name, $title, $init, null, $submit_on_change);
+	vehicle_cells(null, $name, $title, $init, null, $submit_on_change,$editkey,$popupedit);
 	echo "</tr>\n";
 }
 
 //-----------------------------------------------------------------------------------
 
 function edit_text_cells_ex($label, $name, $size, $max=null, $init=null, $title=null,
-	$labparams=null, $post_label=null, $submit_on_change=false,$editkey = false)
+	$labparams=null, $post_label=null, $submit_on_change=false,$editkey = false,$popupedit=false)
 {
   	global $Ajax;
 
   	if ($editkey)
-		set_editor('weight', $name, $editkey);
+		multi_set_editor($popupedit, $name, $editkey);
 
 	default_focus($name);
 	if (!isset($_POST[$name]) || $_POST[$name] == "")
@@ -780,7 +798,7 @@ function edit_text_cells_ex($label, $name, $size, $max=null, $init=null, $title=
 
 	echo "<td>";
 	$class = $submit_on_change ? 'class="searchbox"' : '';
-	echo "<input $class type=\"text\" name=\"$name\" size=\"$size\" maxlength=\"$max\" value=\"" . $_POST[$name]. "\""
+	echo "<input readonly=\"readonly\" $class type=\"text\" name=\"$name\" size=\"$size\" maxlength=\"$max\" value=\"" . $_POST[$name]. "\""
 	 .($title ? " title='$title'": '')." >";
 
 	if ($post_label)
@@ -792,17 +810,17 @@ function edit_text_cells_ex($label, $name, $size, $max=null, $init=null, $title=
 
 //-----------------------------------------------------------------------------------
 
-function weight_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false,$editkey = false)
+function weight_cells($label, $name, $title=null, $init=null, $params=null, $submit_on_change=false,$editkey = false,$popupedit= false)
 {
-	edit_text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change,$editkey);
+	edit_text_cells_ex($label, $name, 16, 18, $init, $title, $params, null, $submit_on_change,$editkey,$popupedit);
 }
 
 //-----------------------------------------------------------------------------------
 
-function weight_row($label, $name, $title=null, $init=null, $submit_on_change=false,$editkey= false)
+function weight_row($label, $name, $title=null, $init=null, $submit_on_change=false,$editkey= false,$popupedit=false)
 {
 	echo "<tr><td class='label'>$label</td>";
-	weight_cells(null, $name, $title, $init, null, $submit_on_change,$editkey);
+	weight_cells(null, $name, $title, $init, null, $submit_on_change,$editkey,$popupedit);
 	echo "</tr>\n";
 }
 

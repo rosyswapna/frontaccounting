@@ -456,9 +456,13 @@ $popup_editors = array(
 		113, _("Suppliers"), 900, 700),
 	'item' => array('/inventory/manage/items.php?stock_id=', 
 		115, _("Items"), 800, 600),
-	'weight' => array('/modules/salescontainer/weight.php?fweight=0', 
+	'fweight' => array('/modules/salescontainer/weight.php?fweight=0', 
+		120, _("Weight"), 500, 200),
+	'sweight' => array('/modules/salescontainer/weight.php?sweight=0', 
 		120, _("Weight"), 500, 200)
 );
+
+
 /*
 	Bind editors for various selectors.
 	$type - type of editor
@@ -479,6 +483,30 @@ function set_editor($type, $input, $caller=true)
 	$help .= $popup_editors[$type][2];
 	$Pagehelp[] = $help;
 }
+
+$edit_inputs = array();
+
+function multi_set_editor($type, $input, $caller=true)
+{
+	global $path_to_root, $Editors, $popup_editors, $Pagehelp,$edit_inputs;
+
+	array_push($edit_inputs,$input);
+	
+
+	$key = $caller===true ? $popup_editors[$type][1] : $caller;
+
+	//$Editors[$key] = array( $path_to_root . $popup_editors[$type][0], $input, 
+		//$popup_editors[$type][3], $popup_editors[$type][4]);
+	$Editors[$key] = array( $path_to_root . $popup_editors[$type][0], $edit_inputs, 
+		$popup_editors[$type][3], $popup_editors[$type][4]);
+
+	//print_r($Editors);
+	
+	$help = 'F' . ($key - 111) . ' - ';
+	$help .= $popup_editors[$type][2];
+	$Pagehelp[] = $help;
+}
+
 //------------------------------------------------------------------------------
 // Procedures below are now obsolete. Preserved for eventual future use.
 

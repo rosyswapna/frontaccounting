@@ -188,7 +188,8 @@ function shipment_header(){
 			
 
 			table_section(2);
-			vehicle_row(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'], '',false,false);
+			vehicle_row(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'],false,true,'fweight');
+			
 			container_row(_("Container No").':', 'container_no', _(''), $_POST['container_no'], '');
 
 		end_outer_table(1);
@@ -260,8 +261,10 @@ function open_shipping_details_settings($selected_id){
 						weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '',false);
 						date_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '');
 					}else{
-						weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '',true);
-						date_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
+						weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '',true,'fweight');
+
+						weight_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '',true,'fweight');
+
 					}
 				end_outer_table(1);
 			echo "</td>";
@@ -363,9 +366,9 @@ function close_shipping_details_settings($selected_id){
 					table_section(2);
 					table_section_title(_("Second Weight Details"));
 
-						weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '',true);
+						weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '',true,'sweight');
 
-						date_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '');
+						weight_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '',true,'sweight');
 
 				end_outer_table(1);
 			
