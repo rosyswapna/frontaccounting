@@ -418,6 +418,47 @@ and converts to a yyyy/mm/dd format */
 	return sprintf("%04d-%02d-%02d", $year, $month, $day);
 }// end of function
 
+
+//weight date from external file to sql format
+function weightdate2sql($datetime_)
+{
+	global $date_system, $tmonths;
+	$date_time = explode(" ", $datetime_);
+	$date_ = $date_time[0]; //date
+	$time_ = date('H:i:s',strtotime($date_time[1])); //time
+	
+	$sep = "-"; //date seperator in file
+
+	if ($date_ == null || strlen($date_) == 0)
+		return "";
+
+	$date_ = trim($date_);
+    $year = $month = $day = 0;
+    // Split up the date by the separator 
+    list($day, $month, $year) = explode($sep, $date_);
+
+  	
+	//to modify assumption in 2030
+	if ($date_system == 0 || $date_system == 3)
+	{
+		if ((int)$year < 60)
+		{
+			$year = "20".$year;
+		} 
+		elseif ((int)$year > 59 && (int)$year < 100)
+		{
+			$year = "19".$year;
+		}
+	}
+	
+	if ((int)$year > 9999)
+	{
+		return 0;
+	}
+
+	return sprintf("%04d-%02d-%02d %s", $year, $month, $day,$time_);
+}// end of function
+
 function date1_greater_date2 ($date1, $date2) 
 {
 

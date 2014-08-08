@@ -6,9 +6,9 @@
 function add_shipping_details($VehicleDetails, $ContainerNo, $ShipmentStatus, $FirstWeight, $FirstWeightDate, $PersonType, $PersonId)
 {
 	if ($FirstWeightDate == "")
-		$SQLFirstDate = "0000-00-00";
+		$SQLFirstDate = "0000-00-00 00:00:00";
 	else
-		$SQLFirstDate = date2sql($FirstWeightDate);
+		$SQLFirstDate = weightdate2sql($FirstWeightDate);
 
 	$sql = "INSERT INTO ".TB_PREF."shipping_details (vehicle_details,container_no,shipment_status,first_weight,first_weight_date,person_type_id,person_id) VALUES ("
 		.db_escape($VehicleDetails) . ",".db_escape($ContainerNo).",".db_escape($ShipmentStatus).",".db_escape($FirstWeight).",'$SQLFirstDate', " .db_escape($PersonType) . ",".db_escape($PersonId).")";
@@ -21,14 +21,14 @@ function add_shipping_details($VehicleDetails, $ContainerNo, $ShipmentStatus, $F
 function update_shipping_details($ShippingId, $VehicleDetails, $ContainerNo, $ShipmentStatus, $FirstWeight, $FirstWeightDate,$SecondWeight,$SecondWeightDate, $PersonType, $PersonId)
 {
 	if ($FirstWeightDate == "")
-		$SQLFirstDate = "0000-00-00";
+		$SQLFirstDate = "0000-00-00 00:00:00";
 	else
-		$SQLFirstDate = date2sql($FirstWeightDate);
+		$SQLFirstDate = weightdate2sql($FirstWeightDate);
 
 	if ($SecondWeightDate == "")
-		$SQLSecondDate = "0000-00-00";
+		$SQLSecondDate = "0000-00-00 00:00:00";
 	else
-		$SQLSecondDate = date2sql($SecondWeightDate);
+		$SQLSecondDate = weightdate2sql($SecondWeightDate);
 
 	$sql = "UPDATE ".TB_PREF."shipping_details SET vehicle_details=".db_escape($VehicleDetails) .",
 		container_no=".db_escape($ContainerNo) .",
@@ -52,9 +52,9 @@ function update_shipping_details($ShippingId, $VehicleDetails, $ContainerNo, $Sh
 function close_shipment($ShippingId,$ShipmentStatus,$SecondWeight,$SecondWeightDate)
 {
 	if ($SecondWeightDate == "")
-		$SQLSecondDate = "0000-00-00";
+		$SQLSecondDate = "0000-00-00 00:00:00";
 	else
-		$SQLSecondDate = date2sql($SecondWeightDate);
+		$SQLSecondDate = weightdate2sql($SecondWeightDate);
 
 	$sql = "UPDATE ".TB_PREF."shipping_details SET shipment_status=".db_escape($ShipmentStatus) .",
 		second_weight=".db_escape($SecondWeight) .",
