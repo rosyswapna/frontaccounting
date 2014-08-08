@@ -677,11 +677,12 @@ function shipping_list($name, $selected_id=null, $spec_option=false, $submit_on_
 {
 	global $all_items;
 
-	$sql = "SELECT shipping_id,vehicle_details,debtor_no  FROM ".TB_PREF."shipping_details WHERE 1";
+	$sql = "SELECT shipping_id,vehicle_details,shipping_id  FROM ".TB_PREF."shipping_details WHERE 1";
 
 	foreach ($where as $key => $value) {
 		$sql .= " AND {$key} = '{$value}'";
 	}
+
 
 	
 	$mode = get_company_pref('no_shipment_list');
@@ -692,7 +693,7 @@ function shipping_list($name, $selected_id=null, $spec_option=false, $submit_on_
 	$ret = combo_input($name, $selected_id, $sql, 'shipping_id', 'vehicle_details',
 	array(
 	    'format' => '_format_add_curr',
-	    'order' => array('shipping_id'),
+	    'order' => array('shipping_id DESC'),
 		'search_box' => $mode!=0,
 		'type' => 1,
 		'size' => 20,
