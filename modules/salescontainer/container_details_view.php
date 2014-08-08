@@ -51,8 +51,8 @@ function view_link($dummy, $shipment_id)
 function edit_link($row)
 {	
 	$modify = "ModifyShipment";
-	//return pager_link( _("Edit"),
-   // "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id'], ICON_EDIT);
+	
+	/*
 	if($row['shipment_status'] == SHIPMENT_STATUSOPEN){
 		return pager_link( _($row['status_description']),
     "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id']);
@@ -60,6 +60,8 @@ function edit_link($row)
 		return pager_link( _($row['status_description']),
     "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id']);
 	}
+	*/
+	return $row['status_description'];
 	
 }
 
