@@ -85,82 +85,25 @@ if (isset($_POST['CancelShipment']))
 
 //---------------------------------------------------------------------------
 
-function shipping_details($selected_id){
-	global $path_to_root;
-	if($selected_id){
-		$myrow = get_shipping_detail($selected_id);
-		
-		$_POST['shipping_id'] = $myrow["shipping_id"];
-		$_POST['customer_id'] = $myrow["debtor_no"];
-		$_POST['vehicle_details']  = $myrow["vehicle_details"];
-		$_POST['container_no']  = $myrow["container_no"];
-		$_POST['shipment_status']  = $myrow["shipment_status"];
-		$_POST['first_weight']  = $myrow["first_weight"];
-		$_POST['first_weight_date']  = sql2date($myrow["first_weight_date"]);
-		$_POST['second_weight']  = $myrow["second_weight"];
-		if($myrow["second_weight_date"]!='0000-00-00 00:00:00')
-			$_POST['second_weight_date']  = sql2date($myrow["second_weight_date"]);
-
+function close_link_row($row)
+{ 
+	$modify = "CloseShipment";
+	if($row['shipment_status'] == SHIPMENT_STATUSCLOSE){
+		return "";
 	}else{
-
-		$_POST['shipping_id'] = $_POST['customer_id'] = -1;
-		$_POST['vehicle_details']  = '';
-		$_POST['container_no']  = '';
-		$_POST['shipment_status']  = 1;
-		$_POST['first_weight']  = '';
-		$_POST['first_weight_date']  = '';
-		$_POST['second_weight']  = '';
-		$_POST['second_weight_date']  = '';
-		
+		start_row();
+		echo "<td>";
+		echo "<center>Click ";
+		echo pager_link( _("here"),
+	    "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id']);
+	    echo " to close this shipment</center>";
+	    echo "</td>";
+	    end_row();
 	}
-
-
-	
-
-	start_table(TABLESTYLE, "width=80%", 10);
-		start_row();
-			customer_list_cells(_("Customer:"), 'customer_id', $_POST['customer_id'], false, false, false, true);
-
-			vehicle_cells(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'], '');
-
-			container_cells(_("Container No.").':', 'container_no', _(''), $_POST['container_no'], '');
-
-			shipment_status_cells(_("Shipment Status").':', 'shipment_status', _(''), $_POST['shipment_status']);
-
-		end_row();
-
-		start_row();
-			echo "<td colspan='6'>";
-				start_outer_table(TABLESTYLE2);
-					table_section(1);
-					table_section_title(_("First Weight Details"));
-						first_weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '');
-						date_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
-
-					table_section(2);
-					table_section_title(_("Second Weight Details"));
-						first_weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '');
-						date_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '');
-				end_outer_table(1);
-			
-			echo "</td>";
-		end_row();
-
-	end_table(2);
-
-	div_start('controls');
-		if (!$selected_id)
-		{
-			//submit_center('submit', _("Add New Shipping Details"), true, '', 'default');
-			submit_center('submit', _("Add New"), true, 'Add New Shipping Details');
-		}else{
-			submit_center('submit','Update',true);
-		}
-	div_end();
-	
 }
 
-function shipment_header(){
+//---------------------------------------------------------------------------
+function shipment_header($editkey = false){
 
 	start_row();
 	echo "<td>";
@@ -188,7 +131,11 @@ function shipment_header(){
 			
 
 			table_section(2);
-			vehicle_row(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'],false,true,'fweight');
+
+			if($editkey)
+				vehicle_row(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details'],false,true,'fweight');
+			else
+				vehicle_row(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details']);
 			
 			container_row(_("Container No").':', 'container_no', _(''), $_POST['container_no'], '');
 
@@ -197,12 +144,12 @@ function shipment_header(){
 	end_row();
 }
 
-function open_shipping_details_settings($selected_id){
-
-	global $path_to_root, $Ajax;
+//------------------------------------------------------------------------------------------------------
+/*edit shipping details on change shipping id in list .
+you can edit only container number,person id and person type*/
+function shipping_details($selected_id){
 
 	if($selected_id){
-
 		$myrow = get_shipping_detail($selected_id);
 		$_POST['person_type'] = $myrow["person_type_id"];
 
@@ -211,18 +158,84 @@ function open_shipping_details_settings($selected_id){
 			$_POST['person_id'] = $customer["debtor_no"];
 		}
 		
-		
 		$_POST['shipping_id'] = $myrow["shipping_id"];
 		$_POST['vehicle_details']  = $myrow["vehicle_details"];
 		$_POST['container_no']  = $myrow["container_no"];
 		$_POST['first_weight']  = $myrow["first_weight"];
-		$_POST['first_weight_date']  = sql2date($myrow["first_weight_date"]);
-		$_POST['shipment_status']  = $myrow["shipment_status"];
-
-		
+		$_POST['first_weight_date']  = $myrow["first_weight_date"];
+		$_POST['shipment_status']  = $myrow["shipment_status"];		
 		$_POST['second_weight']  = $myrow["second_weight"];
-		$_POST['second_weight_date']  = sql2date($myrow["second_weight_date"]);
+		$_POST['second_weight_date']  = $myrow["second_weight_date"];
 
+		div_start('shipment_content');
+		start_table(TABLESTYLE, "width=60%", 10);
+		
+			shipment_header();
+
+			start_row();
+
+				echo "<td>";
+					start_outer_table(TABLESTYLE2);
+						table_section(1);
+
+						table_section_title(_("First Weight Details"));					
+						if($myrow["shipment_status"] == SHIPMENT_STATUSCLOSE){
+
+							weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '');
+							weight_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
+
+							table_section_title(_("Second Weight Details"));
+							weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '',false);
+							weight_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '');
+						}else{
+							weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '');
+							weight_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date']);
+
+						}
+					end_outer_table(1);
+				echo "</td>";
+
+			end_row();
+
+			
+			close_link_row($myrow);
+			
+
+			end_row();
+
+		end_table(2);
+
+		div_end();
+
+		div_start('controls');
+			if (!$selected_id)
+			{
+				submit_center_first('submit', _("Add New"), 'Add New Shipping Details');
+
+				submit_js_confirm('CancelShipment', _('You are about to void this Document.\nDo you want to continue?'));
+			}else{
+				submit_center_first('submit',_('Update'),'Update Shipping details');
+
+				submit_js_confirm('CancelShipment', _('You are about to cancel this shipment.\nDo you want to continue?'));
+			}
+
+			submit_center_last('CancelShipment', "Cancel",
+		   _('Cancel Shipment or Removes Shipment'));
+
+		div_end();
+	}
+	
+}
+
+//---------------------------------------------------------------------------------------------
+//new shipment or edit shipment
+function open_shipping_details_settings($selected_id){
+
+	global $path_to_root, $Ajax;
+
+	if($selected_id){
+
+		shipping_details($selected_id);
 
 	}else{
 
@@ -235,65 +248,65 @@ function open_shipping_details_settings($selected_id){
 		$_POST['first_weight']  = '';
 		$_POST['first_weight_date']  = '';	
 		$_POST['shipment_status']  = SHIPMENT_STATUSOPEN;	
+
+		div_start('shipment_content');
 		
+		start_table(TABLESTYLE, "width=60%", 10);
+			
+			shipment_header(true);
+
+			start_row();
+
+				echo "<td>";
+					start_outer_table(TABLESTYLE2);
+						table_section(1);
+
+						table_section_title(_("First Weight Details"));					
+						if($myrow["shipment_status"] == SHIPMENT_STATUSCLOSE){
+
+						weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '');
+						date_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
+
+						table_section_title(_("Second Weight Details"));
+							weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '',false);
+							date_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '');
+						}else{
+							weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '',true,'fweight');
+
+							weight_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '',true,'fweight');
+
+						}
+					end_outer_table(1);
+				echo "</td>";
+
+			end_row();
+
+		end_table(2);
+
+		div_end();
+
+		div_start('controls');
+			if (!$selected_id)
+			{
+				submit_center_first('submit', _("Add New"), 'Add New Shipping Details');
+
+				submit_js_confirm('CancelShipment', _('You are about to void this Document.\nDo you want to continue?'));
+			}else{
+				submit_center_first('submit',_('Update'),'Update Shipping details');
+
+				submit_js_confirm('CancelShipment', _('You are about to cancel this shipment.\nDo you want to continue?'));
+			}
+
+			submit_center_last('CancelShipment', "Cancel",
+		   _('Cancel Shipment or Removes Shipment'));
+
+		div_end();
 	}
-
-	div_start('shipment_content');
-	
-
-	start_table(TABLESTYLE, "width=60%", 10);
-		
-		shipment_header();
-
-		start_row();
-
-			echo "<td>";
-				start_outer_table(TABLESTYLE2);
-					table_section(1);
-
-					table_section_title(_("First Weight Details"));					
-					if($myrow["shipment_status"] == SHIPMENT_STATUSCLOSE){
-
-					weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '');
-					date_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '');
-
-					table_section_title(_("Second Weight Details"));
-						weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '',false);
-						date_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '');
-					}else{
-						weight_row(_("First Weight").':', 'first_weight', _(''), $_POST['first_weight'], '',true,'fweight');
-
-						weight_row(_("First Weight Date").':', 'first_weight_date', _(''), $_POST['first_weight_date'], '',true,'fweight');
-
-					}
-				end_outer_table(1);
-			echo "</td>";
-
-		end_row();
-
-	end_table(2);
-
-	div_end();
-
-	div_start('controls');
-		if (!$selected_id)
-		{
-			submit_center_first('submit', _("Add New"), 'Add New Shipping Details');
-
-			submit_js_confirm('CancelShipment', _('You are about to void this Document.\nDo you want to continue?'));
-		}else{
-			submit_center_first('submit',_('Update'),'Update Shipping details');
-
-			submit_js_confirm('CancelShipment', _('You are about to cancel this shipment.\nDo you want to continue?'));
-		}
-
-		submit_center_last('CancelShipment', "Cancel",
-	   _('Cancel Shipment or Removes Shipment'));
-
-	div_end();
 	
 }
 
+
+//close shipment 
 function close_shipping_details_settings($selected_id){
 	global $path_to_root;
 
@@ -311,8 +324,6 @@ function close_shipping_details_settings($selected_id){
 		}else{
 			$_POST['person_id'] =$myrow["person_id"];
 		}
-		
-		
 		
 		$_POST['vehicle_details']  = $myrow["vehicle_details"];
 		$_POST['container_no']  = $myrow["container_no"];
@@ -333,63 +344,49 @@ function close_shipping_details_settings($selected_id){
 			$_POST['shipment_status'] = SHIPMENT_STATUSCLOSE;
 		}	
 
-	}else{
+		start_table(TABLESTYLE, "width=60%", 10);
 
-	
+			shipment_header();
+
+			start_row();
+				echo "<td colspan='4'>";
+					start_outer_table(TABLESTYLE2);
+						table_section(1);
+						table_section_title(_("First Weight Details"));
+
+							label_row(_("First Weight:"), $myrow["first_weight"]);
+
+							label_row(_("First Weight Date:"), $myrow["first_weight_date"]);
+						
+
+						table_section(2);
+						table_section_title(_("Second Weight Details"));
+
+							weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '',true,'sweight');
+
+							weight_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '',true,'sweight');
+
+					end_outer_table(1);
+				
+				echo "</td>";
+			end_row();
+
+		end_table(2);
+
+		div_start('controls');
+			if ($selected_id){
+				submit_center_first('close', _("Update"), 'Update Shipping Details');
+				//submit_center('close','Update',true);
+
+				submit_js_confirm('CancelShipment', _('You are about to cancel this shipment.\nDo you want to continue?'));
+			}
+
+			submit_center_last('CancelShipment', "Cancel",_('Cancels Shipment or Removes Shipment'));
+		div_end();
 	}
 	
-
-	start_table(TABLESTYLE, "width=60%", 10);
-		/*start_row();
-
-			label_cells(_("Customer:"), $myrow["customer"]);
-			
-			label_cells(_("Vehicle Number:"), $myrow["vehicle_details"]);
-
-			label_cells(_("Container No:"), $myrow["container_no"]);
-
-		end_row();
-		*/
-		shipment_header();
-
-		start_row();
-			echo "<td colspan='4'>";
-				start_outer_table(TABLESTYLE2);
-					table_section(1);
-					table_section_title(_("First Weight Details"));
-
-						label_row(_("First Weight:"), $myrow["first_weight"]);
-
-						label_row(_("First Weight Date:"), $myrow["first_weight_date"]);
-					
-
-					table_section(2);
-					table_section_title(_("Second Weight Details"));
-
-						weight_row(_("Second Weight").':', 'second_weight', _(''), $_POST['second_weight'], '',true,'sweight');
-
-						weight_row(_("Second Weight Date").':', 'second_weight_date', _(''), $_POST['second_weight_date'], '',true,'sweight');
-
-				end_outer_table(1);
-			
-			echo "</td>";
-		end_row();
-
-	end_table(2);
-
-	div_start('controls');
-		if ($selected_id){
-			submit_center_first('close', _("Update"), 'Update Shipping Details');
-			//submit_center('close','Update',true);
-
-			submit_js_confirm('CancelShipment', _('You are about to cancel this shipment.\nDo you want to continue?'));
-		}
-
-		submit_center_last('CancelShipment', "Cancel",_('Cancels Shipment or Removes Shipment'));
-	div_end();
-	
 }
-
+//-----------------------------------------------------------------------------------------------------------------
 //validation for submit action
 function can_process()
 {
