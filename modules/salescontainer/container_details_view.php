@@ -157,9 +157,9 @@ $cols = array(
 		_("Vehicle Details"),
 		_("Container No"),
 		_("First Weight"), 
-		_("First Weight Date")=>array('type'=>'date'),  
+		_("First Weight Date")=>array('type'=>'datetime'),  
 		_("Second Weight"),
-		_("Second Weight Date")=>array('type'=>'date'),
+		_("Second Weight Date")=>array('type'=>'datetime'),
 		_("Status")	=> array('fun' => 'edit_link')	
 	);
 

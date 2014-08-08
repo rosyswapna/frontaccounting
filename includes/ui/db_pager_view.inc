@@ -108,6 +108,10 @@ function display_db_pager(&$pager) {
 		  	  label_cell($cell, "width=40"); break;
 		    case 'date':
 		  	  label_cell(sql2date($cell), "align='center' nowrap"); break;
+
+		   case 'datetime':
+		  	  label_cell($cell); break;
+
 		    case 'dstamp':	// time stamp displayed as date
 		  	  label_cell(sql2date(substr($cell, 0, 10)), "align='center' nowrap"); break;
 		    case 'tstamp':	// time stamp - FIX user format
