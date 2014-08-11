@@ -423,6 +423,58 @@ class FrontReport extends Cpdf
 		$this->NewLine(2);
 
 	}
+	//---------------author swapna----------- header for shipment report
+	function ShipmentReportHeader()
+	{
+
+		$this->row = $this->pageHeight - $this->topMargin-40;
+
+		$upper = $this->row - 2 * $this->lineHeight;
+		$lower = $this->bottomMargin + 8 * $this->lineHeight;
+
+		$right = $this->pageWidth - $this->rightMargin;
+	
+		$icol = $this->pageWidth / 2;
+		$ccol = $this->cols[0] + 4;
+		$cncol = $ccol + 70;
+
+		//HEADER START HERE	
+		// Logo
+		$this->row = $upper+20;
+		$logo = company_path() . "/images/" . $this->company['coy_logo'];
+		if ($this->company['coy_logo'] != '' && file_exists($logo)){
+			$this->AddImage($logo, $ccol, $this->row, 0, 50);
+		}
+		$this->row = $upper+60;
+		$head_col = $ccol+50;
+		$this->fontSize += 4;
+		$this->Font('bold');
+		$this->TextWrap($head_col, $this->row, $this->pageWidth - $ccol, 'Metals & Minerals FZE', 'center');
+		$this->Font('');
+		$this->fontSize -= 4;
+
+		$Address = 'Street No. 39, Industrial Area No. 10, PO Box- 44232, Sharjah, UAE';
+		$TelFaxEmail = "Tel:- +971-44203699, Fax:- +971-44203599, Email :- trading@metalsnminerals.com";
+		$this->NewLine();
+		$this->TextWrap($head_col, $this->row, $this->pageWidth - $ccol, $Address, 'center');
+		$this->NewLine();
+		$this->TextWrap($head_col, $this->row, $this->pageWidth - $ccol, $TelFaxEmail, 'center');
+
+		$this->row = $upper+10;
+		$this->Line1($this->row,0,$ccol,$this->pageWidth - $ccol);
+
+		// Document title
+		$this->NewLine(2);
+		$this->SetTextColor(0, 0, 0);
+		$this->fontSize += 2;
+		$this->Font('bold');
+		$this->TextWrap($ccol, $this->row, $this->pageWidth - $this->rightMargin - $ccol - 20, $this->title, 'center');
+		$this->fontSize -= 2;
+		//HEADER ENDS HERE
+
+		$this->NewLine(2);
+
+	}
 	/*
 		Transition function 
 	*/
