@@ -71,7 +71,7 @@ function get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle){
 		$person = get_person_details($row['person_type_id'],$row['person_id']);
 		$shipments[] = array(
 					'TICKET NUMBER' 	=> $row['shipping_id'],
-					'DATE & TIME'   	=> date('d-m-Y H:i:s'),
+					'DATE & TIME'   	=> date('d-M-Y h:i:s A'),
 					'VEHICLE NUMBER' 	=> $row['vehicle_details'],
 					'DRIVER\'S NAME'	=> $row['driver_name'],
 					$person_type 		=> $person,
@@ -131,7 +131,7 @@ function print_shipment()
 
 		$shipments[] = array(
 					'TICKET NUMBER' 	=> $row['shipping_id'],
-					'DATE & TIME'   	=> date('d-m-Y H:i:s'),
+					'DATE & TIME'   	=> date('d-M-Y h:i:s A'),
 					'VEHICLE NUMBER' 	=> $row['vehicle_details'],
 					'DRIVER\'S NAME'	=> $row['driver_name'],
 					$person_type 		=> $person,

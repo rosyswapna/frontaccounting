@@ -158,6 +158,7 @@ $cols = array(
 		_("Customer/Supplier")=>array('type'=>'name'),
 		_("Vehicle Details"),
 		_("Container No"),
+		_("Driver"),
 		_("First Weight"), 
 		_("First Weight Date")=>array('type'=>'datetime'),  
 		_("Second Weight"),
