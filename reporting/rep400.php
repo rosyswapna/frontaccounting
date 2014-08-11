@@ -33,7 +33,7 @@ print_shipment();
 function get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle){
 
 
-	$sql = "SELECT shipment.vehicle_details,
+	$sql = "SELECT shipment.shipping_id,shipment.vehicle_details,
 			shipment.container_no,
 			shipment.driver_name,
 			shipment.first_weight,
@@ -51,9 +51,13 @@ function get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle){
 		$sql .= " AND shipment.second_weight_date = '".date2sql($sw_date)."'";
 	
 	if($ptype == PT_CUSTOMER && $cid > 0){
+			$person_type = "CUSTOMER";
 			$sql .= " AND shipment.person_id =".db_escape($cid);
 	}elseif($type == PT_SUPPLIER && $sid > 0){
+			$person_type = "SUPPLIER";
 			$sql .= " AND shipment.person_id =".db_escape($sid);
+	}else{
+		$person_type = "MISCELLANEOUS";
 	}
 	
 	if($vehicle)
@@ -66,13 +70,17 @@ function get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle){
 	while ($row = db_fetch($rs)) {
 		$person = get_person_details($row['person_type_id'],$row['person_id']);
 		$shipments[] = array(
-					'person' => $person,
-					'vehicle' => $row['vehicle_details'],
-					'container_no' => $row['container_no'],
-					'fweight' => $row['first_weight'],
-					'sweight' => $row['second_weight'],
-					'fdate' => $row['first_weight_date'],
-					'sdate' => $row['second_weight_date'],
+					'TICKET NUMBER' 	=> $row['shipping_id'],
+					'DATE & TIME'   	=> date('d-m-Y H:i:s'),
+					'VEHICLE NUMBER' 	=> $row['vehicle_details'],
+					'DRIVER\'S NAME'	=> $row['driver_name'],
+					$person_type 		=> $person,
+					'CONTAINER NO' 		=> $row['container_no'],
+					'FIRST WEIGHT' 		=> $row['first_weight'],
+					'FIRST WEIGHT DATE' => $row['first_weight_date'],
+					'SECOND WEIGHT' 	=> $row['second_weight'],
+					'SECOND WEIGHT DATE'=> $row['second_weight_date'],
+					'NET WEIGHT'		=> abs($row['sweight']-$row['fweight'])	
 					);
 	}
 	
@@ -85,12 +93,12 @@ function get_person_details($type,$id){
 
 	if($type==PT_CUSTOMER){
 		$customer = get_customer($id);
-		return $customer['name'];
+		return array('CUSTOMER',$customer['name']);
 	}elseif($type == PT_SUPPLIER){
 		$supplier = get_supplier($id);
-		return $supplier['supp_name'];
+		return array('SUPPLIER',$supplier['supp_name']);
 	}else{
-		return $id;
+		return array('MISCELLANEOUS',$id);
 	}
 }
 
@@ -112,35 +120,33 @@ function print_shipment()
 	$destination = $_POST['PARAM_8'];
 
 
-
 	$shipments = array();
 
-	
 	if($shp_id > 0){
 
 		$single_report = true;
 		$row = get_shipping_detail($shp_id);
 
-		
+		list($person_type,$person) = get_person_details($row['person_type_id'],$row['person_id']);
 
-		$person = get_person_details($row['person_type_id'],$row['person_id']);
-		
-		
 		$shipments[] = array(
-					'person' => $person,
-					'vehicle' => $row['vehicle_details'],
-					'container_no' => $row['container_no'],
-					'driver_name' => $row['driver_name'],
-					'fweight' => $row['first_weight'],
-					'sweight' => $row['second_weight'],
-					'fdate' => $row['first_weight_date'],
-					'sdate' => $row['second_weight_date'],
-					);
-					
+					'TICKET NUMBER' 	=> $row['shipping_id'],
+					'DATE & TIME'   	=> date('d-m-Y H:i:s'),
+					'VEHICLE NUMBER' 	=> $row['vehicle_details'],
+					'DRIVER\'S NAME'	=> $row['driver_name'],
+					$person_type 		=> $person,
+					'CONTAINER NO' 		=> $row['container_no'],
+					'FIRST WEIGHT' 		=> $row['first_weight'],
+					'FIRST WEIGHT DATE' => $row['first_weight_date'],
+					'SECOND WEIGHT' 	=> $row['second_weight'],
+					'SECOND WEIGHT DATE'=> $row['second_weight_date'],
+					'NET WEIGHT'		=> abs($row['sweight']-$row['fweight'])	
+					);	
+		//echo "<pre>";print_r($shipments);echo "</pre>";exit();		
 
 	}else{
 		$single_report = false;
-		$shipments = get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle);
+		$shipments = get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle);	
 
 	}
 
@@ -163,7 +169,7 @@ function print_shipment()
     $rep = new FrontReport(_('Local Purchase'), "Local Purchase", user_pagesize(), 9, $orientation);
 
     $rep->SetHeaderType('ShipmentReportHeader');
-    
+
     if ($orientation == 'L')
     	recalculate_cols($cols);
    // $rep->SetHeaderType('');
@@ -173,93 +179,57 @@ function print_shipment()
     $rep->Font();
     
     $ccol = $rep->cols[0] + 4;
-	$cncol = $ccol + 70;
+	$cncol = $ccol + 110;
 
-	$c2col = $ccol-290;
-	$cn2col = $c2col + 70;
+	$c2col = $ccol-350;
+	$cn2col = $c2col + 110;
 
-   foreach($shipments as $shipment)
+    foreach($shipments as $shipment)
 	{
-		$rep->Font('bold');
-		$rep->Text($ccol,'Name :');
-		$rep->Font();
-		$rep->Text($cncol, $shipment['person']);
+		$i=0;
 
-		$rep->Font('bold');
-		$rep->Text($c2col,'Vehicle No :');
-		$rep->Font();
-		$rep->Text($cn2col, $shipment['vehicle']);
-		$rep->NewLine();
-
-		$rep->Font('bold');
-		$rep->Text($c2col,'Container No :');
-		$rep->Font();
-		$rep->Text($cn2col, $shipment['container_no']);
-
-		$rep->NewLine(2);
-
-		$rep->Font('bold');
-		$rep->Text($ccol, 'First Weight :');
-		$rep->Font();
-		$rep->Text($cncol, $shipment['fweight']);
-
-		$rep->Font('bold');
-		$rep->Text($c2col, 'Second Weight :');
-		$rep->Font();
-		$rep->Text($cn2col, $shipment['sweight']);
-
-		$rep->NewLine();
-
-		$rep->Font('bold');
-		$rep->Text($ccol,'Date :');
-		$rep->Font();
-		$rep->Text($cncol, $shipment['fdate']);
-
-		$rep->Font('bold');
-		$rep->Text($c2col,'Date :');
-		$rep->Font();
-		$rep->Text($cn2col, $shipment['sdate']);
-		$rep->NewLine();
-		
-		
-
-		$rep->Font('bold');
-		$rep->Text($c2col, 'Net Weight :');
-		$rep->Font();
-		$rep->Text($cn2col, abs($shipment['sweight']-$shipment['fweight']));
-
+		foreach($shipment as $key=>$value){
+			$i++;
+			if($i%2 == 0){
+				$rep->Font('bold');
+				$rep->Text($c2col,$key);
+				$rep->Font();
+				$rep->Text($cn2col, ": ".$value);
+				$rep->NewLine(2);
+				
+			}else{
+				$rep->Font('bold');
+				$rep->Text($ccol,$key);
+				$rep->Font();
+				$rep->Text($cncol, ": ".$value);
+				
+			}
+			
+		}
 
 		if($single_report){
 
-			//$rep->row = $rep->bottomMargin+200;
 			$rep->NewLine(5);
 
-			$rep->Text($ccol, "For ".$shipment['driver_name'].",");
-			$rep->NewLine(4);
-			$sign_row = $rep->row;
+			$rep->Font('bold');
+			$rep->Text($ccol,"OPERATOR'S SIGN");
+			$rep->Font();
+			$rep->Text($cncol, ": ...................... ");
 
-			$rep->Line1($sign_row,0,$ccol,$ccol+150);
-			$rep->Line1($sign_row,0,$cncol+200,$cncol+350);
-
-			
-
-			$rep->NewLine();
-			$rep->Text($ccol, "Driver's Signature");
-			$rep->Text($cncol+200, "Operator's Signature");
-			
-
-			
+			$rep->Font('bold');
+			$rep->Text($c2col,"DRIVER'S SIGN");
+			$rep->Font();
+			$rep->Text($cn2col, ": ...................... ");
+			$rep->NewLine(2);		
 
 		}else{
 			$rep->NewLine();
-			$rep->Line1($rep->row,0,$ccol);
+			$rep->NewLine();
+			//$rep->Line1($rep->row,0,$ccol);
 			$rep->NewLine(2);
 		}
 
-		
 	}
-	
-	
 	
     $rep->End();
 }
