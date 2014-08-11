@@ -3,22 +3,22 @@
    This file provide a way to integrate with shipping_details table
 ***********************************************************************/
 
-function add_shipping_details($VehicleDetails, $ContainerNo, $ShipmentStatus, $FirstWeight, $FirstWeightDate, $PersonType, $PersonId)
+function add_shipping_details($VehicleDetails, $ContainerNo,$DriverName, $ShipmentStatus, $FirstWeight, $FirstWeightDate, $PersonType, $PersonId)
 {
 	if ($FirstWeightDate == "")
 		$SQLFirstDate = "0000-00-00 00:00:00";
 	else
 		$SQLFirstDate = weightdate2sql($FirstWeightDate);
 
-	$sql = "INSERT INTO ".TB_PREF."shipping_details (vehicle_details,container_no,shipment_status,first_weight,first_weight_date,person_type_id,person_id) VALUES ("
-		.db_escape($VehicleDetails) . ",".db_escape($ContainerNo).",".db_escape($ShipmentStatus).",".db_escape($FirstWeight).",'$SQLFirstDate', " .db_escape($PersonType) . ",".db_escape($PersonId).")";
+	$sql = "INSERT INTO ".TB_PREF."shipping_details (vehicle_details,container_no,driver_name,shipment_status,first_weight,first_weight_date,person_type_id,person_id) VALUES ("
+		.db_escape($VehicleDetails) . ",".db_escape($ContainerNo).",".db_escape($DriverName).",".db_escape($ShipmentStatus).",".db_escape($FirstWeight).",'$SQLFirstDate', " .db_escape($PersonType) . ",".db_escape($PersonId).")";
 
 	//echo $sql;exit();
 
 	db_query($sql,"The Shipping Details could not be added");
 }
 
-function update_shipping_details($ShippingId, $VehicleDetails, $ContainerNo, $ShipmentStatus, $FirstWeight, $FirstWeightDate,$SecondWeight,$SecondWeightDate, $PersonType, $PersonId)
+function update_shipping_details($ShippingId, $VehicleDetails, $ContainerNo, $DriverName, $ShipmentStatus, $FirstWeight, $FirstWeightDate,$SecondWeight,$SecondWeightDate, $PersonType, $PersonId)
 {
 	if ($FirstWeightDate == "")
 		$SQLFirstDate = "0000-00-00 00:00:00";
@@ -32,6 +32,7 @@ function update_shipping_details($ShippingId, $VehicleDetails, $ContainerNo, $Sh
 
 	$sql = "UPDATE ".TB_PREF."shipping_details SET vehicle_details=".db_escape($VehicleDetails) .",
 		container_no=".db_escape($ContainerNo) .",
+		driver_name=".db_escape($DriverName) .",
 		shipment_status=".db_escape($ShipmentStatus) .",
 		person_type_id=".db_escape($PersonType) .",
 		person_id=".db_escape($PersonId) .",
@@ -70,6 +71,7 @@ function get_shipping_detail($shipping_id,$person_type)
 	$sql = "SELECT shipment.shipping_id,
 			shipment.vehicle_details,
 			shipment.container_no,
+			shipment.driver_name,
 			shipment.first_weight,
 			shipment.first_weight_date,
 			shipment.second_weight,
@@ -124,6 +126,7 @@ function get_sql_for_shipment_view($shipment_id,$vehicle_details,$shipment_statu
 			shipment.shipping_id,".$select."
 			shipment.vehicle_details,
 			shipment.container_no,
+			shipment.driver_name,
 			shipment.first_weight,
 			shipment.first_weight_date,
 			shipment.second_weight,

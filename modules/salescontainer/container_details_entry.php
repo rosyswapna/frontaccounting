@@ -138,6 +138,7 @@ function shipment_header($editkey = false){
 				vehicle_row(_("Vehicle Number").':', 'vehicle_details', _(''), $_POST['vehicle_details']);
 			
 			container_row(_("Container No").':', 'container_no', _(''), $_POST['container_no'], '');
+			container_row(_("Driver Name").':', 'driver_name', _(''), $_POST['driver_name'], '');
 
 		end_outer_table(1);
 	echo "</td>";
@@ -161,6 +162,7 @@ function shipping_details($selected_id){
 		$_POST['shipping_id'] = $myrow["shipping_id"];
 		$_POST['vehicle_details']  = $myrow["vehicle_details"];
 		$_POST['container_no']  = $myrow["container_no"];
+		$_POST['driver_name']  = $myrow["driver_name"];
 		$_POST['first_weight']  = $myrow["first_weight"];
 		$_POST['first_weight_date']  = $myrow["first_weight_date"];
 		$_POST['shipment_status']  = $myrow["shipment_status"];		
@@ -245,6 +247,7 @@ function open_shipping_details_settings($selected_id){
 		$_POST['shipping_id'] = -1;
 		$_POST['vehicle_details']  = '';
 		$_POST['container_no']  = '';
+		$_POST['driver_name'] = '';
 		$_POST['first_weight']  = '';
 		$_POST['first_weight_date']  = '';	
 		$_POST['shipment_status']  = SHIPMENT_STATUSOPEN;	
@@ -327,6 +330,7 @@ function close_shipping_details_settings($selected_id){
 		
 		$_POST['vehicle_details']  = $myrow["vehicle_details"];
 		$_POST['container_no']  = $myrow["container_no"];
+		$_POST['driver_name']  = $myrow["driver_name"];
 		$_POST['first_weight']  = $myrow["first_weight"];
 		$_POST['first_weight_date']  = sql2date($myrow["first_weight_date"]);
 		
@@ -432,7 +436,7 @@ function handle_submit(&$selected_id)
 	if ($selected_id) 
 	{
 		//it is an existing shipping details
-		update_shipping_details($selected_id, $_POST['vehicle_details'],$_POST['container_no'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date'],$_POST['second_weight'],$_POST['second_weight_date'], $_POST['person_type'], $_POST['person_id']);
+		update_shipping_details($selected_id, $_POST['vehicle_details'],$_POST['container_no'],$_POST['driver_name'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date'],$_POST['second_weight'],$_POST['second_weight_date'], $_POST['person_type'], $_POST['person_id']);
 		display_notification(_("Shipping details has been updated."));
 
 	} 
@@ -440,7 +444,7 @@ function handle_submit(&$selected_id)
 	{ 	//it is a new entry
 		begin_transaction();
 
-		add_shipping_details($_POST['vehicle_details'],$_POST['container_no'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date'],$_POST['person_type'], $_POST['person_id']);
+		add_shipping_details($_POST['vehicle_details'],$_POST['container_no'],$_POST['driver_name'],$_POST['shipment_status'],$_POST['first_weight'],$_POST['first_weight_date'],$_POST['person_type'], $_POST['person_id']);
 		$selected_id = $_POST['shipping_id'] = db_insert_id();
 
 		commit_transaction();

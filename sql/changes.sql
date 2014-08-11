@@ -124,6 +124,9 @@ ALTER TABLE `shipping_details` ADD `person_type_id` INT( 11 ) NOT NULL DEFAULT '
 ADD `person_id` TINYBLOB NULL DEFAULT NULL 
 
 
+ALTER TABLE `shipping_details` ADD `driver_name` VARCHAR( 100 ) NULL DEFAULT NULL AFTER `container_no` 
+
+
 
 
 
