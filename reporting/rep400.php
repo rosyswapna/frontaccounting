@@ -35,6 +35,7 @@ function get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle){
 
 	$sql = "SELECT shipment.vehicle_details,
 			shipment.container_no,
+			shipment.driver_name,
 			shipment.first_weight,
 			shipment.first_weight_date,
 			shipment.second_weight,
@@ -116,6 +117,8 @@ function print_shipment()
 
 	
 	if($shp_id > 0){
+
+		$single_report = true;
 		$row = get_shipping_detail($shp_id);
 
 		
@@ -127,6 +130,7 @@ function print_shipment()
 					'person' => $person,
 					'vehicle' => $row['vehicle_details'],
 					'container_no' => $row['container_no'],
+					'driver_name' => $row['driver_name'],
 					'fweight' => $row['first_weight'],
 					'sweight' => $row['second_weight'],
 					'fdate' => $row['first_weight_date'],
@@ -135,6 +139,7 @@ function print_shipment()
 					
 
 	}else{
+		$single_report = false;
 		$shipments = get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle);
 
 	}
@@ -221,9 +226,34 @@ function print_shipment()
 		$rep->Text($cn2col, abs($shipment['sweight']-$shipment['fweight']));
 
 
-		$rep->NewLine();
-		$rep->Line1($rep->row,0,$ccol);
-		$rep->NewLine(2);
+		if($single_report){
+
+			//$rep->row = $rep->bottomMargin+200;
+			$rep->NewLine(5);
+
+			$rep->Text($ccol, "For ".$shipment['driver_name'].",");
+			$rep->NewLine(4);
+			$sign_row = $rep->row;
+
+			$rep->Line1($sign_row,0,$ccol,$ccol+150);
+			$rep->Line1($sign_row,0,$cncol+200,$cncol+350);
+
+			
+
+			$rep->NewLine();
+			$rep->Text($ccol, "Driver's Signature");
+			$rep->Text($cncol+200, "Operator's Signature");
+			
+
+			
+
+		}else{
+			$rep->NewLine();
+			$rep->Line1($rep->row,0,$ccol);
+			$rep->NewLine(2);
+		}
+
+		
 	}
 	
 	
