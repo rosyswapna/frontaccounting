@@ -155,7 +155,7 @@ function print_shipment()
 
 	
 
-    $rep = new FrontReport(_('Shipment Report'), "ShipmentReport", user_pagesize(), 9, $orientation);
+    $rep = new FrontReport(_('Local Purchase'), "Local Purchase", user_pagesize(), 9, $orientation);
     if ($orientation == 'L')
     	recalculate_cols($cols);
    // $rep->SetHeaderType('');

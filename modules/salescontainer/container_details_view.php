@@ -16,7 +16,7 @@ if (get_post('type'))
 	$trans_type = $_POST['type'];
 
 //--------------------------------------------------------------------------------------------
-echo $trans_type;
+
 if (!@$_GET['popup'])
 {
 	$js = "";
@@ -52,7 +52,7 @@ function edit_link($row)
 {	
 	$modify = "ModifyShipment";
 	
-	/*
+	
 	if($row['shipment_status'] == SHIPMENT_STATUSOPEN){
 		return pager_link( _($row['status_description']),
     "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id']);
@@ -60,8 +60,8 @@ function edit_link($row)
 		return pager_link( _($row['status_description']),
     "/modules/salescontainer/container_details_entry.php?$modify=" . $row['shipping_id']);
 	}
-	*/
-	return $row['status_description'];
+	
+	
 	
 }
 
