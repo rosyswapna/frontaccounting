@@ -76,11 +76,11 @@ function get_shipment_details($fw_date,$sw_date,$ptype,$cid,$sid,$vehicle){
 					'DRIVER\'S NAME'	=> $row['driver_name'],
 					$person_type 		=> $person,
 					'CONTAINER NO' 		=> $row['container_no'],
-					'FIRST WEIGHT' 		=> $row['first_weight'],
+					'FIRST WEIGHT' 		=> $row['first_weight']." kg",
 					'FIRST WEIGHT DATE' => $row['first_weight_date'],
-					'SECOND WEIGHT' 	=> $row['second_weight'],
+					'SECOND WEIGHT' 	=> $row['second_weight']." kg",
 					'SECOND WEIGHT DATE'=> $row['second_weight_date'],
-					'NET WEIGHT'		=> abs($row['sweight']-$row['fweight'])	
+					'NET WEIGHT'		=> abs($row['second_weight']-$row['first_weight'])." kg"	
 					);
 	}
 	
@@ -136,11 +136,11 @@ function print_shipment()
 					'DRIVER\'S NAME'	=> $row['driver_name'],
 					$person_type 		=> $person,
 					'CONTAINER NO' 		=> $row['container_no'],
-					'FIRST WEIGHT' 		=> $row['first_weight'],
+					'FIRST WEIGHT' 		=> $row['first_weight']." kg",
 					'FIRST WEIGHT DATE' => $row['first_weight_date'],
-					'SECOND WEIGHT' 	=> $row['second_weight'],
+					'SECOND WEIGHT' 	=> $row['second_weight']." kg",
 					'SECOND WEIGHT DATE'=> $row['second_weight_date'],
-					'NET WEIGHT'		=> abs($row['sweight']-$row['fweight'])	
+					'NET WEIGHT'		=> abs($row['second_weight']-$row['first_weight'])." kg"	
 					);	
 		//echo "<pre>";print_r($shipments);echo "</pre>";exit();		
 
@@ -183,6 +183,8 @@ function print_shipment()
 
 	$c2col = $ccol-350;
 	$cn2col = $c2col + 110;
+
+	$rep->NewLine(2);
 
     foreach($shipments as $shipment)
 	{

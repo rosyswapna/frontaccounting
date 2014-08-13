@@ -289,7 +289,7 @@ $reports->addReport(RC_INVENTORY, 400,_('&Shipment Report'),
 			_('Orientation') => 'ORIENTATION',
 			_('Destination') => 'DESTINATION'));				
 
-$reports->addReportClass(_('Manufacturing'), RC_MANUFACTURE);
+//$reports->addReportClass(_('Manufacturing'), RC_MANUFACTURE);
 $reports->addReport(RC_MANUFACTURE, 401, _('&Bill of Material Listing'),
 	array(	_('From product') => 'ITEMS',
 			_('To product') => 'ITEMS',
@@ -302,7 +302,7 @@ $reports->addReport(RC_MANUFACTURE, 409, _('Print &Work Orders'),
 			_('Email Locations') => 'YES_NO',
 			_('Comments') => 'TEXTBOX',
 			_('Orientation') => 'ORIENTATION'));
-$reports->addReportClass(_('Dimensions'), RC_DIMENSIONS);
+//$reports->addReportClass(_('Dimensions'), RC_DIMENSIONS);
 if ($dim > 0)
 {
 	$reports->addReport(RC_DIMENSIONS, 501, _('Dimension &Summary'),
