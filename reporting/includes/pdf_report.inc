@@ -219,7 +219,8 @@ class FrontReport extends Cpdf
 		$this->row = $this->pageHeight - $this->topMargin;
 		$this->currency = '';
 		$this->scaleLogoWidth = false; // if Logo, scale on width (else height).
-		$this->SetHeaderType('HeaderDefault'); // default
+		//$this->SetHeaderType('HeaderDefault'); // default---customized by swapna
+		$this->SetHeaderType('Header'); // default
 
 		$this->Cpdf($size, $_SESSION['language']->code, $orientation);
 	}
@@ -292,7 +293,77 @@ class FrontReport extends Cpdf
 	}
 	//
 	//	Header for listings
-	//
+	function Header()
+	{
+		$TelFaxEmail = "Tel.:".$this->company['phone'].", Fax:".$this->company['fax'].", E-mail:".$this->company['email'];
+
+		$coyFooter = array($this->company['postal_address'],$TelFaxEmail);
+
+		$companyCol = $this->endLine - 150;
+		$titleCol = $this->leftMargin + 100;
+
+		// Logo
+		$this->row = $this->pageHeight - $this->topMargin-40;
+		$icol = $this->pageWidth / 2;
+		$ccol = $this->cols[0] + 4;
+		$cncol = $ccol + 70;
+
+		$upper = $this->row - 2 * $this->lineHeight;
+		$this->row = $upper+20;
+		$logo = company_path() . "/images/" . $this->company['coy_logo'];
+		if ($this->company['coy_logo'] != '' && file_exists($logo)){
+			$this->AddImage($logo, $ccol, $this->row, 0, 50);
+		}
+		$this->NewLine();
+		$this->row = $upper+60;
+		$head_col = $ccol+50;
+		$this->fontSize += 4;
+		$this->Font('bold');
+		$this->TextWrap($head_col, $this->row, $this->pageWidth - $ccol, $this->company['coy_name'], 'center');
+		$this->Font('');
+		$this->fontSize -= 4;
+		foreach($coyFooter as $content){
+			$this->NewLine();
+			$this->TextWrap($head_col, $this->row, $this->pageWidth - $ccol, $content, 'center');
+		}
+		$this->NewLine(2);
+		
+		$this->SetDrawColor(128, 128, 128);
+		$this->Line($this->row + 5, 1);
+		$this->NewLine();
+
+		//document title
+		$this->fontSize += 4;
+		$this->Font('bold');
+		$this->Text($this->leftMargin, $this->title, $companyCol);
+		//$this->TextWrap($ccol, $this->row, $this->pageWidth - $this->rightMargin - $ccol - 20, $this->title, 'center');
+		$this->Font();
+		$this->fontSize -= 4;
+		
+		//page number
+		$str = _("Page") . ' ' . $this->pageNumber;
+		$this->Text($this->endLine - 38, $str);
+		$this->NewLine();
+		$this->Line($this->row - 5, 1);
+
+		$this->row -= ($this->lineHeight + 6);
+		$this->Font('italic');
+		if ($this->headers2 != null)
+		{
+			$count = count($this->headers2);
+			for ($i = 0; $i < $count; $i++)
+				$this->TextCol2($i, $i + 1,	$this->headers2[$i]);
+			$this->NewLine();
+		}
+		$count = count($this->headers);
+		for ($i = 0; $i < $count; $i++)
+			$this->TextCol($i, $i + 1, $this->headers[$i]);
+		$this->Font();
+		$this->Line($this->row - 5, 1);
+
+		$this->NewLine(2);
+	}
+	/*
 	function Header()
 	{
 		$companyCol = $this->endLine - 150;
@@ -370,6 +441,7 @@ class FrontReport extends Cpdf
 
 		$this->NewLine(2);
 	}
+	*/
 
 	//---------------author swapna-----------default header for metals and minerals
 	function HeaderDefault()
@@ -421,6 +493,8 @@ class FrontReport extends Cpdf
 		//HEADER ENDS HERE
 
 		$this->NewLine(2);
+
+
 
 	}
 	//---------------author swapna----------- header for shipment report
