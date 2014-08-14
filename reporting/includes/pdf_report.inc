@@ -339,11 +339,11 @@ class FrontReport extends Cpdf
 		//$this->TextWrap($ccol, $this->row, $this->pageWidth - $this->rightMargin - $ccol - 20, $this->title, 'center');
 		$this->Font();
 		$this->fontSize -= 4;
-		
+
 		//page number
 		$str = _("Page") . ' ' . $this->pageNumber;
 		$this->Text($this->endLine - 38, $str);
-		$this->NewLine();
+		$this->NewLine(2);
 		$this->Line($this->row - 5, 1);
 
 		$this->row -= ($this->lineHeight + 6);
@@ -443,6 +443,8 @@ class FrontReport extends Cpdf
 	}
 	*/
 
+	/*
+
 	//---------------author swapna-----------default header for metals and minerals
 	function HeaderDefault()
 	{
@@ -467,7 +469,7 @@ class FrontReport extends Cpdf
 		$this->row = $upper+20;
 		$logo = company_path() . "/images/" . $this->company['coy_logo'];
 		if ($this->company['coy_logo'] != '' && file_exists($logo)){
-			$this->AddImage($logo, $ccol, $this->row, 0, 50);
+			$this->AddImage($logo, $ccol, $this->row, 0, 40);
 		}
 		$this->row = $upper+60;
 		$head_col = $ccol+50;
@@ -494,9 +496,10 @@ class FrontReport extends Cpdf
 
 		$this->NewLine(2);
 
-
-
 	}
+
+	*/
+
 	//---------------author swapna----------- header for shipment report
 	function ShipmentReportHeader()
 	{

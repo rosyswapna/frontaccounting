@@ -191,24 +191,24 @@ function print_customer_details_listing()
 			$newrow = 0;
 			if ($carea != $myrow['description'])
 			{
-				$rep->fontSize += 2;
+				//$rep->fontSize += 2;
 				$rep->NewLine(2, 7);
-				$rep->Font('bold');
+				//$rep->Font('bold');
 				$rep->TextCol(0, 3,	_('Customers in') . " " . $myrow['description']);
 				$carea = $myrow['description'];
-				$rep->fontSize -= 2;
-				$rep->Font();
+				//$rep->fontSize -= 2;
+				//$rep->Font();
 				$rep->NewLine();
 			}
 			if ($sman != $myrow['salesman_name'])
 			{
-				$rep->fontSize += 2;
+				//$rep->fontSize += 2;
 				$rep->NewLine(1, 7);
-				$rep->Font('bold');
+				//$rep->Font('bold');
 				$rep->TextCol(0, 3,	$myrow['salesman_name']);
 				$sman = $myrow['salesman_name'];
-				$rep->fontSize -= 2;
-				$rep->Font();
+				//$rep->fontSize -= 2;
+				//$rep->Font();
 				$rep->NewLine();
 			}
 			$rep->NewLine();
