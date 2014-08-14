@@ -549,7 +549,7 @@ class FrontReport extends Cpdf
 
  		 // leave layout files names without path to enable including
  		 // modified versions from company/x/reporting directory
-		include("includes/doctext.inc");
+		include("includes/doctext_org.inc");
 		include("includes/header2.inc");
 
 		$this->row = $temp;
