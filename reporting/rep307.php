@@ -30,7 +30,7 @@ include_once($path_to_root . "/inventory/includes/inventory_db.inc");
 
 inventory_movements();
 
-function fetch_items($category=0)
+function fetch_items($category=0,$item=false)
 {
 		$sql = "SELECT stock_id, stock.description AS name,
 				stock.category_id,
@@ -38,8 +38,12 @@ function fetch_items($category=0)
 				cat.description
 			FROM ".TB_PREF."stock_master stock LEFT JOIN ".TB_PREF."stock_category cat ON stock.category_id=cat.category_id
 				WHERE mb_flag <> 'D'";
-		if ($category != 0)
+		
+		if ($item)
+			$sql .= " AND stock.stock_id = ".db_escape($item);
+		else if ($category != 0)
 			$sql .= " AND cat.category_id = ".db_escape($category);
+
 		$sql .= " ORDER BY stock.category_id, stock_id";
 
     return db_query($sql,"No transactions were returned");
@@ -87,10 +91,11 @@ function inventory_movements()
     $from_date = $_POST['PARAM_0'];
     $to_date = $_POST['PARAM_1'];
     $category = $_POST['PARAM_2'];
-	$location = $_POST['PARAM_3'];
-    $comments = $_POST['PARAM_4'];
-	$orientation = $_POST['PARAM_5'];
-	$destination = $_POST['PARAM_6'];
+    $item = $_POST['PARAM_3'];
+	$location = $_POST['PARAM_4'];
+    $comments = $_POST['PARAM_5'];
+	$orientation = $_POST['PARAM_6'];
+	$destination = $_POST['PARAM_7'];
 	if ($destination)
 		include_once($path_to_root . "/reporting/includes/excel_report.inc");
 	else
@@ -131,7 +136,7 @@ function inventory_movements()
     $rep->Info($params, $cols, $headers, $aligns);
     $rep->NewPage();
 
-	$result = fetch_items($category);
+	$result = fetch_items($category,$item);
 
 	$catgor = '';
 	while ($myrow=db_fetch($result))

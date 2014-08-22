@@ -392,7 +392,11 @@ class BoxReports
 					return combo_input($name, '', $sql, 'TNO', 'IName',array('order'=>false));
 
 				case 'ITEMS':
-					return stock_manufactured_items_list($name);
+				case 'ITEMS_NO_FILTER':
+					if($type == 'ITEMS_NO_FILTER')
+						return stock_items_list($name, null, _("No Item Filter"));
+					else
+						return stock_items_list($name);
 
 				case 'ITEMS_P':
 					return stock_purchasable_items_list($name, null, true);
