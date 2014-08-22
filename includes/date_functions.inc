@@ -459,6 +459,44 @@ function weightdate2sql($datetime_)
 	return sprintf("%04d-%02d-%02d %s", $year, $month, $day,$time_);
 }// end of function
 
+//_______________________________________________________________
+
+function weightsql2date($datetime_) 
+{
+	global $date_system;
+
+	//for MySQL dates are in the format YYYY-mm-dd H:i:s 
+
+	$date_time = explode(" ", $datetime_);
+
+	$date_ = $date_time[0];
+
+	$time_ = date('H:i:s',strtotime($date_time[1])); //time
+
+
+	if (strpos($date_, "/")) 
+	{ // In MySQL it could be either / or -
+		list($year, $month, $day) = explode("/", $date_);
+	} 
+	elseif (strpos ($date_, "-")) 
+	{
+		list($year, $month, $day) = explode("-", $date_);
+	}
+	if (!isset($day)) // data format error
+		return "";
+
+	if (strlen($day) > 4) 
+	{  /*chop off the time stuff */
+		$day = substr($day, 0, 2);
+	}
+	if ($date_system == 1)
+		list($year, $month, $day) = gregorian_to_jalali($year, $month, $day);
+	elseif ($date_system == 2)
+		list($year, $month, $day) = gregorian_to_islamic($year, $month, $day);
+	
+	return sprintf("%02d/%02d/%04d %s",  $day, $month,$year,$time_);
+} // end function weightsql2date
+
 function date1_greater_date2 ($date1, $date2) 
 {
 

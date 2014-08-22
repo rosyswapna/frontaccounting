@@ -110,7 +110,7 @@ function display_db_pager(&$pager) {
 		  	  label_cell(sql2date($cell), "align='center' nowrap"); break;
 
 		   case 'datetime':
-		  	  label_cell($cell); break;
+		  	  label_cell(weightsql2date($cell)); break;
 
 		    case 'dstamp':	// time stamp displayed as date
 		  	  label_cell(sql2date(substr($cell, 0, 10)), "align='center' nowrap"); break;
