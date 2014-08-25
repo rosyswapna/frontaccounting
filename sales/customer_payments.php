@@ -168,6 +168,14 @@ function can_process()
 			set_focus('cheque_date');
 			return false;
 		}
+
+		if (!get_post('cheque_no'))
+		{
+			display_error(_("The entered cheque number is invalid. Please enter a valid cheque number for the payment."));
+			set_focus('cheque_no');
+			return false;
+		} 
+
 	}
 
 
@@ -273,15 +281,16 @@ if (get_post('AddPaymentItem') && can_process()) {
 	if(isset($_POST['cheque'])){
 		$cheque = $_POST['cheque'];
 		$cheque_date = $_POST['cheque_date'];
+		$cheque_no = $_POST['cheque_no'];
 	}else{
-		$cheque = false;$cheque_date = '';
+		$cheque = false; $cheque_date = $cheque_no = '';
 	}
 
 	$new_pmt = !$_SESSION['alloc']->trans_no;
 	//Chaitanya : 13-OCT-2011 - To support Edit feature
 	$payment_no = write_customer_payment($_SESSION['alloc']->trans_no, $_POST['customer_id'], $_POST['BranchID'],
 		$_POST['bank_account'], $_POST['DateBanked'], $_POST['ref'],
-		input_num('amount'), input_num('discount'), $_POST['memo_'], 0, input_num('charge'), input_num('bank_amount', input_num('amount')),$cheque,$cheque_date);
+		input_num('amount'), input_num('discount'), $_POST['memo_'], 0, input_num('charge'), input_num('bank_amount', input_num('amount')),$cheque,$cheque_date,$cheque_no);
 
 	$_SESSION['alloc']->trans_no = $payment_no;
 	$_SESSION['alloc']->write();
@@ -392,8 +401,8 @@ start_form();
 	ref_row(_("Reference:"), 'ref','' , null, '', ST_CUSTPAYMENT);
 
 	check_row(_("Cheque:"), 'cheque', null, true);
-
 	cheque_date_row();//cheque_date
+	cheque_number_row();
 
 	table_section(3);
 

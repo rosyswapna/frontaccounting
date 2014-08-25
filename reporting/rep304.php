@@ -109,7 +109,8 @@ function print_inventory_sales()
 	else
 		$fromc = get_customer_name($fromcust);
 
-	$cols = array(0, 75, 175, 250, 300, 375, 450,	515);
+	//$cols = array(0, 75, 175, 250, 300, 375, 450,	515);
+	$cols = array(0, 90, 210, 250, 300, 375, 450,	515);
 
 	//$headers = array(_('Category'), _('Description'), _('Customer'), _('Qty'), _('Sales'), _('Cost'), _('Contribution'));
 	$headers = array(_('Description'), _('Customer'), _('Qty'), _('Trans Date'), _('Sales'), _('Cost'), _('Contribution'));

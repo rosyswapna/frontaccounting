@@ -21,7 +21,7 @@
 	$charge - in bank currency
 */
 function write_customer_payment($trans_no, $customer_id, $branch_id, $bank_account,
-	$date_, $ref, $amount, $discount, $memo_, $rate=0, $charge=0, $bank_amount=0,$cheque= false,$cheque_date='')
+	$date_, $ref, $amount, $discount, $memo_, $rate=0, $charge=0, $bank_amount=0,$cheque= false,$cheque_date='',$cheque_no = '')
 {
 	global $Refs;
 
@@ -108,7 +108,7 @@ function write_customer_payment($trans_no, $customer_id, $branch_id, $bank_accou
 
 	/*now enter the bank_trans entry */
 	add_bank_trans(ST_CUSTPAYMENT, $payment_no, $bank_account, $ref,
-		$date_, $bank_amount - $charge, PT_CUSTOMER, $customer_id,"", "", 0, $cheque, $cheque_date);
+		$date_, $bank_amount - $charge, PT_CUSTOMER, $customer_id,"", "", 0, $cheque, $cheque_date,$cheque_no);
 
 	add_comments(ST_CUSTPAYMENT, $payment_no, $date_, $memo_);
 

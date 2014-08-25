@@ -1072,6 +1072,16 @@ function cheque_date_row()
 	
 	$Ajax->activate('_page_body');
 }
+
+function cheque_number_row()
+{
+	global $Ajax;
+
+	if (check_value('cheque')) 
+		text_row(_("Cheque Number:"), 'cheque_no');
+	
+	$Ajax->activate('_page_body');
+}
 //---------------------------------------------------------------
 
 

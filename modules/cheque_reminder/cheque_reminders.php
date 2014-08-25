@@ -30,7 +30,7 @@ function show_trans_table()
 
 	start_table(TABLESTYLE, "width=60%");
 
-   		$th = array(_("#"), _("Transaction Type"), _("Cheque Date"), _("Amount"), _("Trans Date"));
+   		$th = array(_("#"), _("Transaction Type"), _("Cheque Date"),  _("Cheque Number"), _("Amount"), _("Trans Date"));
 
 	   	table_header($th);
 	   	
@@ -40,6 +40,7 @@ function show_trans_table()
 	   			label_cell(get_trans_view_str($row['type'], $row['trans_no']));
 	   			label_cell($systypes_array[$row['type']]);
 	   			label_cell($row['cheque_date']);
+	   			label_cell($row['cheque_no']);
 	   			label_cell(price_format(abs($row['amount'])));
 	   			//label_cell($row['amount']);
 	   			label_cell($row['trans_date']);
