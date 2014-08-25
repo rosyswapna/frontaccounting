@@ -85,6 +85,10 @@
 				_("Our Order No") => $ref,
 				_("To Be Invoiced Before") => sql2date($this->formData['due_date']),
 			);
+
+			$this->headers = array(_("Item Code"), _("Item Description"), _("Quantity"),
+		_("Unit"));
+
 			break;
 
 		case ST_CUSTCREDIT:
