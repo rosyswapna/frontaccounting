@@ -111,7 +111,9 @@ function print_inventory_sales()
 
 	$cols = array(0, 75, 175, 250, 300, 375, 450,	515);
 
-	$headers = array(_('Category'), _('Description'), _('Customer'), _('Qty'), _('Sales'), _('Cost'), _('Contribution'));
+	//$headers = array(_('Category'), _('Description'), _('Customer'), _('Qty'), _('Sales'), _('Cost'), _('Contribution'));
+	$headers = array(_('Description'), _('Customer'), _('Qty'), _('Trans Date'), _('Sales'), _('Cost'), _('Contribution'));
+
 	if ($fromcust != '')
 		$headers[2] = '';
 
@@ -127,9 +129,12 @@ function print_inventory_sales()
    	if ($orientation == 'L')
     	recalculate_cols($cols);
 
+    $rep->InfoSearch = "Trans Date: $from - $to";
+
     $rep->Font();
-    $rep->Info($params, $cols, $headers, $aligns);
+    $rep->Info($params, $cols, $headers, $aligns,0, $header2);
     $rep->NewPage();
+
 
 	$res = getTransactions($category, $location, $fromcust, $from, $to);
 	$total = $grandtotal = 0.0;
@@ -152,8 +157,11 @@ function print_inventory_sales()
 				$rep->NewLine();
 				$total = $total1 = $total2 = 0.0;
 			}
-			$rep->TextCol(0, 1, $trans['category_id']);
-			$rep->TextCol(1, 6, $trans['cat_description']);
+			//$rep->TextCol(0, 1, $trans['category_id']);
+			//$rep->TextCol(1, 6, $trans['cat_description']);
+
+			$rep->TextCol(0, 1, $trans['cat_description']);
+
 			$catt = $trans['cat_description'];
 			$rep->NewLine();
 		}
@@ -164,15 +172,16 @@ function print_inventory_sales()
 		$cb = $trans['amt'] - $trans['cost'];
 		$rep->NewLine();
 		$rep->fontSize -= 2;
-		$rep->TextCol(0, 1, $trans['stock_id']);
+		//$rep->TextCol(0, 1, $trans['stock_id']);
 		if ($fromcust == ALL_TEXT)
 		{
-			$rep->TextCol(1, 2, $trans['description'].($trans['inactive']==1 ? " ("._("Inactive").")" : ""), -1);
-			$rep->TextCol(2, 3, $trans['debtor_name']);
+			$rep->TextCol(0, 1, $trans['description'].($trans['inactive']==1 ? " ("._("Inactive").")" : ""), -1);
+			$rep->TextCol(1, 2, $trans['debtor_name']);
 		}
 		else
-			$rep->TextCol(1, 3, $trans['description'].($trans['inactive']==1 ? " ("._("Inactive").")" : ""), -1);
-		$rep->AmountCol(3, 4, $trans['qty'], get_qty_dec($trans['stock_id']));
+			$rep->TextCol(0, 2, $trans['description'].($trans['inactive']==1 ? " ("._("Inactive").")" : ""), -1);
+		$rep->AmountCol(2, 3, $trans['qty'], get_qty_dec($trans['stock_id']));
+		$rep->DateCol(3, 4, $trans['tran_date'], $dec);
 		$rep->AmountCol(4, 5, $trans['amt'], $dec);
 		$rep->AmountCol(5, 6, $trans['cost'], $dec);
 		$rep->AmountCol(6, 7, $cb, $dec);

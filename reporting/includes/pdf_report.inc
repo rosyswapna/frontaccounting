@@ -68,6 +68,8 @@ class FrontReport extends Cpdf
 	var $contactData; // contact data for sending emials/reportlanguage selection
 	
 	var $dest;	// destination: email or printer
+
+	var $InfoSearch;//search infor on bottom of header
 	
 	function FrontReport($title, $filename, $size = 'A4', $fontsize = 9, $orientation = 'P', $margins = NULL, $excelColWidthFactor = NULL)
 	{
@@ -343,11 +345,18 @@ class FrontReport extends Cpdf
 		//page number
 		$str = _("Page") . ' ' . $this->pageNumber;
 		$this->Text($this->endLine - 38, $str);
+		$this->Font('italic');
+
+		if($this->InfoSearch){
+			$this->NewLine();
+			$this->Text($this->leftMargin, $this->InfoSearch);
+		}
+
 		$this->NewLine(2);
 		$this->Line($this->row - 5, 1);
 
 		$this->row -= ($this->lineHeight + 6);
-		$this->Font('italic');
+		
 		if ($this->headers2 != null)
 		{
 			$count = count($this->headers2);
