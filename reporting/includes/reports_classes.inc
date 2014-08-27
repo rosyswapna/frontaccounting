@@ -18,6 +18,7 @@ define('RC_MANUFACTURE', 3);
 define('RC_DIMENSIONS', 4);
 define('RC_BANKING', 5);
 define('RC_GL', 6);
+define('RC_OTHER', 7);
 
 class BoxReports
 {

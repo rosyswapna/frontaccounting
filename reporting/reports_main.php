@@ -506,6 +506,14 @@ $reports->addReport(RC_GL, 710, _('Audit Trail'),
 			_('Orientation') => 'ORIENTATION',
 			_('Destination') => 'DESTINATION'));
 
+$reports->addReportClass(_('Other'), RC_OTHER);
+$reports->addReport(RC_OTHER, 711, _('EOD Report'),
+	array(	_('Start Date') => 'DATEBEGIN',
+			_('End Date') => 'DATEENDM',
+			_('Email to Company id') => 'YES_NO',
+			_('Orientation') => 'ORIENTATION',
+			_('Destination') => 'DESTINATION'));
+
 add_custom_reports($reports);
 
 echo $reports->getDisplay();

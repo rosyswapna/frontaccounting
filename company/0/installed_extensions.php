@@ -73,5 +73,15 @@ $installed_extensions = array (
     'path' => 'modules/cheque_reminder',
     'active' => 1,
   ),
+  14 => 
+  array (
+    'package' => 'other_report',
+    'name' => 'other_report',
+    'version' => '-',
+    'available' => '',
+    'type' => 'extension',
+    'path' => 'modules/other_report',
+    'active' => 1,
+  ),
 );
 ?>

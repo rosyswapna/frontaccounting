@@ -146,6 +146,7 @@ function write_extensions($extensions=null, $company = -1)
 	$filename = $path_to_root . ($company==-1 ? '' : '/company/'.$company)
 		.'/installed_extensions.php';
 
+
 	// Check if the file is writable first.
 	if (!$zp = @fopen($filename, 'w'))
 	{
@@ -435,7 +436,7 @@ function db_unzip($mode, $path)
         $comp = substr($comp, 0, (strlen($comp) - 80 - strlen($filename)-13));
 
         // fix the crc bugfix (see function save_to_file)
-        $comp = "xœ" . $comp . $suffix;
+        $comp = "x\9C" . $comp . $suffix;
         $file_data = gzuncompress($comp);
     }
 
