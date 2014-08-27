@@ -14,7 +14,7 @@ class hooks_export_invoice extends hooks {
 
         switch($app->id) {
             case 'orders':
-            $app->add_lapp_function(0, "","");
+            //$app->add_lapp_function(0, "","");
 
                $app->add_lapp_function(0, _("Export &Invoice"),
             "sales/sales_order_entry.php?NewExportInvoice=0", 'SA_EXPORTINVOICE', MENU_TRANSACTION);

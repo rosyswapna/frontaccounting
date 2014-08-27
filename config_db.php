@@ -25,8 +25,8 @@ $db_connections = array (
     'name' => 'METALS &amp; MINERALS FZE',
     'host' => 'localhost',
     'dbuser' => 'root',
-    'dbpassword' => '',
-    'dbname' => 'frontaccounting',
+    'dbpassword' => 'mysql@local',
+    'dbname' => 'mnm',
     'tbpref' => '',
   ),
  
