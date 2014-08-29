@@ -20,129 +20,9 @@ include_once($path_to_root . "/inventory/includes/db/items_category_db.inc");
 
 //----------------------------------------------------------------------------------------------------
 
-print_list_of_journal_entries();
-print_inventory_purchase();
-print_inventory_sales();
+print_eod();
 
-//----------------------------------list of journal entries------------------------------------------------------------------
-
-function print_list_of_journal_entries()
-{
-    global $path_to_root, $systypes_array;
-
-
-    $from = $_POST['PARAM_0'];
-    $to = $_POST['PARAM_1'];
-    $email = $_POST['PARAM_2'];
-    $orientation = $_POST['PARAM_3'];
-    $destination = $_POST['PARAM_4'];
-
-	if ($destination)
-		include_once($path_to_root . "/reporting/includes/excel_report.inc");
-	else
-		include_once($path_to_root . "/reporting/includes/pdf_report.inc");
-
-	$orientation = ($orientation ? 'L' : 'P');
-    $dec = user_price_dec();
-
-    $cols = array(0, 100, 240, 300, 400, 460, 520, 580);
-
-    $headers = array(_('Type/Account'), _('Reference').'/'._('Account Name'), _('Date/Dim.'),
-    	_('Person/Item/Memo'), _('Debit'), _('Credit'));
-
-    $aligns = array('left', 'left', 'left', 'left', 'right', 'right');
-
-    $params =   array( 	0 => array('from' => $from,'to' => $to));
-
-    $rep = new FrontReport(_('List of Journal Entries'), "JournalEntries", user_pagesize(), 9, $orientation);
-    if ($orientation == 'L')
-    	recalculate_cols($cols);
-
-    $rep->Font();
-    $rep->Info($params, $cols, $headers, $aligns);
-    $rep->NewPage();
-
-    $trans = get_gl_transactions($from, $to, -1, null, 0, 0);
-
-    $typeno = $type = 0;
-    $debit = $credit = 0.0;
-    $totdeb = $totcre = 0.0;
-    while ($myrow=db_fetch($trans))
-    {
-        if ($type != $myrow['type'] || $typeno != $myrow['type_no'])
-        {
-            if ($typeno != 0)
-            {
-                $rep->Line($rep->row += 6);
-                $rep->NewLine();
-            	$rep->AmountCol(4, 5, $debit, $dec);
-            	$rep->AmountCol(5, 6, abs($credit), $dec);
-            	$totdeb += $debit;
-            	$totcre += $credit;
-            	$debit = $credit = 0.0;
-				$rep->Line($rep->row -= 4);
-                $rep->NewLine();
-            }
-            $typeno = $myrow['type_no'];
-            $type = $myrow['type'];
-            $TransName = $systypes_array[$myrow['type']];
-            $rep->TextCol(0, 1, $TransName . " # " . $myrow['type_no']);
-            $rep->TextCol(1, 2, get_reference($myrow['type'], $myrow['type_no']));
-            $rep->DateCol(2, 3, $myrow['tran_date'], true);
-            $coms =  payment_person_name($myrow["person_type_id"],$myrow["person_id"]);
-            $memo = get_comments_string($myrow['type'], $myrow['type_no']);
-            if ($memo != '')
-            {
-            	if ($coms == "")
-            		$coms = $memo;
-            	else
-            		$coms .= " / ".$memo;
-            }		
-            $rep->TextColLines(3, 6, $coms);
-            $rep->NewLine();
-        }
-        $rep->TextCol(0, 1, $myrow['account']);
-        $rep->TextCol(1, 2, $myrow['account_name']);
-        $dim_str = get_dimension_string($myrow['dimension_id']);
-        $dim_str2 = get_dimension_string($myrow['dimension2_id']);
-        if ($dim_str2 != "")
-        	$dim_str .= "/".$dim_str2;
-        $rep->TextCol(2, 3, $dim_str);
-        $rep->TextCol(3, 4, $myrow['memo_']);
-        if ($myrow['amount'] > 0.0) {
-        	$debit += $myrow['amount'];
-            $rep->AmountCol(4, 5, abs($myrow['amount']), $dec);
-        }    
-        else {
-        	$credit += $myrow['amount'];
-            $rep->AmountCol(5, 6, abs($myrow['amount']), $dec);
-        }    
-        $rep->NewLine(1, 2);
-    }
-	if ($typeno != 0)
-	{
-		$rep->Line($rep->row += 6);
-		$rep->NewLine();
-		$rep->AmountCol(4, 5, $debit, $dec);
-		$rep->AmountCol(5, 6, abs($credit), $dec);
-		$totdeb += $debit;
-		$totcre += $credit;
-		$rep->Line($rep->row -= 4);
-		$rep->NewLine();
-        $rep->TextCol(0, 4, _("Total"));
-		$rep->AmountCol(4, 5, $totdeb, $dec);
-		$rep->AmountCol(5, 6, abs($totcre), $dec);
-		$rep->Line($rep->row -= 4);
-	}
-    $rep->End();
-}
-
-
-
-
-//------------------------inventory purchase report----------------------------------------------
-
-
+//----------------------------------------------------------------------
 
 function getPurchTransactions($from, $to)
 {
@@ -175,6 +55,7 @@ function getPurchTransactions($from, $to)
     return db_query($sql,"No transactions were returned");
 
 }
+//-------------------------------------------------------------
 
 function get_supp_inv_reference($supplier_id, $stock_id, $date)
 {
@@ -196,20 +77,55 @@ function get_supp_inv_reference($supplier_id, $stock_id, $date)
     	return $row[0];
     else
     	return '';
-}    
-    
-	
+} 
+//----------------------------------------------------------------------
+
+function getSalesTransactions($from, $to)
+{
+	$from = date2sql($from);
+	$to = date2sql($to);
+	$sql = "SELECT ".TB_PREF."stock_master.category_id,
+			".TB_PREF."stock_category.description AS cat_description,
+			".TB_PREF."stock_master.stock_id,
+			".TB_PREF."stock_master.description, ".TB_PREF."stock_master.inactive,
+			".TB_PREF."stock_moves.loc_code,
+			".TB_PREF."debtor_trans.debtor_no,
+			".TB_PREF."debtors_master.name AS debtor_name,
+			".TB_PREF."stock_moves.tran_date,
+			SUM(-".TB_PREF."stock_moves.qty) AS qty,
+			SUM(-".TB_PREF."stock_moves.qty*".TB_PREF."stock_moves.price*(1-".TB_PREF."stock_moves.discount_percent)) AS amt,
+			SUM(-IF(".TB_PREF."stock_moves.standard_cost <> 0, ".TB_PREF."stock_moves.qty * ".TB_PREF."stock_moves.standard_cost, ".TB_PREF."stock_moves.qty *(".TB_PREF."stock_master.material_cost + ".TB_PREF."stock_master.labour_cost + ".TB_PREF."stock_master.overhead_cost))) AS cost
+		FROM ".TB_PREF."stock_master,
+			".TB_PREF."stock_category,
+			".TB_PREF."debtor_trans,
+			".TB_PREF."debtors_master,
+			".TB_PREF."stock_moves
+		WHERE ".TB_PREF."stock_master.stock_id=".TB_PREF."stock_moves.stock_id
+		AND ".TB_PREF."stock_master.category_id=".TB_PREF."stock_category.category_id
+		AND ".TB_PREF."debtor_trans.debtor_no=".TB_PREF."debtors_master.debtor_no
+		AND ".TB_PREF."stock_moves.type=".TB_PREF."debtor_trans.type
+		AND ".TB_PREF."stock_moves.trans_no=".TB_PREF."debtor_trans.trans_no
+		AND ".TB_PREF."stock_moves.tran_date>='$from'
+		AND ".TB_PREF."stock_moves.tran_date<='$to'
+		AND (".TB_PREF."debtor_trans.type=".ST_CUSTDELIVERY." OR ".TB_PREF."stock_moves.type=".ST_CUSTCREDIT.")
+		AND (".TB_PREF."stock_master.mb_flag='B' OR ".TB_PREF."stock_master.mb_flag='M')";
+		$sql .= " GROUP BY ".TB_PREF."stock_master.stock_id, ".TB_PREF."debtors_master.name ORDER BY ".TB_PREF."stock_master.category_id,
+			".TB_PREF."stock_master.stock_id, ".TB_PREF."debtors_master.name";
+    return db_query($sql,"No transactions were returned");
+
+}
+
 //----------------------------------------------------------------------------------------------------
 
-function print_inventory_purchase()
+function print_eod()
 {
-    global $path_to_root;
+	global $path_to_root, $systypes_array;
 
 	$from = $_POST['PARAM_0'];
-    $to = $_POST['PARAM_1'];
-    $email = $_POST['PARAM_2'];
-    $orientation = $_POST['PARAM_3'];
-    $destination = $_POST['PARAM_4'];
+	$to = $_POST['PARAM_1'];
+	$email = $_POST['PARAM_2'];
+	$orientation = $_POST['PARAM_3'];
+	$destination = $_POST['PARAM_4'];
 
 	if ($destination)
 		include_once($path_to_root . "/reporting/includes/excel_report.inc");
@@ -217,9 +133,101 @@ function print_inventory_purchase()
 		include_once($path_to_root . "/reporting/includes/pdf_report.inc");
 
 	$orientation = ($orientation ? 'L' : 'P');
-    $dec = user_price_dec();
+	$dec = user_price_dec();
 
+	$cols = array(0, 100, 240, 300, 400, 460, 520, 580);
+
+	$headers = array(_('Type/Account'), _('Reference').'/'._('Account Name'), _('Date/Dim.'),
+	_('Person/Item/Memo'), _('Debit'), _('Credit'));
+
+	$aligns = array('left', 'left', 'left', 'left', 'right', 'right');
+
+	$params =   array( 	0 => array('from' => $from,'to' => $to));
 	
+	$rep = new FrontReport("", "", user_pagesize(), 9, $orientation);
+	$rep->title = _('List of Journal Entries');	
+	if ($orientation == 'L')
+		recalculate_cols($cols);
+
+	$rep->Font();
+	$rep->Info($params, $cols, $headers, $aligns);
+	$rep->NewPage();
+
+	$trans = get_gl_transactions($from, $to, -1, null, 0, 0);
+
+	$typeno = $type = 0;
+	$debit = $credit = 0.0;
+	$totdeb = $totcre = 0.0;
+	while ($myrow=db_fetch($trans))
+	{
+		if ($type != $myrow['type'] || $typeno != $myrow['type_no'])
+		{
+			if ($typeno != 0)
+			{
+				$rep->Line($rep->row += 6);
+				$rep->NewLine();
+				$rep->AmountCol(4, 5, $debit, $dec);
+				$rep->AmountCol(5, 6, abs($credit), $dec);
+				$totdeb += $debit;
+				$totcre += $credit;
+				$debit = $credit = 0.0;
+				$rep->Line($rep->row -= 4);
+				$rep->NewLine();
+			}
+			$typeno = $myrow['type_no'];
+			$type = $myrow['type'];
+			$TransName = $systypes_array[$myrow['type']];
+			$rep->TextCol(0, 1, $TransName . " # " . $myrow['type_no']);
+			$rep->TextCol(1, 2, get_reference($myrow['type'], $myrow['type_no']));
+			$rep->DateCol(2, 3, $myrow['tran_date'], true);
+			$coms =  payment_person_name($myrow["person_type_id"],$myrow["person_id"]);
+			$memo = get_comments_string($myrow['type'], $myrow['type_no']);
+			if ($memo != '')
+			{
+				if ($coms == "")
+					$coms = $memo;
+				else
+					$coms .= " / ".$memo;
+			}		
+			$rep->TextColLines(3, 6, $coms);
+			$rep->NewLine();
+		}
+		$rep->TextCol(0, 1, $myrow['account']);
+		$rep->TextCol(1, 2, $myrow['account_name']);
+		$dim_str = get_dimension_string($myrow['dimension_id']);
+		$dim_str2 = get_dimension_string($myrow['dimension2_id']);
+		if ($dim_str2 != "")
+			$dim_str .= "/".$dim_str2;
+		$rep->TextCol(2, 3, $dim_str);
+		$rep->TextCol(3, 4, $myrow['memo_']);
+		if ($myrow['amount'] > 0.0) {
+			$debit += $myrow['amount'];
+			$rep->AmountCol(4, 5, abs($myrow['amount']), $dec);
+		}    
+		else {
+			$credit += $myrow['amount'];
+			$rep->AmountCol(5, 6, abs($myrow['amount']), $dec);
+		}    
+		$rep->NewLine(1, 2);
+	}
+	if ($typeno != 0)
+	{
+		$rep->Line($rep->row += 6);
+		$rep->NewLine();
+		$rep->AmountCol(4, 5, $debit, $dec);
+		$rep->AmountCol(5, 6, abs($credit), $dec);
+		$totdeb += $debit;
+		$totcre += $credit;
+		$rep->Line($rep->row -= 4);
+		$rep->NewLine();
+		$rep->TextCol(0, 4, _("Total"));
+		$rep->AmountCol(4, 5, $totdeb, $dec);
+		$rep->AmountCol(5, 6, abs($totcre), $dec);
+		$rep->Line($rep->row -= 4);
+	}
+	
+	//purchase report
+	$rep->title = _('Inventory Purchasing Report');
 
 	$cols = array(0, 60, 180, 225, 275, 400, 420, 465,	520);
 
@@ -229,15 +237,14 @@ function print_inventory_purchase()
 
 	$aligns = array('left',	'left',	'left', 'left', 'left', 'left', 'right', 'right');
 
-     $params =   array( 	0 => array('from' => $from,'to' => $to));
+	$params =   array( 	0 => array('from' => $from,'to' => $to));
 
-    $rep = new FrontReport(_('Inventory Purchasing Report'), "InventoryPurchasingReport", user_pagesize(), 9, $orientation);
-    if ($orientation == 'L')
-    	recalculate_cols($cols);
+	if ($orientation == 'L')
+		recalculate_cols($cols);
 
-    $rep->Font();
-    $rep->Info($params, $cols, $headers, $aligns);
-    $rep->NewPage();
+	$rep->Font();
+	$rep->Info($params, $cols, $headers, $aligns);
+	$rep->NewPage();
 
 	$res = getPurchTransactions($from, $to);
 
@@ -302,7 +309,7 @@ function print_inventory_purchase()
 			$catt = $trans['cat_description'];
 			$rep->NewLine();
 		}
-		
+
 		$curr = get_supplier_currency($trans['supplier_id']);
 		$rate = get_exchange_rate_from_home_currency($curr, sql2date($trans['tran_date']));
 		$trans['price'] *= $rate;
@@ -375,74 +382,13 @@ function print_inventory_purchase()
 
 	$rep->Line($rep->row  - 4);
 	$rep->NewLine();
-    $rep->End();
-}
 
-//------------------------------------inventory sales report----------------------------------------------------------------
-
-
-function getSalesTransactions($from, $to)
-{
-	$from = date2sql($from);
-	$to = date2sql($to);
-	$sql = "SELECT ".TB_PREF."stock_master.category_id,
-			".TB_PREF."stock_category.description AS cat_description,
-			".TB_PREF."stock_master.stock_id,
-			".TB_PREF."stock_master.description, ".TB_PREF."stock_master.inactive,
-			".TB_PREF."stock_moves.loc_code,
-			".TB_PREF."debtor_trans.debtor_no,
-			".TB_PREF."debtors_master.name AS debtor_name,
-			".TB_PREF."stock_moves.tran_date,
-			SUM(-".TB_PREF."stock_moves.qty) AS qty,
-			SUM(-".TB_PREF."stock_moves.qty*".TB_PREF."stock_moves.price*(1-".TB_PREF."stock_moves.discount_percent)) AS amt,
-			SUM(-IF(".TB_PREF."stock_moves.standard_cost <> 0, ".TB_PREF."stock_moves.qty * ".TB_PREF."stock_moves.standard_cost, ".TB_PREF."stock_moves.qty *(".TB_PREF."stock_master.material_cost + ".TB_PREF."stock_master.labour_cost + ".TB_PREF."stock_master.overhead_cost))) AS cost
-		FROM ".TB_PREF."stock_master,
-			".TB_PREF."stock_category,
-			".TB_PREF."debtor_trans,
-			".TB_PREF."debtors_master,
-			".TB_PREF."stock_moves
-		WHERE ".TB_PREF."stock_master.stock_id=".TB_PREF."stock_moves.stock_id
-		AND ".TB_PREF."stock_master.category_id=".TB_PREF."stock_category.category_id
-		AND ".TB_PREF."debtor_trans.debtor_no=".TB_PREF."debtors_master.debtor_no
-		AND ".TB_PREF."stock_moves.type=".TB_PREF."debtor_trans.type
-		AND ".TB_PREF."stock_moves.trans_no=".TB_PREF."debtor_trans.trans_no
-		AND ".TB_PREF."stock_moves.tran_date>='$from'
-		AND ".TB_PREF."stock_moves.tran_date<='$to'
-		AND (".TB_PREF."debtor_trans.type=".ST_CUSTDELIVERY." OR ".TB_PREF."stock_moves.type=".ST_CUSTCREDIT.")
-		AND (".TB_PREF."stock_master.mb_flag='B' OR ".TB_PREF."stock_master.mb_flag='M')";
-		$sql .= " GROUP BY ".TB_PREF."stock_master.stock_id, ".TB_PREF."debtors_master.name ORDER BY ".TB_PREF."stock_master.category_id,
-			".TB_PREF."stock_master.stock_id, ".TB_PREF."debtors_master.name";
-    return db_query($sql,"No transactions were returned");
-
-}
-
-//----------------------------------------------------------------------------------------------------
-
-function print_inventory_sales()
-{
-    global $path_to_root;
-
-
-    $from = $_POST['PARAM_0'];
-    $to = $_POST['PARAM_1'];
-    $email = $_POST['PARAM_2'];
-    $orientation = $_POST['PARAM_3'];
-    $destination = $_POST['PARAM_4'];
-
-	if ($destination)
-		include_once($path_to_root . "/reporting/includes/excel_report.inc");
-	else
-		include_once($path_to_root . "/reporting/includes/pdf_report.inc");
-
-	$orientation = ($orientation ? 'L' : 'P');
-    $dec = user_price_dec();
-
+	//purchase report ends here
 	
 
-	//$cols = array(0, 75, 175, 250, 300, 375, 450,	515);
+	//sales report
+	$rep->title = _('Inventory Sales Report');
 	$cols = array(0, 90, 210, 250, 300, 375, 450,	515);
-
-	//$headers = array(_('Category'), _('Description'), _('Customer'), _('Qty'), _('Sales'), _('Cost'), _('Contribution'));
 	$headers = array(_('Description'), _('Customer'), _('Qty'), _('Trans Date'), _('Sales'), _('Cost'), _('Contribution'));
 
 	if ($fromcust != '')
@@ -450,20 +396,19 @@ function print_inventory_sales()
 
 	$aligns = array('left',	'left',	'left', 'right', 'right', 'right', 'right');
 
-     $params =   array(0 => array('from' => $from,'to' => $to));
+	$params =   array(0 => array('from' => $from,'to' => $to));
 
-    $rep = new FrontReport(_('Inventory Sales Report'), "InventorySalesReport", user_pagesize(), 9, $orientation);
-   	if ($orientation == 'L')
-    	recalculate_cols($cols);
+	if ($orientation == 'L')
+		recalculate_cols($cols);
 
-    $rep->InfoSearch = "Trans Date: $from - $to";
+	$rep->InfoSearch = "Trans Date: $from - $to";
 
-    $rep->Font();
-    $rep->Info($params, $cols, $headers, $aligns,0, $header2);
-    $rep->NewPage();
+	$rep->Font();
+	$rep->Info($params, $cols, $headers, $aligns,0, $header2);
+	$rep->NewPage();
 
 
-	$res = etSalesTransactions($from, $to);
+	$res = getSalesTransactions($from, $to);
 	$total = $grandtotal = 0.0;
 	$total1 = $grandtotal1 = 0.0;
 	$total2 = $grandtotal2 = 0.0;
@@ -535,7 +480,17 @@ function print_inventory_sales()
 
 	$rep->Line($rep->row  - 4);
 	$rep->NewLine();
-    $rep->End();
+	//sales report ends here
+	
+	if ($email == 1)
+		$rep->End($email);
+	else
+		$rep->End();
 }
+
+//-----------------------------------------------------------
+
+
+
 
 ?>
