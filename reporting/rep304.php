@@ -200,7 +200,7 @@ function print_inventory_sales()
 	}
 	$rep->NewLine(2, 3);
 	$rep->TextCol(0, 4, _('Total'));
-	$rep->AmountCol(3, 4, $total_qty);
+	$rep->TextCol(3, 4, $total_qty);
 	$rep->AmountCol(4, 5, $total, $dec);
 	$rep->AmountCol(5, 6, $total1, $dec);
 	$rep->AmountCol(6, 7, $total2, $dec);
@@ -208,7 +208,7 @@ function print_inventory_sales()
 	$rep->NewLine();
 	$rep->NewLine(2, 1);
 	$rep->TextCol(0, 4, _('Grand Total'));
-	$rep->AmountCol(3, 4, $grand_total_qty);
+	$rep->TextCol(3, 4, $grand_total_qty);
 	$rep->AmountCol(4, 5, $grandtotal, $dec);
 	$rep->AmountCol(5, 6, $grandtotal1, $dec);
 	$rep->AmountCol(6, 7, $grandtotal2, $dec);
