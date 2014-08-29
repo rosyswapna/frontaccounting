@@ -42,7 +42,7 @@ function defaultCompany()
 	}
 	if (!isset($def_coy))
 		$def_coy = 0;
-	$def_theme = "default";
+	$def_theme = "modern";
 
 	$login_timeout = $_SESSION["wa_current_user"]->last_act;
 
@@ -84,7 +84,7 @@ function defaultCompany()
 
 	echo "<input type='hidden' id=ui_mode name='ui_mode' value='".$_SESSION["wa_current_user"]->ui_mode."' />\n";
 	if (!$login_timeout)
-		table_section_title(_("Version")." $version   Build $build_version - "._("Login"));
+		//table_section_title(_("Version")." $version   Build $build_version - "._("Login"));
 		//table_section_title(_("Login"));
 	$value = $login_timeout ? $_SESSION['wa_current_user']->loginname : ($allow_demo_mode ? "demouser":"");
 
