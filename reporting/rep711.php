@@ -145,12 +145,17 @@ function print_eod()
 	$params =   array( 	0 => array('from' => $from,'to' => $to));
 	
 	$rep = new FrontReport("", "", user_pagesize(), 9, $orientation);
-	$rep->title = _('List of Journal Entries');	
+
+	
+	$rep->title = _('EOD Report');	
+	$rep->InfoSearch = _("List of Journal Entries between $from - $to");
 	if ($orientation == 'L')
 		recalculate_cols($cols);
 
 	$rep->Font();
 	$rep->Info($params, $cols, $headers, $aligns);
+	$rep->contactData = array(0=>array('email'=>$rep->company['email']));
+	
 	$rep->NewPage();
 
 	$trans = get_gl_transactions($from, $to, -1, null, 0, 0);
@@ -227,7 +232,9 @@ function print_eod()
 	}
 	
 	//purchase report
-	$rep->title = _('Inventory Purchasing Report');
+	$rep->title = _('EOD Report');
+	$rep->InfoSearch = _("Inventory Purchasing Report between $from - $to");
+	
 
 	$cols = array(0, 60, 180, 225, 275, 400, 420, 465,	520);
 
@@ -387,7 +394,9 @@ function print_eod()
 	
 
 	//sales report
-	$rep->title = _('Inventory Sales Report');
+	$rep->title = _('EOD Report');
+	$rep->InfoSearch = _("Inventory Sales Report between $from - $to");
+
 	$cols = array(0, 90, 210, 250, 300, 375, 450,	515);
 	$headers = array(_('Description'), _('Customer'), _('Qty'), _('Trans Date'), _('Sales'), _('Cost'), _('Contribution'));
 
@@ -401,7 +410,7 @@ function print_eod()
 	if ($orientation == 'L')
 		recalculate_cols($cols);
 
-	$rep->InfoSearch = "Trans Date: $from - $to";
+	
 
 	$rep->Font();
 	$rep->Info($params, $cols, $headers, $aligns,0, $header2);
@@ -483,7 +492,7 @@ function print_eod()
 	//sales report ends here
 	
 	if ($email == 1)
-		$rep->End($email);
+		$rep->End($email,'EOD Report');
 	else
 		$rep->End();
 }

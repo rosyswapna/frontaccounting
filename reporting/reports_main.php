@@ -508,8 +508,8 @@ $reports->addReport(RC_GL, 710, _('Audit Trail'),
 
 $reports->addReportClass(_('Other'), RC_OTHER);
 $reports->addReport(RC_OTHER, 711, _('EOD Report'),
-	array(	_('Start Date') => 'DATEBEGIN',
-			_('End Date') => 'DATEENDM',
+	array(	_('Start Date') => 'DATE',
+			_('End Date') => 'DATE',
 			_('Email to Company id') => 'YES_NO',
 			_('Orientation') => 'ORIENTATION',
 			_('Destination') => 'DESTINATION'));
