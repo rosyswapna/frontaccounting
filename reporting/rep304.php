@@ -113,7 +113,7 @@ function print_inventory_sales()
 	$cols = array(0, 90, 210, 250, 300, 375, 450,	515);
 
 	//$headers = array(_('Category'), _('Description'), _('Customer'), _('Qty'), _('Sales'), _('Cost'), _('Contribution'));
-	$headers = array(_('Description'), _('Customer'), _('Qty'), _('Trans Date'), _('Sales'), _('Cost'), _('Contribution'));
+	$headers = array(_('Description'), _('Customer'), _('Trans Date'), _('Qty'), _('Sales'), _('Cost'), _('Contribution'));
 
 	if ($fromcust != '')
 		$headers[2] = '';
@@ -138,6 +138,7 @@ function print_inventory_sales()
 
 
 	$res = getTransactions($category, $location, $fromcust, $from, $to);
+	$total_qty = $grant_total_qty = 0;
 	$total = $grandtotal = 0.0;
 	$total1 = $grandtotal1 = 0.0;
 	$total2 = $grandtotal2 = 0.0;
@@ -181,21 +182,25 @@ function print_inventory_sales()
 		}
 		else
 			$rep->TextCol(0, 2, $trans['description'].($trans['inactive']==1 ? " ("._("Inactive").")" : ""), -1);
-		$rep->AmountCol(2, 3, $trans['qty'], get_qty_dec($trans['stock_id']));
-		$rep->DateCol(3, 4, $trans['tran_date'], $dec);
+		$rep->DateCol(2, 3, $trans['tran_date'], $dec);		
+		$rep->AmountCol(3, 4, $trans['qty'], get_qty_dec($trans['stock_id']));
 		$rep->AmountCol(4, 5, $trans['amt'], $dec);
 		$rep->AmountCol(5, 6, $trans['cost'], $dec);
 		$rep->AmountCol(6, 7, $cb, $dec);
 		$rep->fontSize += 2;
+		$total_qty +=$trans['qty']; 
 		$total += $trans['amt'];
 		$total1 += $trans['cost'];
 		$total2 += $cb;
+
+		$grand_total_qty +=$trans['qty']; 
 		$grandtotal += $trans['amt'];
 		$grandtotal1 += $trans['cost'];
 		$grandtotal2 += $cb;
 	}
 	$rep->NewLine(2, 3);
 	$rep->TextCol(0, 4, _('Total'));
+	$rep->AmountCol(3, 4, $total_qty);
 	$rep->AmountCol(4, 5, $total, $dec);
 	$rep->AmountCol(5, 6, $total1, $dec);
 	$rep->AmountCol(6, 7, $total2, $dec);
@@ -203,6 +208,7 @@ function print_inventory_sales()
 	$rep->NewLine();
 	$rep->NewLine(2, 1);
 	$rep->TextCol(0, 4, _('Grand Total'));
+	$rep->AmountCol(3, 4, $grand_total_qty);
 	$rep->AmountCol(4, 5, $grandtotal, $dec);
 	$rep->AmountCol(5, 6, $grandtotal1, $dec);
 	$rep->AmountCol(6, 7, $grandtotal2, $dec);
