@@ -51,30 +51,32 @@ if(!isset($_GET['data'])){
 	$dataArray = array();
 
 
-	if(isset($_GET['data'])){
+	
+	
 
-		if(isset($_GET['vh'])){
-			$dataArray['vehicle_details'] = $_GET['vh'];
-		}
+	if(isset($_GET['vh'])){
+		$dataArray['vehicle_details'] = $_GET['vh'];
+	}
 
-		if(isset($_GET['fw'])){
-			$dataArray['first_weight'] = abs($_GET['fw']);
-			if(isset($_GET['dt'])){
-				$dataArray['first_weight_date'] = $_GET['dt'];
-			}
-		}
+	if(isset($_GET['fw'])){
+		$dataArray['first_weight'] = abs($_GET['fw']);
+		$dataArray['first_weight_date'] = date('d-m-Y H:i:s');
+		/*if(isset($_GET['dt'])){
+			$dataArray['first_weight_date'] = $_GET['dt'];
+		}*/
+	}
 
-		if(isset($_GET['sw'])){
-			$dataArray['second_weight'] = abs($_GET['sw']);
-			if(isset($_GET['dt'])){
-				$dataArray['second_weight_date'] = $_GET['dt'];
-			}
-		}
+	if(isset($_GET['sw'])){
+		$dataArray['second_weight'] = abs($_GET['sw']);
+		$dataArray['second_weight_date'] = date('d-m-Y H:i:s');
+		/*if(isset($_GET['dt'])){
+			$dataArray['second_weight_date'] = $_GET['dt'];
+		}*/
+	}
 
 		
-
-
-
+	if($dataArray){
+		
 
 		start_table(TABLESTYLE, "width=60%", 10);
 
@@ -99,19 +101,17 @@ if(!isset($_GET['data'])){
 		end_table();
 		
 		
-			div_start('controls');
+		div_start('controls');
 
-				submit_multi_return_center('select', $dataArray, _("Select this shipping details and return to document entry."));
-				
-			div_end();
+			submit_multi_return_center('select', $dataArray, _("Select this shipping details and return to document entry."));
+		
+		div_end();
 
-			hidden('popup', @$_REQUEST['popup']);
-			end_form();
-
+		hidden('popup', @$_REQUEST['popup']);
 	}else{
-		display_error("Data File not Received.");
+		display_error("Error in retrieving data.");
 	}
-
+	end_form();
 
 	end_page(@$_REQUEST['popup']);
 }
