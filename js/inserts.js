@@ -435,12 +435,6 @@ var inserts = {
 	},
 	'button[aspect*selector], button[aspect*abort], input[aspect*selector]': function(e) {
 		e.onclick = function() {
-			var ret_val = this.getAttribute('rel');
-			
-			
-				alert($.stringify(ret_val));
-			
-
 			passBack(this.getAttribute('rel'));
 			return false;
 		}

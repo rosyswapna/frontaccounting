@@ -132,7 +132,8 @@ start_outer_table(TABLESTYLE2);
 
 		
 		table_section(3);
-		vehicle_row(_("Vehicle Number").':', 'vehicle_details', _(''), null, '');
+		//vehicle_row(_("Vehicle Number").':', 'vehicle_details', _(''), null, '');
+		vehicle_list_row(_("Vehicle Number").':', 'vehicle_details', null, true, false, false, true);
 		
 		
 		table_section(4);

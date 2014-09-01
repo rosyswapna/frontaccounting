@@ -804,6 +804,27 @@ function vehicle_list($name, $selected_id=null, $spec_option=false, $submit_on_c
 		$ret .= add_edit_combo('vehicle');
 	return $ret;
 }
+
+function vehicle_list_cells($label, $name, $selected_id=null, $all_option=false, 
+	$submit_on_change=false, $show_inactive=false, $editkey = false)
+{
+	if ($label != null)
+		echo "<td>$label</td>\n";
+	echo "<td nowrap>";
+	echo vehicle_list($name, $selected_id, $all_option, $submit_on_change,
+		$show_inactive, $editkey);
+	echo "</td>\n";
+}
+
+function vehicle_list_row($label, $name, $selected_id=null, $all_option = false, 
+	$submit_on_change=false, $show_inactive=false, $editkey = false,$where = array())
+{
+	global $path_to_root;
+	echo "<tr><td class='label'>$label</td><td nowrap>";
+	echo vehicle_list($name, $selected_id, $all_option, $submit_on_change,
+		$show_inactive, $editkey,$where);
+	echo "</td>\n</tr>\n";
+}
 //------------------------------------------------------------------------------------------------
 
 function customer_branches_list($customer_id, $name, $selected_id=null,

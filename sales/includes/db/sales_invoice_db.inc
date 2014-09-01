@@ -176,6 +176,7 @@ function write_sales_invoice(&$invoice)
 				$invoice->Branch, $invoice->pos['pos_account'], $date_,
 				$Refs->get_next(ST_CUSTPAYMENT), $amount-$discount, $discount,
 				_('Cash invoice').' '.$invoice_no);
+
 			add_cust_allocation($amount, ST_CUSTPAYMENT, $pmtno, ST_SALESINVOICE, $invoice_no);
 
 			update_debtor_trans_allocation(ST_SALESINVOICE, $invoice_no, $amount);

@@ -115,7 +115,7 @@ function(e){e.setAttribute('_last_val',e.value);e.setAttribute('autocomplete','o
 JsHttpRequest.request('_'+this.name+'_changed',this.form);}
 }
 },
-'button[aspect*selector], button[aspect*abort], input[aspect*selector]':function(e){e.onclick=function(){var ret_val=this.getAttribute('rel');alert($.stringify(ret_val));passBack(this.getAttribute('rel'));return false;}
+'button[aspect*selector], button[aspect*abort], input[aspect*selector]':function(e){e.onclick=function(){passBack(this.getAttribute('rel'));return false;}
 },
 'button[aspect*multi_selector]':function(e){e.onclick=function(){var dataArray=[];var oForm=document.forms[0];var key='';for(var i=0;i<oForm.elements.length;i++){if(oForm.elements[i].getAttribute('name').substring(0,4)=='get_'){key=oForm.elements[i].getAttribute('name').substring(4,oForm.elements[i].getAttribute('name').length);dataArray[key]=oForm.elements[i].value;}
 }
