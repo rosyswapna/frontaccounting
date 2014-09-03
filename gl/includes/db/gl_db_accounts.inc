@@ -201,4 +201,20 @@ function gl_account_in_bank_accounts($acc)
 	$myrow = db_fetch_row($result);
 	return ($myrow[0] > 0); 
 }
+
+function gl_default_account()
+{
+	$sql= "SELECT id FROM ".TB_PREF."bank_accounts WHERE 
+		dflt_curr_act=1";
+	$result = db_query($sql,"Couldn't default bank account GL codes");
+
+	if (db_num_rows($result) == 1)
+	{
+		$row = db_fetch_row($result);
+		return $row[0];
+	}
+
+	display_db_error("could not retreive the default account", $sql, true);
+}
+
 ?>

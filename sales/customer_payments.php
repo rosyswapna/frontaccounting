@@ -365,7 +365,9 @@ start_form();
 
 	table_section(1);
 
-	bank_accounts_list_row(_("Into Bank Account:"), 'bank_account', null, true);
+	$selected_id = gl_default_account();
+
+	bank_accounts_list_row(_("Into Bank Account:"), 'bank_account', $selected_id, true);
 
 	if ($new)
 		customer_list_row(_("From Customer:"), 'customer_id', null, false, true);
