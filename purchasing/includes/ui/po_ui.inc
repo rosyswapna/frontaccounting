@@ -178,7 +178,8 @@ function display_po_header(&$order)
 
     if ($editable)
     {
-    	ref_row(_("Reference:"), 'ref');
+    	ref_row(_("Reference:"), 'ref',null, null, false,true);
+	
     }
     else
     {
