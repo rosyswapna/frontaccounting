@@ -102,7 +102,7 @@ function invoice_header(&$supp_trans)
 		copy_from_trans($supp_trans);
 	}
 
-   	ref_row(_("Reference:"), 'reference', '', $Refs->get_next($supp_trans->trans_type));
+   	ref_row(_("Reference:"), 'reference', '', $Refs->get_next($supp_trans->trans_type),false,true);
 
 	if (isset($_POST['invoice_no']))
 	{
