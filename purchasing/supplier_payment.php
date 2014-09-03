@@ -317,7 +317,7 @@ start_form();
 
     date_row(_("Date Paid") . ":", 'DatePaid', '', true, 0, 0, 0, null, true);
 
-    ref_row(_("Reference:"), 'ref', '', $Refs->get_next(ST_SUPPAYMENT));
+    ref_row(_("Reference:"), 'ref', '', $Refs->get_next(ST_SUPPAYMENT),false,true);//readonly
 
     check_row(_("Cheque:"), 'cheque', null, true);
 
