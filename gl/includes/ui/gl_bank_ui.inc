@@ -132,6 +132,8 @@ function display_bank_header(&$order)
 
 	cheque_date_row();//cheque_date
 
+	cheque_number_row();
+
 	$bank_currency = get_bank_account_currency($_POST['bank_account']);
 
 	exchange_rate_display(get_company_currency(), $bank_currency, $_POST['date_']);

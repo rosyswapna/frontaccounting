@@ -299,7 +299,7 @@ function add_bank_transfer($from_account, $to_account, $date_,
 // FIXME -revise code for update case
 //
 function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $date_,
-	$person_type_id, $person_id, $person_detail_id,	$ref, $memo_, $use_transaction=true, $settled_amount=null,$cheque= false,$cheque_date='')
+	$person_type_id, $person_id, $person_detail_id,	$ref, $memo_, $use_transaction=true, $settled_amount=null,$cheque= false,$cheque_date='', $cheque_no = '')
 {
 	global $Refs, $SysPrefs;
 
@@ -381,7 +381,7 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
     	$date_, -$total_amount,
     	$person_type_id, $person_id,
     	$currency,
-    	"Cannot insert a source bank transaction",0,$cheque,$cheque_date);
+    	"Cannot insert a source bank transaction",0,$cheque,$cheque_date,$cheque_no);
 	$total = 0;
 	foreach ($items->gl_items as $gl_item)
 	{

@@ -226,14 +226,16 @@ function check_inputs()
 			set_focus('cheque_date');
 			return false;
 		}
+		
+		if (!get_post('cheque_no'))
+		{
+			display_error(_("The entered cheque number is invalid. Please enter a valid cheque number for the payment."));
+			set_focus('cheque_no');
+			return false;
+		} 
 	}
 
-	if (!get_post('cheque_no'))
-	{
-		display_error(_("The entered cheque number is invalid. Please enter a valid cheque number for the payment."));
-		set_focus('cheque_no');
-		return false;
-	} 
+	
 
 
 	if (!db_has_currency_rates(get_supplier_currency($_POST['supplier_id']), $_POST['DatePaid'], true))
