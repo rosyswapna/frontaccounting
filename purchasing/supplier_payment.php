@@ -228,6 +228,13 @@ function check_inputs()
 		}
 	}
 
+	if (!get_post('cheque_no'))
+	{
+		display_error(_("The entered cheque number is invalid. Please enter a valid cheque number for the payment."));
+		set_focus('cheque_no');
+		return false;
+	} 
+
 
 	if (!db_has_currency_rates(get_supplier_currency($_POST['supplier_id']), $_POST['DatePaid'], true))
 		return false;
@@ -249,13 +256,14 @@ function handle_add_payment()
 	if(isset($_POST['cheque'])){
 		$cheque = $_POST['cheque'];
 		$cheque_date = $_POST['cheque_date'];
+		$cheque_no = $_POST['cheque_no'];
 	}else{
-		$cheque = false;$cheque_date = '';
+		$cheque = false;$cheque_date = $cheque_no = '';
 	}
 
 	$payment_id = write_supp_payment(0, $_POST['supplier_id'], $_POST['bank_account'],
 		$_POST['DatePaid'], $_POST['ref'], input_num('amount'),	input_num('discount'), $_POST['memo_'], 
-		input_num('charge'), input_num('bank_amount', input_num('amount')),$cheque,$cheque_date);
+		input_num('charge'), input_num('bank_amount', input_num('amount')),$cheque,$cheque_date,$cheque_no);
 	new_doc_date($_POST['DatePaid']);
 
 	$_SESSION['alloc']->trans_no = $payment_id;
@@ -322,6 +330,7 @@ start_form();
     check_row(_("Cheque:"), 'cheque', null, true);
 
 	cheque_date_row();//cheque_date
+	cheque_number_row();
 
 	table_section(3);
 
