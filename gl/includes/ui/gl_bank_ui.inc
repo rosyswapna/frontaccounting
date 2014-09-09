@@ -23,7 +23,7 @@ function display_bank_header(&$order)
 	
     date_row(_("Date:"), 'date_', '', true, 0, 0, 0, null, true);
 
-	ref_row(_("Reference:"), 'ref', '');
+	ref_row(_("Reference:"), 'ref', '',null,null,true);
 
 
 

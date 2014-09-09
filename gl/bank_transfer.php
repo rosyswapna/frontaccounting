@@ -76,7 +76,7 @@ function gl_payment_controls()
 	}
     date_row(_("Transfer Date:"), 'DatePaid', '', true, 0, 0, 0, null, true);
 
-    ref_row(_("Reference:"), 'ref', '', $Refs->get_next(ST_BANKTRANSFER));
+    ref_row(_("Reference:"), 'ref', '', $Refs->get_next(ST_BANKTRANSFER),'',true);
 
 	table_section(2);
 

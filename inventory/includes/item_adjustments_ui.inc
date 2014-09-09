@@ -32,7 +32,7 @@ function display_order_header(&$order)
 	table_section(1);
 
 	locations_list_row(_("Location:"), 'StockLocation', null);
-	ref_row(_("Reference:"), 'ref', '', $Refs->get_next(ST_INVADJUST));
+	ref_row(_("Reference:"), 'ref', '', $Refs->get_next(ST_INVADJUST),'',true);
 
 	table_section(2, "33%");
 

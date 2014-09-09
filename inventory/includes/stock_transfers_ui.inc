@@ -37,7 +37,7 @@ function display_order_header(&$order)
 
 	table_section(2, "33%");
 
-	ref_row(_("Reference:"), 'ref', '', $Refs->get_next(ST_LOCTRANSFER));
+	ref_row(_("Reference:"), 'ref', '', $Refs->get_next(ST_LOCTRANSFER),'',true);
 
     date_row(_("Date:"), 'AdjDate', '', true);
 

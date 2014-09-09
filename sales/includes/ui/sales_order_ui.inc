@@ -376,7 +376,7 @@ function display_order_header(&$order, $editable, $date_text)
 		}
 	}
 
-	ref_row(_("Reference").':', 'ref', _('Reference number unique for this document type'), null, '');
+	ref_row(_("Reference").':', 'ref', _('Reference number unique for this document type'), null, '',true);
 
 	table_section(2);
 
