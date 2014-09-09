@@ -364,8 +364,11 @@ start_form();
 	start_outer_table(TABLESTYLE2, "width=60%", 5);
 
 	table_section(1);
-
-	$selected_id = gl_default_account();
+	
+	if(list_updated('bank_account'))
+		$selected_id = get_post('bank_account');
+	else
+		$selected_id = gl_default_account();
 
 	bank_accounts_list_row(_("Into Bank Account:"), 'bank_account', $selected_id, true);
 

@@ -119,9 +119,11 @@ function display_bank_header(&$order)
 			unset($_POST['bank_account']);
 	}
 	
-	
-	
-    $selected_id = gl_default_account();
+	if(list_updated('bank_account'))
+		$selected_id = get_post('bank_account');
+	else	
+	    $selected_id = gl_default_account();
+
     bank_accounts_list_row( $payment ? _("From:") : _("Into:"), 'bank_account', $selected_id, true);
     if ($payment)
 		bank_balance_row($_POST['bank_account']);

@@ -319,7 +319,12 @@ start_form();
 	else
 		$_POST['amount'] = price_format(0);
 
-    bank_accounts_list_row(_("From Bank Account:"), 'bank_account', null, true);
+	if(list_updated('bank_account'))
+		$ac_id = get_post('bank_account');
+	else
+		$ac_id = gl_default_account();
+
+    	bank_accounts_list_row(_("From Bank Account:"), 'bank_account', $ac_id, true);
 
 	bank_balance_row($_POST['bank_account']);
 
