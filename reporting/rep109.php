@@ -97,7 +97,9 @@ function print_sales_orders()
 		$rep->Info($params, $cols, null, $aligns);
 
 		$contacts = get_branch_contacts($branch['branch_code'], 'order', $branch['debtor_no'], true);
-		$rep->SetCommonData($myrow, $branch, $myrow, $baccount, ST_SALESORDER, $contacts);
+		//shipment details
+		$shipping = get_shipping_detail($myrow["shipping_id"]);
+		$rep->SetCommonData($myrow, $branch, $myrow, $baccount, ST_SALESORDER, $contacts,$shipping);
 		$rep->NewPage();
 
 		$result = get_sales_order_details($i, ST_SALESORDER);

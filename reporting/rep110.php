@@ -81,7 +81,8 @@ function print_deliveries()
 			$myrow = get_customer_trans($i, ST_CUSTDELIVERY);
 			$branch = get_branch($myrow["branch_code"]);
 			$sales_order = get_sales_order_header($myrow["order_"], ST_SALESORDER); // ?
-
+			
+			
 			if ($email == 1)
 			{
 				$rep = new FrontReport("", "", user_pagesize(), 9, $orientation);
@@ -101,8 +102,11 @@ function print_deliveries()
 			$rep->Font();
 			$rep->Info($params, $cols, null, $aligns);
 
-			$contacts = get_branch_contacts($branch['branch_code'], 'delivery', $branch['debtor_no'], true);
-			$rep->SetCommonData($myrow, $branch, $sales_order, '', ST_CUSTDELIVERY, $contacts);
+			$contacts = get_branch_contacts($branch['branch_code'], 'delivery', $branch['debtor_no'], true);	
+			//shipment details
+			$shipping = get_shipping_detail($sales_order["shipping_id"]);
+
+			$rep->SetCommonData($myrow, $branch, $sales_order, '', ST_CUSTDELIVERY, $contacts,$shipping);
 			$rep->NewPage();
 
    			$result = get_customer_trans_details(ST_CUSTDELIVERY, $i);
