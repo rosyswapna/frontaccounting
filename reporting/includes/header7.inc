@@ -131,6 +131,25 @@
 
 		$this->TextWrapLines($ccol, $c2col, $sc_other_terms);
 		
+		//shipment terms
+		$this->NewLine();
+		$this->Font('bold');
+		$this->Text($ccol,"SHIPMENT TERMS:");
+
+		$this->NewLine();
+		$this->Font();
+
+		$this->TextWrapLines($ccol, $c2col, $this->formData['shipment_terms']);
+		//remarks
+		$this->NewLine();
+		$this->Font('bold');
+		$this->Text($ccol,"REMARKS:");
+
+		$this->NewLine();
+		$this->Font();
+
+		$this->TextWrapLines($ccol, $c2col, $this->formData['remarks']);
+		
 		
 		
 		

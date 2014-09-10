@@ -81,6 +81,7 @@ function print_deliveries()
 			$myrow = get_customer_trans($i, ST_CUSTDELIVERY);
 			$branch = get_branch($myrow["branch_code"]);
 			$sales_order = get_sales_order_header($myrow["order_"], ST_SALESORDER); // ?
+
 			if ($email == 1)
 			{
 				$rep = new FrontReport("", "", user_pagesize(), 9, $orientation);
@@ -143,12 +144,28 @@ function print_deliveries()
 					$rep->NewPage();
 			}
 
+
 			$memo = get_comments_string(ST_CUSTDELIVERY, $i);
 			if ($memo != "")
 			{
 				$rep->NewLine();
 				$rep->TextColLines(1, 5, $memo, -2);
 			}
+			//shipment terms
+			if ($sales_order['shipment_terms'] != "")
+			{
+				$rep->NewLine(2);
+				$rep->TextColLines(1, 5, "Shipment Terms : ".$sales_order['shipment_terms'], -2);
+			}
+			
+			//remarks
+			if ($sales_order['remarks'] != "")
+			{
+				$rep->NewLine();
+				$rep->TextColLines(1, 5, "Remarks : ".$sales_order['remarks'], -2);
+			}
+
+
 
    			$DisplaySubTot = number_format2($SubTotal,$dec);
    			$DisplayFreight = number_format2($myrow["ov_freight"],$dec);

@@ -82,6 +82,7 @@
 		$iline7 = $iline6 - 1.5 * $this->lineHeight;
 		$iline8 = $iline7 - 1.5 * $this->lineHeight;
 		$iline9 = $iline8 - 1.5 * $this->lineHeight;
+		$iline10 = $iline9 - 1.9 * $this->lineHeight;
 
 		//table column's points
 		$inner1 = $leftEnd+90;
@@ -99,11 +100,12 @@
 		$this->Line1($iline7,0,$ccol);
 		$this->Line1($iline8,0,$inner3);
 		$this->Line1($iline9,0,$ccol);
+		$this->Line1($iline10,0,$ccol);
 
 		
 		//table vertical left and right end lines
-		$this->LineTo($rightEnd, $iline3 ,$rightEnd, $iline9);
-		$this->LineTo($leftEnd, $iline3 ,$leftEnd, $iline9);
+		$this->LineTo($rightEnd, $iline3 ,$rightEnd, $iline10);
+		$this->LineTo($leftEnd, $iline3 ,$leftEnd, $iline10);
 
 		//table vertical inner lines
 		$this->LineTo($inner1, $iline4 ,$inner1, $iline6);
@@ -251,8 +253,15 @@
 			$this->TextWrap($leftEnd, $this->row, $inner3-$leftEnd-2, $words, 'left');
 		}
 
+		//comments
+		if($memo!= ""){
+			$this->row = $iline9 - $this->lineHeight - 1;
+			$this->TextWrap($leftEnd, $this->row, $inner3-$leftEnd-2, $memo, 'left');
+		}
+
+
 		//CERTIFY
-		$this->row = $iline9 - $this->lineHeight;
+		$this->row = $iline10 - $this->lineHeight;
 		$this->Text($ccol, $Certify);
 
 		//BANK DETAILS

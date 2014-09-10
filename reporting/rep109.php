@@ -140,6 +140,21 @@ function print_sales_orders()
 			$rep->NewLine();
 			$rep->TextColLines(1, 5, $myrow['comments'], -2);
 		}
+
+		//shipment terms
+		if ($myrow['shipment_terms'] != "")
+		{
+			$rep->NewLine(2);
+			$rep->TextColLines(1, 5, "Shipment Terms : ".$myrow['shipment_terms'], -2);
+		}
+		
+		//remarks
+		if ($myrow['remarks'] != "")
+		{
+			$rep->NewLine();
+			$rep->TextColLines(1, 5, "Remarks : ".$myrow['remarks'], -2);
+		}
+
 		$DisplaySubTot = number_format2($SubTotal,$dec);
 		$DisplayFreight = number_format2($myrow["freight_cost"],$dec);
 
