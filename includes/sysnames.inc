@@ -20,8 +20,8 @@ global $systypes_array, $bank_account_types, $bank_transfer_types,
 
 $systypes_array = array (
 	ST_JOURNAL => _("Journal Entry"),
-	ST_BANKPAYMENT => _("Bank Payment"),
-	ST_BANKDEPOSIT => _("Bank Deposit"),
+	ST_BANKPAYMENT => _("Payment"),
+	ST_BANKDEPOSIT => _("Deposit"),
 	ST_BANKTRANSFER => _("Funds Transfer"),
 	ST_SALESINVOICE => _("Sales Invoice"),
 	ST_EXPORTINVOICE => _("Export Invoice"),
