@@ -167,12 +167,12 @@ function check_data()
 		return false;
 	}
 
-	if (!$Refs->is_valid($_SESSION['supp_trans']->supp_reference)) 
+	/*if (!$Refs->is_valid($_SESSION['supp_trans']->supp_reference)) 
 	{
 		display_error(_("You must enter a supplier's invoice reference."));
 		set_focus('supp_reference');
 		return false;
-	}
+	}*/
 
 	if (!is_date( $_SESSION['supp_trans']->tran_date))
 	{
@@ -192,11 +192,21 @@ function check_data()
 		set_focus('due_date');
 		return false;
 	}
-
-	if (is_reference_already_there($_SESSION['supp_trans']->supplier_id, $_POST['supp_reference']))
-	{ 	/*Transaction reference already entered */
+	
+	/*if (is_reference_already_there($_SESSION['supp_trans']->supplier_id, $_POST['supp_reference']))
+	{ 	//Transaction reference already entered 
 		display_error(_("This invoice number has already been entered. It cannot be entered again.") . " (" . $_POST['supp_reference'] . ")");
 		return false;
+	}*/
+
+	if($_POST['supp_reference'])
+	{
+
+		if (is_reference_already_there($_SESSION['supp_trans']->supplier_id, $_POST['supp_reference']))
+		{ 	//Transaction reference already entered 
+			display_error(_("This invoice number has already been entered. It cannot be entered again.") . " (" . $_POST['supp_reference'] . ")");
+			return false;
+		}
 	}
 
 	return true;
