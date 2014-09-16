@@ -139,9 +139,11 @@
 		$this->Text($mcol + 100, $this->formData['document_name']);
 		$this->Text($mcol + 180, $this->formData['document_number']);
 		
-		$this->NewLine();
-		$this->Text($mcol + 100, _("Vehicle Number"));
-		$this->Text($mcol + 180, $this->formData['vehicle_details']);
+		if($this->formData['vehicle_details']){
+			$this->NewLine();
+			$this->Text($mcol + 100, _("Vehicle Number"));
+			$this->Text($mcol + 180, $this->formData['vehicle_details']);
+		}
 
 		if ($this->pageNumber > 1)
 			$this->Text($this->endLine - 35, _("Page") . ' ' . $this->pageNumber);
