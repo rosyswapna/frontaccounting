@@ -136,9 +136,10 @@ function print_inventory_purchase()
 	else
 		$itm = $item;
 
-	$cols = array(0, 60, 180, 225, 275, 400, 420, 465,	520);
+	//$cols = array(0, 60, 180, 225, 275, 400, 420, 465,	520);
+	$cols = array(0, 90, 210, 250, 300, 375, 450,	515);
 
-	$headers = array(_('Category'), _('Description'), _('Date'), _('#'), _('Supplier'), _('Qty'), _('Unit Price'), _('Total'));
+	$headers = array(_('Description'), _('Supplier'), _('Date'), _('#'),  _('Qty'), _('Unit Price'), _('Total'));
 	if ($fromsupp != '')
 		$headers[4] = '';
 
@@ -155,6 +156,8 @@ function print_inventory_purchase()
     if ($orientation == 'L')
     	recalculate_cols($cols);
 
+    $rep->InfoSearch = "Trans Date: $from - $to";
+
     $rep->Font();
     $rep->Info($params, $cols, $headers, $aligns);
     $rep->NewPage();
@@ -162,11 +165,16 @@ function print_inventory_purchase()
 	$res = getTransactions($category, $location, $fromsupp, $item, $from, $to);
 
 	$total = $total_supp = $grandtotal = 0.0;
+
+	
+	$total1 = $grandtotal1 = 0.0;
+	$total2 = $grandtotal2 = 0.0;
+
 	$total_qty = 0.0;
 	$catt = $stock_description = $stock_id = $supplier_name = '';
 	while ($trans=db_fetch($res))
 	{
-		if ($stock_description != $trans['description'])
+		/*if ($stock_description != $trans['description'])
 		{
 			if ($stock_description != '')
 			{
@@ -204,21 +212,23 @@ function print_inventory_purchase()
 			}
 			$supplier_name = $trans['supplier_name'];
 		}
+		*/
 		if ($catt != $trans['cat_description'])
 		{
 			if ($catt != '')
 			{
 				$rep->NewLine(2, 3);
-				$rep->TextCol(0, 1, _('Total'));
+				$rep->TextCol(0, 4, _('Total'));
 				$rep->TextCol(1, 7, $catt);
 				$rep->AmountCol(7, 8, $total, $dec);
 				$rep->Line($rep->row - 2);
 				$rep->NewLine();
 				$rep->NewLine();
-				$total = 0.0;
+				//$total = 0.0;
+				$total = $total1 = $total2 = 0.0;
 			}
-			$rep->TextCol(0, 1, $trans['category_id']);
-			$rep->TextCol(1, 6, $trans['cat_description']);
+			//$rep->TextCol(0, 1, $trans['category_id']);
+			$rep->TextCol(0, 5, $trans['cat_description']);
 			$catt = $trans['cat_description'];
 			$rep->NewLine();
 		}
@@ -229,13 +239,14 @@ function print_inventory_purchase()
 		$rep->NewLine();
 		$trans['supp_reference'] = get_supp_inv_reference($trans['supplier_id'], $trans['stock_id'], $trans['tran_date']);
 		$rep->fontSize -= 2;
-		$rep->TextCol(0, 1, $trans['stock_id']);
+		
 		if ($fromsupp == ALL_TEXT)
 		{
-			$rep->TextCol(1, 2, $trans['description'].($trans['inactive']==1 ? " ("._("Inactive").")" : ""), -1);
+			$rep->TextCol(0, 1, $trans['description'].($trans['inactive']==1 ? " ("._("Inactive").")" : ""), -1);		
+			$rep->TextCol(1, 2, $trans['supplier_name']);
 			$rep->TextCol(2, 3, sql2date($trans['tran_date']));
 			$rep->TextCol(3, 4, $trans['supp_reference']);
-			$rep->TextCol(4, 5, $trans['supplier_name']);
+			
 		}
 		else
 		{
@@ -243,10 +254,10 @@ function print_inventory_purchase()
 			$rep->TextCol(2, 3, sql2date($trans['tran_date']));
 			$rep->TextCol(3, 4, $trans['supp_reference']);
 		}	
-		$rep->AmountCol(5, 6, $trans['qty'], get_qty_dec($trans['stock_id']));
-		$rep->AmountCol(6, 7, $trans['price'], $dec);
+		$rep->AmountCol(4, 5, $trans['qty'], get_qty_dec($trans['stock_id']));
+		$rep->AmountCol(5, 6, $trans['price'], $dec);
 		$amt = $trans['qty'] * $trans['price'];
-		$rep->AmountCol(7, 8, $amt, $dec);
+		$rep->AmountCol(6, 7, $amt, $dec);
 		$rep->fontSize += 2;
 		$total += $amt;
 		$total_supp += $amt;
@@ -285,8 +296,9 @@ function print_inventory_purchase()
 
 	$rep->NewLine(2, 3);
 	$rep->TextCol(0, 1, _('Total'));
-	$rep->TextCol(1, 7, $catt);
-	$rep->AmountCol(7, 8, $total, $dec);
+	//$rep->TextCol(1, 7, $catt);
+	$rep->AmountCol(5, 6, $total, $dec);
+	$rep->AmountCol(6, 7, $total, $dec);
 	$rep->Line($rep->row - 2);
 	$rep->NewLine();
 	$rep->NewLine(2, 1);
