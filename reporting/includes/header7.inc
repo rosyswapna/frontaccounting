@@ -60,7 +60,7 @@
 			$this->NewLine();
 			$this->TextWrap($ccol, $this->row, $this->pageWidth - $ccol, $content, 'center');
 		}
-		$this->row = $upper+10;
+		$this->row = $upper+19;
 		$this->Line1($this->row,0,$ccol,$this->pageWidth - $ccol);
 		// Document title
 		$this->NewLine(2);

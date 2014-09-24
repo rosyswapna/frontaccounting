@@ -22,6 +22,9 @@ this can be a string either "d/m/Y" for UK/Australia/New Zealand dates or
 function __date($year, $month, $day)
 {
 	global $dateseps, $tmonths;
+
+	date_default_timezone_set('Asia/Dubai');
+    	
 	
 	$how = user_date_format();
 	$sep = $dateseps[user_date_sep()];
