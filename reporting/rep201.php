@@ -41,7 +41,7 @@ function get_open_balance($supplier_id, $to)
 		(".TB_PREF."supp_trans.ov_amount + ".TB_PREF."supp_trans.ov_gst + ".TB_PREF."supp_trans.ov_discount + ".TB_PREF."supp_trans.alloc))) AS OutStanding
 		FROM ".TB_PREF."supp_trans
     	WHERE ".TB_PREF."supp_trans.tran_date < '$to'
-		AND ".TB_PREF."supp_trans.supplier_id = '$supplier_id' GROUP BY supplier_id";
+		AND ".TB_PREF."supp_trans.supplier_id = '$supplier_id' GROUP BY supplier_id ORDER BY ".TB_PREF."supp_trans.tran_date";
 
     $result = db_query($sql,"No transactions were returned");
     return db_fetch($result);

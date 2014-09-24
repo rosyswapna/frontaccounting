@@ -49,6 +49,7 @@ function get_open_balance($debtorno, $to)
     if ($to)
     	$sql .= " AND t.tran_date < '$to'";
 	$sql .= " GROUP BY debtor_no";
+	$sql .= " ORDER BY t.tran_date ASC";
 
     $result = db_query($sql,"No transactions were returned");
     return db_fetch($result);
@@ -70,7 +71,7 @@ function get_transactions($debtorno, $from, $to)
 		AND ".TB_PREF."debtor_trans.tran_date <= '$to'
 		AND ".TB_PREF."debtor_trans.debtor_no = ".db_escape($debtorno)."
 		AND ".TB_PREF."debtor_trans.type <> ".ST_CUSTDELIVERY."
-    	ORDER BY ".TB_PREF."debtor_trans.tran_date";
+    	ORDER BY ".TB_PREF."debtor_trans.tran_date ASC";
 
     return db_query($sql,"No transactions were returned");
 }

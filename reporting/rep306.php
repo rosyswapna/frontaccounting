@@ -62,7 +62,7 @@ function getTransactions($category, $location, $fromsupp, $item, $from, $to)
 			$sql .= " AND ".TB_PREF."suppliers.supplier_id = ".db_escape($fromsupp);
 		if ($item != '')
 			$sql .= " AND ".TB_PREF."stock_master.stock_id = ".db_escape($item);
-		$sql .= " ORDER BY ".TB_PREF."stock_master.category_id,
+		$sql .= " ORDER BY ".TB_PREF."stock_moves.tran_date ASC,".TB_PREF."stock_master.category_id,
 			".TB_PREF."suppliers.supp_name, ".TB_PREF."stock_master.stock_id, ".TB_PREF."stock_moves.tran_date";
     return db_query($sql,"No transactions were returned");
 
