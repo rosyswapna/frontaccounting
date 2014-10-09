@@ -70,6 +70,8 @@ class FrontReport extends Cpdf
 	var $dest;	// destination: email or printer
 
 	var $InfoSearch;//search infor on bottom of header
+
+	var $endFooter;
 	
 	function FrontReport($title, $filename, $size = 'A4', $fontsize = 9, $orientation = 'P', $margins = NULL, $excelColWidthFactor = NULL)
 	{

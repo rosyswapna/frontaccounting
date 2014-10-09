@@ -194,7 +194,8 @@
 		// Footer
 		$this->Font('italic');
 		$this->row = $iline7 - $this->lineHeight - 6;
-
+		
+		$this->endFooter = $this->row;
 		foreach ($Footer as $line => $txt)
 		{
 			if (!is_numeric($line))	// title => link
@@ -210,9 +211,13 @@
 			}
 			else
 				$this->TextWrap($ccol, $this->row, $right - $ccol, $txt, 'C');
+			
+			$this->endFooter = $this->row;
+
 			$this->row -= $this->lineHeight;
 
 		}
+		
 
 		$this->Font();
 		$temp = $iline6 - $this->lineHeight - 2;

@@ -149,6 +149,18 @@ function print_remittances()
 				if ($rep->row < $rep->bottomMargin + (15 * $rep->lineHeight))
 					$rep->NewPage();
 			}
+			//bank details ---------------
+			if(@$baccount['bank_name']){
+				$rep->Font('bold');
+				$rep->NewLine(2);
+				$rep->TextCol(0, 6, _("Bank Details"), - 2);
+				$rep->Font();
+				$rep->NewLine();				
+				$rep->TextCol(1, 6,$baccount['bank_account_name'], - 2);
+				$rep->NewLine();
+				$rep->TextCol(1, 6, $baccount['bank_account_number'], - 2);
+			}
+			//---------------------------------
 
 			$memo = get_comments_string($j, $i);
 			if ($memo != "")
@@ -158,13 +170,16 @@ function print_remittances()
 			}
 			$rep->row = $rep->bottomMargin + (16 * $rep->lineHeight);
 
-			$rep->TextCol(3, 6, _("Total Allocated"), -2);
+			//$rep->TextCol(3, 6, _("Total Allocated"), -2);
+			$rep->TextCol(3, 6, _("Amount Paid"), -2);
+
 			$rep->AmountCol(6, 7, $total_allocated, $dec, -2);
 			$rep->NewLine();
-			$rep->TextCol(3, 6, _("Left to Allocate"), -2);
+			//$rep->TextCol(3, 6, _("Left to Allocate"), -2);
+			//$rep->TextCol(3, 6, _("Pending Payment"), -2);
 			$myrow['Total'] *= -1;
 			$myrow['ov_discount'] *= -1;
-			$rep->AmountCol(6, 7, $myrow['Total'] + $myrow['ov_discount'] - $total_allocated, $dec, -2);
+			//$rep->AmountCol(6, 7, $myrow['Total'] + $myrow['ov_discount'] - $total_allocated, $dec, -2);
 			if (floatcmp($myrow['ov_discount'], 0))
 			{
 				$rep->NewLine();
@@ -174,7 +189,8 @@ function print_remittances()
 
 			$rep->NewLine();
 			$rep->Font('bold');
-			$rep->TextCol(3, 6, _("TOTAL REMITTANCE"), - 2);
+			//$rep->TextCol(3, 6, _("TOTAL REMITTANCE"), - 2);
+			$rep->TextCol(3, 6, _("TOTAL PAID"), - 2);
 			$rep->AmountCol(6, 7, $myrow['Total'], $dec, -2);
 
 			$words = price_in_words($myrow['Total'], ST_SUPPAYMENT);
@@ -183,6 +199,18 @@ function print_remittances()
 				$rep->NewLine(2);
 				$rep->TextCol(1, 7, $myrow['curr_code'] . ": " . $words, - 2);
 			}	
+			
+			$lower = $rep->bottomMargin + 8 * $rep->lineHeight;
+			$rep->row = $rep->endFooter;
+			$rep->NewLine(2);
+			$rep->TextCol(0, 6, _("Received Name & ID No"), - 2);
+			$rep->Line1($rep->row,0,$cols[2],$cols[4]);
+
+			$rep->NewLine(3);
+			$rep->TextCol(0, 4, _("Receiver Sign"), - 2);
+			$rep->TextCol(4, 8, _("Authorized Sign"), - 2);
+
+
 			$rep->Font();
 			if ($email == 1)
 			{

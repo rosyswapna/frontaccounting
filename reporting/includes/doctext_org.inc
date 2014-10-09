@@ -130,7 +130,8 @@
 		case ST_SUPPAYMENT:
 			global $systypes_array;
 
-			$this->title = _("REMITTANCE");
+			//$this->title = _("REMITTANCE");
+			$this->title = _("PAYMENT VOUCHER");
 			$this->formData['document_name'] =_("Remittance No.");
 			$Addr1['title'] = _("Order To");
 			$Addr1['name'] = $this->formData['supp_name'];
@@ -140,13 +141,16 @@
 			$Addr2['address'] = '';
 
 			$aux_info = array(
-				_("Customer's Reference") => $this->formData['supp_account_no'],
+				//_("Customer's Reference") => $this->formData['supp_account_no'],
+				_("Purchase Inv No") => $this->formData['supp_account_no'],
 				_("Type") =>$systypes_array[$this->formData["type"]],
 				_("Your VAT no.") => $this->formData['tax_id'],
 				_("Supplier's Reference") => '',
 				_("Due Date") => sql2date($this->formData['tran_date']),
 			);
-			$this->headers = array(_("Trans Type"), _("#"), _("Date"), _("Due Date"), _("Total Amount"), _("Left to Allocate"), _("This Allocation"));
+			//$this->headers = array(_("Trans Type"), _("#"), _("Date"), _("Due Date"), _("Total Amount"), _("Left to Allocate"), _("This Allocation"));
+			$this->headers = array(_("Trans Type"), _("#"), _("Date"), _("Due Date"), _("Total Amount"), _("Pending Payment"), _("This Payment"));
+
 			break;
 
 		case ST_PURCHORDER:
@@ -245,9 +249,9 @@
 		$row = db_fetch($result);
 		$Payment_Terms = _("Payment Terms") . ': ' . $row["terms"];
 	}
-
+	
 	// footer generic content
-	if (@$this->formData['bank_name'])
+	if (@$this->formData['bank_name'] && $this->formData['doctype'] != ST_SUPPAYMENT)
 		$Footer[] = _("Bank"). ": ".$this->formData['bank_name']. ", " . _("Bank Account") . ": " . $this->formData['bank_account_number'];
 
 	if (@$this->formData['payment_service'])	//payment link
