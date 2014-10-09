@@ -166,7 +166,7 @@ function print_shipment()
 
 	
 
-    $rep = new FrontReport(_('Local Purchase'), "Local Purchase", user_pagesize(), 9, $orientation);
+    $rep = new FrontReport(_('Weighment Slip'), "Weighment Slip", user_pagesize(), 9, $orientation);
 
     $rep->SetHeaderType('ShipmentReportHeader');
 
