@@ -28,7 +28,7 @@ include_once($path_to_root . "/inventory/includes/db/items_category_db.inc");
 //----------------------------------------------------------------------------------------------------
 
 print_inventory_sales();
-
+/*
 function getTransactions($category, $location, $fromcust, $from, $to)
 {
 	$from = date2sql($from);
@@ -64,7 +64,53 @@ function getTransactions($category, $location, $fromcust, $from, $to)
 			$sql .= " AND ".TB_PREF."stock_moves.loc_code = ".db_escape($location);
 		if ($fromcust != '')
 			$sql .= " AND ".TB_PREF."debtors_master.debtor_no = ".db_escape($fromcust);
-		$sql .= " GROUP BY ".TB_PREF."stock_master.stock_id, ".TB_PREF."debtors_master.name ORDER BY ".TB_PREF."stock_moves.tran_date ASC, ".TB_PREF."stock_master.category_id,
+		//$sql .= " GROUP BY ".TB_PREF."stock_master.stock_id, ".TB_PREF."debtors_master.name";
+		
+		$sql .= " ORDER BY ".TB_PREF."stock_moves.tran_date ASC, ".TB_PREF."stock_master.category_id,
+			".TB_PREF."stock_master.stock_id, ".TB_PREF."debtors_master.name";
+    return db_query($sql,"No transactions were returned");
+
+}
+*/
+
+
+function getTransactions($category, $location, $fromcust, $from, $to)
+{
+	$from = date2sql($from);
+	$to = date2sql($to);
+	$sql = "SELECT ".TB_PREF."stock_master.category_id,
+			".TB_PREF."stock_category.description AS cat_description,
+			".TB_PREF."stock_master.stock_id,
+			".TB_PREF."stock_master.description, ".TB_PREF."stock_master.inactive,
+			".TB_PREF."stock_moves.loc_code,
+			".TB_PREF."debtor_trans.debtor_no,
+			".TB_PREF."debtors_master.name AS debtor_name,
+			".TB_PREF."stock_moves.tran_date,
+			-".TB_PREF."stock_moves.qty AS qty,
+			-".TB_PREF."stock_moves.qty*".TB_PREF."stock_moves.price*(1-".TB_PREF."stock_moves.discount_percent) AS amt,
+			-IF(".TB_PREF."stock_moves.standard_cost <> 0, ".TB_PREF."stock_moves.qty * ".TB_PREF."stock_moves.standard_cost, ".TB_PREF."stock_moves.qty *(".TB_PREF."stock_master.material_cost + ".TB_PREF."stock_master.labour_cost + ".TB_PREF."stock_master.overhead_cost)) AS cost
+		FROM ".TB_PREF."stock_master,
+			".TB_PREF."stock_category,
+			".TB_PREF."debtor_trans,
+			".TB_PREF."debtors_master,
+			".TB_PREF."stock_moves
+		WHERE ".TB_PREF."stock_master.stock_id=".TB_PREF."stock_moves.stock_id
+		AND ".TB_PREF."stock_master.category_id=".TB_PREF."stock_category.category_id
+		AND ".TB_PREF."debtor_trans.debtor_no=".TB_PREF."debtors_master.debtor_no
+		AND ".TB_PREF."stock_moves.type=".TB_PREF."debtor_trans.type
+		AND ".TB_PREF."stock_moves.trans_no=".TB_PREF."debtor_trans.trans_no
+		AND ".TB_PREF."stock_moves.tran_date>='$from'
+		AND ".TB_PREF."stock_moves.tran_date<='$to'
+		AND (".TB_PREF."debtor_trans.type=".ST_CUSTDELIVERY." OR ".TB_PREF."stock_moves.type=".ST_CUSTCREDIT.")
+		AND (".TB_PREF."stock_master.mb_flag='B' OR ".TB_PREF."stock_master.mb_flag='M')";
+		if ($category != 0)
+			$sql .= " AND ".TB_PREF."stock_master.category_id = ".db_escape($category);
+		if ($location != '')
+			$sql .= " AND ".TB_PREF."stock_moves.loc_code = ".db_escape($location);
+		if ($fromcust != '')
+			$sql .= " AND ".TB_PREF."debtors_master.debtor_no = ".db_escape($fromcust);
+		//$sql .= " GROUP BY ".TB_PREF."stock_master.stock_id, ".TB_PREF."debtors_master.name";
+		$sql .= " ORDER BY ".TB_PREF."stock_moves.tran_date ASC, ".TB_PREF."stock_master.category_id,
 			".TB_PREF."stock_master.stock_id, ".TB_PREF."debtors_master.name";
     return db_query($sql,"No transactions were returned");
 

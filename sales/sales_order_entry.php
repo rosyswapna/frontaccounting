@@ -550,7 +550,6 @@ if (isset($_POST['update'])) {
 
 if (isset($_POST['ProcessOrder']) && can_process()) {
 		
-
 	copy_to_cart();
 	$modified = ($_SESSION['Items']->trans_no != 0);
 	$so_type = $_SESSION['Items']->so_type;
@@ -837,6 +836,7 @@ start_form();
 
 hidden('cart_id');
 
+
 //export or direct invoice
 if($_SESSION['Items']->trans_type == ST_EXPORTINVOICE)
 	hidden('export',1);
@@ -877,11 +877,11 @@ if ($customer_error == "") {
 	if ($_SESSION['Items']->trans_no == 0) {
 
 
-		submit_center_first('ProcessOrder', $porder,
-		   _('Check entered data and save document'), 'default');
-
 		//submit_center_first('ProcessOrder', $porder,
-		 //  _('Check entered data and save document'));
+		//   _('Check entered data and save document'), 'default');
+
+		submit_center_first('ProcessOrder', $porder,
+		  _('Check entered data and save document'));
 
 		
 		submit_js_confirm('CancelOrder', _('You are about to void this Document.\nDo you want to continue?'));
