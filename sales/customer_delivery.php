@@ -130,6 +130,7 @@ if (isset($_GET['OrderNumber']) && $_GET['OrderNumber'] > 0) {
 
 	if (!check_quantities()) {
 		display_error(_("Selected quantity cannot be less than quantity invoiced nor more than quantity	not dispatched on sales order."));
+		
 
 	} elseif(!check_num('ChargeFreightCost', 0)) {
 		display_error(_("Freight cost cannot be less than zero"));
@@ -436,6 +437,8 @@ table_header($th);
 $k = 0;
 $has_marked = false;
 
+print_r($_SESSION['Items']->line_items);
+
 foreach ($_SESSION['Items']->line_items as $line=>$ln_itm) {
 	if ($ln_itm->quantity==$ln_itm->qty_done) {
 		continue; //this line is fully delivered
@@ -538,8 +541,14 @@ if(isset($_POST['clear_quantity'])) {
 else  {
 	submit('clear_quantity', _('Clear quantity'), true, _('Refresh document page'));
 }
-submit_center_last('process_delivery', _("Process Dispatch"),
+
+if (!check_quantities()) {
+	submit_center_last('process_delivery', _("Process Dispatch(out of stock)"),
+	_('Check entered data and save document'), 'item_adjustment_popup');
+}else{
+	submit_center_last('process_delivery', _("Process Dispatch"),
 	_('Check entered data and save document'), 'default');
+}
 
 end_form();
 

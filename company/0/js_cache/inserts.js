@@ -125,6 +125,10 @@ multi_passBack(dataArray);return false;}
 "edit","Scrollbars=0,resizable=0,width=800,height=600, top="+top+",left="+left+",screenX="+left+",screenY="+top);if(_w.opener==null)
 _w.opener=self;_w.focus();return false;}
 },
+'button[aspect=item_adjustment_popup]':function(e){e.onclick=function(){if(_w)_w.close();var left=(screen.width-800)/2;var top=(screen.height-800)/2;_w=open('sale_item_adjustment.php?popup=1',
+"edit","Scrollbars=0,resizable=0,width=400,height=300, top="+top+",left="+left+",screenX="+left+",screenY="+top);if(_w.opener==null)
+_w.opener=self;_w.focus();return false;}
+},
 'select':function(e){if(e.onfocus==undefined){e.onfocus=function(){save_focus(this);};}
 var c=e.className;if(c=='combo'||c=='combo2'||c=='combo3')
 _set_combo_select(e);else{e.onkeydown=function(ev){ev=ev||window.event;key=ev.keyCode||ev.which;if(key==8||(key=37&&ev.altKey)){ev.returnValue=false;return false;}

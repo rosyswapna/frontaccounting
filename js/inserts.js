@@ -474,6 +474,21 @@ var inserts = {
 			return false;
 		}
 	},
+	'button[aspect=item_adjustment_popup]': function(e) {
+		e.onclick = function() {
+			if(_w) _w.close(); // this is really necessary to have window on top in FF2 :/
+			 var left = (screen.width - 800)/2;
+			 var top = (screen.height - 800)/2;
+			  _w = open('sale_item_adjustment.php?popup=1',
+				  "edit","Scrollbars=0,resizable=0,width=400,height=300, top="+top+",left="+left+",screenX="+left+",screenY="+top);
+			  if (_w.opener == null)
+				  _w.opener = self;
+			//  editors._call = key; // store call point for passBack 
+//			  _w.moveTo(50, 50);
+			  _w.focus();
+			return false;
+		}
+	},
 	'select': function(e) {
 		if(e.onfocus==undefined) {
 			e.onfocus = function() {

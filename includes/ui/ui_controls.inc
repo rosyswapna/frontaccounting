@@ -442,6 +442,7 @@ function tab_changed($name)
 		'to' => $to);
 }
 
+
 /* Table editor interfaces. Key is editor type
 	0 => url of editor page
 	1 => hotkey code

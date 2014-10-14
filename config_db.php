@@ -17,7 +17,7 @@ $def_coy - the default company that is pre-selected on login
 
 $def_coy = 0;
 
-$tb_pref_counter = 1;
+$tb_pref_counter = 2;
 
 $db_connections = array (
   0 => 
@@ -36,7 +36,7 @@ $db_connections = array (
     'dbuser' => 'root',
     'dbpassword' => 'mysql@local',
     'dbname' => 'mnmtest',
-    'tbpref' => '0_',
+    'tbpref' => '1_',
   ),
 );
 ?>
