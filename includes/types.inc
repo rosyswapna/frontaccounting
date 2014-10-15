@@ -99,6 +99,7 @@ function get_parent_type($type,$export=false)
 }
 
 //----------------------------------------------------------------------------------
+define('MIX_MATERIAL',26);
 //		Bank transaction types
 //
 define('BT_TRANSFER', 0);
