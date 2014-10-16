@@ -285,14 +285,19 @@ function get_mix_material()
 
 				$qoh = ($qoh_by_date < $qoh_abs ? $qoh_by_date : $qoh_abs); 
 
-				if ($itm->qty_dispatched > $qoh && $_POST['mix_material'] == 1) {
+				if ($itm->qty_dispatched > $qoh && $_POST['mix_material'] == 1 && $itm->stock_id != MIX_MATERIAL) {
 					
 					if($qoh < 0){
 						$mix_material_qty = $itm->qty_dispatched;
 					}else{
 						$mix_material_qty = $itm->qty_dispatched - $qoh;
 					}
-					//echo $mix_material_qty;
+
+					$_SESSION['Items']->item_adjust_with_mix_material=array(
+					'stock_id' => $itm->stock_id,
+					'quantity' => $mix_material_qty
+					);
+					
 					$mix_item = get_item(MIX_MATERIAL);					
 					
 					$_SESSION['Items']->add_to_cart($line_count, $mix_item['stock_id'],$mix_material_qty,$itm->price,$itm->discount_percent);	

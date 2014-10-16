@@ -103,6 +103,8 @@ class cart
 	var $credit;
 	var $ex_rate;
 
+	var $item_adjust_with_mix_material = false;
+
 
 	//-------------------------------------------------------------------------
 	//

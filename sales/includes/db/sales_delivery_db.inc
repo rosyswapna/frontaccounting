@@ -64,6 +64,12 @@ function write_sales_delivery(&$delivery,$bo_policy)
 		delete_comments(ST_CUSTDELIVERY, $delivery_no);
 	}
 
+	if(is_array($delivery->item_adjust_with_mix_material)){
+		$item_adjust = $delivery->item_adjust_with_mix_material;
+	}else{
+		$item_adjust = false;
+	}
+
 	foreach ($delivery->line_items as $line_no => $delivery_line) {
 
 		$line_price = $delivery_line->line_price();
@@ -94,6 +100,13 @@ function write_sales_delivery(&$delivery,$bo_policy)
 				$delivery->Location, $delivery->document_date, $delivery->reference,
 				-$delivery_line->qty_dispatched, $delivery_line->standard_cost,1,
 				$line_price, $delivery_line->discount_percent);
+
+			if($item_adjust!= false && $item_adjust['stock_id'] == $delivery_line->stock_id){ 
+				add_stock_move_customer(ST_CUSTDELIVERY, $item_adjust['stock_id'], $delivery_no,
+				$delivery->Location, $delivery->document_date, $delivery->reference,
+				$item_adjust['quantity'], $delivery_line->standard_cost,1,
+				$line_price, $delivery_line->discount_percent);
+			}
 
 
 			$stock_gl_code = get_stock_gl_code($delivery_line->stock_id);
