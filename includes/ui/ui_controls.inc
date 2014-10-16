@@ -623,6 +623,7 @@ function confirm_dialog($submit, $msg) {
 		return get_post('DialogConfirm', 0);
 }
 
+
 /*
 	Block menu/shortcut links during transaction procesing.
 */

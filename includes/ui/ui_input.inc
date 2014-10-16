@@ -276,17 +276,6 @@ function submit_return_center($name, $value, $title=false)
 	}
 }
 
-function submit_mix_material_return($name, $value, $title=false)
-{
-	if (@$_REQUEST['popup']) {
-		echo "<center>";
-		submit($name, $value, true, $title, 'mix_material');
-		echo "</center>";
-	}
-}
-
-
-
 function submit_multi_return_center($name, $valueArray, $title=false)
 {
 	if (@$_REQUEST['popup']) {

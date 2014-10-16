@@ -132,7 +132,7 @@ if (isset($_GET['OrderNumber']) && $_GET['OrderNumber'] > 0) {
 } else {
 	check_edit_conflicts();
 
-	
+	//print_r($_POST);exit;
 	
 	if (!check_quantities()) {
 		display_error(_("Selected quantity cannot be less than quantity invoiced nor more than quantity	not dispatched on sales order."));
@@ -235,14 +235,16 @@ function check_quantities()
 	$ok =1;
 	// Update cart delivery quantities/descriptions
 	foreach ($_SESSION['Items']->line_items as $line=>$itm) {
+
 		if (isset($_POST['Line'.$line])) {
-		if($_SESSION['Items']->trans_no) {
-			$min = $itm->qty_done;
-			$max = $itm->quantity;
-		} else {
-			$min = 0;
-			$max = $itm->quantity - $itm->qty_done;
-		}
+
+			if($_SESSION['Items']->trans_no) {
+				$min = $itm->qty_done;
+				$max = $itm->quantity;
+			} else {
+				$min = 0;
+				$max = $itm->quantity - $itm->qty_done;
+			}
 		
 			if (check_num('Line'.$line, $min, $max)) {
 				$_SESSION['Items']->line_items[$line]->qty_dispatched =
@@ -267,6 +269,42 @@ function check_quantities()
 	return $ok;
 }
 //------------------------------------------------------------------------------
+//if mix material allowed for out of stock item 
+function get_mix_material()
+{
+	global $SysPrefs;
+
+	$dn = &$_SESSION['Items'];
+	if ($SysPrefs->allow_negative_stock()) {
+
+		$line_count = count($_SESSION['Items']->line_items);
+		foreach ($_SESSION['Items']->line_items as $itm) {
+			if ($itm->qty_dispatched && has_stock_holding($itm->mb_flag)) {
+				$qoh_by_date = get_qoh_on_date($itm->stock_id, $_POST['Location'], $_POST['DispatchDate']);
+                		$qoh_abs = get_qoh_on_date($itm->stock_id, $_POST['Location'], null);
+
+				$qoh = ($qoh_by_date < $qoh_abs ? $qoh_by_date : $qoh_abs); 
+
+				if ($itm->qty_dispatched > $qoh && $_POST['mix_material'] == 1) {
+					
+					if($qoh < 0){
+						$mix_material_qty = $itm->qty_dispatched;
+					}else{
+						$mix_material_qty = $itm->qty_dispatched - $qoh;
+					}
+					//echo $mix_material_qty;
+					$mix_item = get_item(MIX_MATERIAL);					
+					
+					$_SESSION['Items']->add_to_cart($line_count, $mix_item['stock_id'],$mix_material_qty,$itm->price,$itm->discount_percent);	
+					
+				}
+			}
+		}
+	}
+	
+	
+	return true;
+}
 
 function check_qoh()
 {
@@ -299,9 +337,41 @@ function check_qoh()
     return true;
 }
 
+function allow_item_adjustment()
+{
+	
+	$dn = &$_SESSION['Items'];
+	$newdelivery = ($dn->trans_no==0);
+
+		foreach ($_SESSION['Items']->line_items as $itm) {
+
+		if ($itm->qty_dispatched && has_stock_holding($itm->mb_flag)) {
+			$qoh_by_date = get_qoh_on_date($itm->stock_id, $_POST['Location'], $_POST['DispatchDate']);
+			$qoh_abs = get_qoh_on_date($itm->stock_id, $_POST['Location'], null);
+			//If editing current delivery delivered qty should be added 
+			if (!$newdelivery)
+			{
+			    $delivered = get_already_delivered($itm->stock_id, $_POST['Location'], key($dn->trans_no));
+			    
+			    $qoh_abs = $qoh_abs - $delivered;
+			    $qoh_by_date = $qoh_by_date - $delivered;
+			}
+			$qoh = ($qoh_by_date < $qoh_abs ? $qoh_by_date : $qoh_abs); 
+			if ($itm->qty_dispatched > $qoh) {
+			    return false;
+			}
+		}
+	}
+
+	return true;
+
+}
+
 //------------------------------------------------------------------------------
 
-if (isset($_POST['process_delivery']) && check_data() && check_qoh()) {
+if (isset($_POST['process_delivery']) && check_data() && check_qoh() && get_mix_material()) {
+	
+
 	$dn = &$_SESSION['Items'];
 
 	if ($_POST['bo_policy']) {
@@ -547,18 +617,21 @@ if(isset($_POST['clear_quantity'])) {
 else  {
 	submit('clear_quantity', _('Clear quantity'), true, _('Refresh document page'));
 }
-//hidden('mix_material');
-echo "<input type='text' value='' name='mix_material'/>";
 
-if (!check_quantities()) {
+//hidden value for out of stock
+hidden('mix_material',0);
+
+if (!allow_item_adjustment()) {
 	
-	submit_center_last('process_delivery', _("Process Dispatch(out of stock)"),
+	submit_center_last('process_delivery', _("Process Dispatch"),
 	_('Check entered data and save document'), 'item_adjustment_popup');
 
 }else{
 	submit_center_last('process_delivery', _("Process Dispatch"),
 	_('Check entered data and save document'), 'default');
 }
+
+
 
 end_form();
 

@@ -239,22 +239,6 @@ function passBack(value) {
 	close();
 }
 
-function passBackToHidden(value) {
-	var o = opener;
-	if(value != false) {
-		var to = o.document.getElementsByName('mix_material')[0];
-		if(to) {
-			if (to[0] != undefined)	
-				to[0].value = value; // ugly hack to set selector to any value
-			
-			// update page after item selection
-			to.value = value;
-
-		}
-		
-	}
-	close();
-}
 
 
 function multi_passBack(valueArray){
@@ -457,12 +441,6 @@ var inserts = {
 			return false;
 		}
 	},
-	'button[aspect*mix_material]': function(e) {
-			e.onclick = function() {
-				passBackToHidden(this.getAttribute('rel'));
-				return false;
-			}
-		},
 	'button[aspect*multi_selector]':function(e){
 		e.onclick=function(){
 
@@ -500,17 +478,16 @@ var inserts = {
 	},
 	'button[aspect=item_adjustment_popup]': function(e) {
 		e.onclick = function() {
-			if(_w) _w.close(); // this is really necessary to have window on top in FF2 :/
-			 var left = (screen.width - 800)/2;
-			 var top = (screen.height - 800)/2;
-			  _w = open('sale_item_adjustment.php?popup=1',
-				  "edit","Scrollbars=0,resizable=0,width=400,height=300, top="+top+",left="+left+",screenX="+left+",screenY="+top);
-			  if (_w.opener == null)
-				  _w.opener = self;
-			//  editors._call = key; // store call point for passBack 
-//			  _w.moveTo(50, 50);
-			  _w.focus();
-			return false;
+			var mix_material = confirm("Selected Item has insufficient quantities in stock as on day of delivery. \nDo You want to continue with Mix Material?");
+			
+			if(mix_material == true){
+				document.getElementsByName('mix_material')[0].value = 1;
+				return true;
+			}else{
+				document.getElementsByName('mix_material')[0].value = 0;
+				return false;
+			}
+
 		}
 	},
 	'select': function(e) {
