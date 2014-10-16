@@ -33,6 +33,8 @@ if ($use_date_picker) {
 	$js .= get_js_date_picker();
 }
 
+
+
 if (isset($_GET['ModifyDelivery'])) {
 	$_SESSION['page_title'] = sprintf(_("Modifying Delivery Note # %d."), $_GET['ModifyDelivery']);
 	$help_context = "Modifying Delivery Note";
@@ -85,6 +87,8 @@ if (isset($_GET['AddedID'])) {
 }
 //-----------------------------------------------------------------------------
 
+
+
 if (isset($_GET['OrderNumber']) && $_GET['OrderNumber'] > 0) {
 
 	$ord = new Cart(ST_SALESORDER, $_GET['OrderNumber'], true);
@@ -128,6 +132,8 @@ if (isset($_GET['OrderNumber']) && $_GET['OrderNumber'] > 0) {
 } else {
 	check_edit_conflicts();
 
+	
+	
 	if (!check_quantities()) {
 		display_error(_("Selected quantity cannot be less than quantity invoiced nor more than quantity	not dispatched on sales order."));
 		
@@ -185,7 +191,7 @@ function check_data()
 	}
 
 	if (!check_quantities()) {
-		return false;
+		//return false;
 	}
 
 	return true;
@@ -437,7 +443,7 @@ table_header($th);
 $k = 0;
 $has_marked = false;
 
-print_r($_SESSION['Items']->line_items);
+//print_r($_SESSION['Items']->line_items);
 
 foreach ($_SESSION['Items']->line_items as $line=>$ln_itm) {
 	if ($ln_itm->quantity==$ln_itm->qty_done) {
@@ -541,10 +547,14 @@ if(isset($_POST['clear_quantity'])) {
 else  {
 	submit('clear_quantity', _('Clear quantity'), true, _('Refresh document page'));
 }
+//hidden('mix_material');
+echo "<input type='text' value='' name='mix_material'/>";
 
 if (!check_quantities()) {
+	
 	submit_center_last('process_delivery', _("Process Dispatch(out of stock)"),
 	_('Check entered data and save document'), 'item_adjustment_popup');
+
 }else{
 	submit_center_last('process_delivery', _("Process Dispatch"),
 	_('Check entered data and save document'), 'default');

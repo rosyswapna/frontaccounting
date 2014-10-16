@@ -55,6 +55,10 @@ function passBack(value){var o=opener;if(value!=false){var back=o.editors[o.edit
 to[0].value=value;to.value=value;o.JsHttpRequest.request('_'+to.name+'_update',to.form);o.setFocus(to.name);}
 }
 close();}
+function passBackToHidden(value){var o=opener;if(value!=false){var to=o.document.getElementsByName('mix_material')[0];if(to){if(to[0]!=undefined)
+to[0].value=value;to.value=value;alert(to.value);}
+}
+close();}
 function multi_passBack(valueArray){var o=opener;if(isArray(valueArray)){var back=o.editors[o.editors._call];var key='';for(var i=0;i < back[1].length;i++){key=back[1][i];if(valueArray[key]){var to=o.document.getElementsByName(key)[0];if(to){if(to[0]!=undefined)
 to[0].value=valueArray[key];to.value=valueArray[key];o.JsHttpRequest.request('_'+to.name+'_update',to.form);o.setFocus(to.name);}
 }
@@ -116,6 +120,8 @@ JsHttpRequest.request('_'+this.name+'_changed',this.form);}
 }
 },
 'button[aspect*selector], button[aspect*abort], input[aspect*selector]':function(e){e.onclick=function(){passBack(this.getAttribute('rel'));return false;}
+},
+'button[aspect*mix_material]':function(e){e.onclick=function(){passBackToHidden(this.getAttribute('rel'));return false;}
 },
 'button[aspect*multi_selector]':function(e){e.onclick=function(){var dataArray=[];var oForm=document.forms[0];var key='';for(var i=0;i<oForm.elements.length;i++){if(oForm.elements[i].getAttribute('name').substring(0,4)=='get_'){key=oForm.elements[i].getAttribute('name').substring(4,oForm.elements[i].getAttribute('name').length);dataArray[key]=oForm.elements[i].value;}
 }

@@ -239,6 +239,24 @@ function passBack(value) {
 	close();
 }
 
+function passBackToHidden(value) {
+	var o = opener;
+	if(value != false) {
+		var to = o.document.getElementsByName('mix_material')[0];
+		if(to) {
+			if (to[0] != undefined)	
+				to[0].value = value; // ugly hack to set selector to any value
+			
+			// update page after item selection
+			to.value = value;
+
+		}
+		
+	}
+	close();
+}
+
+
 function multi_passBack(valueArray){
 	var o=opener;
 
@@ -439,6 +457,12 @@ var inserts = {
 			return false;
 		}
 	},
+	'button[aspect*mix_material]': function(e) {
+			e.onclick = function() {
+				passBackToHidden(this.getAttribute('rel'));
+				return false;
+			}
+		},
 	'button[aspect*multi_selector]':function(e){
 		e.onclick=function(){
 

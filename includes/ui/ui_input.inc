@@ -95,6 +95,11 @@ function input_num($postname=null, $dflt=0)
 
 //---------------------------------------------------------------------------------
 
+function input_updated($name)
+{
+	return isset($_POST[$name]) ;
+}
+
 function hidden($name, $value=null, $echo=true)
 {
   	global $Ajax;
@@ -148,6 +153,10 @@ function submit($name, $value, $echo=true, $title=false, $atype=false, $icon=fal
 
 				case 'multi_selector':
 					$aspect = " aspect='multi_selector' rel = '$value'"; 
+					$value = _("Select");
+					if ($icon===false) $icon=ICON_SUBMIT; break;
+				case 'mix_material':
+					$aspect = " aspect='mix_material' rel = '$value'"; 
 					$value = _("Select");
 					if ($icon===false) $icon=ICON_SUBMIT; break;
 
@@ -266,6 +275,17 @@ function submit_return_center($name, $value, $title=false)
 		echo "</center>";
 	}
 }
+
+function submit_mix_material_return($name, $value, $title=false)
+{
+	if (@$_REQUEST['popup']) {
+		echo "<center>";
+		submit($name, $value, true, $title, 'mix_material');
+		echo "</center>";
+	}
+}
+
+
 
 function submit_multi_return_center($name, $valueArray, $title=false)
 {
