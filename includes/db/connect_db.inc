@@ -183,7 +183,7 @@ function db_create_db($connection)
 
 function db_drop_db($connection)
 {
-
+//echo $connection["tbpref"];exit;
 	if ($connection["tbpref"] == "")
 	{
 		$sql = "DROP DATABASE IF EXISTS " . $connection["dbname"] . "";

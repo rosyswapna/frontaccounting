@@ -155,10 +155,6 @@ function submit($name, $value, $echo=true, $title=false, $atype=false, $icon=fal
 					$aspect = " aspect='multi_selector' rel = '$value'"; 
 					$value = _("Select");
 					if ($icon===false) $icon=ICON_SUBMIT; break;
-				case 'mix_material':
-					$aspect = " aspect='mix_material' rel = '$value'"; 
-					$value = _("Select");
-					if ($icon===false) $icon=ICON_SUBMIT; break;
 
 				case 'default':
 					if ($icon===false) $icon=ICON_SUBMIT; break;

@@ -344,6 +344,7 @@ class cart
 			$this->line_items[$lineno]->stock_id = @html_entity_decode($line->stock_id, ENT_QUOTES);
 			$this->line_items[$lineno]->item_description = @html_entity_decode($line->item_description, ENT_QUOTES);
 		}
+
 		
 		switch($this->trans_type) {
 			case ST_SALESINVOICE://echo "sales invoice";exit();
@@ -353,7 +354,9 @@ class cart
 			case ST_CUSTCREDIT:
 				$ret = write_credit_note($this, $policy); break;
 			case ST_CUSTDELIVERY:
-				$ret = write_sales_delivery($this, $policy); break;
+		
+				$ret = write_sales_delivery($this, $policy); 
+				break;
 			case ST_SALESORDER:
 			case ST_SALESQUOTE:
 				if ($this->trans_no==0)	// new document
@@ -483,11 +486,15 @@ class cart
 	function get_items_total_dispatch()
 	{
 		$total = 0;
-
+		
 		foreach ($this->line_items as $ln_itm) {
-			$price = $ln_itm->line_price();
-			$total += round(($ln_itm->qty_dispatched * $price * (1 - $ln_itm->discount_percent)), 
+
+			if($ln_itm->stock_id <> MIX_MATERIAL){
+				$price = $ln_itm->line_price();
+				$total += round(($ln_itm->qty_dispatched * $price * (1 - $ln_itm->discount_percent)), 
 			   user_price_dec());
+			}
+			
 		}
 		return $total;
 	}

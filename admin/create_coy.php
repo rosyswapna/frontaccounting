@@ -62,9 +62,14 @@ function check_data()
 					display_error(_("This database settings are already used by another company."));
 					return false;
 				}
-				if (($_POST['tbpref'] == 0) ^ ($con['tbpref'] == ''))
+				/*if (($_POST['tbpref'] == 0) ^ ($con['tbpref'] == ''))
 				{
 					display_error(_("You cannot have table set without prefix together with prefixed sets in the same database."));
+					return false;
+				}*/
+				if ($_POST['tbpref'] == '')
+				{
+					display_error(_("You cannot have table set without prefix  in the same database."));
 					return false;
 				}
 		  	}
@@ -135,8 +140,6 @@ function handle_submit()
 			} 
 			else
 			{
-				//db changes by swapna------------------------------
-				db_import($path_to_root.'/sql/alter3.sql', $conn, $selected_id);
 
 				if (!isset($_POST['admpassword']) || $_POST['admpassword'] == "")
 					$_POST['admpassword'] = "password";
@@ -351,7 +354,12 @@ function display_company_edit($selected_id)
 		text_row_ex(_("Database User"), 'dbuser', 30);
 		text_row_ex(_("Database Password"), 'dbpassword', 30);
 		text_row_ex(_("Database Name"), 'dbname', 30);
-		yesno_list_row(_("Table Pref"), 'tbpref', 1, $_POST['tbpref'], _("None"), false);
+		//yesno_list_row(_("Table Pref"), 'tbpref', 1, $_POST['tbpref'], _("None"), false);
+		//yesno_list_row(_("Table Pref"), 'tbpref', 1, $_POST['tbpref'], false, false);
+		label_row(_("Table Pref"), $_POST['tbpref']);
+		hidden('tbpref',$_POST['tbpref']);
+		
+
 	} else {
 		label_row(_("Host"), $_POST['host']);
 		label_row(_("Database User"), $_POST['dbuser']);
@@ -362,7 +370,10 @@ function display_company_edit($selected_id)
 
 	if ($selected_id == -1)
 	{
-		coa_list_row(_("Database Script"), 'coa');
+		hidden('coa','en_US-new.sql');//database script from 'sql' directory
+		
+		//coa_list_row(_("Database Script"), 'coa');
+
 		text_row_ex(_("New script Admin Password"), 'admpassword', 20);
 	}
 	end_table(1);

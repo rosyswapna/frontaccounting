@@ -1,3 +1,4 @@
+
 -- phpMyAdmin SQL Dump
 -- version 2.11.8.1deb5
 -- http://www.phpmyadmin.net
@@ -8,7 +9,7 @@
 -- PHP Version: 5.2.6-1+lenny2
 
 --
--- Database: `fatest`
+-- Database: ``
 --
 
 -- --------------------------------------------------------
@@ -34,29 +35,29 @@ INSERT INTO `0_areas` VALUES(1, 'Global', 0);
 
 -- --------------------------------------------------------
 
+
 --
 -- Table structure for table `0_attachments`
 --
 
 DROP TABLE IF EXISTS `0_attachments`;
 CREATE TABLE IF NOT EXISTS `0_attachments` (
-  `id` int(11) unsigned NOT NULL auto_increment,
-  `description` varchar(60) NOT NULL default '',
-  `type_no` int(11) NOT NULL default '0',
-  `trans_no` int(11) NOT NULL default '0',
-  `unique_name` varchar(60) NOT NULL default '',
-  `tran_date` date NOT NULL default '0000-00-00',
-  `filename` varchar(60) NOT NULL default '',
-  `filesize` int(11) NOT NULL default '0',
-  `filetype` varchar(60) NOT NULL default '',
-  PRIMARY KEY  (`id`),
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `description` varchar(60) NOT NULL DEFAULT '',
+  `type_no` int(11) NOT NULL DEFAULT '0',
+  `trans_no` int(11) NOT NULL DEFAULT '0',
+  `unique_name` varchar(60) NOT NULL DEFAULT '',
+  `tran_date` date NOT NULL DEFAULT '0000-00-00',
+  `filename` varchar(60) NOT NULL DEFAULT '',
+  `filesize` int(11) NOT NULL DEFAULT '0',
+  `filetype` varchar(60) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
   KEY `type_no` (`type_no`,`trans_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_attachments`
 --
-
 
 -- --------------------------------------------------------
 
@@ -66,24 +67,23 @@ CREATE TABLE IF NOT EXISTS `0_attachments` (
 
 DROP TABLE IF EXISTS `0_audit_trail`;
 CREATE TABLE IF NOT EXISTS `0_audit_trail` (
-  `id` int(11) NOT NULL auto_increment,
-  `type` smallint(6) unsigned NOT NULL default '0',
-  `trans_no` int(11) unsigned NOT NULL default '0',
-  `user` smallint(6) unsigned NOT NULL default '0',
-  `stamp` timestamp NOT NULL,
-  `description` varchar(60) default NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` smallint(6) unsigned NOT NULL DEFAULT '0',
+  `trans_no` int(11) unsigned NOT NULL DEFAULT '0',
+  `user` smallint(6) unsigned NOT NULL DEFAULT '0',
+  `stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `description` varchar(60) DEFAULT NULL,
   `fiscal_year` int(11) NOT NULL,
-  `gl_date` date NOT NULL default '0000-00-00',
-  `gl_seq` int(11) unsigned default NULL,
-  PRIMARY KEY  (`id`),
+  `gl_date` date NOT NULL DEFAULT '0000-00-00',
+  `gl_seq` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `Seq` (`fiscal_year`,`gl_date`,`gl_seq`),
   KEY `Type_and_Number` (`type`,`trans_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_audit_trail`
 --
-
 
 -- --------------------------------------------------------
 
@@ -93,62 +93,65 @@ CREATE TABLE IF NOT EXISTS `0_audit_trail` (
 
 DROP TABLE IF EXISTS `0_bank_accounts`;
 CREATE TABLE IF NOT EXISTS `0_bank_accounts` (
-  `account_code` varchar(15) NOT NULL default '',
-  `account_type` smallint(6) NOT NULL default '0',
-  `bank_account_name` varchar(60) NOT NULL default '',
-  `bank_account_number` varchar(100) NOT NULL default '',
-  `bank_name` varchar(60) NOT NULL default '',
+  `account_code` varchar(15) NOT NULL DEFAULT '',
+  `account_type` smallint(6) NOT NULL DEFAULT '0',
+  `bank_account_name` varchar(60) NOT NULL DEFAULT '',
+  `bank_account_number` varchar(100) NOT NULL DEFAULT '',
+  `bank_name` varchar(60) NOT NULL DEFAULT '',
   `bank_address` tinytext,
-  `bank_curr_code` char(3) NOT NULL default '',
-  `dflt_curr_act` tinyint(1) NOT NULL default '0',
-  `id` smallint(6) NOT NULL auto_increment,
-  `last_reconciled_date` timestamp NOT NULL default '0000-00-00 00:00:00',
-  `ending_reconcile_balance` double NOT NULL default '0',
-  `inactive` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`id`),
+  `bank_curr_code` char(3) NOT NULL DEFAULT '',
+  `dflt_curr_act` tinyint(1) NOT NULL DEFAULT '0',
+  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `last_reconciled_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `ending_reconcile_balance` double NOT NULL DEFAULT '0',
+  `inactive` tinyint(1) NOT NULL DEFAULT '0',
+  `bank_iban` varchar(255) NOT NULL,
+  `bank_swift_code` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `bank_account_name` (`bank_account_name`),
   KEY `bank_account_number` (`bank_account_number`),
   KEY `account_code` (`account_code`)
-) ENGINE=MyISAM  AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `0_bank_accounts`
 --
 
-INSERT INTO `0_bank_accounts` VALUES('1060', 0, 'Current account', 'N/A', 'N/A', '', 'USD', 1, 1, '0000-00-00 00:00:00', 0, 0);
-INSERT INTO `0_bank_accounts` VALUES('1065', 3, 'Petty Cash account', 'N/A', 'N/A', '', 'USD', 0, 2, '0000-00-00 00:00:00', 0, 0);
+INSERT INTO `0_bank_accounts` VALUES('1060', 0, 'Current account', 'N/A', 'N/A', '', 'USD', 1, 1, '0000-00-00 00:00:00', 0, 0,'123456789','ABCDEFG');
+INSERT INTO `0_bank_accounts` VALUES('1065', 3, 'Petty Cash account', 'N/A', 'N/A', '', 'USD', 0, 2, '0000-00-00 00:00:00', 0, 0,'321654987','GHIJKLM');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `0_bank_trans`
 --
-
 DROP TABLE IF EXISTS `0_bank_trans`;
 CREATE TABLE IF NOT EXISTS `0_bank_trans` (
-  `id` int(11) NOT NULL auto_increment,
-  `type` smallint(6) default NULL,
-  `trans_no` int(11) default NULL,
-  `bank_act` varchar(15) NOT NULL default '',
-  `ref` varchar(40) default NULL,
-  `trans_date` date NOT NULL default '0000-00-00',
-  `amount` double default NULL,
-  `dimension_id` int(11) NOT NULL default '0',
-  `dimension2_id` int(11) NOT NULL default '0',
-  `person_type_id` int(11) NOT NULL default '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` smallint(6) DEFAULT NULL,
+  `trans_no` int(11) DEFAULT NULL,
+  `bank_act` varchar(15) NOT NULL DEFAULT '',
+  `ref` varchar(40) DEFAULT NULL,
+  `trans_date` date NOT NULL DEFAULT '0000-00-00',
+  `amount` double DEFAULT NULL,
+  `dimension_id` int(11) NOT NULL DEFAULT '0',
+  `dimension2_id` int(11) NOT NULL DEFAULT '0',
+  `person_type_id` int(11) NOT NULL DEFAULT '0',
   `person_id` tinyblob,
-  `reconciled` date default NULL,
-  PRIMARY KEY  (`id`),
+  `reconciled` date DEFAULT NULL,
+  `cheque` tinyint(1) NOT NULL COMMENT '0 cash, 1 cheque',
+  `cheque_date` date NOT NULL,
+  `cheque_no` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `bank_act` (`bank_act`,`ref`),
   KEY `type` (`type`,`trans_no`),
   KEY `bank_act_2` (`bank_act`,`reconciled`),
   KEY `bank_act_3` (`bank_act`,`trans_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_bank_trans`
 --
-
 
 -- --------------------------------------------------------
 
@@ -158,24 +161,23 @@ CREATE TABLE IF NOT EXISTS `0_bank_trans` (
 
 DROP TABLE IF EXISTS `0_bom`;
 CREATE TABLE IF NOT EXISTS `0_bom` (
-  `id` int(11) NOT NULL auto_increment,
-  `parent` char(20) NOT NULL default '',
-  `component` char(20) NOT NULL default '',
-  `workcentre_added` int(11) NOT NULL default '0',
-  `loc_code` char(5) NOT NULL default '',
-  `quantity` double NOT NULL default '1',
-  PRIMARY KEY  (`parent`,`component`,`workcentre_added`,`loc_code`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent` char(20) NOT NULL DEFAULT '',
+  `component` char(20) NOT NULL DEFAULT '',
+  `workcentre_added` int(11) NOT NULL DEFAULT '0',
+  `loc_code` char(5) NOT NULL DEFAULT '',
+  `quantity` double NOT NULL DEFAULT '1',
+  PRIMARY KEY (`parent`,`component`,`workcentre_added`,`loc_code`),
   KEY `component` (`component`),
   KEY `id` (`id`),
   KEY `loc_code` (`loc_code`),
   KEY `parent` (`parent`,`loc_code`),
   KEY `workcentre_added` (`workcentre_added`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_bom`
 --
-
 
 -- --------------------------------------------------------
 
@@ -185,21 +187,21 @@ CREATE TABLE IF NOT EXISTS `0_bom` (
 
 DROP TABLE IF EXISTS `0_budget_trans`;
 CREATE TABLE IF NOT EXISTS `0_budget_trans` (
-  `counter` int(11) NOT NULL auto_increment,
-  `type` smallint(6) NOT NULL default '0',
-  `type_no` bigint(16) NOT NULL default '1',
-  `tran_date` date NOT NULL default '0000-00-00',
-  `account` varchar(15) NOT NULL default '',
+  `counter` int(11) NOT NULL AUTO_INCREMENT,
+  `type` smallint(6) NOT NULL DEFAULT '0',
+  `type_no` bigint(16) NOT NULL DEFAULT '1',
+  `tran_date` date NOT NULL DEFAULT '0000-00-00',
+  `account` varchar(15) NOT NULL DEFAULT '',
   `memo_` tinytext NOT NULL,
-  `amount` double NOT NULL default '0',
-  `dimension_id` int(11) default '0',
-  `dimension2_id` int(11) default '0',
-  `person_type_id` int(11) default NULL,
+  `amount` double NOT NULL DEFAULT '0',
+  `dimension_id` int(11) DEFAULT '0',
+  `dimension2_id` int(11) DEFAULT '0',
+  `person_type_id` int(11) DEFAULT NULL,
   `person_id` tinyblob,
-  PRIMARY KEY  (`counter`),
+  PRIMARY KEY (`counter`),
   KEY `Type_and_Number` (`type`,`type_no`),
   KEY `Account` (`account`,`tran_date`,`dimension_id`,`dimension2_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_budget_trans`
@@ -366,8 +368,8 @@ INSERT INTO `0_chart_types` VALUES('10', 'Cost of Goods Sold', '4', '', 0);
 INSERT INTO `0_chart_types` VALUES('11', 'Payroll Expenses', '4', '', 0);
 INSERT INTO `0_chart_types` VALUES('12', 'General &amp; Administrative expenses', '4', '', 0);
 
--- --------------------------------------------------------
 
+-- --------------------------------------------------------
 --
 -- Table structure for table `0_comments`
 --
@@ -523,6 +525,9 @@ INSERT INTO `0_currencies` VALUES('US Dollars', 'USD', '$', 'United States', 'Ce
 INSERT INTO `0_currencies` VALUES('CA Dollars', 'CAD', '$', 'Canada', 'Cents', 1, 0);
 INSERT INTO `0_currencies` VALUES('Euro', 'EUR', '?', 'Europe', 'Cents', 1, 0);
 INSERT INTO `0_currencies` VALUES('Pounds', 'GBP', '?', 'England', 'Pence', 1, 0);
+INSERT INTO `0_currencies` VALUES('DK Kroner', 'DKK', '?', 'Denmark', 'Ore', 1, 0);
+INSERT INTO `0_currencies` VALUES('UAE Dirham', 'AED', 'AED', 'United Arab Emirates', 'Fils', 1, 0);
+
 
 -- --------------------------------------------------------
 
@@ -557,31 +562,31 @@ CREATE TABLE IF NOT EXISTS `0_cust_allocations` (
 
 DROP TABLE IF EXISTS `0_cust_branch`;
 CREATE TABLE IF NOT EXISTS `0_cust_branch` (
-  `branch_code` int(11) NOT NULL auto_increment,
-  `debtor_no` int(11) NOT NULL default '0',
-  `br_name` varchar(60) NOT NULL default '',
-  `branch_ref` varchar(30) NOT NULL default '',
+  `branch_code` int(11) NOT NULL AUTO_INCREMENT,
+  `debtor_no` int(11) NOT NULL DEFAULT '0',
+  `br_name` varchar(60) NOT NULL DEFAULT '',
+  `branch_ref` varchar(30) NOT NULL DEFAULT '',
   `br_address` tinytext NOT NULL,
-  `area` int(11) default NULL,
-  `salesman` int(11) NOT NULL default '0',
-  `contact_name` varchar(60) NOT NULL default '',
-  `default_location` varchar(5) NOT NULL default '',
-  `tax_group_id` int(11) default NULL,
-  `sales_account` varchar(15) NOT NULL default '',
-  `sales_discount_account` varchar(15) NOT NULL default '',
-  `receivables_account` varchar(15) NOT NULL default '',
-  `payment_discount_account` varchar(15) NOT NULL default '',
-  `default_ship_via` int(11) NOT NULL default '1',
-  `disable_trans` tinyint(4) NOT NULL default '0',
+  `area` int(11) DEFAULT NULL,
+  `salesman` int(11) NOT NULL DEFAULT '0',
+  `contact_name` varchar(60) NOT NULL DEFAULT '',
+  `default_location` varchar(5) NOT NULL DEFAULT '',
+  `tax_group_id` int(11) DEFAULT NULL,
+  `sales_account` varchar(15) NOT NULL DEFAULT '',
+  `sales_discount_account` varchar(15) NOT NULL DEFAULT '',
+  `receivables_account` varchar(15) NOT NULL DEFAULT '',
+  `payment_discount_account` varchar(15) NOT NULL DEFAULT '',
+  `default_ship_via` int(11) NOT NULL DEFAULT '1',
+  `disable_trans` tinyint(4) NOT NULL DEFAULT '0',
   `br_post_address` tinytext NOT NULL,
-  `group_no` int(11) NOT NULL default '0',
+  `group_no` int(11) NOT NULL DEFAULT '0',
   `notes` tinytext NOT NULL,
-  `inactive` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`branch_code`,`debtor_no`),
+  `inactive` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`branch_code`,`debtor_no`),
   KEY `branch_code` (`branch_code`),
   KEY `branch_ref` (`branch_ref`),
   KEY `group_no` (`group_no`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `0_cust_branch`
@@ -596,26 +601,27 @@ CREATE TABLE IF NOT EXISTS `0_cust_branch` (
 
 DROP TABLE IF EXISTS `0_debtors_master`;
 CREATE TABLE IF NOT EXISTS `0_debtors_master` (
-  `debtor_no` int(11) NOT NULL auto_increment,
-  `name` varchar(100) NOT NULL default '',
+  `debtor_no` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL DEFAULT '',
   `debtor_ref` varchar(30) NOT NULL,
   `address` tinytext,
-  `tax_id` varchar(55) NOT NULL default '',
-  `curr_code` char(3) NOT NULL default '',
-  `sales_type` int(11) NOT NULL default '1',
-  `dimension_id` int(11) NOT NULL default '0',
-  `dimension2_id` int(11) NOT NULL default '0',
-  `credit_status` int(11) NOT NULL default '0',
-  `payment_terms` int(11) default NULL,
-  `discount` double NOT NULL default '0',
-  `pymt_discount` double NOT NULL default '0',
-  `credit_limit` float NOT NULL default '1000',
+  `tax_id` varchar(55) NOT NULL DEFAULT '',
+  `curr_code` char(3) NOT NULL DEFAULT '',
+  `sales_type` int(11) NOT NULL DEFAULT '1',
+  `dimension_id` int(11) NOT NULL DEFAULT '0',
+  `dimension2_id` int(11) NOT NULL DEFAULT '0',
+  `credit_status` int(11) NOT NULL DEFAULT '0',
+  `payment_terms` int(11) DEFAULT NULL,
+  `discount` double NOT NULL DEFAULT '0',
+  `pymt_discount` double NOT NULL DEFAULT '0',
+  `credit_limit` float NOT NULL DEFAULT '1000',
   `notes` tinytext NOT NULL,
-  `inactive` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`debtor_no`),
-  KEY `name` (`name`),
-  UNIQUE KEY `debtor_ref` (`debtor_ref`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 ;
+  `inactive` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`debtor_no`),
+  UNIQUE KEY `debtor_ref` (`debtor_ref`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
 
 --
 -- Dumping data for table `0_debtors_master`
@@ -630,37 +636,36 @@ CREATE TABLE IF NOT EXISTS `0_debtors_master` (
 
 DROP TABLE IF EXISTS `0_debtor_trans`;
 CREATE TABLE IF NOT EXISTS `0_debtor_trans` (
-  `trans_no` int(11) unsigned NOT NULL default '0',
-  `type` smallint(6) unsigned NOT NULL default '0',
-  `version` tinyint(1) unsigned NOT NULL default '0',
-  `debtor_no` int(11) unsigned default NULL,
-  `branch_code` int(11) NOT NULL default '-1',
-  `tran_date` date NOT NULL default '0000-00-00',
-  `due_date` date NOT NULL default '0000-00-00',
-  `reference` varchar(60) NOT NULL default '',
-  `tpe` int(11) NOT NULL default '0',
-  `order_` int(11) NOT NULL default '0',
-  `ov_amount` double NOT NULL default '0',
-  `ov_gst` double NOT NULL default '0',
-  `ov_freight` double NOT NULL default '0',
-  `ov_freight_tax` double NOT NULL default '0',
-  `ov_discount` double NOT NULL default '0',
-  `alloc` double NOT NULL default '0',
-  `rate` double NOT NULL default '1',
-  `ship_via` int(11) default NULL,
-  `dimension_id` int(11) NOT NULL default '0',
-  `dimension2_id` int(11) NOT NULL default '0',
-  `payment_terms` int(11) default NULL,
-  PRIMARY KEY  (`type`,`trans_no`),
+  `trans_no` int(11) unsigned NOT NULL DEFAULT '0',
+  `type` smallint(6) unsigned NOT NULL DEFAULT '0',
+  `version` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `debtor_no` int(11) unsigned DEFAULT NULL,
+  `branch_code` int(11) NOT NULL DEFAULT '-1',
+  `tran_date` date NOT NULL DEFAULT '0000-00-00',
+  `due_date` date NOT NULL DEFAULT '0000-00-00',
+  `reference` varchar(60) NOT NULL DEFAULT '',
+  `tpe` int(11) NOT NULL DEFAULT '0',
+  `order_` int(11) NOT NULL DEFAULT '0',
+  `ov_amount` double NOT NULL DEFAULT '0',
+  `ov_gst` double NOT NULL DEFAULT '0',
+  `ov_freight` double NOT NULL DEFAULT '0',
+  `ov_freight_tax` double NOT NULL DEFAULT '0',
+  `ov_discount` double NOT NULL DEFAULT '0',
+  `alloc` double NOT NULL DEFAULT '0',
+  `rate` double NOT NULL DEFAULT '1',
+  `ship_via` int(11) DEFAULT NULL,
+  `dimension_id` int(11) NOT NULL DEFAULT '0',
+  `dimension2_id` int(11) NOT NULL DEFAULT '0',
+  `payment_terms` int(11) DEFAULT NULL,
+  PRIMARY KEY (`type`,`trans_no`),
   KEY `debtor_no` (`debtor_no`,`branch_code`),
   KEY `tran_date` (`tran_date`),
   KEY `order_` (`order_`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `0_debtor_trans`
 --
-
 
 -- --------------------------------------------------------
 
@@ -670,27 +675,26 @@ CREATE TABLE IF NOT EXISTS `0_debtor_trans` (
 
 DROP TABLE IF EXISTS `0_debtor_trans_details`;
 CREATE TABLE IF NOT EXISTS `0_debtor_trans_details` (
-  `id` int(11) NOT NULL auto_increment,
-  `debtor_trans_no` int(11) default NULL,
-  `debtor_trans_type` int(11) default NULL,
-  `stock_id` varchar(20) NOT NULL default '',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `debtor_trans_no` int(11) DEFAULT NULL,
+  `debtor_trans_type` int(11) DEFAULT NULL,
+  `stock_id` varchar(20) NOT NULL DEFAULT '',
   `description` tinytext,
-  `unit_price` double NOT NULL default '0',
-  `unit_tax` double NOT NULL default '0',
-  `quantity` double NOT NULL default '0',
-  `discount_percent` double NOT NULL default '0',
-  `standard_cost` double NOT NULL default '0',
-  `qty_done` double NOT NULL default '0',
+  `unit_price` double NOT NULL DEFAULT '0',
+  `unit_tax` double NOT NULL DEFAULT '0',
+  `quantity` double NOT NULL DEFAULT '0',
+  `discount_percent` double NOT NULL DEFAULT '0',
+  `standard_cost` double NOT NULL DEFAULT '0',
+  `qty_done` double NOT NULL DEFAULT '0',
   `src_id` int(11) NOT NULL,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   KEY `Transaction` (`debtor_trans_type`,`debtor_trans_no`),
-  KEY (`src_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+  KEY `src_id` (`src_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_debtor_trans_details`
 --
-
 
 -- --------------------------------------------------------
 
@@ -700,19 +704,19 @@ CREATE TABLE IF NOT EXISTS `0_debtor_trans_details` (
 
 DROP TABLE IF EXISTS `0_dimensions`;
 CREATE TABLE IF NOT EXISTS `0_dimensions` (
-  `id` int(11) NOT NULL auto_increment,
-  `reference` varchar(60) NOT NULL default '',
-  `name` varchar(60) NOT NULL default '',
-  `type_` tinyint(1) NOT NULL default '1',
-  `closed` tinyint(1) NOT NULL default '0',
-  `date_` date NOT NULL default '0000-00-00',
-  `due_date` date NOT NULL default '0000-00-00',
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `reference` varchar(60) NOT NULL DEFAULT '',
+  `name` varchar(60) NOT NULL DEFAULT '',
+  `type_` tinyint(1) NOT NULL DEFAULT '1',
+  `closed` tinyint(1) NOT NULL DEFAULT '0',
+  `date_` date NOT NULL DEFAULT '0000-00-00',
+  `due_date` date NOT NULL DEFAULT '0000-00-00',
+  PRIMARY KEY (`id`),
   UNIQUE KEY `reference` (`reference`),
   KEY `date_` (`date_`),
   KEY `due_date` (`due_date`),
   KEY `type_` (`type_`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_dimensions`
@@ -740,65 +744,57 @@ CREATE TABLE IF NOT EXISTS `0_exchange_rates` (
 -- Dumping data for table `0_exchange_rates`
 --
 
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `0_fiscal_year`
 --
-
 DROP TABLE IF EXISTS `0_fiscal_year`;
 CREATE TABLE IF NOT EXISTS `0_fiscal_year` (
-  `id` int(11) NOT NULL auto_increment,
-  `begin` date default '0000-00-00',
-  `end` date default '0000-00-00',
-  `closed` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `begin` date DEFAULT '0000-00-00',
+  `end` date DEFAULT '0000-00-00',
+  `closed` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
   UNIQUE KEY `begin` (`begin`),
   UNIQUE KEY `end` (`end`)
-) ENGINE=InnoDB  AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `0_fiscal_year`
 --
 
-INSERT INTO `0_fiscal_year` VALUES(1, '2008-01-01', '2008-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(2, '2009-01-01', '2009-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(3, '2010-01-01', '2010-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(4, '2011-01-01', '2011-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(5, '2012-01-01', '2012-12-31', 0);
-INSERT INTO `0_fiscal_year` VALUES(6, '2013-01-01', '2013-12-31', 0);
+INSERT INTO `0_fiscal_year` VALUES(1, '2014-04-01', '2015-03-31', 0);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `0_gl_trans`
 --
-
 DROP TABLE IF EXISTS `0_gl_trans`;
 CREATE TABLE IF NOT EXISTS `0_gl_trans` (
-  `counter` int(11) NOT NULL auto_increment,
-  `type` smallint(6) NOT NULL default '0',
-  `type_no` bigint(16) NOT NULL default '1',
-  `tran_date` date NOT NULL default '0000-00-00',
-  `account` varchar(15) NOT NULL default '',
+  `counter` int(11) NOT NULL AUTO_INCREMENT,
+  `type` smallint(6) NOT NULL DEFAULT '0',
+  `type_no` bigint(16) NOT NULL DEFAULT '1',
+  `tran_date` date NOT NULL DEFAULT '0000-00-00',
+  `account` varchar(15) NOT NULL DEFAULT '',
   `memo_` tinytext NOT NULL,
-  `amount` double NOT NULL default '0',
-  `dimension_id` int(11) NOT NULL default '0',
-  `dimension2_id` int(11) NOT NULL default '0',
-  `person_type_id` int(11) default NULL,
+  `amount` double NOT NULL DEFAULT '0',
+  `dimension_id` int(11) NOT NULL DEFAULT '0',
+  `dimension2_id` int(11) NOT NULL DEFAULT '0',
+  `person_type_id` int(11) DEFAULT NULL,
   `person_id` tinyblob,
-  PRIMARY KEY  (`counter`),
+  PRIMARY KEY (`counter`),
   KEY `Type_and_Number` (`type`,`type_no`),
   KEY `dimension_id` (`dimension_id`),
   KEY `dimension2_id` (`dimension2_id`),
   KEY `tran_date` (`tran_date`),
   KEY `account_and_tran_date` (`account`,`tran_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_gl_trans`
 --
-
-
 -- --------------------------------------------------------
 
 --
@@ -845,8 +841,6 @@ CREATE TABLE IF NOT EXISTS `0_grn_items` (
 --
 -- Dumping data for table `0_grn_items`
 --
-
-
 -- --------------------------------------------------------
 
 --
@@ -875,26 +869,24 @@ INSERT INTO `0_groups` VALUES(3, 'Large', 0);
 --
 -- Table structure for table `0_item_codes`
 --
-
 DROP TABLE IF EXISTS `0_item_codes`;
 CREATE TABLE IF NOT EXISTS `0_item_codes` (
-  `id` int(11) unsigned NOT NULL auto_increment,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `item_code` varchar(20) NOT NULL,
   `stock_id` varchar(20) NOT NULL,
-  `description` varchar(200) NOT NULL default '',
+  `description` varchar(200) NOT NULL DEFAULT '',
   `category_id` smallint(6) unsigned NOT NULL,
-  `quantity` double NOT NULL default '1',
-  `is_foreign` tinyint(1) NOT NULL default '0',
-  `inactive` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`id`),
+  `quantity` double NOT NULL DEFAULT '1',
+  `is_foreign` tinyint(1) NOT NULL DEFAULT '0',
+  `inactive` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
   UNIQUE KEY `stock_id` (`stock_id`,`item_code`),
   KEY `item_code` (`item_code`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_item_codes`
 --
-
 
 -- --------------------------------------------------------
 
@@ -935,7 +927,6 @@ CREATE TABLE IF NOT EXISTS `0_item_tax_type_exemptions` (
 -- Dumping data for table `0_item_tax_type_exemptions`
 --
 
-
 -- --------------------------------------------------------
 
 --
@@ -947,16 +938,38 @@ CREATE TABLE IF NOT EXISTS `0_item_units` (
   `abbr` varchar(20) NOT NULL,
   `name` varchar(40) NOT NULL,
   `decimals` tinyint(2) NOT NULL,
-  `inactive` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`abbr`),
+  `inactive` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`abbr`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `0_item_units`
 --
 
 INSERT INTO `0_item_units` VALUES('ea.', 'Each', 0, 0);
+INSERT INTO `0_item_units` VALUES('hrs', 'Hours', 1, 0);
+INSERT INTO `0_item_units` VALUES('MT', 'Metric Tonnes', 3, 0);
+INSERT INTO `0_item_units` VALUES('KG', 'Kilograms', 3, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `0_loading_types`
+--
+
+CREATE TABLE IF NOT EXISTS `0_loading_types` (
+  `loading_type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `loading_type_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`loading_type_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `0_loading_types`
+--
+
+INSERT INTO `0_loading_types` VALUES(1, 'PICK-UP');
+INSERT INTO `0_loading_types` VALUES(2, 'DELIVER');
 
 -- --------------------------------------------------------
 
@@ -985,7 +998,6 @@ CREATE TABLE IF NOT EXISTS `0_locations` (
 INSERT INTO `0_locations` VALUES('DEF', 'Default', 'N/A', '', '', '', '', '', 0);
 
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `0_loc_stock`
 --
@@ -1151,61 +1163,57 @@ CREATE TABLE IF NOT EXISTS `0_purch_data` (
 -- Dumping data for table `0_purch_data`
 --
 
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `0_purch_orders`
 --
-
 DROP TABLE IF EXISTS `0_purch_orders`;
 CREATE TABLE IF NOT EXISTS `0_purch_orders` (
-  `order_no` int(11) NOT NULL auto_increment,
-  `supplier_id` int(11) NOT NULL default '0',
+  `order_no` int(11) NOT NULL AUTO_INCREMENT,
+  `supplier_id` int(11) NOT NULL DEFAULT '0',
   `comments` tinytext,
-  `ord_date` date NOT NULL default '0000-00-00',
+  `ord_date` date NOT NULL DEFAULT '0000-00-00',
   `reference` tinytext NOT NULL,
   `requisition_no` tinytext,
-  `into_stock_location` varchar(5) NOT NULL default '',
+  `into_stock_location` varchar(5) NOT NULL DEFAULT '',
   `delivery_address` tinytext NOT NULL,
-  `total` double NOT NULL default '0',
-  `tax_included` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`order_no`),
+  `total` double NOT NULL DEFAULT '0',
+  `tax_included` tinyint(1) NOT NULL DEFAULT '0',
+  `shipping_id` int(11) NOT NULL,
+  PRIMARY KEY (`order_no`),
   KEY `ord_date` (`ord_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_purch_orders`
 --
-
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `0_purch_order_details`
 --
-
 DROP TABLE IF EXISTS `0_purch_order_details`;
 CREATE TABLE IF NOT EXISTS `0_purch_order_details` (
-  `po_detail_item` int(11) NOT NULL auto_increment,
-  `order_no` int(11) NOT NULL default '0',
-  `item_code` varchar(20) NOT NULL default '',
+  `po_detail_item` int(11) NOT NULL AUTO_INCREMENT,
+  `order_no` int(11) NOT NULL DEFAULT '0',
+  `item_code` varchar(20) NOT NULL DEFAULT '',
   `description` tinytext,
-  `delivery_date` date NOT NULL default '0000-00-00',
-  `qty_invoiced` double NOT NULL default '0',
-  `unit_price` double NOT NULL default '0',
-  `act_price` double NOT NULL default '0',
-  `std_cost_unit` double NOT NULL default '0',
-  `quantity_ordered` double NOT NULL default '0',
-  `quantity_received` double NOT NULL default '0',
-  PRIMARY KEY  (`po_detail_item`),
+  `delivery_date` date NOT NULL DEFAULT '0000-00-00',
+  `qty_invoiced` double NOT NULL DEFAULT '0',
+  `unit_price` double NOT NULL DEFAULT '0',
+  `act_price` double NOT NULL DEFAULT '0',
+  `std_cost_unit` double NOT NULL DEFAULT '0',
+  `quantity_ordered` double NOT NULL DEFAULT '0',
+  `quantity_received` double NOT NULL DEFAULT '0',
+  PRIMARY KEY (`po_detail_item`),
   KEY `order` (`order_no`,`po_detail_item`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_purch_order_details`
 --
-
 
 -- --------------------------------------------------------
 
@@ -1308,8 +1316,6 @@ CREATE TABLE IF NOT EXISTS `0_refs` (
 --
 -- Dumping data for table `0_refs`
 --
-
-
 -- --------------------------------------------------------
 
 --
@@ -1346,33 +1352,50 @@ INSERT INTO `0_salesman` VALUES(1, 'Sales Person', '', '', '', 5, 1000, 4, 0);
 DROP TABLE IF EXISTS `0_sales_orders`;
 CREATE TABLE IF NOT EXISTS `0_sales_orders` (
   `order_no` int(11) NOT NULL,
-  `trans_type` smallint(6) NOT NULL default '30',
-  `version` tinyint(1) unsigned NOT NULL default '0',
-  `type` tinyint(1) NOT NULL default '0',
-  `debtor_no` int(11) NOT NULL default '0',
-  `branch_code` int(11) NOT NULL default '0',
-  `reference` varchar(100) NOT NULL default '',
+  `trans_type` smallint(6) NOT NULL DEFAULT '30',
+  `version` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `type` tinyint(1) NOT NULL DEFAULT '0',
+  `debtor_no` int(11) NOT NULL DEFAULT '0',
+  `branch_code` int(11) NOT NULL DEFAULT '0',
+  `reference` varchar(100) NOT NULL DEFAULT '',
   `customer_ref` tinytext NOT NULL,
   `comments` tinytext,
-  `ord_date` date NOT NULL default '0000-00-00',
-  `order_type` int(11) NOT NULL default '0',
-  `ship_via` int(11) NOT NULL default '0',
+  `ord_date` date NOT NULL DEFAULT '0000-00-00',
+  `order_type` int(11) NOT NULL DEFAULT '0',
+  `ship_via` int(11) NOT NULL DEFAULT '0',
   `delivery_address` tinytext NOT NULL,
-  `contact_phone` varchar(30) default NULL,
-  `contact_email` varchar(100) default NULL,
+  `contact_phone` varchar(30) DEFAULT NULL,
+  `contact_email` varchar(100) DEFAULT NULL,
   `deliver_to` tinytext NOT NULL,
-  `freight_cost` double NOT NULL default '0',
-  `from_stk_loc` varchar(5) NOT NULL default '',
-  `delivery_date` date NOT NULL default '0000-00-00',
-  `payment_terms` int(11) default NULL,
-  `total` double NOT NULL default '0',
-  PRIMARY KEY  (`trans_type`,`order_no`)
-) ENGINE=InnoDB;
+  `freight_cost` double NOT NULL DEFAULT '0',
+  `from_stk_loc` varchar(5) NOT NULL DEFAULT '',
+  `delivery_date` date NOT NULL DEFAULT '0000-00-00',
+  `payment_terms` int(11) DEFAULT NULL,
+  `total` double NOT NULL DEFAULT '0',
+  `contract_no` varchar(255) NOT NULL,
+  `loading_type_id` int(11) NOT NULL,
+  `origin` varchar(255) NOT NULL,
+  `lc_no` varchar(255) NOT NULL,
+  `lc_date` date NOT NULL,
+  `bank_account_id` int(11) NOT NULL,
+  `shipment_terms` text NOT NULL,
+  `shipment_validity_date` date NOT NULL,
+  `port_of_loading` varchar(255) NOT NULL,
+  `port_of_discharge` varchar(255) NOT NULL,
+  `destination` varchar(255) NOT NULL,
+  `remarks` text NOT NULL,
+  `shipment_time_id` int(11) NOT NULL,
+  `shipping_id` int(11) NOT NULL,
+  `export` tinyint(4) NOT NULL DEFAULT '0' COMMENT '1 for export sale,0 for local sale',
+  `packing` varchar(255) NOT NULL,
+  `merchandise_tolerance` varchar(255) NOT NULL,
+  `loading_details` varchar(255) NOT NULL,
+  PRIMARY KEY (`trans_type`,`order_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `0_sales_orders`
 --
-
 
 -- --------------------------------------------------------
 
@@ -1382,18 +1405,18 @@ CREATE TABLE IF NOT EXISTS `0_sales_orders` (
 
 DROP TABLE IF EXISTS `0_sales_order_details`;
 CREATE TABLE IF NOT EXISTS `0_sales_order_details` (
-  `id` int(11) NOT NULL auto_increment,
-  `order_no` int(11) NOT NULL default '0',
-  `trans_type` smallint(6) NOT NULL default '30',
-  `stk_code` varchar(20) NOT NULL default '',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_no` int(11) NOT NULL DEFAULT '0',
+  `trans_type` smallint(6) NOT NULL DEFAULT '30',
+  `stk_code` varchar(20) NOT NULL DEFAULT '',
   `description` tinytext,
-  `qty_sent` double NOT NULL default '0',
-  `unit_price` double NOT NULL default '0',
-  `quantity` double NOT NULL default '0',
-  `discount_percent` double NOT NULL default '0',
-  PRIMARY KEY  (`id`),
+  `qty_sent` double NOT NULL DEFAULT '0',
+  `unit_price` double NOT NULL DEFAULT '0',
+  `quantity` double NOT NULL DEFAULT '0',
+  `discount_percent` double NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
   KEY `sorder` (`trans_type`,`order_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_sales_order_details`
@@ -1448,6 +1471,8 @@ CREATE TABLE IF NOT EXISTS `0_sales_types` (
 
 INSERT INTO `0_sales_types` VALUES(1, 'Retail', 1, 1, 0);
 INSERT INTO `0_sales_types` VALUES(2, 'Wholesale', 0, 0.7, 0);
+INSERT INTO `0_sales_types` VALUES(3, 'Local Sales', 0, 1, 0);
+INSERT INTO `0_sales_types` VALUES(4, 'Export Sales', 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1457,15 +1482,15 @@ INSERT INTO `0_sales_types` VALUES(2, 'Wholesale', 0, 0.7, 0);
 
 DROP TABLE IF EXISTS `0_security_roles`;
 CREATE TABLE IF NOT EXISTS `0_security_roles` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `role` varchar(30) NOT NULL,
-  `description` varchar(50) default NULL,
+  `description` varchar(50) DEFAULT NULL,
   `sections` text,
   `areas` text,
-  `inactive` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`id`),
+  `inactive` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
   UNIQUE KEY `role` (`role`)
-) ENGINE=MyISAM  AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `0_security_roles`
@@ -1481,6 +1506,46 @@ INSERT INTO `0_security_roles` VALUES(7, 'AR Officer', 'AR Officer', '512;768;28
 INSERT INTO `0_security_roles` VALUES(8, 'AP Officer', 'AP Officer', '512;2816;3072;3328;5376;5632;5888;8192;8448;10752;11008;13312;15616;15872;16128', '257;258;259;260;521;523;524;769;770;771;772;773;774;2818;2819;2820;2821;2822;2823;3073;3074;3082;3076;3077;3078;3079;3080;3081;3329;3330;3331;3332;3333;3334;3335;5377;5633;5635;5640;5889;5890;5891;7937;7938;7939;7940;8193;8194;8196;8197;8449;8450;8451;10497;10753;10755;11009;11010;11012;13057;13313;13315;15617;15619;15620;15621;15624;15876;15877;15880;15882;16129;16130;16131;16132', 0);
 INSERT INTO `0_security_roles` VALUES(9, 'Accountant', 'New Accountant', '512;768;2816;3072;3328;5376;5632;5888;8192;8448;10752;11008;13312;15616;15872;16128', '257;258;259;260;521;523;524;771;772;773;774;2818;2819;2820;2821;2822;2823;3073;3074;3075;3076;3077;3078;3079;3080;3081;3329;3330;3331;3332;3333;3334;3335;5377;5633;5634;5635;5637;5638;5639;5640;5889;5890;5891;7937;7938;7939;7940;8193;8194;8196;8197;8449;8450;8451;10497;10753;10755;11009;11010;11012;13313;13315;15617;15618;15619;15620;15621;15624;15873;15876;15877;15878;15880;15882;16129;16130;16131;16132', 0);
 INSERT INTO `0_security_roles` VALUES(10, 'Sub Admin', 'Sub Admin', '512;768;2816;3072;3328;5376;5632;5888;8192;8448;10752;11008;13312;15616;15872;16128', '257;258;259;260;521;523;524;771;772;773;774;2818;2819;2820;2821;2822;2823;3073;3074;3082;3075;3076;3077;3078;3079;3080;3081;3329;3330;3331;3332;3333;3334;3335;5377;5633;5634;5635;5637;5638;5639;5640;5889;5890;5891;7937;7938;7939;7940;8193;8194;8196;8197;8449;8450;8451;10497;10753;10755;11009;11010;11012;13057;13313;13315;15617;15619;15620;15621;15624;15873;15874;15876;15877;15878;15879;15880;15882;16129;16130;16131;16132', 0);
+INSERT INTO `0_security_roles` VALUES(11, 'Inventory Assistant ', 'Entry and Management of Inventory', '5376;5632;7936;8192;8448;287744;615424', '257;258;259;260;513;514;515;516;517;518;519;520;521;522;523;524;525;526;769;770;771;772;773;774;2817;2818;2819;2820;2821;2822;2823;3073;3074;3082;3075;3076;3077;3078;3079;3080;3081;3329;3330;3331;3332;3333;3334;3335;5377;5633;5634;5635;5636;5637;5639;5889;5890;5891;7937;7938;7939;7940;8194;8196;8450;10497;10753;10754;10755;10756;10757;11009;11010;11011;11012;13057;13313;13314;13315;15617;15618;15619;15620;15621;15622;15623;15624;15628;15625;15626;15627;15629;15873;15874;15875;15876;15877;15878;15879;15880;15883;15881;15882;15884;16129;16130;16131;16132;287844;287845;287846;287847;287848;549988;615524;681060', 0);
+INSERT INTO `0_security_roles` VALUES(12, 'SALES &amp; INVENTORY', 'SALES &amp; INVENTORY OFFICER', '512;768;2816;3072;3328;5376;5632;5888;7936;8192;8448;15872;287744;549888;615424;680960', '257;258;259;260;516;518;519;521;522;523;525;526;771;772;773;2817;2818;2819;2820;2821;2822;2823;3073;3074;3082;3075;3076;3077;3078;3079;3080;3081;3329;3330;3331;3332;3333;3334;3335;5377;5633;5636;5637;5638;5639;5640;5889;5890;5891;7937;7938;7939;7940;8193;8194;8195;8196;8197;8449;8450;8451;10497;10753;10754;10755;10756;10757;11009;11010;11011;11012;13057;13313;13314;13315;15617;15618;15619;15620;15621;15622;15623;15624;15628;15625;15626;15627;15629;15876;15877;15882;16129;16130;16131;16132;287844;287845;287846;287847;287848;549988;615524;681060;1401956', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `0_shipment_status`
+--
+
+DROP TABLE IF EXISTS `0_shipment_status`;
+CREATE TABLE IF NOT EXISTS `0_shipment_status` (
+  `status_id` int(11) NOT NULL AUTO_INCREMENT,
+  `status_description` varchar(255) NOT NULL,
+  PRIMARY KEY (`status_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `0_shipment_status`
+--
+
+INSERT INTO `0_shipment_status` VALUES(1, 'Open');
+INSERT INTO `0_shipment_status` VALUES(2, 'Closed');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `0_shipment_times`
+--
+DROP TABLE IF EXISTS `0_shipment_times`;
+CREATE TABLE IF NOT EXISTS `0_shipment_times` (
+  `shipment_time_id` int(11) NOT NULL AUTO_INCREMENT,
+  `shipment_time_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`shipment_time_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `0_shipment_times`
+--
+
+INSERT INTO `0_shipment_times` VALUES(1, 'IMMEDIATE');
 
 -- --------------------------------------------------------
 
@@ -1510,6 +1575,33 @@ INSERT INTO `0_shippers` VALUES(1, 'Default', '', '', '', '', 0);
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `0_shipping_details`
+--
+DROP TABLE IF EXISTS `0_shipping_details`;
+CREATE TABLE IF NOT EXISTS `0_shipping_details` (
+  `shipping_id` int(11) NOT NULL AUTO_INCREMENT,
+  `debtor_no` int(11) NOT NULL,
+  `vehicle_details` varchar(255) NOT NULL,
+  `first_weight` float NOT NULL,
+  `first_weight_date` datetime NOT NULL,
+  `second_weight` float NOT NULL,
+  `second_weight_date` datetime NOT NULL,
+  `shipment_status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1 for open, 2 for close',
+  `container_no` varchar(255) NOT NULL,
+  `driver_name` varchar(100) DEFAULT NULL,
+  `person_type_id` int(11) NOT NULL DEFAULT '0',
+  `person_id` tinyblob,
+  PRIMARY KEY (`shipping_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=115 ;
+
+
+--
+-- Dumping data for table `0_shipping_details`
+--
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `0_sql_trail`
 --
 
@@ -1525,7 +1617,6 @@ CREATE TABLE IF NOT EXISTS `0_sql_trail` (
 --
 -- Dumping data for table `0_sql_trail`
 --
-
 
 -- --------------------------------------------------------
 
@@ -1557,10 +1648,6 @@ CREATE TABLE IF NOT EXISTS `0_stock_category` (
 -- Dumping data for table `0_stock_category`
 --
 
-INSERT INTO `0_stock_category` VALUES(1, 'Components', 1, 'each', 'B', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0);
-INSERT INTO `0_stock_category` VALUES(2, 'Charges', 1, 'each', 'D', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0);
-INSERT INTO `0_stock_category` VALUES(3, 'Systems', 1, 'each', 'M', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0);
-INSERT INTO `0_stock_category` VALUES(4, 'Services', 1, 'hrs', 'D', '4010', '5010', '1510', '5040', '1530', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1570,35 +1657,34 @@ INSERT INTO `0_stock_category` VALUES(4, 'Services', 1, 'hrs', 'D', '4010', '501
 
 DROP TABLE IF EXISTS `0_stock_master`;
 CREATE TABLE IF NOT EXISTS `0_stock_master` (
-  `stock_id` varchar(20) NOT NULL default '',
-  `category_id` int(11) NOT NULL default '0',
-  `tax_type_id` int(11) NOT NULL default '0',
-  `description` varchar(200) NOT NULL default '',
+  `stock_id` varchar(20) NOT NULL DEFAULT '',
+  `category_id` int(11) NOT NULL DEFAULT '0',
+  `tax_type_id` int(11) NOT NULL DEFAULT '0',
+  `description` varchar(200) NOT NULL DEFAULT '',
   `long_description` tinytext NOT NULL,
-  `units` varchar(20) NOT NULL default 'each',
-  `mb_flag` char(1) NOT NULL default 'B',
-  `sales_account` varchar(15) NOT NULL default '',
-  `cogs_account` varchar(15) NOT NULL default '',
-  `inventory_account` varchar(15) NOT NULL default '',
-  `adjustment_account` varchar(15) NOT NULL default '',
-  `assembly_account` varchar(15) NOT NULL default '',
-  `dimension_id` int(11) default NULL,
-  `dimension2_id` int(11) default NULL,
-  `actual_cost` double NOT NULL default '0',
-  `last_cost` double NOT NULL default '0',
-  `material_cost` double NOT NULL default '0',
-  `labour_cost` double NOT NULL default '0',
-  `overhead_cost` double NOT NULL default '0',
-  `inactive` tinyint(1) NOT NULL default '0',
-  `no_sale` tinyint(1) NOT NULL default '0',
-  `editable` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`stock_id`)
-) ENGINE=InnoDB;
+  `units` varchar(20) NOT NULL DEFAULT 'each',
+  `mb_flag` char(1) NOT NULL DEFAULT 'B',
+  `sales_account` varchar(15) NOT NULL DEFAULT '',
+  `cogs_account` varchar(15) NOT NULL DEFAULT '',
+  `inventory_account` varchar(15) NOT NULL DEFAULT '',
+  `adjustment_account` varchar(15) NOT NULL DEFAULT '',
+  `assembly_account` varchar(15) NOT NULL DEFAULT '',
+  `dimension_id` int(11) DEFAULT NULL,
+  `dimension2_id` int(11) DEFAULT NULL,
+  `actual_cost` double NOT NULL DEFAULT '0',
+  `last_cost` double NOT NULL DEFAULT '0',
+  `material_cost` double NOT NULL DEFAULT '0',
+  `labour_cost` double NOT NULL DEFAULT '0',
+  `overhead_cost` double NOT NULL DEFAULT '0',
+  `inactive` tinyint(1) NOT NULL DEFAULT '0',
+  `no_sale` tinyint(1) NOT NULL DEFAULT '0',
+  `editable` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`stock_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `0_stock_master`
 --
-
 
 -- --------------------------------------------------------
 
@@ -1608,28 +1694,27 @@ CREATE TABLE IF NOT EXISTS `0_stock_master` (
 
 DROP TABLE IF EXISTS `0_stock_moves`;
 CREATE TABLE IF NOT EXISTS `0_stock_moves` (
-  `trans_id` int(11) NOT NULL auto_increment,
-  `trans_no` int(11) NOT NULL default '0',
-  `stock_id` char(20) NOT NULL default '',
-  `type` smallint(6) NOT NULL default '0',
-  `loc_code` char(5) NOT NULL default '',
-  `tran_date` date NOT NULL default '0000-00-00',
-  `person_id` int(11) default NULL,
-  `price` double NOT NULL default '0',
-  `reference` char(40) NOT NULL default '',
-  `qty` double NOT NULL default '1',
-  `discount_percent` double NOT NULL default '0',
-  `standard_cost` double NOT NULL default '0',
-  `visible` tinyint(1) NOT NULL default '1',
-  PRIMARY KEY  (`trans_id`),
+  `trans_id` int(11) NOT NULL AUTO_INCREMENT,
+  `trans_no` int(11) NOT NULL DEFAULT '0',
+  `stock_id` char(20) NOT NULL DEFAULT '',
+  `type` smallint(6) NOT NULL DEFAULT '0',
+  `loc_code` char(5) NOT NULL DEFAULT '',
+  `tran_date` date NOT NULL DEFAULT '0000-00-00',
+  `person_id` int(11) DEFAULT NULL,
+  `price` double NOT NULL DEFAULT '0',
+  `reference` char(40) NOT NULL DEFAULT '',
+  `qty` double NOT NULL DEFAULT '1',
+  `discount_percent` double NOT NULL DEFAULT '0',
+  `standard_cost` double NOT NULL DEFAULT '0',
+  `visible` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`trans_id`),
   KEY `type` (`type`,`trans_no`),
   KEY `Move` (`stock_id`,`loc_code`,`tran_date`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_stock_moves`
 --
-
 
 -- --------------------------------------------------------
 
@@ -1639,36 +1724,35 @@ CREATE TABLE IF NOT EXISTS `0_stock_moves` (
 
 DROP TABLE IF EXISTS `0_suppliers`;
 CREATE TABLE IF NOT EXISTS `0_suppliers` (
-  `supplier_id` int(11) NOT NULL auto_increment,
-  `supp_name` varchar(60) NOT NULL default '',
-  `supp_ref` varchar(30) NOT NULL default '',
+  `supplier_id` int(11) NOT NULL AUTO_INCREMENT,
+  `supp_name` varchar(60) NOT NULL DEFAULT '',
+  `supp_ref` varchar(30) NOT NULL DEFAULT '',
   `address` tinytext NOT NULL,
   `supp_address` tinytext NOT NULL,
-  `gst_no` varchar(25) NOT NULL default '',
-  `contact` varchar(60) NOT NULL default '',
-  `supp_account_no` varchar(40) NOT NULL default '',
-  `website` varchar(100) NOT NULL default '',
-  `bank_account` varchar(60) NOT NULL default '',
-  `curr_code` char(3) default NULL,
-  `payment_terms` int(11) default NULL,
-  `tax_included` tinyint(1) NOT NULL default '0',
-  `dimension_id` int(11) default '0',
-  `dimension2_id` int(11) default '0',
-  `tax_group_id` int(11) default NULL,
-  `credit_limit` double NOT NULL default '0',
-  `purchase_account` varchar(15) NOT NULL default '',
-  `payable_account` varchar(15) NOT NULL default '',
-  `payment_discount_account` varchar(15) NOT NULL default '',
+  `gst_no` varchar(25) NOT NULL DEFAULT '',
+  `contact` varchar(60) NOT NULL DEFAULT '',
+  `supp_account_no` varchar(40) NOT NULL DEFAULT '',
+  `website` varchar(100) NOT NULL DEFAULT '',
+  `bank_account` varchar(60) NOT NULL DEFAULT '',
+  `curr_code` char(3) DEFAULT NULL,
+  `payment_terms` int(11) DEFAULT NULL,
+  `tax_included` tinyint(1) NOT NULL DEFAULT '0',
+  `dimension_id` int(11) DEFAULT '0',
+  `dimension2_id` int(11) DEFAULT '0',
+  `tax_group_id` int(11) DEFAULT NULL,
+  `credit_limit` double NOT NULL DEFAULT '0',
+  `purchase_account` varchar(15) NOT NULL DEFAULT '',
+  `payable_account` varchar(15) NOT NULL DEFAULT '',
+  `payment_discount_account` varchar(15) NOT NULL DEFAULT '',
   `notes` tinytext NOT NULL,
-  `inactive` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`supplier_id`),
+  `inactive` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`supplier_id`),
   KEY `supp_ref` (`supp_ref`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_suppliers`
 --
-
 
 -- --------------------------------------------------------
 
@@ -1678,22 +1762,21 @@ CREATE TABLE IF NOT EXISTS `0_suppliers` (
 
 DROP TABLE IF EXISTS `0_supp_allocations`;
 CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
-  `id` int(11) NOT NULL auto_increment,
-  `amt` double unsigned default NULL,
-  `date_alloc` date NOT NULL default '0000-00-00',
-  `trans_no_from` int(11) default NULL,
-  `trans_type_from` int(11) default NULL,
-  `trans_no_to` int(11) default NULL,
-  `trans_type_to` int(11) default NULL,
-  PRIMARY KEY  (`id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `amt` double unsigned DEFAULT NULL,
+  `date_alloc` date NOT NULL DEFAULT '0000-00-00',
+  `trans_no_from` int(11) DEFAULT NULL,
+  `trans_type_from` int(11) DEFAULT NULL,
+  `trans_no_to` int(11) DEFAULT NULL,
+  `trans_type_to` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `From` (`trans_type_from`,`trans_no_from`),
   KEY `To` (`trans_type_to`,`trans_no_to`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_supp_allocations`
 --
-
 
 -- --------------------------------------------------------
 
@@ -1703,26 +1786,25 @@ CREATE TABLE IF NOT EXISTS `0_supp_allocations` (
 
 DROP TABLE IF EXISTS `0_supp_invoice_items`;
 CREATE TABLE IF NOT EXISTS `0_supp_invoice_items` (
-  `id` int(11) NOT NULL auto_increment,
-  `supp_trans_no` int(11) default NULL,
-  `supp_trans_type` int(11) default NULL,
-  `gl_code` varchar(15) NOT NULL default '',
-  `grn_item_id` int(11) default NULL,
-  `po_detail_item_id` int(11) default NULL,
-  `stock_id` varchar(20) NOT NULL default '',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `supp_trans_no` int(11) DEFAULT NULL,
+  `supp_trans_type` int(11) DEFAULT NULL,
+  `gl_code` varchar(15) NOT NULL DEFAULT '',
+  `grn_item_id` int(11) DEFAULT NULL,
+  `po_detail_item_id` int(11) DEFAULT NULL,
+  `stock_id` varchar(20) NOT NULL DEFAULT '',
   `description` tinytext,
-  `quantity` double NOT NULL default '0',
-  `unit_price` double NOT NULL default '0',
-  `unit_tax` double NOT NULL default '0',
+  `quantity` double NOT NULL DEFAULT '0',
+  `unit_price` double NOT NULL DEFAULT '0',
+  `unit_tax` double NOT NULL DEFAULT '0',
   `memo_` tinytext,
-  PRIMARY KEY  (`id`),
+  PRIMARY KEY (`id`),
   KEY `Transaction` (`supp_trans_type`,`supp_trans_no`,`stock_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_supp_invoice_items`
 --
-
 
 -- --------------------------------------------------------
 
@@ -1732,30 +1814,51 @@ CREATE TABLE IF NOT EXISTS `0_supp_invoice_items` (
 
 DROP TABLE IF EXISTS `0_supp_trans`;
 CREATE TABLE IF NOT EXISTS `0_supp_trans` (
-  `trans_no` int(11) unsigned NOT NULL default '0',
-  `type` smallint(6) unsigned NOT NULL default '0',
-  `supplier_id` int(11) unsigned default NULL,
+  `trans_no` int(11) unsigned NOT NULL DEFAULT '0',
+  `type` smallint(6) unsigned NOT NULL DEFAULT '0',
+  `supplier_id` int(11) unsigned DEFAULT NULL,
   `reference` tinytext NOT NULL,
-  `supp_reference` varchar(60) NOT NULL default '',
-  `tran_date` date NOT NULL default '0000-00-00',
-  `due_date` date NOT NULL default '0000-00-00',
-  `ov_amount` double NOT NULL default '0',
-  `ov_discount` double NOT NULL default '0',
-  `ov_gst` double NOT NULL default '0',
-  `rate` double NOT NULL default '1',
-  `alloc` double NOT NULL default '0',
-  `tax_included` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`type`,`trans_no`),
+  `supp_reference` varchar(60) NOT NULL DEFAULT '',
+  `tran_date` date NOT NULL DEFAULT '0000-00-00',
+  `due_date` date NOT NULL DEFAULT '0000-00-00',
+  `ov_amount` double NOT NULL DEFAULT '0',
+  `ov_discount` double NOT NULL DEFAULT '0',
+  `ov_gst` double NOT NULL DEFAULT '0',
+  `rate` double NOT NULL DEFAULT '1',
+  `alloc` double NOT NULL DEFAULT '0',
+  `tax_included` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`type`,`trans_no`),
   KEY `supplier_id` (`supplier_id`),
   KEY `SupplierID_2` (`supplier_id`,`supp_reference`),
   KEY `type` (`type`),
   KEY `tran_date` (`tran_date`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `0_supp_trans`
 --
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `0_systype_attachments`
+--
+
+DROP TABLE IF EXISTS `0_systype_attachments`;
+CREATE TABLE IF NOT EXISTS `0_systype_attachments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(60) NOT NULL,
+  `type_no` int(11) NOT NULL,
+  `unique_name` varchar(60) NOT NULL,
+  `filename` varchar(60) NOT NULL,
+  `filesize` int(11) NOT NULL,
+  `filetype` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `0_systype_attachments`
+--
 
 -- --------------------------------------------------------
 
@@ -1791,7 +1894,7 @@ INSERT INTO `0_sys_prefs` VALUES('coy_logo', 'setup.company', 'varchar', 100, ''
 INSERT INTO `0_sys_prefs` VALUES('domicile', 'setup.company', 'varchar', 55, '');
 INSERT INTO `0_sys_prefs` VALUES('curr_default', 'setup.company', 'char', 3, 'USD');
 INSERT INTO `0_sys_prefs` VALUES('use_dimension', 'setup.company', 'tinyint', 1, '1');
-INSERT INTO `0_sys_prefs` VALUES('f_year', 'setup.company', 'int', 11, '6');
+INSERT INTO `0_sys_prefs` VALUES('f_year', 'setup.company', 'int', 11, '1');
 INSERT INTO `0_sys_prefs` VALUES('no_item_list', 'setup.company', 'tinyint', 1, '0');
 INSERT INTO `0_sys_prefs` VALUES('no_customer_list', 'setup.company', 'tinyint', 1, '0');
 INSERT INTO `0_sys_prefs` VALUES('no_supplier_list', 'setup.company', 'tinyint', 1, '0');
@@ -1837,40 +1940,40 @@ INSERT INTO `0_sys_prefs` VALUES('bcc_email', 'setup.company', 'varchar', 100, '
 -- Table structure for table `0_sys_types`
 --
 
-DROP TABLE IF EXISTS `0_sys_types`;
 CREATE TABLE IF NOT EXISTS `0_sys_types` (
-  `type_id` smallint(6) NOT NULL default '0',
-  `type_no` int(11) NOT NULL default '1',
-  `next_reference` varchar(100) NOT NULL default '',
-  PRIMARY KEY  (`type_id`)
-) ENGINE=InnoDB;
+  `type_id` smallint(6) NOT NULL DEFAULT '0',
+  `type_no` int(11) NOT NULL DEFAULT '1',
+  `next_reference` varchar(100) NOT NULL DEFAULT '',
+  PRIMARY KEY (`type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `0_sys_types`
 --
 
-INSERT INTO `0_sys_types` VALUES(0, 17, '1');
-INSERT INTO `0_sys_types` VALUES(1, 7, '1');
-INSERT INTO `0_sys_types` VALUES(2, 4, '1');
+INSERT INTO `0_sys_types` VALUES(0, 19, '1');
+INSERT INTO `0_sys_types` VALUES(1, 8, '1');
+INSERT INTO `0_sys_types` VALUES(2, 5, '1');
 INSERT INTO `0_sys_types` VALUES(4, 3, '1');
-INSERT INTO `0_sys_types` VALUES(10, 16, '1');
-INSERT INTO `0_sys_types` VALUES(11, 2, '1');
+INSERT INTO `0_sys_types` VALUES(10, 19, '1');
+INSERT INTO `0_sys_types` VALUES(11, 3, '1');
 INSERT INTO `0_sys_types` VALUES(12, 6, '1');
-INSERT INTO `0_sys_types` VALUES(13, 1, '1');
+INSERT INTO `0_sys_types` VALUES(13, 5, '1');
 INSERT INTO `0_sys_types` VALUES(16, 2, '1');
 INSERT INTO `0_sys_types` VALUES(17, 2, '1');
 INSERT INTO `0_sys_types` VALUES(18, 1, '1');
-INSERT INTO `0_sys_types` VALUES(20, 6, '1');
+INSERT INTO `0_sys_types` VALUES(20, 8, '1');
 INSERT INTO `0_sys_types` VALUES(21, 1, '1');
-INSERT INTO `0_sys_types` VALUES(22, 3, '1');
+INSERT INTO `0_sys_types` VALUES(22, 4, '1');
 INSERT INTO `0_sys_types` VALUES(25, 1, '1');
 INSERT INTO `0_sys_types` VALUES(26, 1, '1');
 INSERT INTO `0_sys_types` VALUES(28, 1, '1');
 INSERT INTO `0_sys_types` VALUES(29, 1, '1');
-INSERT INTO `0_sys_types` VALUES(30, 0, '1');
+INSERT INTO `0_sys_types` VALUES(30, 5, '1');
 INSERT INTO `0_sys_types` VALUES(32, 0, '1');
 INSERT INTO `0_sys_types` VALUES(35, 1, '1');
 INSERT INTO `0_sys_types` VALUES(40, 1, '1');
+INSERT INTO `0_sys_types` VALUES(41, 19, '1');
 
 -- --------------------------------------------------------
 
@@ -1893,7 +1996,6 @@ CREATE TABLE IF NOT EXISTS `0_tags` (
 -- Dumping data for table `0_tags`
 --
 
-
 -- --------------------------------------------------------
 
 --
@@ -1910,7 +2012,6 @@ CREATE TABLE IF NOT EXISTS `0_tag_associations` (
 --
 -- Dumping data for table `0_tag_associations`
 --
-
 
 -- --------------------------------------------------------
 
@@ -2006,7 +2107,6 @@ CREATE TABLE IF NOT EXISTS `0_trans_tax_details` (
 -- Dumping data for table `0_trans_tax_details`
 --
 
-
 -- --------------------------------------------------------
 
 --
@@ -2037,39 +2137,39 @@ CREATE TABLE IF NOT EXISTS `0_useronline` (
 
 DROP TABLE IF EXISTS `0_users`;
 CREATE TABLE IF NOT EXISTS `0_users` (
-  `id` smallint(6) NOT NULL auto_increment,
-  `user_id` varchar(60) NOT NULL default '',
-  `password` varchar(100) NOT NULL default '',
-  `real_name` varchar(100) NOT NULL default '',
-  `role_id` int(11) NOT NULL default '1',
-  `phone` varchar(30) NOT NULL default '',
-  `email` varchar(100) default NULL,
-  `language` varchar(20) default NULL,
-  `date_format` tinyint(1) NOT NULL default '0',
-  `date_sep` tinyint(1) NOT NULL default '0',
-  `tho_sep` tinyint(1) NOT NULL default '0',
-  `dec_sep` tinyint(1) NOT NULL default '0',
-  `theme` varchar(20) NOT NULL default 'default',
-  `page_size` varchar(20) NOT NULL default 'A4',
-  `prices_dec` smallint(6) NOT NULL default '2',
-  `qty_dec` smallint(6) NOT NULL default '2',
-  `rates_dec` smallint(6) NOT NULL default '4',
-  `percent_dec` smallint(6) NOT NULL default '1',
-  `show_gl` tinyint(1) NOT NULL default '1',
-  `show_codes` tinyint(1) NOT NULL default '0',
-  `show_hints` tinyint(1) NOT NULL default '0',
-  `last_visit_date` datetime default NULL,
-  `query_size` tinyint(1) default '10',
-  `graphic_links` tinyint(1) default '1',
-  `pos` smallint(6) default '1',
-  `print_profile` varchar(30) NOT NULL default '1',
-  `rep_popup` tinyint(1) default '1',
-  `sticky_doc_date` tinyint(1) default '0',
-  `startup_tab` varchar(20) NOT NULL default '',
-  `inactive` tinyint(1) NOT NULL default '0',
-  PRIMARY KEY  (`id`),
+  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(60) NOT NULL DEFAULT '',
+  `password` varchar(100) NOT NULL DEFAULT '',
+  `real_name` varchar(100) NOT NULL DEFAULT '',
+  `role_id` int(11) NOT NULL DEFAULT '1',
+  `phone` varchar(30) NOT NULL DEFAULT '',
+  `email` varchar(100) DEFAULT NULL,
+  `language` varchar(20) DEFAULT NULL,
+  `date_format` tinyint(1) NOT NULL DEFAULT '0',
+  `date_sep` tinyint(1) NOT NULL DEFAULT '0',
+  `tho_sep` tinyint(1) NOT NULL DEFAULT '0',
+  `dec_sep` tinyint(1) NOT NULL DEFAULT '0',
+  `theme` varchar(20) NOT NULL DEFAULT 'default',
+  `page_size` varchar(20) NOT NULL DEFAULT 'A4',
+  `prices_dec` smallint(6) NOT NULL DEFAULT '2',
+  `qty_dec` smallint(6) NOT NULL DEFAULT '2',
+  `rates_dec` smallint(6) NOT NULL DEFAULT '4',
+  `percent_dec` smallint(6) NOT NULL DEFAULT '1',
+  `show_gl` tinyint(1) NOT NULL DEFAULT '1',
+  `show_codes` tinyint(1) NOT NULL DEFAULT '0',
+  `show_hints` tinyint(1) NOT NULL DEFAULT '0',
+  `last_visit_date` datetime DEFAULT NULL,
+  `query_size` tinyint(1) DEFAULT '10',
+  `graphic_links` tinyint(1) DEFAULT '1',
+  `pos` smallint(6) DEFAULT '1',
+  `print_profile` varchar(30) NOT NULL DEFAULT '1',
+  `rep_popup` tinyint(1) DEFAULT '1',
+  `sticky_doc_date` tinyint(1) DEFAULT '0',
+  `startup_tab` varchar(20) NOT NULL DEFAULT '',
+  `inactive` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `0_users`
@@ -2236,4 +2336,3 @@ CREATE TABLE IF NOT EXISTS `0_wo_requirements` (
 --
 -- Dumping data for table `0_wo_requirements`
 --
-

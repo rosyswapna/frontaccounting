@@ -30,7 +30,12 @@ if (!is_array($debtor_trans_no))
 	$sql .= implode(' OR ', $tr);
 
 
-	$sql.=	") AND debtor_trans_type=".db_escape($debtor_trans_type)."
+	$sql.=	")";
+	
+	//EXCLUDE MIX MATERIAL FROM ITEM DETAILS
+	$sql .= " AND debtor_trans_details.stock_id !=".db_escape(MIX_MATERIAL);
+
+	$sql .= " AND debtor_trans_type=".db_escape($debtor_trans_type)."
 		AND ".TB_PREF."stock_master.stock_id=".TB_PREF."debtor_trans_details.stock_id
 		ORDER BY id";
 	return db_query($sql, "The debtor transaction detail could not be queried");

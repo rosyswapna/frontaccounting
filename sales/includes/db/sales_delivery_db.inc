@@ -14,6 +14,8 @@
 //
 function write_sales_delivery(&$delivery,$bo_policy)
 {
+	
+
 	global $Refs;
 
 	$trans_no = $delivery->trans_no;
@@ -101,7 +103,8 @@ function write_sales_delivery(&$delivery,$bo_policy)
 				-$delivery_line->qty_dispatched, $delivery_line->standard_cost,1,
 				$line_price, $delivery_line->discount_percent);
 
-			if($item_adjust!= false && $item_adjust['stock_id'] == $delivery_line->stock_id){ 
+			if($item_adjust!= false && $item_adjust['stock_id'] == $delivery_line->stock_id){
+	
 				add_stock_move_customer(ST_CUSTDELIVERY, $item_adjust['stock_id'], $delivery_no,
 				$delivery->Location, $delivery->document_date, $delivery->reference,
 				$item_adjust['quantity'], $delivery_line->standard_cost,1,
