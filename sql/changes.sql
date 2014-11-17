@@ -129,6 +129,9 @@ ALTER TABLE `shipping_details` ADD `driver_name` VARCHAR( 100 ) NULL DEFAULT NUL
 ALTER TABLE `bank_trans` ADD `cheque_no` VARCHAR( 50 ) NULL ;
 
 
+ALTER TABLE `stock_moves`  ADD `stock_adjust` TINYINT(4) NOT NULL DEFAULT '0' COMMENT '1 stock adjusted, 0 normal row'
+
+
 
 
 

@@ -110,6 +110,10 @@ function getSalesTransactions($from, $to)
 		AND ".TB_PREF."stock_moves.tran_date<='$to'
 		AND (".TB_PREF."debtor_trans.type=".ST_CUSTDELIVERY." OR ".TB_PREF."stock_moves.type=".ST_CUSTCREDIT.")
 		AND (".TB_PREF."stock_master.mb_flag='B' OR ".TB_PREF."stock_master.mb_flag='M')";
+
+		//EXCLUDE MIX MATERIAL FROM ITEM DETAILS
+		$sql .= " AND stock_moves.stock_adjust = 0";
+
 		$sql .= " GROUP BY ".TB_PREF."stock_master.stock_id, ".TB_PREF."debtors_master.name ORDER BY ".TB_PREF."stock_master.category_id,
 			".TB_PREF."stock_master.stock_id, ".TB_PREF."debtors_master.name";
     return db_query($sql,"No transactions were returned");
@@ -210,14 +214,12 @@ function getsupTransactions($supplier_id, $from, $to)
 //supplier balances functions ends
 
 //bank statement start
-function get_bank_balance_to($to, $account)
+function get_bank_balance_to($to)
 {
 	$to = date2sql($to);
-	$sql = "SELECT SUM(amount) FROM ".TB_PREF."bank_trans WHERE bank_act='$account'
-	AND trans_date < '$to'";
-	$result = db_query($sql, "The starting balance on hand could not be calculated");
-	$row = db_fetch_row($result);
-	return $row[0];
+	$sql = "SELECT SUM(amount) as prev_balance,act.* FROM ".TB_PREF."bank_trans trans,".TB_PREF."bank_accounts act WHERE trans.trans_date < '$to' AND act.id = trans.bank_act GROUP BY trans.bank_act";
+
+	return db_query($sql, "The starting balance on hand could not be calculated");
 }
 
 function get_bank_transactions($from, $to, $account)
@@ -331,6 +333,11 @@ function print_eod()
 	$email = $_POST['PARAM_2'];
 	$orientation = $_POST['PARAM_3'];
 	$destination = $_POST['PARAM_4'];
+	$no_zeros = $_POST['PARAM_5'];
+
+
+	if ($no_zeros) $nozeros = _('Yes');
+	else $nozeros = _('No');
 	
 	if(strtotime($from) == strtotime($to))
 		$title = 'EOD Report ('.$from.')';
@@ -352,11 +359,13 @@ function print_eod()
 
 	$aligns = array('left', 'left', 'left', 'left', 'right', 'right');
 
-	$params =   array( 	0 => array('from' => $from,'to' => $to));
+	$params =   array(0 => array('from' => $from,'to' => $to),
+			1 => array('text' => _('Suppress Zeros'), 'from' => $nozeros, 'to' => ''));
 	
 	$rep = new FrontReport("", "", user_pagesize(), 9, $orientation);
+/*
 
-	
+	//$rep->$Title = "EOD Report";
 	$rep->title = _($title);	
 	$rep->InfoSearch = _("List of Journal Entries");
 	if ($orientation == 'L')
@@ -440,6 +449,7 @@ function print_eod()
 		$rep->AmountCol(5, 6, abs($totcre), $dec);
 		$rep->Line($rep->row -= 4);
 	}
+*/
 	
 	//purchase report
 	$rep->title = _($title);	
@@ -454,7 +464,9 @@ function print_eod()
 
 	$aligns = array('left',	'left',	'left', 'left', 'left', 'left', 'right', 'right');
 
-	$params =   array( 	0 => array('from' => $from,'to' => $to));
+	$params =   array( 0 => array('from' => $from,'to' => $to),
+			1=>array('text' => _('Suppress Zeros'), 'from' => $nozeros, 'to' => '')
+			);
 
 	if ($orientation == 'L')
 		recalculate_cols($cols);
@@ -578,7 +590,7 @@ function print_eod()
 
 	$aligns = array('left',	'left',	'left', 'right', 'right', 'right', 'right');
 
-	$params =   array(0 => array('from' => $from,'to' => $to));
+	$params =   array(0 => array('from' => $from,'to' => $to),1=>array('text' => _('Suppress Zeros'), 'from' => $nozeros, 'to' => ''));
 
 	if ($orientation == 'L')
 		recalculate_cols($cols);
@@ -693,7 +705,8 @@ function print_eod()
     				    1 => array('text' => _('Period'), 'from' => $from, 		'to' => $to),
     				    2 => array('text' => _('Customer'), 'from' => $cust,   	'to' => ''),
     				    3 => array('text' => _('Currency'), 'from' => $currency, 'to' => ''),
-						4 => array('text' => _('Suppress Zeros'), 'from' => $nozeros, 'to' => ''));
+				    4 => array('text' => _('Suppress Zeros'), 'from' => $nozeros, 'to' => '')
+				    );
 
 	$rep->Font();
 	$rep->Info($params, $cols, $headers, $aligns,0, $header2);
@@ -969,95 +982,100 @@ function print_eod()
 		_('Debit'),	_('Credit'), _('Balance'));
 
 	
-	$account = get_default_bank_account();
-	$act = $account['bank_account_name']." - ".$account['bank_curr_code']." - ".$account['bank_account_number'];
-   	$params =   array( 	0 => $comments,
-	    1 => array('text' => _('Period'), 'from' => $from, 'to' => $to),
-	    2 => array('text' => _('Bank Account'),'from' => $act,'to' => ''));
+	
 
 	$rep->Font();
 	$rep->Info($params, $cols, $headers, $aligns);
 	$rep->NewPage();
 
+	$ac_prev_balance = get_bank_balance_to($from);
+	
+	
+	while($account = db_fetch($ac_prev_balance)){
 
-	$prev_balance = get_bank_balance_to($from, $account["id"]);
+		$prev_balance = $account['prev_balance'];
+	
+		$act = $account['bank_account_name']." - ".$account['bank_curr_code']." - ".$account['bank_account_number'];
+	   	
 
-	$trans = get_bank_transactions($from, $to, $account['id']);
+		$trans = get_bank_transactions($from, $to, $account['id']);
 
-	$rows = db_num_rows($trans);
-	if ($prev_balance != 0.0 || $rows != 0)
-	{
-		$rep->Font('bold');
-		$rep->TextCol(0, 3,	$act);
-		$rep->TextCol(3, 5, _('Opening Balance'));
-		if ($prev_balance > 0.0)
-			$rep->AmountCol(5, 6, abs($prev_balance), $dec);
-		else
-			$rep->AmountCol(6, 7, abs($prev_balance), $dec);
-		$rep->Font();
-		$total = $prev_balance;
-		$rep->NewLine(2);
-		$total_debit = $total_credit = 0;
-		if ($rows > 0)
+		$rows = db_num_rows($trans);
+		if ($prev_balance != 0.0 || $rows != 0)
 		{
-			// Keep a running total as we loop through
-			// the transactions.
-			
-			while ($myrow=db_fetch($trans))
+			$rep->Font('bold');
+			$rep->TextCol(0, 3,	$act);
+			$rep->TextCol(3, 5, _('Opening Balance'));
+			if ($prev_balance > 0.0)
+				$rep->AmountCol(5, 6, abs($prev_balance), $dec);
+			else
+				$rep->AmountCol(6, 7, abs($prev_balance), $dec);
+			$rep->Font();
+			$total = $prev_balance;
+			$rep->NewLine(2);
+			$total_debit = $total_credit = 0;
+			if ($rows > 0)
 			{
-				if ($zero == 0 && $myrow['amount'] == 0.0)
-					continue;
-				$total += $myrow['amount'];
+				// Keep a running total as we loop through
+				// the transactions.
+			
+				while ($myrow=db_fetch($trans))
+				{
+					if ($zero == 0 && $myrow['amount'] == 0.0)
+						continue;
+					$total += $myrow['amount'];
 
-				$rep->TextCol(0, 1, $systypes_array[$myrow["type"]]);
-				$rep->TextCol(1, 2,	$myrow['trans_no']);
-				$rep->TextCol(2, 3,	$myrow['ref']);
-				$rep->DateCol(3, 4,	$myrow["trans_date"], true);
-				$rep->TextCol(4, 5,	payment_person_name($myrow["person_type_id"],$myrow["person_id"], false));
-				if ($myrow['amount'] > 0.0)
-				{
-					$rep->AmountCol(5, 6, abs($myrow['amount']), $dec);
-					$total_debit += abs($myrow['amount']);
+					$rep->TextCol(0, 1, $systypes_array[$myrow["type"]]);
+					$rep->TextCol(1, 2,	$myrow['trans_no']);
+					$rep->TextCol(2, 3,	$myrow['ref']);
+					$rep->DateCol(3, 4,	$myrow["trans_date"], true);
+					$rep->TextCol(4, 5,	payment_person_name($myrow["person_type_id"],$myrow["person_id"], false));
+					if ($myrow['amount'] > 0.0)
+					{
+						$rep->AmountCol(5, 6, abs($myrow['amount']), $dec);
+						$total_debit += abs($myrow['amount']);
+					}
+					else
+					{
+						$rep->AmountCol(6, 7, abs($myrow['amount']), $dec);
+						$total_credit += abs($myrow['amount']);
+					}
+					$rep->AmountCol(7, 8, $total, $dec);
+					$rep->NewLine();
+					if ($rep->row < $rep->bottomMargin + $rep->lineHeight)
+					{
+						$rep->Line($rep->row - 2);
+						$rep->NewPage();
+					}
 				}
-				else
-				{
-					$rep->AmountCol(6, 7, abs($myrow['amount']), $dec);
-					$total_credit += abs($myrow['amount']);
-				}
-				$rep->AmountCol(7, 8, $total, $dec);
 				$rep->NewLine();
-				if ($rep->row < $rep->bottomMargin + $rep->lineHeight)
-				{
-					$rep->Line($rep->row - 2);
-					$rep->NewPage();
-				}
 			}
-			$rep->NewLine();
-		}
 		
-		// Print totals for the debit and credit columns.
-		$rep->TextCol(3, 5, _("Total Debit / Credit"));
-		$rep->AmountCol(5, 6, $total_debit, $dec);
-		$rep->AmountCol(6, 7, $total_credit, $dec);
-		$rep->NewLine(2);
+			// Print totals for the debit and credit columns.
+			$rep->TextCol(3, 5, _("Total Debit / Credit"));
+			$rep->AmountCol(5, 6, $total_debit, $dec);
+			$rep->AmountCol(6, 7, $total_credit, $dec);
+			$rep->NewLine(2);
 
-		$rep->Font('bold');
-		$rep->TextCol(3, 5,	_("Ending Balance"));
-		if ($total > 0.0)
-			$rep->AmountCol(5, 6, abs($total), $dec);
-		else
-			$rep->AmountCol(6, 7, abs($total), $dec);
-		$rep->Font();
-		$rep->Line($rep->row - $rep->lineHeight + 4);
-		$rep->NewLine(2, 1);
+			$rep->Font('bold');
+			$rep->TextCol(3, 5,	_("Ending Balance"));
+			if ($total > 0.0)
+				$rep->AmountCol(5, 6, abs($total), $dec);
+			else
+				$rep->AmountCol(6, 7, abs($total), $dec);
+			$rep->Font();
+			$rep->Line($rep->row - $rep->lineHeight + 4);
+			$rep->NewLine(2, 1);
 		
-		// Print the difference between starting and ending balances.
-		$net_change = ($total - $prev_balance); 
-		$rep->TextCol(3, 5, _("Net Change"));
-		if ($total > 0.0)
-			$rep->AmountCol(5, 6, $net_change, $dec, 0, 0, 0, 0, null, 1, True);
-		else
-			$rep->AmountCol(6, 7, $net_change, $dec, 0, 0, 0, 0, null, 1, True);
+			// Print the difference between starting and ending balances.
+			$net_change = ($total - $prev_balance); 
+			$rep->TextCol(3, 5, _("Net Change"));
+			if ($total > 0.0)
+				$rep->AmountCol(5, 6, $net_change, $dec, 0, 0, 0, 0, null, 1, True);
+			else
+				$rep->AmountCol(6, 7, $net_change, $dec, 0, 0, 0, 0, null, 1, True);
+		}
+		$rep->NewLine();
 	}
 	//bank statement ends here
 
@@ -1079,9 +1097,11 @@ function print_eod()
 	$aligns = array('left',	'left',	'left', 'right', 'right', 'right', 'right','right' ,'right', 'right', 'right','right', 'right', 'right', 'right');
 
     $params =   array( 	0 => $comments,
-						1 => array('text' => _('Period'), 'from' => $from_date, 'to' => $to_date),
-    				    2 => array('text' => _('Category'), 'from' => $cat, 'to' => ''),
-						3 => array('text' => _('Location'), 'from' => $loc, 'to' => ''));
+			1 => array('text' => _('Period'), 'from' => $from_date, 'to' => $to_date),
+    			2 => array('text' => _('Category'), 'from' => $cat, 'to' => ''),
+			3 => array('text' => _('Location'), 'from' => $loc, 'to' => ''),
+			4 => array('text' => _('Suppress Zeros'), 'from' => $nozeros, 'to' => '')
+			);
 
 
     	$rep->Font();

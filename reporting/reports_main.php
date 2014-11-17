@@ -512,7 +512,9 @@ $reports->addReport(RC_OTHER, 711, _('EOD Report'),
 			_('End Date') => 'DATE',
 			_('Email to Company id') => 'YES_NO',
 			_('Orientation') => 'ORIENTATION',
-			_('Destination') => 'DESTINATION'));
+			_('Destination') => 'DESTINATION',
+			_('Suppress Zeros') => 'YES_NO')
+			);
 
 add_custom_reports($reports);
 

@@ -37,6 +37,8 @@ read_supp_invoice($trans_no, ST_SUPPINVOICE, $supp_trans);
 
 $supplier_curr_code = get_supplier_currency($supp_trans->supplier_id);
 
+view_company_header_table('95%');
+
 display_heading(_("SUPPLIER INVOICE") . " # " . $trans_no);
 echo "<br>";
 

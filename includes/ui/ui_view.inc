@@ -12,7 +12,35 @@
 include_once($path_to_root . "/admin/db/voiding_db.inc");
 include_once($path_to_root . "/includes/types.inc");
 
+
 //--------------------------------------------------------------------------------------
+//company name address header for print
+function view_company_header_table($width='100%')
+{
+
+	$coy = @$_SESSION['SysPrefs']->prefs;
+	echo '<div class="show_print"><center>';
+	start_table(TABLESTYLE, "width=".$width);
+	echo "<tr><td align=center>";
+		echo "<font size=4>".$coy['coy_name']."</font>";
+		br();
+		echo $coy['postal_address'];
+		br();
+		echo ($coy['phone'])?" Phone : ".$coy['phone']:"";
+		echo ($coy['phone'])?" Fax : ".$coy['phone']:"";
+		echo ($coy['phone'])?" Email : ".$coy['phone']:"";
+		
+		
+	echo "</td></tr>";
+	end_table(1);
+	echo '</center></div>';
+
+	
+}
+//--------------------------------------------------------------------------------------
+
+
+
 
 function get_supplier_trans_view_str($type, $trans_no, $label="", $icon=false, 
 	$class='', $id='')

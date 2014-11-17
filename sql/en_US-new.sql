@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `0_bank_accounts` (
   KEY `bank_account_name` (`bank_account_name`),
   KEY `bank_account_number` (`bank_account_number`),
   KEY `account_code` (`account_code`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `0_bank_accounts`
@@ -586,7 +586,7 @@ CREATE TABLE IF NOT EXISTS `0_cust_branch` (
   KEY `branch_code` (`branch_code`),
   KEY `branch_ref` (`branch_ref`),
   KEY `group_no` (`group_no`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_cust_branch`
@@ -716,7 +716,7 @@ CREATE TABLE IF NOT EXISTS `0_dimensions` (
   KEY `date_` (`date_`),
   KEY `due_date` (`due_date`),
   KEY `type_` (`type_`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_dimensions`
@@ -758,7 +758,7 @@ CREATE TABLE IF NOT EXISTS `0_fiscal_year` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `begin` (`begin`),
   UNIQUE KEY `end` (`end`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_fiscal_year`
@@ -1592,7 +1592,7 @@ CREATE TABLE IF NOT EXISTS `0_shipping_details` (
   `person_type_id` int(11) NOT NULL DEFAULT '0',
   `person_id` tinyblob,
   PRIMARY KEY (`shipping_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=115 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 --
@@ -1642,7 +1642,7 @@ CREATE TABLE IF NOT EXISTS `0_stock_category` (
   `dflt_no_sale` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`category_id`),
   UNIQUE KEY `description` (`description`)
-) ENGINE=MyISAM  AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  AUTO_INCREMENT=1 ;
 
 --
 -- Dumping data for table `0_stock_category`
@@ -1707,6 +1707,7 @@ CREATE TABLE IF NOT EXISTS `0_stock_moves` (
   `discount_percent` double NOT NULL DEFAULT '0',
   `standard_cost` double NOT NULL DEFAULT '0',
   `visible` tinyint(1) NOT NULL DEFAULT '1',
+  `stock_adjust` tinyint(4) NOT NULL DEFAULT '0' COMMENT '1 stock adjusted, 0 normal row',
   PRIMARY KEY (`trans_id`),
   KEY `type` (`type`,`trans_no`),
   KEY `Move` (`stock_id`,`loc_code`,`tran_date`)
@@ -2169,7 +2170,7 @@ CREATE TABLE IF NOT EXISTS `0_users` (
   `inactive` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `0_users`

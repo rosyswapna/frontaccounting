@@ -30,7 +30,12 @@ if (!isset($_GET['trans_no']))
 $purchase_order = new purch_order;
 read_grn($_GET["trans_no"], $purchase_order);
 
-display_heading(_("Purchase Order Delivery") . " #" . $_GET['trans_no']);
+view_company_header_table('90%');
+
+
+//display_heading(_("Purchase Order Delivery") . " #" . $_GET['trans_no']);
+display_heading(_("Goods Received Note") . " #" . $_GET['trans_no']);
+
 echo "<BR>";
 display_grn_summary($purchase_order);
 

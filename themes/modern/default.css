@@ -16,6 +16,18 @@
 |                                                   |
 \--------------------------------------------------*/
 
+@media screen
+  {
+  .show_print{display: none;}
+ 
+  }
+
+@media print
+  {
+  	 .show_print{display: block;}
+  }
+
+
 body {
 	color: #000;
 	background: #fff url(images/bg.png) top left repeat-x;
