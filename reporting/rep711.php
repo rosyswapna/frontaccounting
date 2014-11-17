@@ -456,9 +456,12 @@ function print_eod()
 	$rep->InfoSearch = _("Inventory Purchasing Report");
 	
 
-	$cols = array(0, 60, 180, 225, 275, 400, 420, 465,	520);
+	//$cols = array(0, 60, 180, 225, 275, 400, 420, 465,520);
+	$cols = array(0, 90, 210, 250, 300, 375, 450,	515);
+	
 
-	$headers = array(_('Category'), _('Description'), _('Date'), _('#'), _('Supplier'), _('Qty'), _('Unit Price'), _('Total'));
+	//$headers = array(_('Category'), _('Description'), _('Date'), _('#'), _('Supplier'), _('Qty'), _('Unit Price'), _('Total'));
+	$headers = array(_('Description'), _('Supplier'), _('Date'), _('#'),  _('Qty'), _('Unit Price'), _('Total'));
 	if ($fromsupp != '')
 		$headers[4] = '';
 
@@ -468,12 +471,14 @@ function print_eod()
 			1=>array('text' => _('Suppress Zeros'), 'from' => $nozeros, 'to' => '')
 			);
 
+	
 	if ($orientation == 'L')
 		recalculate_cols($cols);
 
 	$rep->Font();
 	$rep->Info($params, $cols, $headers, $aligns);
 	$rep->NewPage();
+	
 
 	$res = getPurchTransactions($from, $to);
 
@@ -564,7 +569,8 @@ function print_eod()
 
 	$rep->NewLine(2, 3);
 	$rep->TextCol(0, 1, _('Total'));
-	$rep->TextCol(1, 7, $catt);
+	$rep->TextCol(1, 4, $catt);
+	$rep->AmountCol(4, 5, $total_qty, get_qty_dec($stock_id));
 	$rep->AmountCol(7, 8, $total, $dec);
 	$rep->Line($rep->row - 2);
 	$rep->NewLine();
@@ -707,6 +713,8 @@ function print_eod()
     				    3 => array('text' => _('Currency'), 'from' => $currency, 'to' => ''),
 				    4 => array('text' => _('Suppress Zeros'), 'from' => $nozeros, 'to' => '')
 				    );
+	if ($orientation == 'L')
+		recalculate_cols($cols);
 
 	$rep->Font();
 	$rep->Info($params, $cols, $headers, $aligns,0, $header2);
@@ -853,7 +861,8 @@ function print_eod()
     			3 => array(  'text' => _('Currency'),'from' => $currency, 'to' => ''),
 			4 => array('text' => _('Suppress Zeros'), 'from' => $nozeros, 'to' => ''));
 
-   	
+   	if ($orientation == 'L')
+		recalculate_cols($cols);
 
     	$rep->Font();
     	$rep->Info($params, $cols, $headers, $aligns);
@@ -983,6 +992,8 @@ function print_eod()
 
 	
 	
+	if ($orientation == 'L')
+		recalculate_cols($cols);
 
 	$rep->Font();
 	$rep->Info($params, $cols, $headers, $aligns);
@@ -1089,7 +1100,8 @@ function print_eod()
 
 	$loc = _('All');
 
-	$cols = array(0, 60, 130, 160, 185, 210, 250, 275, 300, 340, 365, 390, 430, 455, 480, 520);
+	//$cols = array(0, 60, 130, 160, 185, 210, 250, 275, 300, 340, 365, 390, 430, 450, 500, 550);
+	$cols = array(0, 50, 100, 145, 150, 185, 220, 245, 280, 315, 340, 375, 410, 435, 490, 550);
 
 	$headers = array(_('Category'), _('Description'),	_('UOM'), '', '', _('OpeningStock'), '', '',_('StockIn'), '', '', _('Delivery'), '', '', _('ClosingStock'));
 	$headers2 = array("", "", "", _("QTY"), _("Rate"), _("Value"), _("QTY"), _("Rate"), _("Value"), _("QTY"), _("Rate"), _("Value"), _("QTY"), _("Rate"), _("Value"));
@@ -1103,6 +1115,8 @@ function print_eod()
 			4 => array('text' => _('Suppress Zeros'), 'from' => $nozeros, 'to' => '')
 			);
 
+	if ($orientation == 'L')
+		recalculate_cols($cols);
 
     	$rep->Font();
    	$rep->Info($params, $cols, $headers2, $aligns, $cols, $headers, $aligns);
