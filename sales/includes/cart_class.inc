@@ -499,6 +499,38 @@ class cart
 		return $total;
 	}
 
+	function get_items_weight_loss_total()
+	{
+		$total = 0;
+		
+		foreach ($this->line_items as $ln_itm) {
+			$loss_qty = $ln_itm->quantity - $ln_itm->qty_dispatched ;
+			if($ln_itm->stock_id <> MIX_MATERIAL && $loss_qty > 0){
+				$price = $ln_itm->line_price();
+				$total += round(($loss_qty * $price * (1 - $ln_itm->discount_percent)), 
+			   user_price_dec());
+			}
+			
+		}
+		return $total;
+	}
+
+	function get_items_weight_gain_total()
+	{
+		$total = 0;
+		
+		foreach ($this->line_items as $ln_itm) {
+			$gain_qty = $ln_itm->qty_dispatched - $ln_itm->quantity;
+			if($ln_itm->stock_id <> MIX_MATERIAL && $gain_qty > 0){
+				$price = $ln_itm->line_price();
+				$total += round(($gain_qty * $price * (1 - $ln_itm->discount_percent)), 
+			   user_price_dec());
+			}
+			
+		}
+		return $total;
+	}
+
 	function has_items_dispatch()
 	{
 		foreach ($this->line_items as $ln_itm) {

@@ -107,6 +107,8 @@ $_POST['exchange_diff_act'] = $myrow["exchange_diff_act"];
 $_POST['bank_charge_act'] = $myrow["bank_charge_act"];
 $_POST['default_sales_act'] = $myrow["default_sales_act"];
 $_POST['default_sales_discount_act']  = $myrow["default_sales_discount_act"];
+$_POST['default_weight_loss_act']  = $myrow["default_weight_loss_act"];
+$_POST['default_weight_gain_act']  = $myrow["default_weight_gain_act"];
 $_POST['default_prompt_payment_act']  = $myrow["default_prompt_payment_act"];
 
 $_POST['default_inventory_act'] = $myrow["default_inventory_act"];
@@ -175,6 +177,13 @@ text_row(_("Delivery Required By:"), 'default_delivery_required', $_POST['defaul
 
 //----------------
 
+table_section_title(_("Weight Loss and Gain Defaults"));
+gl_all_accounts_list_row(_("Weighment Gain Account:"), 'default_weight_gain_act', null,
+	false, false, true);
+
+gl_all_accounts_list_row(_("Weighment Loss Account:"), 'default_weight_loss_act', null,
+	false, false, true);
+
 table_section(2);
 
 table_section_title(_("Dimension Defaults"));
@@ -218,6 +227,7 @@ table_section_title(_("Manufacturing Defaults"));
 
 text_row(_("Work Order Required By After:"), 'default_workorder_required', $_POST['default_workorder_required'], 6, 6, '', "", _("days"));
 
+	
 
 //----------------
 

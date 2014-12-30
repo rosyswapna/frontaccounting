@@ -16,6 +16,9 @@
 
 function write_sales_invoice(&$invoice)
 {
+//echo "gain - ".$invoice->get_items_weight_gain_total();br();
+//echo "loss - ".$invoice->get_items_weight_loss_total();exit;
+	
 	global $Refs;
 
 	$trans_no = $invoice->trans_no;
@@ -39,7 +42,6 @@ function write_sales_invoice(&$invoice)
 	// offer price values without freight costs
 	$items_total = $invoice->get_items_total_dispatch();
 	$freight_tax = $invoice->get_shipping_tax();
-
 	update_customer_trans_version(get_parent_type(ST_SALESINVOICE), $invoice->src_docs);
 
 	$ov_gst = 0;
@@ -81,6 +83,9 @@ function write_sales_invoice(&$invoice)
 		$invoice->trans_no = array($invoice_no=>0);
 	}
 	$total = 0;
+
+	$total_weight_gain = 0;
+	
 	foreach ($invoice->line_items as $line_no => $invoice_line) {
 		$qty = $invoice_line->qty_dispatched;
 		$line_taxfree_price = get_tax_free_price_for_item($invoice_line->stock_id,
@@ -116,9 +121,30 @@ function write_sales_invoice(&$invoice)
 					($customer['dimension_id'] != 0 ? $customer["dimension_id"] : $stock_gl_code["dimension_id"]));
 				$dim2 = ($invoice->dimension2_id != $customer['dimension2_id'] ? $invoice->dimension2_id : 
 					($customer['dimension2_id'] != 0 ? $customer["dimension2_id"] : $stock_gl_code["dimension2_id"]));
-				$total += add_gl_trans_customer(ST_SALESINVOICE, $invoice_no, $date_, $sales_account, $dim, $dim2,
+			
+				if($invoice_line->qty_dispatched > $invoice_line->quantity){
+					$gain_qty = $invoice_line->qty_dispatched - $invoice_line->quantity ;
+					$price = $invoice_line->line_price();
+					$gain_amount = round(($gain_qty * $price * (1 - $invoice->discount_percent)), user_price_dec());
+	
+				}else{
+					$gain_amount = 0;
+				}
+
+				//gl entry for sales credited
+
+				if($gain_amount > 0){
+					$total += add_gl_trans_customer(ST_SALESINVOICE, $invoice_no, $date_, $sales_account, $dim, $dim2,
+					-($line_taxfree_price-$gain_amount) ,
+					$invoice->customer_id, "The sales price GL posting could not be inserted");
+
+					$total_weight_gain += $gain_amount;//for weight gain total gl entry
+				}else{
+					$total += add_gl_trans_customer(ST_SALESINVOICE, $invoice_no, $date_, $sales_account, $dim, $dim2,
 					-$line_taxfree_price ,
 					$invoice->customer_id, "The sales price GL posting could not be inserted");
+				}
+				
 
 				if ($invoice_line->discount_percent != 0) {
 
@@ -131,10 +157,32 @@ function write_sales_invoice(&$invoice)
 		} /*quantity dispatched is more than 0 */
 	} /*end of delivery_line loop */
 
+
+
 	if (($items_total + $charge_shipping) != 0) {
-		$total += add_gl_trans_customer(ST_SALESINVOICE, $invoice_no, $date_, $branch_data["receivables_account"], 0, 0,
+
+		$total_weight_loss = $invoice->get_items_weight_loss_total();
+		if($total_weight_gain > 0){	//if gain
+
+			$total += add_gl_trans_customer(ST_SALESINVOICE, $invoice_no, $date_, $company_data["default_weight_gain_act"], 0, 0, -($total_weight_gain), $invoice->customer_id, "The total Weight Gain GL posting could not be inserted");
+
+			$total += add_gl_trans_customer(ST_SALESINVOICE, $invoice_no, $date_, $branch_data["receivables_account"], 0, 0,
+				($items_total + $charge_shipping + $items_added_tax + $freight_added_tax),
+				$invoice->customer_id, "The total debtor GL posting could not be inserted");
+
+		}elseif($total_weight_loss > 0){	//if loss
+			$total += add_gl_trans_customer(ST_SALESINVOICE, $invoice_no, $date_, $branch_data["receivables_account"], 0, 0,
+				($items_total - $total_weight_loss + $charge_shipping + $items_added_tax + $freight_added_tax),
+				$invoice->customer_id, "The total debtor GL posting could not be inserted");
+
+				$total += add_gl_trans_customer(ST_SALESINVOICE, $invoice_no, $date_, $company_data["default_weight_loss_act"], 0, 0, $total_weight_loss, $invoice->customer_id, "The total debtor GL posting could not be inserted");
+		}else{	// normal sales
+			$total += add_gl_trans_customer(ST_SALESINVOICE, $invoice_no, $date_, $branch_data["receivables_account"], 0, 0,
 			($items_total + $charge_shipping + $items_added_tax + $freight_added_tax),
 			$invoice->customer_id, "The total debtor GL posting could not be inserted");
+		}
+
+
 	}
 
 	if ($charge_shipping != 0) {

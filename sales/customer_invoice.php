@@ -175,10 +175,13 @@ if (list_updated('payment')) {
 }
 
 //-----------------------------------------------------------------------------
+/*
 function check_quantities()
 {
+
 	$ok =1;
 	foreach ($_SESSION['Items']->line_items as $line_no=>$itm) {
+	
 		if (isset($_POST['Line'.$line_no])) {
 			if($_SESSION['Items']->trans_no) {
 				$min = $itm->qty_done;
@@ -205,6 +208,43 @@ function check_quantities()
 		}
 	}
  return $ok;
+}*/
+
+function check_quantities()
+{
+
+	$ok =1;
+	foreach ($_SESSION['Items']->line_items as $line_no=>$itm) {
+		
+		//get ordered quantity
+		$order_qty = 500;//get_ordered_qty($itm->src_id);
+			
+		if (isset($_POST['Line'.$line_no])) {
+			if($_SESSION['Items']->trans_no) {
+				$min = $itm->qty_done;
+				$max = $itm->quantity;
+			} else {
+				$min = 0;
+				$max = $order_qty - $itm->qty_done;
+			}
+			if (check_num('Line'.$line_no, $min, $max)) {
+				$_SESSION['Items']->line_items[$line_no]->qty_dispatched =
+				    input_num('Line'.$line_no);
+			}
+			else {
+				$ok = 0;
+			}
+				
+		}
+
+		if (isset($_POST['Line'.$line_no.'Desc'])) {
+			$line_desc = $_POST['Line'.$line_no.'Desc'];
+			if (strlen($line_desc) > 0) {
+				$_SESSION['Items']->line_items[$line_no]->item_description = $line_desc;
+			}
+		}
+	}
+ 	return $ok;
 }
 
 function set_delivery_shipping_sum($delivery_notes) 
@@ -318,6 +358,8 @@ function check_data()
 //-----------------------------------------------------------------------------
 if (isset($_POST['process_invoice']) && check_data()) {
 	$newinvoice=  $_SESSION['Items']->trans_no == 0;
+
+
 	copy_to_cart();
 	if ($newinvoice) 
 		new_doc_date($_SESSION['Items']->document_date);
@@ -590,9 +632,14 @@ end_table(1);
 
 submit_center_first('Update', _("Update"),
   _('Refresh document page'), true);
+
 submit_center_last('process_invoice', _("Process Invoice"),
   _('Check entered data and save document'), 'default');
 
+/*
+submit_center_last('process_invoice', _("Process Invoice"),
+  _('Check entered data and save document'));
+*/
 end_form();
 
 end_page();

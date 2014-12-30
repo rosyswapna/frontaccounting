@@ -1935,6 +1935,9 @@ INSERT INTO `0_sys_prefs` VALUES('auto_curr_reval', 'setup.company', 'smallint',
 INSERT INTO `0_sys_prefs` VALUES('grn_clearing_act', 'glsetup.purchase', 'varchar', 15, '1550');
 INSERT INTO `0_sys_prefs` VALUES('bcc_email', 'setup.company', 'varchar', 100, '');
 
+INSERT INTO `0_sys_prefs` VALUES('default_weight_gain_act', 'glsetup.general', 'varchar', 15, '4431');
+INSERT INTO `0_sys_prefs` VALUES('default_weight_loss_act', 'glsetup.general', 'varchar', 15, '5616');
+
 -- --------------------------------------------------------
 
 --
