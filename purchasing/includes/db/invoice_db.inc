@@ -115,6 +115,10 @@ function get_diff_in_home_currency($supplier, $old_date, $date, $amount1, $amoun
 
 function add_supp_invoice($supp_trans, $invoice_no=0) // do not receive as ref because we change locally
 {
+	
+	//echo "<pre>";
+	//print_r($supp_trans);
+	//echo "</pre>";exit;
 	global $Refs;
 
 	begin_transaction();
@@ -193,11 +197,27 @@ function add_supp_invoice($supp_trans, $invoice_no=0) // do not receive as ref b
     if ($trans_type == ST_SUPPCREDIT)
 		$net_diff = -$net_diff;
 
-    /* Now the AP account */
-    $total += add_gl_trans_supplier($trans_type, $invoice_id, $date_, $supplier["payable_account"], 0, 0,
+	/* Now the AP account */
+   	$weight_gain_act = get_company_pref('default_weight_gain_act');
+	$total_weight_gain = $supp_trans->get_weight_gain_total();
+
+	
+	if($total_weight_gain > 0){
+		$total += add_gl_trans_supplier($trans_type, $invoice_id, $date_, $weight_gain_act, 0, 0,
+		-($total_weight_gain),$supp_trans->supplier_id,	"The general ledger transaction for the control total could not be added");
+		
+		$total += add_gl_trans_supplier($trans_type, $invoice_id, $date_, $supplier["payable_account"], 0, 0,
+		-($invoice_items_total-$total_weight_gain +  $item_added_tax + $supp_trans->ov_discount),
+		$supp_trans->supplier_id,
+		"The general ledger transaction for the control total could not be added");
+	}else{
+		$total += add_gl_trans_supplier($trans_type, $invoice_id, $date_, $supplier["payable_account"], 0, 0,
 		-($invoice_items_total +  $item_added_tax + $supp_trans->ov_discount),
 		$supp_trans->supplier_id,
 		"The general ledger transaction for the control total could not be added");
+	}
+    
+    
 
     foreach ($supp_trans->gl_codes as $entered_gl_code)
     {
@@ -223,14 +243,25 @@ function add_supp_invoice($supp_trans, $invoice_no=0) // do not receive as ref b
     }
 
     $clearing_act = get_company_pref('grn_clearing_act');
+    
+
+	$total_weight_loss = 0;
+	$weight_loss_act = get_company_pref('default_weight_loss_act');
     foreach ($supp_trans->grn_items as $line_no => $entered_grn)
     {
+		//weight loss calculation for each item
+		if($entered_grn->this_quantity_inv > $entered_grn->qty_recd){
+			$weight_loss = $entered_grn->this_quantity_inv - $entered_grn->qty_recd;
+			$weight_loss_amount = round($weight_loss * $entered_grn->chg_price, user_price_dec());
+			$total_weight_loss += $weight_loss_amount;
+		}
+	
 
-    	if ($trans_type == ST_SUPPCREDIT)
-    	{
+	    	if ($trans_type == ST_SUPPCREDIT)
+	    	{
 			$entered_grn->this_quantity_inv = -$entered_grn->this_quantity_inv;
 			set_grn_item_credited($entered_grn, $supp_trans->supplier_id, $invoice_id, $date_);
-    	}
+	    	}
 
 		// For tax included pricelist the net price is calculated down from tax_included price.
 		// To avoid rounding errors we have to operate on line value instead of price
@@ -250,12 +281,12 @@ function add_supp_invoice($supp_trans, $invoice_no=0) // do not receive as ref b
 		$dim = $supplier['dimension_id'] ? $supplier['dimension_id'] : $stock_gl_code['dimension_id'];
 		$dim2 = $supplier['dimension2_id'] ? $supplier['dimension2_id'] : $stock_gl_code['dimension2_id'];
     	if ($trans_type == ST_SUPPCREDIT)
-		{
+	{
 			$iv_act = (is_inventory_item($entered_grn->item_code) ? $stock_gl_code["inventory_account"] : 
 				($supplier["purchase_account"] ? $supplier["purchase_account"] : $stock_gl_code["cogs_account"]));
 			$total += add_gl_trans_supplier($trans_type, $invoice_id, $date_, $iv_act,
 				$dim, $dim2, $taxfree_line, $supp_trans->supplier_id);
-		}
+	}
     	else
     	{
     		// -------------- if price changed since po received.
@@ -282,8 +313,20 @@ function add_supp_invoice($supp_trans, $invoice_no=0) // do not receive as ref b
 
 				$currency = get_supplier_currency($supp_trans->supplier_id);
 
-				$total += add_gl_trans_supplier($trans_type, $invoice_id, $date_, $iv_act,
+
+				if($weight_loss_amount > 0){
+
+					$total += add_gl_trans_supplier($trans_type, $invoice_id, $date_, $weight_loss_act, $dim, $dim2, $weight_loss_amount, $supp_trans->supplier_id, "", $ex_rate);
+
+					$total += add_gl_trans_supplier($trans_type, $invoice_id, $date_, $iv_act,
+					$dim, $dim2, $old_value-$weight_loss_amount, $supp_trans->supplier_id, "", $ex_rate);
+				}else{
+					$total += add_gl_trans_supplier($trans_type, $invoice_id, $date_, $iv_act,
 					$dim, $dim2, $old_value, $supp_trans->supplier_id, "", $ex_rate);
+				}
+				
+
+
 				$diff = get_diff_in_home_currency($supp_trans->supplier_id, $old_date, $date_, $old_value, 
 					$taxfree_line);
 

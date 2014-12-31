@@ -179,6 +179,24 @@ class supp_trans
 		}
 		return $total;
 	}
+
+	function get_weight_gain_total()
+	{
+		$total = 0;
+	
+		foreach ($this->grn_items as $ln_itm){
+			if($ln_itm->qty_recd > $ln_itm->this_quantity_inv){
+				$gain_qty = $ln_itm->qty_recd - $ln_itm->this_quantity_inv;
+				$total += round($gain_qty * $ln_itm->chg_price, user_price_dec());
+			}
+		}
+		
+		return $total;
+	}
+	
+	
+
+
 } /* end of class defintion */
 
 class grn_item 

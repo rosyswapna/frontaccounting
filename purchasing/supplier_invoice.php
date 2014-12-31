@@ -387,6 +387,7 @@ if (get_post('AddGLCodeToTrans'))
 
 br();
 submit_center('PostInvoice', _("Enter Invoice"), true, '', 'default');
+//submit_center('PostInvoice', _("Enter Invoice"), true, '');
 br();
 
 end_form();
